@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // Class EyeTracker.EyeTrackerFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class UEyeTrackerFunctionLibrary final : public UBlueprintFunctionLibrary
 {
 public:
@@ -38,7 +38,7 @@ public:
 	}
 };
 static_assert(alignof(UEyeTrackerFunctionLibrary) == 0x000008, "Wrong alignment on UEyeTrackerFunctionLibrary");
-static_assert(sizeof(UEyeTrackerFunctionLibrary) == 0x000028, "Wrong size on UEyeTrackerFunctionLibrary");
+static_assert(sizeof(UEyeTrackerFunctionLibrary) == 0x000030, "Wrong size on UEyeTrackerFunctionLibrary");
 
 }
 

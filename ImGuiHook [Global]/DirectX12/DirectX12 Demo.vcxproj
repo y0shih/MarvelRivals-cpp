@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\ImGuiHook-Global--master - Copy (2)\ImGuiHook [Global]\DirectX12\Objects.h" />
     <ClInclude Include="..\..\..\TFDD\PropertyFixup.hpp" />
     <ClInclude Include="..\..\..\TFDD\SDK.hpp" />
-    <ClInclude Include="..\..\..\TFDD\SimpleIni.h" />
     <ClInclude Include="..\..\..\TFDD\UnrealContainers.hpp" />
     <ClInclude Include="..\Directories\ImGui\imconfig.h" />
     <ClInclude Include="..\Directories\ImGui\imgui.h" />
@@ -32,15 +32,14 @@
     <ClInclude Include="..\Directories\MinHook\Src\hde\table64.h" />
     <ClInclude Include="..\Directories\MinHook\Src\trampoline.h" />
     <ClInclude Include="..\Global.h" />
-    <ClInclude Include="BoneMapping.h" />
     <ClInclude Include="DirectX12.h" />
     <ClInclude Include="DirectX12Demo.h" />
     <ClInclude Include="includes.h" />
-    <ClInclude Include="Objects.h" />
     <ClInclude Include="SDK\CoreUObject_classes.hpp" />
-    <ClInclude Include="SDK\Flame_classes.hpp" />
-    <ClInclude Include="ZeroGui.hpp" />
-    <ClInclude Include="ZeroInput.hpp" />
+    <ClInclude Include="SDK\Engine_classes.hpp" />
+    <ClInclude Include="SDK\Engine_structs.hpp" />
+    <ClInclude Include="SDK\GameplayTags_structs.hpp" />
+    <ClInclude Include="SDK\Marvel_classes.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Directories\ImGui\imgui.cpp" />
@@ -59,7 +58,7 @@
     <ClCompile Include="SDK\Basic.cpp" />
     <ClCompile Include="SDK\CoreUObject_functions.cpp" />
     <ClCompile Include="SDK\Engine_functions.cpp" />
-    <ClCompile Include="SDK\Flame_functions.cpp" />
+    <ClCompile Include="SDK\Marvel_functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\TFDD\NameCollisions.inl" />
@@ -109,7 +108,7 @@
     <LibraryPath>$(SolutionDir)\ImGuiHook [Global]\Directories\Microsoft DirectX SDK\Lib\x64;$(LibraryPath)</LibraryPath>
     <IncludePath>$(WindowsSDK_IncludePath);$(VC_IncludePath);$(SolutionDir)\ImGuiHook [Global]\Directories\Microsoft DirectX SDK\Include;$(SolutionDir)\ImGuiHook [Global]\Directories\MinHook\Include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)Build\</OutDir>
-    <TargetName>$(ProjectName) (x64)</TargetName>
+    <TargetName>test</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -128,7 +127,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
       <AdditionalLibraryDirectories>C:\Users\killuano\Desktop\ImGuiHook-Global--master\ImGuiHook [Global]\Directories\MinHook\Include;C:\Users\killuano\Desktop\ImGuiHook-Global--master\ImGuiHook [Global]\DirectX12;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libMinHook.x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libMinHook.x64.lib;detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,8 +138,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\Users\killuano\Desktop\sparkv2\ImGuiHook [Global]\DirectX12;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

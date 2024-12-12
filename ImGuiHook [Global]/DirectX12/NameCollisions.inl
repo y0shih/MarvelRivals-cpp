@@ -9,23 +9,39 @@
 // FORWARD DECLARATIONS
 
 
-namespace BP_Cabinet_02 { class ABP_Cabinet_02_C; }
+namespace CameraShake_102472_Hit_0 { class UCameraShake_102472_Hit_C; }
 
-namespace Flame { struct FProne; }
+namespace ShowAnim_LinkedAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace BP_Cabinet_02_0 { class ABP_Cabinet_02_C; }
+namespace WP_1033001_Stick_R_ShowAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace Seq_Tutorial_WaitingForData { class USequenceDirector_C; }
+namespace WP_1033001_EQPT_ShowAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace Seq_Tutorial_Intro { class USequenceDirector_C; }
+namespace PyWidget_Common_NewReddot { class UPyWidget_Common_NewReddot; }
 
-namespace BP_Cabinet_01 { class ABP_Cabinet_01_C; }
+namespace One033001_ShowAnimBP { struct FAnimBlueprintGeneratedConstantData; }
 
-namespace BP_Cabinet_01_0 { class ABP_Cabinet_01_C; }
+namespace CameraShake_102472_Hit { class UCameraShake_102472_Hit_C; }
+
+namespace WP_1033001_ElectricRifle_ShowAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace PyWidget_Common_Reddot { class UPyWidget_Common_NewReddot; }
+
+namespace ShowAnimBaseBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace WP_Common_SpiderWeb_ShowAnimBP_Medium { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace Four017001_ShowAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace WP_1033001_Stick_L_ShowAnimBP { struct FAnimBlueprintGeneratedConstantData; }
+
+namespace PyWidget_Common_Input { enum class EInputType : uint8; }
+
+namespace MarvelAI { enum class ETargetType : uint8; }
 
 
-namespace OnlineSubsystemUtils
+namespace Marvel
 {
-	class UOnlineEngineInterfaceImpl;
-	class UOnlineEngineInterfaceImpl;
+	enum class EInputType : uint8;
+	enum class ETargetType : uint8;
 }

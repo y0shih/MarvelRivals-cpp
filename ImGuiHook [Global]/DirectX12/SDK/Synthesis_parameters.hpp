@@ -17,64 +17,20 @@
 namespace SDK::Params
 {
 
-// Function Synthesis.SourceEffectEnvelopeFollowerPreset.RegisterEnvelopeFollowerListener
-// 0x0008 (0x0008 - 0x0000)
-struct SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener final
-{
-public:
-	class UEnvelopeFollowerListener*              EnvelopeFollowerListener;                          // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener) == 0x000008, "Wrong alignment on SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener");
-static_assert(sizeof(SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener) == 0x000008, "Wrong size on SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener");
-static_assert(offsetof(SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener, EnvelopeFollowerListener) == 0x000000, "Member 'SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener::EnvelopeFollowerListener' has a wrong offset!");
-
-// Function Synthesis.SourceEffectEnvelopeFollowerPreset.SetSettings
-// 0x000C (0x000C - 0x0000)
-struct SourceEffectEnvelopeFollowerPreset_SetSettings final
-{
-public:
-	struct FSourceEffectEnvelopeFollowerSettings  InSettings;                                        // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SourceEffectEnvelopeFollowerPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectEnvelopeFollowerPreset_SetSettings");
-static_assert(sizeof(SourceEffectEnvelopeFollowerPreset_SetSettings) == 0x00000C, "Wrong size on SourceEffectEnvelopeFollowerPreset_SetSettings");
-static_assert(offsetof(SourceEffectEnvelopeFollowerPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectEnvelopeFollowerPreset_SetSettings::InSettings' has a wrong offset!");
-
-// Function Synthesis.SourceEffectEnvelopeFollowerPreset.UnregisterEnvelopeFollowerListener
-// 0x0008 (0x0008 - 0x0000)
-struct SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener final
-{
-public:
-	class UEnvelopeFollowerListener*              EnvelopeFollowerListener;                          // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener) == 0x000008, "Wrong alignment on SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener");
-static_assert(sizeof(SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener) == 0x000008, "Wrong size on SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener");
-static_assert(offsetof(SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener, EnvelopeFollowerListener) == 0x000000, "Member 'SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener::EnvelopeFollowerListener' has a wrong offset!");
-
-// Function Synthesis.SourceEffectEQPreset.SetSettings
-// 0x0010 (0x0010 - 0x0000)
-struct SourceEffectEQPreset_SetSettings final
-{
-public:
-	struct FSourceEffectEQSettings                InSettings;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SourceEffectEQPreset_SetSettings) == 0x000008, "Wrong alignment on SourceEffectEQPreset_SetSettings");
-static_assert(sizeof(SourceEffectEQPreset_SetSettings) == 0x000010, "Wrong size on SourceEffectEQPreset_SetSettings");
-static_assert(offsetof(SourceEffectEQPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectEQPreset_SetSettings::InSettings' has a wrong offset!");
-
 // Function Synthesis.ModularSynthLibrary.AddModularSynthPresetToBankAsset
-// 0x00F8 (0x00F8 - 0x0000)
+// 0x0110 (0x0110 - 0x0000)
 struct ModularSynthLibrary_AddModularSynthPresetToBankAsset final
 {
 public:
-	class UModularSynthPresetBank*                InBank;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FModularSynthPreset                    Preset;                                            // 0x0008(0x00E0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-	class FString                                 PresetName;                                        // 0x00E8(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UModularSynthPresetBank*                InBank;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FModularSynthPreset                    Preset;                                            // 0x0008(0x00F8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	class FString                                 PresetName;                                        // 0x0100(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModularSynthLibrary_AddModularSynthPresetToBankAsset) == 0x000008, "Wrong alignment on ModularSynthLibrary_AddModularSynthPresetToBankAsset");
-static_assert(sizeof(ModularSynthLibrary_AddModularSynthPresetToBankAsset) == 0x0000F8, "Wrong size on ModularSynthLibrary_AddModularSynthPresetToBankAsset");
+static_assert(sizeof(ModularSynthLibrary_AddModularSynthPresetToBankAsset) == 0x000110, "Wrong size on ModularSynthLibrary_AddModularSynthPresetToBankAsset");
 static_assert(offsetof(ModularSynthLibrary_AddModularSynthPresetToBankAsset, InBank) == 0x000000, "Member 'ModularSynthLibrary_AddModularSynthPresetToBankAsset::InBank' has a wrong offset!");
 static_assert(offsetof(ModularSynthLibrary_AddModularSynthPresetToBankAsset, Preset) == 0x000008, "Member 'ModularSynthLibrary_AddModularSynthPresetToBankAsset::Preset' has a wrong offset!");
-static_assert(offsetof(ModularSynthLibrary_AddModularSynthPresetToBankAsset, PresetName) == 0x0000E8, "Member 'ModularSynthLibrary_AddModularSynthPresetToBankAsset::PresetName' has a wrong offset!");
+static_assert(offsetof(ModularSynthLibrary_AddModularSynthPresetToBankAsset, PresetName) == 0x000100, "Member 'ModularSynthLibrary_AddModularSynthPresetToBankAsset::PresetName' has a wrong offset!");
 
 // Function Synthesis.ModularSynthComponent.CreatePatch
 // 0x0020 (0x0020 - 0x0000)
@@ -771,14 +727,14 @@ static_assert(sizeof(ModularSynthComponent_SetSustainGain) == 0x000004, "Wrong s
 static_assert(offsetof(ModularSynthComponent_SetSustainGain, SustainGain) == 0x000000, "Member 'ModularSynthComponent_SetSustainGain::SustainGain' has a wrong offset!");
 
 // Function Synthesis.ModularSynthComponent.SetSynthPreset
-// 0x00E0 (0x00E0 - 0x0000)
+// 0x00F8 (0x00F8 - 0x0000)
 struct ModularSynthComponent_SetSynthPreset final
 {
 public:
-	struct FModularSynthPreset                    SynthPreset;                                       // 0x0000(0x00E0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FModularSynthPreset                    SynthPreset;                                       // 0x0000(0x00F8)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ModularSynthComponent_SetSynthPreset) == 0x000008, "Wrong alignment on ModularSynthComponent_SetSynthPreset");
-static_assert(sizeof(ModularSynthComponent_SetSynthPreset) == 0x0000E0, "Wrong size on ModularSynthComponent_SetSynthPreset");
+static_assert(sizeof(ModularSynthComponent_SetSynthPreset) == 0x0000F8, "Wrong size on ModularSynthComponent_SetSynthPreset");
 static_assert(offsetof(ModularSynthComponent_SetSynthPreset, SynthPreset) == 0x000000, "Member 'ModularSynthComponent_SetSynthPreset::SynthPreset' has a wrong offset!");
 
 // Function Synthesis.SourceEffectBitCrusherPreset.SetBitModulator
@@ -786,11 +742,22 @@ static_assert(offsetof(ModularSynthComponent_SetSynthPreset, SynthPreset) == 0x0
 struct SourceEffectBitCrusherPreset_SetBitModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectBitCrusherPreset_SetBitModulator) == 0x000008, "Wrong alignment on SourceEffectBitCrusherPreset_SetBitModulator");
 static_assert(sizeof(SourceEffectBitCrusherPreset_SetBitModulator) == 0x000008, "Wrong size on SourceEffectBitCrusherPreset_SetBitModulator");
 static_assert(offsetof(SourceEffectBitCrusherPreset_SetBitModulator, Modulator) == 0x000000, "Member 'SourceEffectBitCrusherPreset_SetBitModulator::Modulator' has a wrong offset!");
+
+// Function Synthesis.SourceEffectBitCrusherPreset.SetBitModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectBitCrusherPreset_SetBitModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              InModulators;                                      // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectBitCrusherPreset_SetBitModulators) == 0x000008, "Wrong alignment on SourceEffectBitCrusherPreset_SetBitModulators");
+static_assert(sizeof(SourceEffectBitCrusherPreset_SetBitModulators) == 0x000050, "Wrong size on SourceEffectBitCrusherPreset_SetBitModulators");
+static_assert(offsetof(SourceEffectBitCrusherPreset_SetBitModulators, InModulators) == 0x000000, "Member 'SourceEffectBitCrusherPreset_SetBitModulators::InModulators' has a wrong offset!");
 
 // Function Synthesis.SourceEffectBitCrusherPreset.SetBits
 // 0x0004 (0x0004 - 0x0000)
@@ -804,14 +771,14 @@ static_assert(sizeof(SourceEffectBitCrusherPreset_SetBits) == 0x000004, "Wrong s
 static_assert(offsetof(SourceEffectBitCrusherPreset_SetBits, Bits) == 0x000000, "Member 'SourceEffectBitCrusherPreset_SetBits::Bits' has a wrong offset!");
 
 // Function Synthesis.SourceEffectBitCrusherPreset.SetModulationSettings
-// 0x0030 (0x0030 - 0x0000)
+// 0x00C0 (0x00C0 - 0x0000)
 struct SourceEffectBitCrusherPreset_SetModulationSettings final
 {
 public:
-	struct FSourceEffectBitCrusherSettings        ModulationSettings;                                // 0x0000(0x0030)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FSourceEffectBitCrusherSettings        ModulationSettings;                                // 0x0000(0x00C0)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectBitCrusherPreset_SetModulationSettings) == 0x000008, "Wrong alignment on SourceEffectBitCrusherPreset_SetModulationSettings");
-static_assert(sizeof(SourceEffectBitCrusherPreset_SetModulationSettings) == 0x000030, "Wrong size on SourceEffectBitCrusherPreset_SetModulationSettings");
+static_assert(sizeof(SourceEffectBitCrusherPreset_SetModulationSettings) == 0x0000C0, "Wrong size on SourceEffectBitCrusherPreset_SetModulationSettings");
 static_assert(offsetof(SourceEffectBitCrusherPreset_SetModulationSettings, ModulationSettings) == 0x000000, "Member 'SourceEffectBitCrusherPreset_SetModulationSettings::ModulationSettings' has a wrong offset!");
 
 // Function Synthesis.SourceEffectBitCrusherPreset.SetSampleRate
@@ -830,11 +797,22 @@ static_assert(offsetof(SourceEffectBitCrusherPreset_SetSampleRate, SampleRate) =
 struct SourceEffectBitCrusherPreset_SetSampleRateModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectBitCrusherPreset_SetSampleRateModulator) == 0x000008, "Wrong alignment on SourceEffectBitCrusherPreset_SetSampleRateModulator");
 static_assert(sizeof(SourceEffectBitCrusherPreset_SetSampleRateModulator) == 0x000008, "Wrong size on SourceEffectBitCrusherPreset_SetSampleRateModulator");
 static_assert(offsetof(SourceEffectBitCrusherPreset_SetSampleRateModulator, Modulator) == 0x000000, "Member 'SourceEffectBitCrusherPreset_SetSampleRateModulator::Modulator' has a wrong offset!");
+
+// Function Synthesis.SourceEffectBitCrusherPreset.SetSampleRateModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectBitCrusherPreset_SetSampleRateModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              InModulators;                                      // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectBitCrusherPreset_SetSampleRateModulators) == 0x000008, "Wrong alignment on SourceEffectBitCrusherPreset_SetSampleRateModulators");
+static_assert(sizeof(SourceEffectBitCrusherPreset_SetSampleRateModulators) == 0x000050, "Wrong size on SourceEffectBitCrusherPreset_SetSampleRateModulators");
+static_assert(offsetof(SourceEffectBitCrusherPreset_SetSampleRateModulators, InModulators) == 0x000000, "Member 'SourceEffectBitCrusherPreset_SetSampleRateModulators::InModulators' has a wrong offset!");
 
 // Function Synthesis.SourceEffectBitCrusherPreset.SetSettings
 // 0x0008 (0x0008 - 0x0000)
@@ -846,39 +824,6 @@ public:
 static_assert(alignof(SourceEffectBitCrusherPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectBitCrusherPreset_SetSettings");
 static_assert(sizeof(SourceEffectBitCrusherPreset_SetSettings) == 0x000008, "Wrong size on SourceEffectBitCrusherPreset_SetSettings");
 static_assert(offsetof(SourceEffectBitCrusherPreset_SetSettings, Settings_0) == 0x000000, "Member 'SourceEffectBitCrusherPreset_SetSettings::Settings_0' has a wrong offset!");
-
-// Function Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
-// 0x0028 (0x0028 - 0x0000)
-struct SourceEffectDynamicsProcessorPreset_SetSettings final
-{
-public:
-	struct FSourceEffectDynamicsProcessorSettings InSettings;                                        // 0x0000(0x0028)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SourceEffectDynamicsProcessorPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectDynamicsProcessorPreset_SetSettings");
-static_assert(sizeof(SourceEffectDynamicsProcessorPreset_SetSettings) == 0x000028, "Wrong size on SourceEffectDynamicsProcessorPreset_SetSettings");
-static_assert(offsetof(SourceEffectDynamicsProcessorPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectDynamicsProcessorPreset_SetSettings::InSettings' has a wrong offset!");
-
-// Function Synthesis.SourceEffectFilterPreset.SetSettings
-// 0x0020 (0x0020 - 0x0000)
-struct SourceEffectFilterPreset_SetSettings final
-{
-public:
-	struct FSourceEffectFilterSettings            InSettings;                                        // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SourceEffectFilterPreset_SetSettings) == 0x000008, "Wrong alignment on SourceEffectFilterPreset_SetSettings");
-static_assert(sizeof(SourceEffectFilterPreset_SetSettings) == 0x000020, "Wrong size on SourceEffectFilterPreset_SetSettings");
-static_assert(offsetof(SourceEffectFilterPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectFilterPreset_SetSettings::InSettings' has a wrong offset!");
-
-// Function Synthesis.SourceEffectFoldbackDistortionPreset.SetSettings
-// 0x000C (0x000C - 0x0000)
-struct SourceEffectFoldbackDistortionPreset_SetSettings final
-{
-public:
-	struct FSourceEffectFoldbackDistortionSettings InSettings;                                        // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(SourceEffectFoldbackDistortionPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectFoldbackDistortionPreset_SetSettings");
-static_assert(sizeof(SourceEffectFoldbackDistortionPreset_SetSettings) == 0x00000C, "Wrong size on SourceEffectFoldbackDistortionPreset_SetSettings");
-static_assert(offsetof(SourceEffectFoldbackDistortionPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectFoldbackDistortionPreset_SetSettings::InSettings' has a wrong offset!");
 
 // Function Synthesis.SourceEffectChorusPreset.SetDepth
 // 0x0004 (0x0004 - 0x0000)
@@ -896,11 +841,22 @@ static_assert(offsetof(SourceEffectChorusPreset_SetDepth, Depth) == 0x000000, "M
 struct SourceEffectChorusPreset_SetDepthModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectChorusPreset_SetDepthModulator) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetDepthModulator");
 static_assert(sizeof(SourceEffectChorusPreset_SetDepthModulator) == 0x000008, "Wrong size on SourceEffectChorusPreset_SetDepthModulator");
 static_assert(offsetof(SourceEffectChorusPreset_SetDepthModulator, Modulator) == 0x000000, "Member 'SourceEffectChorusPreset_SetDepthModulator::Modulator' has a wrong offset!");
+
+// Function Synthesis.SourceEffectChorusPreset.SetDepthModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectChorusPreset_SetDepthModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              Modulators;                                        // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectChorusPreset_SetDepthModulators) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetDepthModulators");
+static_assert(sizeof(SourceEffectChorusPreset_SetDepthModulators) == 0x000050, "Wrong size on SourceEffectChorusPreset_SetDepthModulators");
+static_assert(offsetof(SourceEffectChorusPreset_SetDepthModulators, Modulators) == 0x000000, "Member 'SourceEffectChorusPreset_SetDepthModulators::Modulators' has a wrong offset!");
 
 // Function Synthesis.SourceEffectChorusPreset.SetDry
 // 0x0004 (0x0004 - 0x0000)
@@ -918,11 +874,22 @@ static_assert(offsetof(SourceEffectChorusPreset_SetDry, DryAmount) == 0x000000, 
 struct SourceEffectChorusPreset_SetDryModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectChorusPreset_SetDryModulator) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetDryModulator");
 static_assert(sizeof(SourceEffectChorusPreset_SetDryModulator) == 0x000008, "Wrong size on SourceEffectChorusPreset_SetDryModulator");
 static_assert(offsetof(SourceEffectChorusPreset_SetDryModulator, Modulator) == 0x000000, "Member 'SourceEffectChorusPreset_SetDryModulator::Modulator' has a wrong offset!");
+
+// Function Synthesis.SourceEffectChorusPreset.SetDryModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectChorusPreset_SetDryModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              Modulators;                                        // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectChorusPreset_SetDryModulators) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetDryModulators");
+static_assert(sizeof(SourceEffectChorusPreset_SetDryModulators) == 0x000050, "Wrong size on SourceEffectChorusPreset_SetDryModulators");
+static_assert(offsetof(SourceEffectChorusPreset_SetDryModulators, Modulators) == 0x000000, "Member 'SourceEffectChorusPreset_SetDryModulators::Modulators' has a wrong offset!");
 
 // Function Synthesis.SourceEffectChorusPreset.SetFeedback
 // 0x0004 (0x0004 - 0x0000)
@@ -940,11 +907,22 @@ static_assert(offsetof(SourceEffectChorusPreset_SetFeedback, Feedback) == 0x0000
 struct SourceEffectChorusPreset_SetFeedbackModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectChorusPreset_SetFeedbackModulator) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetFeedbackModulator");
 static_assert(sizeof(SourceEffectChorusPreset_SetFeedbackModulator) == 0x000008, "Wrong size on SourceEffectChorusPreset_SetFeedbackModulator");
 static_assert(offsetof(SourceEffectChorusPreset_SetFeedbackModulator, Modulator) == 0x000000, "Member 'SourceEffectChorusPreset_SetFeedbackModulator::Modulator' has a wrong offset!");
+
+// Function Synthesis.SourceEffectChorusPreset.SetFeedbackModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectChorusPreset_SetFeedbackModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              Modulators;                                        // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectChorusPreset_SetFeedbackModulators) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetFeedbackModulators");
+static_assert(sizeof(SourceEffectChorusPreset_SetFeedbackModulators) == 0x000050, "Wrong size on SourceEffectChorusPreset_SetFeedbackModulators");
+static_assert(offsetof(SourceEffectChorusPreset_SetFeedbackModulators, Modulators) == 0x000000, "Member 'SourceEffectChorusPreset_SetFeedbackModulators::Modulators' has a wrong offset!");
 
 // Function Synthesis.SourceEffectChorusPreset.SetFrequency
 // 0x0004 (0x0004 - 0x0000)
@@ -962,21 +940,32 @@ static_assert(offsetof(SourceEffectChorusPreset_SetFrequency, Frequency) == 0x00
 struct SourceEffectChorusPreset_SetFrequencyModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectChorusPreset_SetFrequencyModulator) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetFrequencyModulator");
 static_assert(sizeof(SourceEffectChorusPreset_SetFrequencyModulator) == 0x000008, "Wrong size on SourceEffectChorusPreset_SetFrequencyModulator");
 static_assert(offsetof(SourceEffectChorusPreset_SetFrequencyModulator, Modulator) == 0x000000, "Member 'SourceEffectChorusPreset_SetFrequencyModulator::Modulator' has a wrong offset!");
 
+// Function Synthesis.SourceEffectChorusPreset.SetFrequencyModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectChorusPreset_SetFrequencyModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              Modulators;                                        // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectChorusPreset_SetFrequencyModulators) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetFrequencyModulators");
+static_assert(sizeof(SourceEffectChorusPreset_SetFrequencyModulators) == 0x000050, "Wrong size on SourceEffectChorusPreset_SetFrequencyModulators");
+static_assert(offsetof(SourceEffectChorusPreset_SetFrequencyModulators, Modulators) == 0x000000, "Member 'SourceEffectChorusPreset_SetFrequencyModulators::Modulators' has a wrong offset!");
+
 // Function Synthesis.SourceEffectChorusPreset.SetModulationSettings
-// 0x0078 (0x0078 - 0x0000)
+// 0x0228 (0x0228 - 0x0000)
 struct SourceEffectChorusPreset_SetModulationSettings final
 {
 public:
-	struct FSourceEffectChorusSettings            ModulationSettings;                                // 0x0000(0x0078)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FSourceEffectChorusSettings            ModulationSettings;                                // 0x0000(0x0228)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectChorusPreset_SetModulationSettings) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetModulationSettings");
-static_assert(sizeof(SourceEffectChorusPreset_SetModulationSettings) == 0x000078, "Wrong size on SourceEffectChorusPreset_SetModulationSettings");
+static_assert(sizeof(SourceEffectChorusPreset_SetModulationSettings) == 0x000228, "Wrong size on SourceEffectChorusPreset_SetModulationSettings");
 static_assert(offsetof(SourceEffectChorusPreset_SetModulationSettings, ModulationSettings) == 0x000000, "Member 'SourceEffectChorusPreset_SetModulationSettings::ModulationSettings' has a wrong offset!");
 
 // Function Synthesis.SourceEffectChorusPreset.SetSettings
@@ -1006,11 +995,22 @@ static_assert(offsetof(SourceEffectChorusPreset_SetSpread, Spread) == 0x000000, 
 struct SourceEffectChorusPreset_SetSpreadModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectChorusPreset_SetSpreadModulator) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetSpreadModulator");
 static_assert(sizeof(SourceEffectChorusPreset_SetSpreadModulator) == 0x000008, "Wrong size on SourceEffectChorusPreset_SetSpreadModulator");
 static_assert(offsetof(SourceEffectChorusPreset_SetSpreadModulator, Modulator) == 0x000000, "Member 'SourceEffectChorusPreset_SetSpreadModulator::Modulator' has a wrong offset!");
+
+// Function Synthesis.SourceEffectChorusPreset.SetSpreadModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectChorusPreset_SetSpreadModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              Modulators;                                        // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectChorusPreset_SetSpreadModulators) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetSpreadModulators");
+static_assert(sizeof(SourceEffectChorusPreset_SetSpreadModulators) == 0x000050, "Wrong size on SourceEffectChorusPreset_SetSpreadModulators");
+static_assert(offsetof(SourceEffectChorusPreset_SetSpreadModulators, Modulators) == 0x000000, "Member 'SourceEffectChorusPreset_SetSpreadModulators::Modulators' has a wrong offset!");
 
 // Function Synthesis.SourceEffectChorusPreset.SetWet
 // 0x0004 (0x0004 - 0x0000)
@@ -1028,11 +1028,121 @@ static_assert(offsetof(SourceEffectChorusPreset_SetWet, WetAmount) == 0x000000, 
 struct SourceEffectChorusPreset_SetWetModulator final
 {
 public:
-	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	const class USoundModulatorBase*              Modulator;                                         // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SourceEffectChorusPreset_SetWetModulator) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetWetModulator");
 static_assert(sizeof(SourceEffectChorusPreset_SetWetModulator) == 0x000008, "Wrong size on SourceEffectChorusPreset_SetWetModulator");
 static_assert(offsetof(SourceEffectChorusPreset_SetWetModulator, Modulator) == 0x000000, "Member 'SourceEffectChorusPreset_SetWetModulator::Modulator' has a wrong offset!");
+
+// Function Synthesis.SourceEffectChorusPreset.SetWetModulators
+// 0x0050 (0x0050 - 0x0000)
+struct SourceEffectChorusPreset_SetWetModulators final
+{
+public:
+	TSet<class USoundModulatorBase*>              Modulators;                                        // 0x0000(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectChorusPreset_SetWetModulators) == 0x000008, "Wrong alignment on SourceEffectChorusPreset_SetWetModulators");
+static_assert(sizeof(SourceEffectChorusPreset_SetWetModulators) == 0x000050, "Wrong size on SourceEffectChorusPreset_SetWetModulators");
+static_assert(offsetof(SourceEffectChorusPreset_SetWetModulators, Modulators) == 0x000000, "Member 'SourceEffectChorusPreset_SetWetModulators::Modulators' has a wrong offset!");
+
+// Function Synthesis.SourceEffectConvolutionReverbPreset.SetImpulseResponse
+// 0x0008 (0x0008 - 0x0000)
+struct SourceEffectConvolutionReverbPreset_SetImpulseResponse final
+{
+public:
+	class UAudioImpulseResponse*                  InImpulseResponse;                                 // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectConvolutionReverbPreset_SetImpulseResponse) == 0x000008, "Wrong alignment on SourceEffectConvolutionReverbPreset_SetImpulseResponse");
+static_assert(sizeof(SourceEffectConvolutionReverbPreset_SetImpulseResponse) == 0x000008, "Wrong size on SourceEffectConvolutionReverbPreset_SetImpulseResponse");
+static_assert(offsetof(SourceEffectConvolutionReverbPreset_SetImpulseResponse, InImpulseResponse) == 0x000000, "Member 'SourceEffectConvolutionReverbPreset_SetImpulseResponse::InImpulseResponse' has a wrong offset!");
+
+// Function Synthesis.SourceEffectConvolutionReverbPreset.SetSettings
+// 0x0010 (0x0010 - 0x0000)
+struct SourceEffectConvolutionReverbPreset_SetSettings final
+{
+public:
+	struct FSourceEffectConvolutionReverbSettings InSettings;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectConvolutionReverbPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectConvolutionReverbPreset_SetSettings");
+static_assert(sizeof(SourceEffectConvolutionReverbPreset_SetSettings) == 0x000010, "Wrong size on SourceEffectConvolutionReverbPreset_SetSettings");
+static_assert(offsetof(SourceEffectConvolutionReverbPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectConvolutionReverbPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SourceEffectDynamicsProcessorPreset.SetSettings
+// 0x0028 (0x0028 - 0x0000)
+struct SourceEffectDynamicsProcessorPreset_SetSettings final
+{
+public:
+	struct FSourceEffectDynamicsProcessorSettings InSettings;                                        // 0x0000(0x0028)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectDynamicsProcessorPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectDynamicsProcessorPreset_SetSettings");
+static_assert(sizeof(SourceEffectDynamicsProcessorPreset_SetSettings) == 0x000028, "Wrong size on SourceEffectDynamicsProcessorPreset_SetSettings");
+static_assert(offsetof(SourceEffectDynamicsProcessorPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectDynamicsProcessorPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SourceEffectEnvelopeFollowerPreset.RegisterEnvelopeFollowerListener
+// 0x0008 (0x0008 - 0x0000)
+struct SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener final
+{
+public:
+	class UEnvelopeFollowerListener*              EnvelopeFollowerListener;                          // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener) == 0x000008, "Wrong alignment on SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener");
+static_assert(sizeof(SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener) == 0x000008, "Wrong size on SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener");
+static_assert(offsetof(SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener, EnvelopeFollowerListener) == 0x000000, "Member 'SourceEffectEnvelopeFollowerPreset_RegisterEnvelopeFollowerListener::EnvelopeFollowerListener' has a wrong offset!");
+
+// Function Synthesis.SourceEffectEnvelopeFollowerPreset.SetSettings
+// 0x000C (0x000C - 0x0000)
+struct SourceEffectEnvelopeFollowerPreset_SetSettings final
+{
+public:
+	struct FSourceEffectEnvelopeFollowerSettings  InSettings;                                        // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectEnvelopeFollowerPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectEnvelopeFollowerPreset_SetSettings");
+static_assert(sizeof(SourceEffectEnvelopeFollowerPreset_SetSettings) == 0x00000C, "Wrong size on SourceEffectEnvelopeFollowerPreset_SetSettings");
+static_assert(offsetof(SourceEffectEnvelopeFollowerPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectEnvelopeFollowerPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SourceEffectEnvelopeFollowerPreset.UnregisterEnvelopeFollowerListener
+// 0x0008 (0x0008 - 0x0000)
+struct SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener final
+{
+public:
+	class UEnvelopeFollowerListener*              EnvelopeFollowerListener;                          // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener) == 0x000008, "Wrong alignment on SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener");
+static_assert(sizeof(SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener) == 0x000008, "Wrong size on SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener");
+static_assert(offsetof(SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener, EnvelopeFollowerListener) == 0x000000, "Member 'SourceEffectEnvelopeFollowerPreset_UnregisterEnvelopeFollowerListener::EnvelopeFollowerListener' has a wrong offset!");
+
+// Function Synthesis.SourceEffectEQPreset.SetSettings
+// 0x0010 (0x0010 - 0x0000)
+struct SourceEffectEQPreset_SetSettings final
+{
+public:
+	struct FSourceEffectEQSettings                InSettings;                                        // 0x0000(0x0010)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectEQPreset_SetSettings) == 0x000008, "Wrong alignment on SourceEffectEQPreset_SetSettings");
+static_assert(sizeof(SourceEffectEQPreset_SetSettings) == 0x000010, "Wrong size on SourceEffectEQPreset_SetSettings");
+static_assert(offsetof(SourceEffectEQPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectEQPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SourceEffectFilterPreset.SetSettings
+// 0x0020 (0x0020 - 0x0000)
+struct SourceEffectFilterPreset_SetSettings final
+{
+public:
+	struct FSourceEffectFilterSettings            InSettings;                                        // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectFilterPreset_SetSettings) == 0x000008, "Wrong alignment on SourceEffectFilterPreset_SetSettings");
+static_assert(sizeof(SourceEffectFilterPreset_SetSettings) == 0x000020, "Wrong size on SourceEffectFilterPreset_SetSettings");
+static_assert(offsetof(SourceEffectFilterPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectFilterPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SourceEffectFoldbackDistortionPreset.SetSettings
+// 0x000C (0x000C - 0x0000)
+struct SourceEffectFoldbackDistortionPreset_SetSettings final
+{
+public:
+	struct FSourceEffectFoldbackDistortionSettings InSettings;                                        // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectFoldbackDistortionPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectFoldbackDistortionPreset_SetSettings");
+static_assert(sizeof(SourceEffectFoldbackDistortionPreset_SetSettings) == 0x00000C, "Wrong size on SourceEffectFoldbackDistortionPreset_SetSettings");
+static_assert(offsetof(SourceEffectFoldbackDistortionPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectFoldbackDistortionPreset_SetSettings::InSettings' has a wrong offset!");
 
 // Function Synthesis.SourceEffectMidSideSpreaderPreset.SetSettings
 // 0x0008 (0x0008 - 0x0000)
@@ -1044,6 +1154,17 @@ public:
 static_assert(alignof(SourceEffectMidSideSpreaderPreset_SetSettings) == 0x000004, "Wrong alignment on SourceEffectMidSideSpreaderPreset_SetSettings");
 static_assert(sizeof(SourceEffectMidSideSpreaderPreset_SetSettings) == 0x000008, "Wrong size on SourceEffectMidSideSpreaderPreset_SetSettings");
 static_assert(offsetof(SourceEffectMidSideSpreaderPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectMidSideSpreaderPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SourceEffectMotionFilterPreset.SetSettings
+// 0x0078 (0x0078 - 0x0000)
+struct SourceEffectMotionFilterPreset_SetSettings final
+{
+public:
+	struct FSourceEffectMotionFilterSettings      InSettings;                                        // 0x0000(0x0078)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SourceEffectMotionFilterPreset_SetSettings) == 0x000008, "Wrong alignment on SourceEffectMotionFilterPreset_SetSettings");
+static_assert(sizeof(SourceEffectMotionFilterPreset_SetSettings) == 0x000078, "Wrong size on SourceEffectMotionFilterPreset_SetSettings");
+static_assert(offsetof(SourceEffectMotionFilterPreset_SetSettings, InSettings) == 0x000000, "Member 'SourceEffectMotionFilterPreset_SetSettings::InSettings' has a wrong offset!");
 
 // Function Synthesis.SourceEffectPannerPreset.SetSettings
 // 0x0008 (0x0008 - 0x0000)
@@ -1116,33 +1237,78 @@ static_assert(offsetof(SourceEffectWaveShaperPreset_SetSettings, InSettings) == 
 struct SubmixEffectConvolutionReverbPreset_SetImpulseResponse final
 {
 public:
-	class UAudioImpulseResponse*                  InImpulseResponse;                                 // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UAudioImpulseResponse*                  InImpulseResponse;                                 // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SubmixEffectConvolutionReverbPreset_SetImpulseResponse) == 0x000008, "Wrong alignment on SubmixEffectConvolutionReverbPreset_SetImpulseResponse");
 static_assert(sizeof(SubmixEffectConvolutionReverbPreset_SetImpulseResponse) == 0x000008, "Wrong size on SubmixEffectConvolutionReverbPreset_SetImpulseResponse");
 static_assert(offsetof(SubmixEffectConvolutionReverbPreset_SetImpulseResponse, InImpulseResponse) == 0x000000, "Member 'SubmixEffectConvolutionReverbPreset_SetImpulseResponse::InImpulseResponse' has a wrong offset!");
 
 // Function Synthesis.SubmixEffectConvolutionReverbPreset.SetSettings
-// 0x0028 (0x0028 - 0x0000)
+// 0x0030 (0x0030 - 0x0000)
 struct SubmixEffectConvolutionReverbPreset_SetSettings final
 {
 public:
-	struct FSubmixEffectConvolutionReverbSettings InSettings;                                        // 0x0000(0x0028)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	struct FSubmixEffectConvolutionReverbSettings InSettings;                                        // 0x0000(0x0030)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SubmixEffectConvolutionReverbPreset_SetSettings) == 0x000008, "Wrong alignment on SubmixEffectConvolutionReverbPreset_SetSettings");
-static_assert(sizeof(SubmixEffectConvolutionReverbPreset_SetSettings) == 0x000028, "Wrong size on SubmixEffectConvolutionReverbPreset_SetSettings");
+static_assert(sizeof(SubmixEffectConvolutionReverbPreset_SetSettings) == 0x000030, "Wrong size on SubmixEffectConvolutionReverbPreset_SetSettings");
 static_assert(offsetof(SubmixEffectConvolutionReverbPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectConvolutionReverbPreset_SetSettings::InSettings' has a wrong offset!");
 
-// Function Synthesis.SubmixEffectDelayPreset.GetMaxDelayInMilliseconds
-// 0x0004 (0x0004 - 0x0000)
-struct SubmixEffectDelayPreset_GetMaxDelayInMilliseconds final
+// Function Synthesis.SubmixEffectDelayStatics.SetDelayLength
+// 0x001C (0x001C - 0x0000)
+struct SubmixEffectDelayStatics_SetDelayLength final
 {
 public:
-	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSubmixEffectDelaySettings             DelaySettings;                                     // 0x0000(0x000C)(Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         DelayLength;                                       // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSubmixEffectDelaySettings             ReturnValue;                                       // 0x0010(0x000C)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(SubmixEffectDelayPreset_GetMaxDelayInMilliseconds) == 0x000004, "Wrong alignment on SubmixEffectDelayPreset_GetMaxDelayInMilliseconds");
-static_assert(sizeof(SubmixEffectDelayPreset_GetMaxDelayInMilliseconds) == 0x000004, "Wrong size on SubmixEffectDelayPreset_GetMaxDelayInMilliseconds");
-static_assert(offsetof(SubmixEffectDelayPreset_GetMaxDelayInMilliseconds, ReturnValue) == 0x000000, "Member 'SubmixEffectDelayPreset_GetMaxDelayInMilliseconds::ReturnValue' has a wrong offset!");
+static_assert(alignof(SubmixEffectDelayStatics_SetDelayLength) == 0x000004, "Wrong alignment on SubmixEffectDelayStatics_SetDelayLength");
+static_assert(sizeof(SubmixEffectDelayStatics_SetDelayLength) == 0x00001C, "Wrong size on SubmixEffectDelayStatics_SetDelayLength");
+static_assert(offsetof(SubmixEffectDelayStatics_SetDelayLength, DelaySettings) == 0x000000, "Member 'SubmixEffectDelayStatics_SetDelayLength::DelaySettings' has a wrong offset!");
+static_assert(offsetof(SubmixEffectDelayStatics_SetDelayLength, DelayLength) == 0x00000C, "Member 'SubmixEffectDelayStatics_SetDelayLength::DelayLength' has a wrong offset!");
+static_assert(offsetof(SubmixEffectDelayStatics_SetDelayLength, ReturnValue) == 0x000010, "Member 'SubmixEffectDelayStatics_SetDelayLength::ReturnValue' has a wrong offset!");
+
+// Function Synthesis.SubmixEffectDelayStatics.SetInterpolationTime
+// 0x001C (0x001C - 0x0000)
+struct SubmixEffectDelayStatics_SetInterpolationTime final
+{
+public:
+	struct FSubmixEffectDelaySettings             DelaySettings;                                     // 0x0000(0x000C)(Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         InterpolationTime;                                 // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSubmixEffectDelaySettings             ReturnValue;                                       // 0x0010(0x000C)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectDelayStatics_SetInterpolationTime) == 0x000004, "Wrong alignment on SubmixEffectDelayStatics_SetInterpolationTime");
+static_assert(sizeof(SubmixEffectDelayStatics_SetInterpolationTime) == 0x00001C, "Wrong size on SubmixEffectDelayStatics_SetInterpolationTime");
+static_assert(offsetof(SubmixEffectDelayStatics_SetInterpolationTime, DelaySettings) == 0x000000, "Member 'SubmixEffectDelayStatics_SetInterpolationTime::DelaySettings' has a wrong offset!");
+static_assert(offsetof(SubmixEffectDelayStatics_SetInterpolationTime, InterpolationTime) == 0x00000C, "Member 'SubmixEffectDelayStatics_SetInterpolationTime::InterpolationTime' has a wrong offset!");
+static_assert(offsetof(SubmixEffectDelayStatics_SetInterpolationTime, ReturnValue) == 0x000010, "Member 'SubmixEffectDelayStatics_SetInterpolationTime::ReturnValue' has a wrong offset!");
+
+// Function Synthesis.SubmixEffectDelayStatics.SetMaximumDelayLength
+// 0x001C (0x001C - 0x0000)
+struct SubmixEffectDelayStatics_SetMaximumDelayLength final
+{
+public:
+	struct FSubmixEffectDelaySettings             DelaySettings;                                     // 0x0000(0x000C)(Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+	float                                         MaximumDelayLength;                                // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSubmixEffectDelaySettings             ReturnValue;                                       // 0x0010(0x000C)(Parm, OutParm, ReturnParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectDelayStatics_SetMaximumDelayLength) == 0x000004, "Wrong alignment on SubmixEffectDelayStatics_SetMaximumDelayLength");
+static_assert(sizeof(SubmixEffectDelayStatics_SetMaximumDelayLength) == 0x00001C, "Wrong size on SubmixEffectDelayStatics_SetMaximumDelayLength");
+static_assert(offsetof(SubmixEffectDelayStatics_SetMaximumDelayLength, DelaySettings) == 0x000000, "Member 'SubmixEffectDelayStatics_SetMaximumDelayLength::DelaySettings' has a wrong offset!");
+static_assert(offsetof(SubmixEffectDelayStatics_SetMaximumDelayLength, MaximumDelayLength) == 0x00000C, "Member 'SubmixEffectDelayStatics_SetMaximumDelayLength::MaximumDelayLength' has a wrong offset!");
+static_assert(offsetof(SubmixEffectDelayStatics_SetMaximumDelayLength, ReturnValue) == 0x000010, "Member 'SubmixEffectDelayStatics_SetMaximumDelayLength::ReturnValue' has a wrong offset!");
+
+// Function Synthesis.SubmixEffectDelayPreset.SetDefaultSettings
+// 0x000C (0x000C - 0x0000)
+struct SubmixEffectDelayPreset_SetDefaultSettings final
+{
+public:
+	struct FSubmixEffectDelaySettings             InSettings;                                        // 0x0000(0x000C)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectDelayPreset_SetDefaultSettings) == 0x000004, "Wrong alignment on SubmixEffectDelayPreset_SetDefaultSettings");
+static_assert(sizeof(SubmixEffectDelayPreset_SetDefaultSettings) == 0x00000C, "Wrong size on SubmixEffectDelayPreset_SetDefaultSettings");
+static_assert(offsetof(SubmixEffectDelayPreset_SetDefaultSettings, InSettings) == 0x000000, "Member 'SubmixEffectDelayPreset_SetDefaultSettings::InSettings' has a wrong offset!");
 
 // Function Synthesis.SubmixEffectDelayPreset.SetDelay
 // 0x0004 (0x0004 - 0x0000)
@@ -1176,6 +1342,17 @@ public:
 static_assert(alignof(SubmixEffectDelayPreset_SetSettings) == 0x000004, "Wrong alignment on SubmixEffectDelayPreset_SetSettings");
 static_assert(sizeof(SubmixEffectDelayPreset_SetSettings) == 0x00000C, "Wrong size on SubmixEffectDelayPreset_SetSettings");
 static_assert(offsetof(SubmixEffectDelayPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectDelayPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SubmixEffectDelayPreset.GetMaxDelayInMilliseconds
+// 0x0004 (0x0004 - 0x0000)
+struct SubmixEffectDelayPreset_GetMaxDelayInMilliseconds final
+{
+public:
+	float                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectDelayPreset_GetMaxDelayInMilliseconds) == 0x000004, "Wrong alignment on SubmixEffectDelayPreset_GetMaxDelayInMilliseconds");
+static_assert(sizeof(SubmixEffectDelayPreset_GetMaxDelayInMilliseconds) == 0x000004, "Wrong size on SubmixEffectDelayPreset_GetMaxDelayInMilliseconds");
+static_assert(offsetof(SubmixEffectDelayPreset_GetMaxDelayInMilliseconds, ReturnValue) == 0x000000, "Member 'SubmixEffectDelayPreset_GetMaxDelayInMilliseconds::ReturnValue' has a wrong offset!");
 
 // Function Synthesis.SubmixEffectFilterPreset.SetFilterAlgorithm
 // 0x0001 (0x0001 - 0x0000)
@@ -1265,15 +1442,37 @@ static_assert(alignof(SubmixEffectFlexiverbPreset_SetSettings) == 0x000004, "Wro
 static_assert(sizeof(SubmixEffectFlexiverbPreset_SetSettings) == 0x000010, "Wrong size on SubmixEffectFlexiverbPreset_SetSettings");
 static_assert(offsetof(SubmixEffectFlexiverbPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectFlexiverbPreset_SetSettings::InSettings' has a wrong offset!");
 
+// Function Synthesis.SubmixEffectMultibandCompressorPreset.SetAudioBus
+// 0x0008 (0x0008 - 0x0000)
+struct SubmixEffectMultibandCompressorPreset_SetAudioBus final
+{
+public:
+	class UAudioBus*                              AudioBus;                                          // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectMultibandCompressorPreset_SetAudioBus) == 0x000008, "Wrong alignment on SubmixEffectMultibandCompressorPreset_SetAudioBus");
+static_assert(sizeof(SubmixEffectMultibandCompressorPreset_SetAudioBus) == 0x000008, "Wrong size on SubmixEffectMultibandCompressorPreset_SetAudioBus");
+static_assert(offsetof(SubmixEffectMultibandCompressorPreset_SetAudioBus, AudioBus) == 0x000000, "Member 'SubmixEffectMultibandCompressorPreset_SetAudioBus::AudioBus' has a wrong offset!");
+
+// Function Synthesis.SubmixEffectMultibandCompressorPreset.SetExternalSubmix
+// 0x0008 (0x0008 - 0x0000)
+struct SubmixEffectMultibandCompressorPreset_SetExternalSubmix final
+{
+public:
+	class USoundSubmix*                           Submix;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectMultibandCompressorPreset_SetExternalSubmix) == 0x000008, "Wrong alignment on SubmixEffectMultibandCompressorPreset_SetExternalSubmix");
+static_assert(sizeof(SubmixEffectMultibandCompressorPreset_SetExternalSubmix) == 0x000008, "Wrong size on SubmixEffectMultibandCompressorPreset_SetExternalSubmix");
+static_assert(offsetof(SubmixEffectMultibandCompressorPreset_SetExternalSubmix, Submix) == 0x000000, "Member 'SubmixEffectMultibandCompressorPreset_SetExternalSubmix::Submix' has a wrong offset!");
+
 // Function Synthesis.SubmixEffectMultibandCompressorPreset.SetSettings
-// 0x0020 (0x0020 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct SubmixEffectMultibandCompressorPreset_SetSettings final
 {
 public:
-	struct FSubmixEffectMultibandCompressorSettings InSettings;                                        // 0x0000(0x0020)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
+	struct FSubmixEffectMultibandCompressorSettings InSettings;                                        // 0x0000(0x0038)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SubmixEffectMultibandCompressorPreset_SetSettings) == 0x000008, "Wrong alignment on SubmixEffectMultibandCompressorPreset_SetSettings");
-static_assert(sizeof(SubmixEffectMultibandCompressorPreset_SetSettings) == 0x000020, "Wrong size on SubmixEffectMultibandCompressorPreset_SetSettings");
+static_assert(sizeof(SubmixEffectMultibandCompressorPreset_SetSettings) == 0x000038, "Wrong size on SubmixEffectMultibandCompressorPreset_SetSettings");
 static_assert(offsetof(SubmixEffectMultibandCompressorPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectMultibandCompressorPreset_SetSettings::InSettings' has a wrong offset!");
 
 // Function Synthesis.SubmixEffectStereoDelayPreset.SetSettings
@@ -1286,6 +1485,17 @@ public:
 static_assert(alignof(SubmixEffectStereoDelayPreset_SetSettings) == 0x000004, "Wrong alignment on SubmixEffectStereoDelayPreset_SetSettings");
 static_assert(sizeof(SubmixEffectStereoDelayPreset_SetSettings) == 0x000024, "Wrong size on SubmixEffectStereoDelayPreset_SetSettings");
 static_assert(offsetof(SubmixEffectStereoDelayPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectStereoDelayPreset_SetSettings::InSettings' has a wrong offset!");
+
+// Function Synthesis.SubmixEffectStereoToQuadPreset.SetSettings
+// 0x0008 (0x0008 - 0x0000)
+struct SubmixEffectStereoToQuadPreset_SetSettings final
+{
+public:
+	struct FSubmixEffectStereoToQuadSettings      InSettings;                                        // 0x0000(0x0008)(ConstParm, Parm, OutParm, ReferenceParm, NoDestructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(SubmixEffectStereoToQuadPreset_SetSettings) == 0x000004, "Wrong alignment on SubmixEffectStereoToQuadPreset_SetSettings");
+static_assert(sizeof(SubmixEffectStereoToQuadPreset_SetSettings) == 0x000008, "Wrong size on SubmixEffectStereoToQuadPreset_SetSettings");
+static_assert(offsetof(SubmixEffectStereoToQuadPreset_SetSettings, InSettings) == 0x000000, "Member 'SubmixEffectStereoToQuadPreset_SetSettings::InSettings' has a wrong offset!");
 
 // Function Synthesis.SubmixEffectTapDelayPreset.AddTap
 // 0x0004 (0x0004 - 0x0000)
@@ -1379,72 +1589,6 @@ static_assert(sizeof(SubmixEffectTapDelayPreset_SetTap) == 0x00001C, "Wrong size
 static_assert(offsetof(SubmixEffectTapDelayPreset_SetTap, TapId) == 0x000000, "Member 'SubmixEffectTapDelayPreset_SetTap::TapId' has a wrong offset!");
 static_assert(offsetof(SubmixEffectTapDelayPreset_SetTap, TapInfo) == 0x000004, "Member 'SubmixEffectTapDelayPreset_SetTap::TapInfo' has a wrong offset!");
 
-// Function Synthesis.Synth2DSlider.SetIndentHandle
-// 0x0001 (0x0001 - 0x0000)
-struct Synth2DSlider_SetIndentHandle final
-{
-public:
-	bool                                          InValue;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Synth2DSlider_SetIndentHandle) == 0x000001, "Wrong alignment on Synth2DSlider_SetIndentHandle");
-static_assert(sizeof(Synth2DSlider_SetIndentHandle) == 0x000001, "Wrong size on Synth2DSlider_SetIndentHandle");
-static_assert(offsetof(Synth2DSlider_SetIndentHandle, InValue) == 0x000000, "Member 'Synth2DSlider_SetIndentHandle::InValue' has a wrong offset!");
-
-// Function Synthesis.Synth2DSlider.SetLocked
-// 0x0001 (0x0001 - 0x0000)
-struct Synth2DSlider_SetLocked final
-{
-public:
-	bool                                          InValue;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Synth2DSlider_SetLocked) == 0x000001, "Wrong alignment on Synth2DSlider_SetLocked");
-static_assert(sizeof(Synth2DSlider_SetLocked) == 0x000001, "Wrong size on Synth2DSlider_SetLocked");
-static_assert(offsetof(Synth2DSlider_SetLocked, InValue) == 0x000000, "Member 'Synth2DSlider_SetLocked::InValue' has a wrong offset!");
-
-// Function Synthesis.Synth2DSlider.SetSliderHandleColor
-// 0x0010 (0x0010 - 0x0000)
-struct Synth2DSlider_SetSliderHandleColor final
-{
-public:
-	struct FLinearColor                           InValue;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Synth2DSlider_SetSliderHandleColor) == 0x000004, "Wrong alignment on Synth2DSlider_SetSliderHandleColor");
-static_assert(sizeof(Synth2DSlider_SetSliderHandleColor) == 0x000010, "Wrong size on Synth2DSlider_SetSliderHandleColor");
-static_assert(offsetof(Synth2DSlider_SetSliderHandleColor, InValue) == 0x000000, "Member 'Synth2DSlider_SetSliderHandleColor::InValue' has a wrong offset!");
-
-// Function Synthesis.Synth2DSlider.SetStepSize
-// 0x0004 (0x0004 - 0x0000)
-struct Synth2DSlider_SetStepSize final
-{
-public:
-	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Synth2DSlider_SetStepSize) == 0x000004, "Wrong alignment on Synth2DSlider_SetStepSize");
-static_assert(sizeof(Synth2DSlider_SetStepSize) == 0x000004, "Wrong size on Synth2DSlider_SetStepSize");
-static_assert(offsetof(Synth2DSlider_SetStepSize, InValue) == 0x000000, "Member 'Synth2DSlider_SetStepSize::InValue' has a wrong offset!");
-
-// Function Synthesis.Synth2DSlider.SetValue
-// 0x0008 (0x0008 - 0x0000)
-struct Synth2DSlider_SetValue final
-{
-public:
-	struct FVector2D                              InValue;                                           // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Synth2DSlider_SetValue) == 0x000004, "Wrong alignment on Synth2DSlider_SetValue");
-static_assert(sizeof(Synth2DSlider_SetValue) == 0x000008, "Wrong size on Synth2DSlider_SetValue");
-static_assert(offsetof(Synth2DSlider_SetValue, InValue) == 0x000000, "Member 'Synth2DSlider_SetValue::InValue' has a wrong offset!");
-
-// Function Synthesis.Synth2DSlider.GetValue
-// 0x0008 (0x0008 - 0x0000)
-struct Synth2DSlider_GetValue final
-{
-public:
-	struct FVector2D                              ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(Synth2DSlider_GetValue) == 0x000004, "Wrong alignment on Synth2DSlider_GetValue");
-static_assert(sizeof(Synth2DSlider_GetValue) == 0x000008, "Wrong size on Synth2DSlider_GetValue");
-static_assert(offsetof(Synth2DSlider_GetValue, ReturnValue) == 0x000000, "Member 'Synth2DSlider_GetValue::ReturnValue' has a wrong offset!");
-
 // Function Synthesis.GranularSynth.NoteOff
 // 0x0008 (0x0008 - 0x0000)
 struct GranularSynth_NoteOff final
@@ -1497,17 +1641,18 @@ static_assert(sizeof(GranularSynth_SetDecayTime) == 0x000004, "Wrong size on Gra
 static_assert(offsetof(GranularSynth_SetDecayTime, DecayTimeMsec) == 0x000000, "Member 'GranularSynth_SetDecayTime::DecayTimeMsec' has a wrong offset!");
 
 // Function Synthesis.GranularSynth.SetGrainDuration
-// 0x000C (0x000C - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct GranularSynth_SetGrainDuration final
 {
 public:
 	float                                         BaseDurationMsec;                                  // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              DurationRange;                                     // 0x0004(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              DurationRange;                                     // 0x0008(0x0010)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(GranularSynth_SetGrainDuration) == 0x000004, "Wrong alignment on GranularSynth_SetGrainDuration");
-static_assert(sizeof(GranularSynth_SetGrainDuration) == 0x00000C, "Wrong size on GranularSynth_SetGrainDuration");
+static_assert(alignof(GranularSynth_SetGrainDuration) == 0x000008, "Wrong alignment on GranularSynth_SetGrainDuration");
+static_assert(sizeof(GranularSynth_SetGrainDuration) == 0x000018, "Wrong size on GranularSynth_SetGrainDuration");
 static_assert(offsetof(GranularSynth_SetGrainDuration, BaseDurationMsec) == 0x000000, "Member 'GranularSynth_SetGrainDuration::BaseDurationMsec' has a wrong offset!");
-static_assert(offsetof(GranularSynth_SetGrainDuration, DurationRange) == 0x000004, "Member 'GranularSynth_SetGrainDuration::DurationRange' has a wrong offset!");
+static_assert(offsetof(GranularSynth_SetGrainDuration, DurationRange) == 0x000008, "Member 'GranularSynth_SetGrainDuration::DurationRange' has a wrong offset!");
 
 // Function Synthesis.GranularSynth.SetGrainEnvelopeType
 // 0x0001 (0x0001 - 0x0000)
@@ -1521,30 +1666,32 @@ static_assert(sizeof(GranularSynth_SetGrainEnvelopeType) == 0x000001, "Wrong siz
 static_assert(offsetof(GranularSynth_SetGrainEnvelopeType, EnvelopeType) == 0x000000, "Member 'GranularSynth_SetGrainEnvelopeType::EnvelopeType' has a wrong offset!");
 
 // Function Synthesis.GranularSynth.SetGrainPan
-// 0x000C (0x000C - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct GranularSynth_SetGrainPan final
 {
 public:
 	float                                         BasePan;                                           // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              PanRange;                                          // 0x0004(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              PanRange;                                          // 0x0008(0x0010)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(GranularSynth_SetGrainPan) == 0x000004, "Wrong alignment on GranularSynth_SetGrainPan");
-static_assert(sizeof(GranularSynth_SetGrainPan) == 0x00000C, "Wrong size on GranularSynth_SetGrainPan");
+static_assert(alignof(GranularSynth_SetGrainPan) == 0x000008, "Wrong alignment on GranularSynth_SetGrainPan");
+static_assert(sizeof(GranularSynth_SetGrainPan) == 0x000018, "Wrong size on GranularSynth_SetGrainPan");
 static_assert(offsetof(GranularSynth_SetGrainPan, BasePan) == 0x000000, "Member 'GranularSynth_SetGrainPan::BasePan' has a wrong offset!");
-static_assert(offsetof(GranularSynth_SetGrainPan, PanRange) == 0x000004, "Member 'GranularSynth_SetGrainPan::PanRange' has a wrong offset!");
+static_assert(offsetof(GranularSynth_SetGrainPan, PanRange) == 0x000008, "Member 'GranularSynth_SetGrainPan::PanRange' has a wrong offset!");
 
 // Function Synthesis.GranularSynth.SetGrainPitch
-// 0x000C (0x000C - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct GranularSynth_SetGrainPitch final
 {
 public:
 	float                                         BasePitch;                                         // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              PitchRange;                                        // 0x0004(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              PitchRange;                                        // 0x0008(0x0010)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(GranularSynth_SetGrainPitch) == 0x000004, "Wrong alignment on GranularSynth_SetGrainPitch");
-static_assert(sizeof(GranularSynth_SetGrainPitch) == 0x00000C, "Wrong size on GranularSynth_SetGrainPitch");
+static_assert(alignof(GranularSynth_SetGrainPitch) == 0x000008, "Wrong alignment on GranularSynth_SetGrainPitch");
+static_assert(sizeof(GranularSynth_SetGrainPitch) == 0x000018, "Wrong size on GranularSynth_SetGrainPitch");
 static_assert(offsetof(GranularSynth_SetGrainPitch, BasePitch) == 0x000000, "Member 'GranularSynth_SetGrainPitch::BasePitch' has a wrong offset!");
-static_assert(offsetof(GranularSynth_SetGrainPitch, PitchRange) == 0x000004, "Member 'GranularSynth_SetGrainPitch::PitchRange' has a wrong offset!");
+static_assert(offsetof(GranularSynth_SetGrainPitch, PitchRange) == 0x000008, "Member 'GranularSynth_SetGrainPitch::PitchRange' has a wrong offset!");
 
 // Function Synthesis.GranularSynth.SetGrainProbability
 // 0x0004 (0x0004 - 0x0000)
@@ -1569,17 +1716,18 @@ static_assert(sizeof(GranularSynth_SetGrainsPerSecond) == 0x000004, "Wrong size 
 static_assert(offsetof(GranularSynth_SetGrainsPerSecond, InGrainsPerSecond) == 0x000000, "Member 'GranularSynth_SetGrainsPerSecond::InGrainsPerSecond' has a wrong offset!");
 
 // Function Synthesis.GranularSynth.SetGrainVolume
-// 0x000C (0x000C - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct GranularSynth_SetGrainVolume final
 {
 public:
 	float                                         BaseVolume;                                        // 0x0000(0x0004)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              VolumeRange;                                       // 0x0004(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector2D                              VolumeRange;                                       // 0x0008(0x0010)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(GranularSynth_SetGrainVolume) == 0x000004, "Wrong alignment on GranularSynth_SetGrainVolume");
-static_assert(sizeof(GranularSynth_SetGrainVolume) == 0x00000C, "Wrong size on GranularSynth_SetGrainVolume");
+static_assert(alignof(GranularSynth_SetGrainVolume) == 0x000008, "Wrong alignment on GranularSynth_SetGrainVolume");
+static_assert(sizeof(GranularSynth_SetGrainVolume) == 0x000018, "Wrong size on GranularSynth_SetGrainVolume");
 static_assert(offsetof(GranularSynth_SetGrainVolume, BaseVolume) == 0x000000, "Member 'GranularSynth_SetGrainVolume::BaseVolume' has a wrong offset!");
-static_assert(offsetof(GranularSynth_SetGrainVolume, VolumeRange) == 0x000004, "Member 'GranularSynth_SetGrainVolume::VolumeRange' has a wrong offset!");
+static_assert(offsetof(GranularSynth_SetGrainVolume, VolumeRange) == 0x000008, "Member 'GranularSynth_SetGrainVolume::VolumeRange' has a wrong offset!");
 
 // Function Synthesis.GranularSynth.SetPlaybackSpeed
 // 0x0004 (0x0004 - 0x0000)
@@ -1635,7 +1783,7 @@ static_assert(offsetof(GranularSynth_SetScrubMode, bScrubMode) == 0x000000, "Mem
 struct GranularSynth_SetSoundWave final
 {
 public:
-	class USoundWave*                             InSoundWave;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USoundWave*                             InSoundWave;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(GranularSynth_SetSoundWave) == 0x000008, "Wrong alignment on GranularSynth_SetSoundWave");
 static_assert(sizeof(GranularSynth_SetSoundWave) == 0x000008, "Wrong size on GranularSynth_SetSoundWave");
@@ -2261,7 +2409,7 @@ static_assert(offsetof(SynthSamplePlayer_SetScrubTimeWidth, InScrubTimeWidthSec)
 struct SynthSamplePlayer_SetSoundWave final
 {
 public:
-	class USoundWave*                             InSoundWave;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class USoundWave*                             InSoundWave;                                       // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(SynthSamplePlayer_SetSoundWave) == 0x000008, "Wrong alignment on SynthSamplePlayer_SetSoundWave");
 static_assert(sizeof(SynthSamplePlayer_SetSoundWave) == 0x000008, "Wrong size on SynthSamplePlayer_SetSoundWave");
@@ -2352,6 +2500,72 @@ static_assert(offsetof(SynthesisUtilitiesBlueprintFunctionLibrary_GetLogFrequenc
 static_assert(offsetof(SynthesisUtilitiesBlueprintFunctionLibrary_GetLogFrequency, InRangeMin) == 0x00000C, "Member 'SynthesisUtilitiesBlueprintFunctionLibrary_GetLogFrequency::InRangeMin' has a wrong offset!");
 static_assert(offsetof(SynthesisUtilitiesBlueprintFunctionLibrary_GetLogFrequency, InRangeMax) == 0x000010, "Member 'SynthesisUtilitiesBlueprintFunctionLibrary_GetLogFrequency::InRangeMax' has a wrong offset!");
 static_assert(offsetof(SynthesisUtilitiesBlueprintFunctionLibrary_GetLogFrequency, ReturnValue) == 0x000014, "Member 'SynthesisUtilitiesBlueprintFunctionLibrary_GetLogFrequency::ReturnValue' has a wrong offset!");
+
+// Function Synthesis.Synth2DSlider.SetIndentHandle
+// 0x0001 (0x0001 - 0x0000)
+struct Synth2DSlider_SetIndentHandle final
+{
+public:
+	bool                                          InValue;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Synth2DSlider_SetIndentHandle) == 0x000001, "Wrong alignment on Synth2DSlider_SetIndentHandle");
+static_assert(sizeof(Synth2DSlider_SetIndentHandle) == 0x000001, "Wrong size on Synth2DSlider_SetIndentHandle");
+static_assert(offsetof(Synth2DSlider_SetIndentHandle, InValue) == 0x000000, "Member 'Synth2DSlider_SetIndentHandle::InValue' has a wrong offset!");
+
+// Function Synthesis.Synth2DSlider.SetLocked
+// 0x0001 (0x0001 - 0x0000)
+struct Synth2DSlider_SetLocked final
+{
+public:
+	bool                                          InValue;                                           // 0x0000(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Synth2DSlider_SetLocked) == 0x000001, "Wrong alignment on Synth2DSlider_SetLocked");
+static_assert(sizeof(Synth2DSlider_SetLocked) == 0x000001, "Wrong size on Synth2DSlider_SetLocked");
+static_assert(offsetof(Synth2DSlider_SetLocked, InValue) == 0x000000, "Member 'Synth2DSlider_SetLocked::InValue' has a wrong offset!");
+
+// Function Synthesis.Synth2DSlider.SetSliderHandleColor
+// 0x0010 (0x0010 - 0x0000)
+struct Synth2DSlider_SetSliderHandleColor final
+{
+public:
+	struct FLinearColor                           InValue;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Synth2DSlider_SetSliderHandleColor) == 0x000004, "Wrong alignment on Synth2DSlider_SetSliderHandleColor");
+static_assert(sizeof(Synth2DSlider_SetSliderHandleColor) == 0x000010, "Wrong size on Synth2DSlider_SetSliderHandleColor");
+static_assert(offsetof(Synth2DSlider_SetSliderHandleColor, InValue) == 0x000000, "Member 'Synth2DSlider_SetSliderHandleColor::InValue' has a wrong offset!");
+
+// Function Synthesis.Synth2DSlider.SetStepSize
+// 0x0004 (0x0004 - 0x0000)
+struct Synth2DSlider_SetStepSize final
+{
+public:
+	float                                         InValue;                                           // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Synth2DSlider_SetStepSize) == 0x000004, "Wrong alignment on Synth2DSlider_SetStepSize");
+static_assert(sizeof(Synth2DSlider_SetStepSize) == 0x000004, "Wrong size on Synth2DSlider_SetStepSize");
+static_assert(offsetof(Synth2DSlider_SetStepSize, InValue) == 0x000000, "Member 'Synth2DSlider_SetStepSize::InValue' has a wrong offset!");
+
+// Function Synthesis.Synth2DSlider.SetValue
+// 0x0010 (0x0010 - 0x0000)
+struct Synth2DSlider_SetValue final
+{
+public:
+	struct FVector2D                              InValue;                                           // 0x0000(0x0010)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Synth2DSlider_SetValue) == 0x000008, "Wrong alignment on Synth2DSlider_SetValue");
+static_assert(sizeof(Synth2DSlider_SetValue) == 0x000010, "Wrong size on Synth2DSlider_SetValue");
+static_assert(offsetof(Synth2DSlider_SetValue, InValue) == 0x000000, "Member 'Synth2DSlider_SetValue::InValue' has a wrong offset!");
+
+// Function Synthesis.Synth2DSlider.GetValue
+// 0x0010 (0x0010 - 0x0000)
+struct Synth2DSlider_GetValue final
+{
+public:
+	struct FVector2D                              ReturnValue;                                       // 0x0000(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(Synth2DSlider_GetValue) == 0x000008, "Wrong alignment on Synth2DSlider_GetValue");
+static_assert(sizeof(Synth2DSlider_GetValue) == 0x000010, "Wrong size on Synth2DSlider_GetValue");
+static_assert(offsetof(Synth2DSlider_GetValue, ReturnValue) == 0x000000, "Member 'Synth2DSlider_GetValue::ReturnValue' has a wrong offset!");
 
 // Function Synthesis.SynthKnob.SetLocked
 // 0x0001 (0x0001 - 0x0000)

@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // Class StaticMeshDescription.StaticMeshDescription
-// 0x0000 (0x0390 - 0x0390)
+// 0x0000 (0x02F8 - 0x02F8)
 class UStaticMeshDescription final : public UMeshDescriptionBase
 {
 public:
@@ -38,7 +38,7 @@ public:
 	}
 };
 static_assert(alignof(UStaticMeshDescription) == 0x000008, "Wrong alignment on UStaticMeshDescription");
-static_assert(sizeof(UStaticMeshDescription) == 0x000390, "Wrong size on UStaticMeshDescription");
+static_assert(sizeof(UStaticMeshDescription) == 0x0002F8, "Wrong size on UStaticMeshDescription");
 
 }
 

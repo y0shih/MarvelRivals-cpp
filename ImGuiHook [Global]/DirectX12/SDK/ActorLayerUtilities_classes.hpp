@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // Class ActorLayerUtilities.LayersBlueprintLibrary
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class ULayersBlueprintLibrary final : public UBlueprintFunctionLibrary
 {
 public:
@@ -36,7 +36,7 @@ public:
 	}
 };
 static_assert(alignof(ULayersBlueprintLibrary) == 0x000008, "Wrong alignment on ULayersBlueprintLibrary");
-static_assert(sizeof(ULayersBlueprintLibrary) == 0x000028, "Wrong size on ULayersBlueprintLibrary");
+static_assert(sizeof(ULayersBlueprintLibrary) == 0x000030, "Wrong size on ULayersBlueprintLibrary");
 
 }
 

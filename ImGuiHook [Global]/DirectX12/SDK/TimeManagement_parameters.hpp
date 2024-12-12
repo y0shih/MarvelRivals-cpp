@@ -59,6 +59,19 @@ static_assert(sizeof(TimeManagementBlueprintLibrary_Conv_FrameNumberToInteger) =
 static_assert(offsetof(TimeManagementBlueprintLibrary_Conv_FrameNumberToInteger, InFrameNumber) == 0x000000, "Member 'TimeManagementBlueprintLibrary_Conv_FrameNumberToInteger::InFrameNumber' has a wrong offset!");
 static_assert(offsetof(TimeManagementBlueprintLibrary_Conv_FrameNumberToInteger, ReturnValue) == 0x000004, "Member 'TimeManagementBlueprintLibrary_Conv_FrameNumberToInteger::ReturnValue' has a wrong offset!");
 
+// Function TimeManagement.TimeManagementBlueprintLibrary.Conv_FrameRateToInterval
+// 0x000C (0x000C - 0x0000)
+struct TimeManagementBlueprintLibrary_Conv_FrameRateToInterval final
+{
+public:
+	struct FFrameRate                             InFrameRate;                                       // 0x0000(0x0008)(ConstParm, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         ReturnValue;                                       // 0x0008(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(TimeManagementBlueprintLibrary_Conv_FrameRateToInterval) == 0x000004, "Wrong alignment on TimeManagementBlueprintLibrary_Conv_FrameRateToInterval");
+static_assert(sizeof(TimeManagementBlueprintLibrary_Conv_FrameRateToInterval) == 0x00000C, "Wrong size on TimeManagementBlueprintLibrary_Conv_FrameRateToInterval");
+static_assert(offsetof(TimeManagementBlueprintLibrary_Conv_FrameRateToInterval, InFrameRate) == 0x000000, "Member 'TimeManagementBlueprintLibrary_Conv_FrameRateToInterval::InFrameRate' has a wrong offset!");
+static_assert(offsetof(TimeManagementBlueprintLibrary_Conv_FrameRateToInterval, ReturnValue) == 0x000008, "Member 'TimeManagementBlueprintLibrary_Conv_FrameRateToInterval::ReturnValue' has a wrong offset!");
+
 // Function TimeManagement.TimeManagementBlueprintLibrary.Conv_FrameRateToSeconds
 // 0x000C (0x000C - 0x0000)
 struct TimeManagementBlueprintLibrary_Conv_FrameRateToSeconds final

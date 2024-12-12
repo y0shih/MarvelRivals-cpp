@@ -43,7 +43,7 @@ static_assert(offsetof(MovieSceneCaptureProtocolBase_IsCapturing, ReturnValue) =
 struct MovieSceneCapture_GetAudioCaptureProtocol final
 {
 public:
-	class UMovieSceneCaptureProtocolBase*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMovieSceneCaptureProtocolBase*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MovieSceneCapture_GetAudioCaptureProtocol) == 0x000008, "Wrong alignment on MovieSceneCapture_GetAudioCaptureProtocol");
 static_assert(sizeof(MovieSceneCapture_GetAudioCaptureProtocol) == 0x000008, "Wrong size on MovieSceneCapture_GetAudioCaptureProtocol");
@@ -54,7 +54,7 @@ static_assert(offsetof(MovieSceneCapture_GetAudioCaptureProtocol, ReturnValue) =
 struct MovieSceneCapture_GetImageCaptureProtocol final
 {
 public:
-	class UMovieSceneCaptureProtocolBase*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMovieSceneCaptureProtocolBase*         ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MovieSceneCapture_GetImageCaptureProtocol) == 0x000008, "Wrong alignment on MovieSceneCapture_GetImageCaptureProtocol");
 static_assert(sizeof(MovieSceneCapture_GetImageCaptureProtocol) == 0x000008, "Wrong size on MovieSceneCapture_GetImageCaptureProtocol");
@@ -65,7 +65,7 @@ static_assert(offsetof(MovieSceneCapture_GetImageCaptureProtocol, ReturnValue) =
 struct MovieSceneCapture_SetAudioCaptureProtocolType final
 {
 public:
-	TSubclassOf<class UMovieSceneCaptureProtocolBase> ProtocolType;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UMovieSceneCaptureProtocolBase> ProtocolType;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MovieSceneCapture_SetAudioCaptureProtocolType) == 0x000008, "Wrong alignment on MovieSceneCapture_SetAudioCaptureProtocolType");
 static_assert(sizeof(MovieSceneCapture_SetAudioCaptureProtocolType) == 0x000008, "Wrong size on MovieSceneCapture_SetAudioCaptureProtocolType");
@@ -76,7 +76,7 @@ static_assert(offsetof(MovieSceneCapture_SetAudioCaptureProtocolType, ProtocolTy
 struct MovieSceneCapture_SetImageCaptureProtocolType final
 {
 public:
-	TSubclassOf<class UMovieSceneCaptureProtocolBase> ProtocolType;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class UMovieSceneCaptureProtocolBase> ProtocolType;                                      // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MovieSceneCapture_SetImageCaptureProtocolType) == 0x000008, "Wrong alignment on MovieSceneCapture_SetImageCaptureProtocolType");
 static_assert(sizeof(MovieSceneCapture_SetImageCaptureProtocolType) == 0x000008, "Wrong size on MovieSceneCapture_SetImageCaptureProtocolType");
@@ -87,7 +87,7 @@ static_assert(offsetof(MovieSceneCapture_SetImageCaptureProtocolType, ProtocolTy
 struct MovieSceneCaptureEnvironment_FindAudioCaptureProtocol final
 {
 public:
-	class UMovieSceneAudioCaptureProtocolBase*    ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMovieSceneAudioCaptureProtocolBase*    ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MovieSceneCaptureEnvironment_FindAudioCaptureProtocol) == 0x000008, "Wrong alignment on MovieSceneCaptureEnvironment_FindAudioCaptureProtocol");
 static_assert(sizeof(MovieSceneCaptureEnvironment_FindAudioCaptureProtocol) == 0x000008, "Wrong size on MovieSceneCaptureEnvironment_FindAudioCaptureProtocol");
@@ -98,7 +98,7 @@ static_assert(offsetof(MovieSceneCaptureEnvironment_FindAudioCaptureProtocol, Re
 struct MovieSceneCaptureEnvironment_FindImageCaptureProtocol final
 {
 public:
-	class UMovieSceneImageCaptureProtocolBase*    ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UMovieSceneImageCaptureProtocolBase*    ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(MovieSceneCaptureEnvironment_FindImageCaptureProtocol) == 0x000008, "Wrong alignment on MovieSceneCaptureEnvironment_FindImageCaptureProtocol");
 static_assert(sizeof(MovieSceneCaptureEnvironment_FindImageCaptureProtocol) == 0x000008, "Wrong size on MovieSceneCaptureEnvironment_FindImageCaptureProtocol");
@@ -168,7 +168,7 @@ static_assert(offsetof(UserDefinedCaptureProtocol_OnSetup, ReturnValue) == 0x000
 struct UserDefinedCaptureProtocol_ResolveBuffer final
 {
 public:
-	class UTexture*                               Buffer;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTexture*                               Buffer;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FCapturedPixelsID                      BufferID;                                          // 0x0008(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(UserDefinedCaptureProtocol_ResolveBuffer) == 0x000008, "Wrong alignment on UserDefinedCaptureProtocol_ResolveBuffer");
@@ -227,7 +227,7 @@ static_assert(offsetof(UserDefinedCaptureProtocol_OnCanFinalize, ReturnValue) ==
 struct UserDefinedImageCaptureProtocol_GenerateFilenameForBuffer final
 {
 public:
-	class UTexture*                               Buffer;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UTexture*                               Buffer;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	struct FCapturedPixelsID                      StreamID;                                          // 0x0008(0x0050)(ConstParm, Parm, OutParm, ReferenceParm, NativeAccessSpecifierPublic)
 	class FString                                 ReturnValue;                                       // 0x0058(0x0010)(Parm, OutParm, ZeroConstructor, ReturnParm, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };

@@ -11,31 +11,78 @@
 #include "Basic.hpp"
 
 #include "CoreUObject_classes.hpp"
+#include "Engine_classes.hpp"
 
 
 namespace SDK
 {
 
-// Class AudioAnalyzer.AudioAnalyzerAsset
-// 0x0000 (0x0028 - 0x0028)
-class UAudioAnalyzerAsset : public UObject
+// Class AudioAnalyzer.AudioAnalyzerAssetBase
+// 0x0000 (0x0030 - 0x0030)
+class UAudioAnalyzerAssetBase : public UObject
 {
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"AudioAnalyzerAsset">();
+		return StaticClassImpl<"AudioAnalyzerAssetBase">();
 	}
-	static class UAudioAnalyzerAsset* GetDefaultObj()
+	static class UAudioAnalyzerAssetBase* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UAudioAnalyzerAsset>();
+		return GetDefaultObjImpl<UAudioAnalyzerAssetBase>();
 	}
 };
-static_assert(alignof(UAudioAnalyzerAsset) == 0x000008, "Wrong alignment on UAudioAnalyzerAsset");
-static_assert(sizeof(UAudioAnalyzerAsset) == 0x000028, "Wrong size on UAudioAnalyzerAsset");
+static_assert(alignof(UAudioAnalyzerAssetBase) == 0x000008, "Wrong alignment on UAudioAnalyzerAssetBase");
+static_assert(sizeof(UAudioAnalyzerAssetBase) == 0x000030, "Wrong size on UAudioAnalyzerAssetBase");
+
+// Class AudioAnalyzer.AudioAnalyzerSettings
+// 0x0000 (0x0030 - 0x0030)
+class UAudioAnalyzerSettings : public UAudioAnalyzerAssetBase
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"AudioAnalyzerSettings">();
+	}
+	static class UAudioAnalyzerSettings* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAudioAnalyzerSettings>();
+	}
+};
+static_assert(alignof(UAudioAnalyzerSettings) == 0x000008, "Wrong alignment on UAudioAnalyzerSettings");
+static_assert(sizeof(UAudioAnalyzerSettings) == 0x000030, "Wrong size on UAudioAnalyzerSettings");
+
+// Class AudioAnalyzer.AudioAnalyzer
+// 0x0068 (0x0098 - 0x0030)
+class UAudioAnalyzer : public UObject
+{
+public:
+	class UAudioBus*                              AudioBus;                                          // 0x0030(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_38[0x8];                                       // 0x0038(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	class UAudioAnalyzerSubsystem*                AudioAnalyzerSubsystem;                            // 0x0040(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_48[0x50];                                      // 0x0048(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	void StartAnalyzing(const class UObject* WorldContextObject, class UAudioBus* AudioBusToAnalyze);
+	void StopAnalyzing(const class UObject* WorldContextObject);
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"AudioAnalyzer">();
+	}
+	static class UAudioAnalyzer* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAudioAnalyzer>();
+	}
+};
+static_assert(alignof(UAudioAnalyzer) == 0x000008, "Wrong alignment on UAudioAnalyzer");
+static_assert(sizeof(UAudioAnalyzer) == 0x000098, "Wrong size on UAudioAnalyzer");
+static_assert(offsetof(UAudioAnalyzer, AudioBus) == 0x000030, "Member 'UAudioAnalyzer::AudioBus' has a wrong offset!");
+static_assert(offsetof(UAudioAnalyzer, AudioAnalyzerSubsystem) == 0x000040, "Member 'UAudioAnalyzer::AudioAnalyzerSubsystem' has a wrong offset!");
 
 // Class AudioAnalyzer.AudioAnalyzerNRTSettings
-// 0x0000 (0x0028 - 0x0028)
-class UAudioAnalyzerNRTSettings : public UAudioAnalyzerAsset
+// 0x0000 (0x0030 - 0x0030)
+class UAudioAnalyzerNRTSettings : public UAudioAnalyzerAssetBase
 {
 public:
 	static class UClass* StaticClass()
@@ -48,16 +95,16 @@ public:
 	}
 };
 static_assert(alignof(UAudioAnalyzerNRTSettings) == 0x000008, "Wrong alignment on UAudioAnalyzerNRTSettings");
-static_assert(sizeof(UAudioAnalyzerNRTSettings) == 0x000028, "Wrong size on UAudioAnalyzerNRTSettings");
+static_assert(sizeof(UAudioAnalyzerNRTSettings) == 0x000030, "Wrong size on UAudioAnalyzerNRTSettings");
 
 // Class AudioAnalyzer.AudioAnalyzerNRT
-// 0x0050 (0x0078 - 0x0028)
-class UAudioAnalyzerNRT : public UAudioAnalyzerAsset
+// 0x0050 (0x0080 - 0x0030)
+class UAudioAnalyzerNRT : public UAudioAnalyzerAssetBase
 {
 public:
-	class USoundWave*                             Sound;                                             // 0x0028(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         DurationInSeconds;                                 // 0x0030(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_34[0x44];                                      // 0x0034(0x0044)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class USoundWave*                             Sound;                                             // 0x0030(0x0008)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         DurationInSeconds;                                 // 0x0038(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x44];                                      // 0x003C(0x0044)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -70,9 +117,31 @@ public:
 	}
 };
 static_assert(alignof(UAudioAnalyzerNRT) == 0x000008, "Wrong alignment on UAudioAnalyzerNRT");
-static_assert(sizeof(UAudioAnalyzerNRT) == 0x000078, "Wrong size on UAudioAnalyzerNRT");
-static_assert(offsetof(UAudioAnalyzerNRT, Sound) == 0x000028, "Member 'UAudioAnalyzerNRT::Sound' has a wrong offset!");
-static_assert(offsetof(UAudioAnalyzerNRT, DurationInSeconds) == 0x000030, "Member 'UAudioAnalyzerNRT::DurationInSeconds' has a wrong offset!");
+static_assert(sizeof(UAudioAnalyzerNRT) == 0x000080, "Wrong size on UAudioAnalyzerNRT");
+static_assert(offsetof(UAudioAnalyzerNRT, Sound) == 0x000030, "Member 'UAudioAnalyzerNRT::Sound' has a wrong offset!");
+static_assert(offsetof(UAudioAnalyzerNRT, DurationInSeconds) == 0x000038, "Member 'UAudioAnalyzerNRT::DurationInSeconds' has a wrong offset!");
+
+// Class AudioAnalyzer.AudioAnalyzerSubsystem
+// 0x0020 (0x0058 - 0x0038)
+class UAudioAnalyzerSubsystem final : public UEngineSubsystem
+{
+public:
+	TArray<class UAudioAnalyzer*>                 AudioAnalyzers;                                    // 0x0038(0x0010)(ZeroConstructor, Transient, UObjectWrapper, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_48[0x10];                                      // 0x0048(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"AudioAnalyzerSubsystem">();
+	}
+	static class UAudioAnalyzerSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UAudioAnalyzerSubsystem>();
+	}
+};
+static_assert(alignof(UAudioAnalyzerSubsystem) == 0x000008, "Wrong alignment on UAudioAnalyzerSubsystem");
+static_assert(sizeof(UAudioAnalyzerSubsystem) == 0x000058, "Wrong size on UAudioAnalyzerSubsystem");
+static_assert(offsetof(UAudioAnalyzerSubsystem, AudioAnalyzers) == 0x000038, "Member 'UAudioAnalyzerSubsystem::AudioAnalyzers' has a wrong offset!");
 
 }
 

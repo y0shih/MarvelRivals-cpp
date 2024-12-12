@@ -10,7 +10,7 @@
 #include "SDK/CoreUObject_classes.hpp"
 #include "SDK.hpp"
 #include <fstream>  
-#include "SDK/Flame_classes.hpp"
+
 #include <locale>
 #include <codecvt>
 #include <string>
@@ -18,9 +18,13 @@
 #pragma comment(lib,"libMinHook.x64.lib")
 
 #include <MinHook.h>
+#include "detours.h"
+
+// Link the appropriate Detours library (.lib file)
+#pragma comment(lib, "detours.lib")
 
 
-
+bool bDrawFov = false;
 
 
 inline SDK::FName StrToName(std::string str)
@@ -35,19 +39,19 @@ inline SDK::FName StrCToName(const wchar_t* str)
     return SDK::UKismetStringLibrary::Conv_StringToName(SDK::FString(TEXT(str)));
 }
 struct Colors {
-    static const ImColor Black; 
-    static const ImColor Green; 
+    static const ImColor Black;
+    static const ImColor Green;
 };
 
-const ImColor Colors::Black = ImColor(0, 0, 0); 
-const ImColor Colors::Green = ImColor(0, 255, 0, 255); 
+const ImColor Colors::Black = ImColor(0, 0, 0);
+const ImColor Colors::Green = ImColor(0, 255, 0, 255);
 
 static bool drawBones = false;
 
 
 inline void DrawLine(ImVec2 A, ImVec2 B, ImColor color, bool outline = true, float t = 1.f)
 {
-    ImDrawList* draw_list = ImGui::GetForegroundDrawList(); 
+    ImDrawList* draw_list = ImGui::GetForegroundDrawList();
     if (!outline)
         draw_list->AddLine(A, B, color, t);
     else
@@ -70,94 +74,58 @@ bool WorldToScreen(const SDK::FVector& worldLoc, SDK::FVector2D* screenPos)
 }
 
 
-void ToggleInfiniteAmmo(SDK::AHumanPlayerCharacter* LocalCharacter)
-{
-    if (!LocalCharacter) return;  
-      LocalCharacter->ServerToggleInfiniteAmmo();  
-   
-}
 
 
+#include <sstream>  // For std::ostringstream
+#include <fstream>  // For std::ofstream
+#include <cstdarg>  // For va_list, va_start, va_end
+#include <filesystem>
 
-void LogMessage(const std::string& message) {
-   
-    std::ofstream log_file("aimbot_log.txt", std::ios::app);
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <filesystem>
+#include <cstdarg>
+#include <cstring>
+
+void LogMessage(const char* format, ...) {
+    std::ostringstream oss;
+
+    va_list args;
+    va_start(args, format);
+
+    char buffer[256];
+    vsnprintf(buffer, sizeof(buffer), format, args);
+    va_end(args);
+
+    oss << buffer;
+
+    std::filesystem::path log_file_path = "C:\\aimbot_log.txt"; // Set log file name and path
+
+    std::ofstream log_file(log_file_path, std::ios::app);
     if (log_file.is_open()) {
-        log_file << message << std::endl; 
+        log_file << oss.str() << std::endl;
     }
     else {
-        std::cerr << "Failed to open log file." << std::endl;
+        std::cerr << "Failed to open log file at C:\\" << std::endl;
     }
 }
 
-#include <vector>
-#include <string>
-
-struct BoneMapping {
-    std::string source;
-    std::string target;
-
-    
-    BoneMapping(const std::string& src, const std::string& tgt)
-        : source(src), target(tgt) {}
-
-    BoneMapping(const BoneMapping& other) = default;
-    BoneMapping& operator=(const BoneMapping& other) = default;
-};
-
-std::vector<BoneMapping> bones_map = {
-    BoneMapping("Root", "Hips"),
-    BoneMapping("Hips", "Spine"),
-    BoneMapping("Spine", "jigglebone_6"),
-    BoneMapping("jigglebone_6", "jigglebone_7"),
-    BoneMapping("jigglebone_7", "jigglebone_8"),
-    BoneMapping("jigglebone_8", "jigglebone_9"),
-    BoneMapping("Spine", "Spine1"),
-    BoneMapping("Spine1", "Spine2"),
-    BoneMapping("Spine2", "Spine3"),
-    BoneMapping("Spine3", "Spine4"),
-    BoneMapping("Spine4", "jigglebone_1"),
-    BoneMapping("jigglebone_1", "jigglebone_2"),
-    BoneMapping("jigglebone_2", "jigglebone_3"),
-    BoneMapping("jigglebone_3", "jigglebone_4"),
-    BoneMapping("jigglebone_4", "jigglebone_5"),
-    BoneMapping("Spine4", "Neck"),
-    BoneMapping("Neck", "Neck1"),
-    BoneMapping("Neck1", "Neck2"),
-    BoneMapping("Neck2", "Head"),
-    BoneMapping("Head", "jigglebone_22"),
-    BoneMapping("jigglebone_22", "jigglebone_23"),
-    BoneMapping("Spine1", "LeftShoulder")
-};
-
-std::string FindMappedBone(const std::string& bone_name)
-{
-   
-    for (const BoneMapping& bone : bones_map)
-    {
-        if (bone.source == bone_name)
-            return bone.target;
-    }
-    return "";  
-}
 
 
 
-
-
-
-SDK::AActor* closest_actor = nullptr; 
+SDK::AActor* closest_actor = nullptr;
 float aimbot_distance = 100.0f;
-SDK::FVector closest_actor_head; 
-SDK::FRotator closest_actor_rotation; 
+SDK::FVector closest_actor_head;
+SDK::FRotator closest_actor_rotation;
 float MaxDistance = 100.00f;
 SDK::UWorld* World = SDK::UWorld::GetWorld();
 SDK::ULevel* Level = World->PersistentLevel;
 SDK::APlayerController* MyController = World->OwningGameInstance->LocalPlayers.Num() > 0 ?
 World->OwningGameInstance->LocalPlayers[0]->PlayerController : nullptr;
-SDK::USkinnedMeshComponent* mesh = nullptr; 
-bool bAim = false; 
-bool bAimbotEnabled = false; 
+SDK::USkinnedMeshComponent* mesh = nullptr;
+bool bAim = false;
+bool bAimbotEnabled = false;
 bool bVisCheck = false;
 
 bool bTpToEnemies = false;
@@ -176,7 +144,7 @@ namespace gl {
     namespace Aimbot {
         bool Aimbot = false;
         float Fov = 50.0f;
-        
+
     }
 
     namespace Exploits {
@@ -213,23 +181,14 @@ std::string RotatorToString(const SDK::FRotator& rot)
 #include <chrono>
 std::vector<SDK::AActor*> PlayerSet;
 std::chrono::steady_clock::time_point LastUpdateTime;
-const std::chrono::duration<float> UpdateInterval = std::chrono::seconds(1); // Update every 1 second
-
-void SmoothAim(SDK::FRotator currentRotation, SDK::FRotator targetRotation, float smoothFactor)
-{
-    // Smooth transition between current and target rotation
-    const float deltaTime = 1.0f / 60.0f; // Assuming 60 FPS for now
-    SDK::FRotator smoothedRotation = SDK::UKismetMathLibrary::RInterpTo(currentRotation, targetRotation, deltaTime, smoothFactor);
-
-    MyController->SetControlRotation(smoothedRotation);
-}
+const std::chrono::duration<float> UpdateInterval = std::chrono::seconds(10); 
 
 void UpdatePlayerList()
 {
     auto CurrentTime = std::chrono::steady_clock::now();
     if (CurrentTime - LastUpdateTime < UpdateInterval)
     {
-        return; // Skip update if not enough time has passed
+        return; 
     }
 
     LastUpdateTime = CurrentTime;
@@ -239,7 +198,7 @@ void UpdatePlayerList()
     for (int i = 0; i < actors.Num(); i++)
     {
         SDK::AActor* actor = actors[i];
-        if (actor && actor->IsA(SDK::AHumanPlayerCharacter::StaticClass()))
+        if (actor && actor->IsA(SDK::AMarvelBaseCharacter::StaticClass()))
         {
             PlayerSet.push_back(actor);
         }
@@ -248,33 +207,23 @@ void UpdatePlayerList()
 
 
 
-
-void SetUnlimitedAmmo(SDK::AProjectileWeapon* Weapon)
+void SmoothAim(SDK::FRotator currentRotation, SDK::FRotator targetRotation, float smoothFactor)
 {
-    if (Weapon)
-    {
-        Weapon->CurrentAmmoCount = 1000;        // Set the current ammo to 1000
-        Weapon->ChamberLoadedAmmo = 1000;       // Set the chamber loaded ammo to 1000 as well
-        Weapon->MagazineSize = 1000;             // Optionally set the magazine size to 1000
-        Weapon->ChamberSize = 1000;              // Optionally set the chamber size to 1000
+    // Smooth transition between current and target rotation
+    const float deltaTime = 1.0f / 60.0f; // Assuming 60 FPS for now
+    SDK::FRotator smoothedRotation = SDK::UKismetMathLibrary::RInterpTo(currentRotation, targetRotation, deltaTime, smoothFactor);
 
-        // Notify clients about the ammo change if necessary
-        Weapon->OnRep_AmmoCount(Weapon->CurrentAmmoCount);
-        Weapon->OnRep_ChamberLoadedAmmoCount(Weapon->ChamberLoadedAmmo);
-    }
-}
-
-std::string WideCharToUTF8(const std::wstring& wstr)
-{
-    if (wstr.empty()) return std::string();
-    int sizeNeeded = WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL);
-    std::string strTo(sizeNeeded, 0);
-    WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), &strTo[0], sizeNeeded, NULL, NULL);
-    return strTo;
+    // Set the control rotation to the smoothed rotation
+    MyController->SetControlRotation(smoothedRotation);
 }
 
 
 
+
+
+
+
+void DrawESP();
 
 void GameLoop()
 {
@@ -283,6 +232,7 @@ void GameLoop()
 
     World = SDK::UWorld::GetWorld();
     SDK::UEngine* gEngine = SDK::UEngine::GetEngine();
+    
 
     if (!World)
     {
@@ -290,13 +240,11 @@ void GameLoop()
         return;
     }
 
-    // Initialize the last update time if not set yet
     if (LastUpdateTime.time_since_epoch().count() == 0)
     {
         LastUpdateTime = std::chrono::steady_clock::now();
     }
 
-    // Update the player list periodically
     UpdatePlayerList();
 
     if (PlayerSet.size() == 0)
@@ -312,148 +260,40 @@ void GameLoop()
         return;
     }
 
-    // Process the PlayerSet for aimbot 
-
-    float MaxDistance = FLT_MAX;
     SDK::AActor* closest_actor = nullptr;
     SDK::FRotator closest_actor_rotation{};
     SDK::FVector closest_actor_head{};
+    float MaxDistance = FLT_MAX;
 
-    for (int i = 0; i < PlayerSet.size(); i++)
+    // Iterate through all players
+    for (SDK::AActor* actor : PlayerSet)
     {
-        SDK::AActor* actor = PlayerSet[i];
         if (!actor || !actor->RootComponent) continue;
 
-        SDK::AHumanPlayerCharacter* humanCharacter = static_cast<SDK::AHumanPlayerCharacter*>(actor);
+        SDK::AMarvelBaseCharacter* humanCharacter = static_cast<SDK::AMarvelBaseCharacter*>(actor);
         if (!humanCharacter) continue;
 
-        auto ActorState = humanCharacter->PlayerState;
-
-        if (!MyController->PlayerCameraManager)
-        {
-            LogMessage("PlayerCameraManager is null");
-            continue;
-        }
-
-        auto CameraLocation = MyController->PlayerCameraManager->GetCameraLocation();
-        auto CameraRotation = MyController->PlayerCameraManager->GetCameraRotation();
-
-        auto LocalCharacter = reinterpret_cast<SDK::AHumanPlayerCharacter*>(MyController->Character);
-        auto CharacterMovement = LocalCharacter->CharacterMovement;
-
-        // Exploits handling
-        if (gl::Exploits::SuperSpeed)
-        {
-            if (LocalCharacter) {
-                SDK::AWeapon* CurrentWeapon = static_cast<SDK::AWeapon*>(LocalCharacter->Inventory->CurrentWeapon.Get());
-                // Ensure CurrentWeapon is valid and of type AProjectileWeapon
-                if (CurrentWeapon) {
-                    // Attempt to cast CurrentWeapon to AProjectileWeapon
-                    SDK::AProjectileWeapon* ProjectileWeapon = static_cast<SDK::AProjectileWeapon*>(CurrentWeapon);
-                    // Check if the cast was successful
-                    if (ProjectileWeapon) {
-                        SDK::FVector_NetQuantize BulletLocation = static_cast<SDK::FVector_NetQuantize>(closest_actor_head);
-                        SDK::TArray<SDK::FVector_NetQuantizeNormal> BulletDirections;
-
-                        // Create an instance of FVector_NetQuantizeNormal and set its values
-                        SDK::FVector_NetQuantizeNormal direction;
-                        direction.X = 1.0f;
-                        direction.Y = 1.0f;
-                        direction.Z = 1.0f;
-                        BulletDirections.Add(direction);
-
-                        // Call the multicast function on the ProjectileWeapon instance
-                        ProjectileWeapon->MulticastFireBullet(BulletLocation, BulletDirections, true);
-                    }
-                }
-            }
-
-
-
-        }
-
-
-      
-
-
-
-
-        if (gl::Exploits::FastAcceleration)
-        {
-
-
-            LocalCharacter->StaminaComponent->Stamina = 9999999.0f;
-            LocalCharacter->bBulletTrajectoryBlocked = false;
-
-
-
-        }
-
-        if (gl::Exploits::AddHealth) {
-            float Amount = 30.00f;
-      
-        }
-
-
-
-            if (gl::Exploits::GodModee)
-            {
-                LocalCharacter->HealthComponent->SetTemporaryInvincibility(90);
-            }
-
-
-        if (gl::Exploits::Ammo)
-        {
-            if (LocalCharacter && LocalCharacter->Inventory)
-            {
-                SDK::AWeapon* CurrentWeapon = static_cast<SDK::AWeapon*>(LocalCharacter->Inventory->CurrentWeapon.Get());
-                if (CurrentWeapon)
-                {
-                    int AmmoCount = LocalCharacter->Inventory->GetAmmoCountForWeapon(CurrentWeapon);
-
-                    // Use static_cast here
-                    if (SDK::AProjectileWeapon* ProjectileWeapon = static_cast<SDK::AProjectileWeapon*>(CurrentWeapon))
-                    {
-                        ProjectileWeapon->CurrentAmmoCount = 1000;  
-                        ProjectileWeapon->ChamberLoadedAmmo = 1000;       
-                        ProjectileWeapon->MagazineSize = 1000;             
-                        ProjectileWeapon->ChamberSize = 1000;
-
-                    }
-                }
-            }
-        }
-
-
-
-
-
-
-
-        auto LocalPos = LocalCharacter->RootComponent->RelativeLocation;
-        auto mesh = humanCharacter->Mesh;
-        SDK::FVector location = humanCharacter->RootComponent->RelativeLocation;
-        float ActorDistance = LocalPos.GetDistanceToInMeters(location);
-
+        auto mesh = humanCharacter->GetMesh();
         SDK::FVector head_bone_pos = mesh->GetSocketLocation(StrToName("Head"));
         SDK::FVector feet_bone_pos = mesh->GetSocketLocation(StrToName("Leg"));
-        SDK::FVector feet_middle_pos = { location.X, location.Y, feet_bone_pos.Z };
+        SDK::FVector feet_middle_pos = { feet_bone_pos.X, feet_bone_pos.Y, head_bone_pos.Z };
 
         SDK::FVector2D Bottom{}, Top{};
-        if (MyController->ProjectWorldLocationToScreen(feet_middle_pos, &Bottom, false) &&
-            MyController->ProjectWorldLocationToScreen(head_bone_pos, &Top, false))
+        if (MyController->ProjectWorldLocationToScreen(feet_middle_pos, &Bottom, true) &&
+            MyController->ProjectWorldLocationToScreen(head_bone_pos, &Top,true ))
         {
             const float h = std::abs(Top.Y - Bottom.Y);
             const float w = h * 0.2f;
 
             if (gl::Aimbot::Aimbot)
             {
+                SDK::FVector CameraLocation = MyController->PlayerCameraManager->GetCameraLocation();
+                SDK::FRotator rot = SDK::UKismetMathLibrary::FindLookAtRotation(CameraLocation, head_bone_pos);
 
-                auto rot = SDK::UKismetMathLibrary::FindLookAtRotation(CameraLocation, head_bone_pos);
-                SDK::FVector2D screen_middle = { 2650 / 2, 1080 / 2 };
+                SDK::FVector2D screen_middle = { 1920 / 2, 1080 / 2 };
                 float aimbot_distance = SDK::UKismetMathLibrary::Distance2D(Top, screen_middle);
 
-                if (aimbot_distance < MaxDistance && aimbot_distance)
+                if (aimbot_distance < MaxDistance)
                 {
                     MaxDistance = aimbot_distance;
                     closest_actor = actor;
@@ -466,171 +306,51 @@ void GameLoop()
 
     if (closest_actor && gl::Aimbot::Aimbot)
     {
-        if (GetAsyncKeyState(VK_RBUTTON))
+        if (GetAsyncKeyState(VK_RBUTTON)) // If the right mouse button is pressed
         {
             LogMessage("Right mouse button is pressed");
-            SmoothAim(MyController->GetControlRotation(), closest_actor_rotation, 5.0f); // Adjust '5.0f' for different smoothness
-        }
-        //K2_GetActorLocation();
-        //auto LocalCharacter = reinterpret_cast<SDK::AHumanPlayerCharacter*>(MyController->Character);
 
-    }
-    if (gl::Exploits::bMagicBullet) {
-        auto LocalCharacter = reinterpret_cast<SDK::AHumanPlayerCharacter*>(MyController->Character);
-        LogMessage("magic si on");
+            // Apply smooth aiming
+            SmoothAim(MyController->GetControlRotation(), closest_actor_rotation, 20.0f);
 
-        if (LocalCharacter) {
-
-
-
-            auto CurrentWeapon = LocalCharacter->Inventory->CurrentWeapon.Get();
-
-            if (CurrentWeapon) {
-                SDK::AProjectileWeapon* ProjectileWeapon = static_cast<SDK::AProjectileWeapon*>(CurrentWeapon);
-
-
-                if (ProjectileWeapon) {
-
-                    SDK::FVector headLocation = closest_actor_head;
-
-                    SDK::FVector_NetQuantize BulletLocation;
-                    BulletLocation.X = headLocation.X;
-                    BulletLocation.Y = headLocation.Y;
-                    BulletLocation.Z = headLocation.Z;
-
-
-                    SDK::TArray<SDK::FVector_NetQuantizeNormal> BulletDirections;
-
-
-                    SDK::FVector directionVector = headLocation - LocalCharacter->K2_GetActorLocation();
-                    directionVector.Normalize();
-
-
-                    SDK::FVector_NetQuantizeNormal direction;
-                    direction.X = directionVector.X;
-                    direction.Y = directionVector.Y;
-                    direction.Z = directionVector.Z;
-
-                    BulletDirections.Add(direction);
-
-                    LogMessage("shoot");
-                    ProjectileWeapon->MulticastFireBullet(BulletLocation, BulletDirections, false);
-
-                }
-
-            }
-
-
-        }
-        else {
-            LogMessage("Character is null!");
+            // You can add shooting logic here
+            // e.g., Call shooting function here when the aim is correct
         }
     }
 
+
+    SDK::AMarvelBaseCharacter* LocalCharacter = MyController ? reinterpret_cast<SDK::AMarvelBaseCharacter*>(MyController->Character) : nullptr;
+
+    if (gl::Exploits::Ammo)
+    {
+        if (LocalCharacter)
+        {
+            SDK::FGameplayAttribute HealthAttr; 
+            SDK::FGameplayAttribute MaxHealthAttr;
+            SDK::TSubclassOf<SDK::UGameplayEffect> EffectClass = nullptr; 
+            // Heal by a specific amount
+            float healAmount = 100.0f; // Arbitrary value
+            LocalCharacter->AddValueWithMaxAttribute(HealthAttr, MaxHealthAttr, EffectClass, healAmount);
+        }
+
+
+
+    }
+
+    if (gl::Exploits::FastAcceleration) {
+        if (LocalCharacter)
+        {
+            SDK::FCapsuleSizeAdjust NewCapsuleSizeAdjust;
+           NewCapsuleSizeAdjust.Radius = 1.0f;
+            NewCapsuleSizeAdjust.HalfHeight = 1.0f;
+            NewCapsuleSizeAdjust.bAdjustMesh = true;
+
+            LocalCharacter->ChangeCapsuleSizeWith(NewCapsuleSizeAdjust);
+        }
+    }
 }
 
 
-
-
-void DrawESP()
-{
-
-
-    if (!objectsINIT::CheckAllPointers())
-    {
-        std::cerr << "Failed to initialize all pointers in DrawESP." << std::endl;
-        return; 
-    }
-
-    if (!bShowESP) return;
-
-    SDK::UWorld* World = SDK::UWorld::GetWorld();
-    if (!World) return;
-
-    SDK::ULevel* Level = World->PersistentLevel;
-    if (!Level) return;
-
-    SDK::TArray<SDK::AActor*>& Actors = Level->Actors;
-    if (Actors.Num() == 0) return;
-
-    ImDrawList* drawList = ImGui::GetWindowDrawList();
-    if (!drawList) return;
-
-    SDK::APlayerController* MyController = World->OwningGameInstance->LocalPlayers.Num() > 0 ?
-        World->OwningGameInstance->LocalPlayers[0]->PlayerController : nullptr;
-    if (!MyController) {
-        LogMessage("Man NO FUCVKING CONTROLLER");
-          return;
-    }
-    
-
-
-    for (int i = 0; i < Actors.Num(); i++)
-    {
-        SDK::AActor* Actor = Actors[i];
-        if (!Actor) continue;
-
-        SDK::AHumanPlayerCharacter* Character = SafeCast<SDK::AHumanPlayerCharacter>(Actor);
-        if (Character)
-        {
-            SDK::FVector2D ScreenPos;
-            if (WorldToScreen(Character->K2_GetActorLocation(), &ScreenPos))
-            {
-                auto health = Character->HealthComponent->GetHealth();
-                float Distance = Character->GetDistanceTo(MyController->Pawn);
-                float ScaleFactor = (Distance > 0) ? (Distance / 1500.0f) : 1.0f; 
-
-                ImVec2 BoxSize(50 / ScaleFactor, 100 / ScaleFactor);
-                drawList->AddRect(ImVec2(ScreenPos.X - BoxSize.x / 2, ScreenPos.Y - BoxSize.y / 2),
-                    ImVec2(ScreenPos.X + BoxSize.x / 2, ScreenPos.Y + BoxSize.y / 2),
-                    IM_COL32(0, 255, 0, 255));
-                // Draw health bar
-                float healthPercentage = health / 100.0f; // Assuming health is correctly updated
-                if (healthPercentage > 1.0f) healthPercentage = 1.0f; // Cap at 100%
-                if (healthPercentage < 0.0f) healthPercentage = 0.0f; // Prevent negative values
-
-                float healthBarWidth = BoxSize.x * healthPercentage; // Adjust width based on health
-                float healthBarHeight = 5.0f / ScaleFactor;
-                ImVec2 healthBarPos(ScreenPos.X - BoxSize.x / 2, ScreenPos.Y - BoxSize.y / 2 - healthBarHeight - 2);
-
-                // Draw background of the health bar (full bar)
-                drawList->AddRectFilled(
-                    healthBarPos,
-                    ImVec2(healthBarPos.x + BoxSize.x, healthBarPos.y + healthBarHeight),
-                    IM_COL32(255, 0, 0, 255)
-                );
-
-                // Draw foreground of the health bar (current health)
-                drawList->AddRectFilled(
-                    healthBarPos,
-                    ImVec2(healthBarPos.x + healthBarWidth, healthBarPos.y + healthBarHeight),
-                    IM_COL32(0, 255, 0, 255) // Green color for remaining health
-                );
-        
-      
-            }
-        }
-        else
-        {
-            SDK::ABP_Character_C* Monster = SafeCast<SDK::ABP_Character_C>(Actor);
-            if (Monster)
-            {
-                SDK::FVector2D ScreenPos;
-                if (WorldToScreen(Monster->K2_GetActorLocation(), &ScreenPos))
-                {
-                    float Distance = Monster->GetDistanceTo(MyController->Pawn);
-                    ImU32 color = MyController->LineOfSightTo(Monster, SDK::FVector{ 0, 0, 0 }, false) ?
-                        IM_COL32(255, 0, 0, 255) : IM_COL32(128, 0, 0, 204);
-
-                    ImVec2 BoxSize(50 / (Distance > 0 ? (Distance / 1500.0f) : 1.0f), 100 / (Distance > 0 ? (Distance / 1500.0f) : 1.0f));
-                    drawList->AddRect(ImVec2(ScreenPos.X - BoxSize.x / 2, ScreenPos.Y - BoxSize.y / 2),
-                        ImVec2(ScreenPos.X + BoxSize.x / 2, ScreenPos.Y + BoxSize.y / 2),
-                        color);
-                }
-            }
-        }
-    }
-}
 
 
 void DrawTextAt(const char* text, ImVec2 position, ImColor color, bool center)
@@ -638,7 +358,7 @@ void DrawTextAt(const char* text, ImVec2 position, ImColor color, bool center)
     ImDrawList* drawList = ImGui::GetForegroundDrawList();
     ImFont* font = ImGui::GetFont();
 
-    if (font == nullptr || drawList == nullptr) return; 
+    if (font == nullptr || drawList == nullptr) return;
 
     if (center)
     {
@@ -650,83 +370,138 @@ void DrawTextAt(const char* text, ImVec2 position, ImColor color, bool center)
     drawList->AddText(position, color, text);
 }
 
+class drawings
+{
+public:
+    void DrawBox(int X, int Y, int W, int H, const ImU32& color, int thickness);
+};
 
-
-
-typedef void(__fastcall* tOnTakeDamage)(SDK::AHumanCharacter*, float, SDK::EDamageType, const SDK::AHumanCharacter*, SDK::TSubclassOf<SDK::AItem>, const struct SDK::FHitResultSimplified&, const SDK::TArray<SDK::TSubclassOf<SDK::AItem>>&);
-tOnTakeDamage OriginalOnTakeDamage = nullptr;
-
-void __fastcall HookedOnTakeDamage(SDK::AHumanCharacter* pThis, float DamageAmount, SDK::EDamageType DamageType, const SDK::AHumanCharacter* InstigatingActor, SDK::TSubclassOf<SDK::AItem> InstigatingItemClass, const struct SDK::FHitResultSimplified& HitOptimised, const SDK::TArray<SDK::TSubclassOf<SDK::AItem>>& AffectedItems) {
-    if (gl::Exploits::GodMode) {
-        LogMessage("GodMode is active: Ignoring damage.");
-        DamageAmount = 0; // Set damage to 0
-    }
-
-    LogMessage("GodMode is not on buddy: Ignoring damage.");
-    OriginalOnTakeDamage(pThis, DamageAmount, DamageType, InstigatingActor, InstigatingItemClass, HitOptimised, AffectedItems);
+void drawings::DrawBox(int X, int Y, int W, int H, const ImU32& color, int thickness)
+{
+    float lineW = (W / 1);
+    float lineH = (H / 1);
+    ImDrawList* Drawlist = ImGui::GetForegroundDrawList();
+    //black outlines
+    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X, Y + lineH), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X + lineW, Y), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    Drawlist->AddLine(ImVec2(X + W - lineW, Y), ImVec2(X + W, Y), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    Drawlist->AddLine(ImVec2(X + W, Y), ImVec2(X + W, Y + lineH), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    Drawlist->AddLine(ImVec2(X, Y + H - lineH), ImVec2(X, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    Drawlist->AddLine(ImVec2(X, Y + H), ImVec2(X + lineW, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    Drawlist->AddLine(ImVec2(X + W - lineW, Y + H), ImVec2(X + W, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    Drawlist->AddLine(ImVec2(X + W, Y + H - lineH), ImVec2(X + W, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
+    //corners
+    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X, Y + lineH), ImGui::GetColorU32(color), thickness);
+    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X + lineW, Y), ImGui::GetColorU32(color), thickness);
+    Drawlist->AddLine(ImVec2(X + W - lineW, Y), ImVec2(X + W, Y), ImGui::GetColorU32(color), thickness);
+    Drawlist->AddLine(ImVec2(X + W, Y), ImVec2(X + W, Y + lineH), ImGui::GetColorU32(color), thickness);
+    Drawlist->AddLine(ImVec2(X, Y + H - lineH), ImVec2(X, Y + H), ImGui::GetColorU32(color), thickness);
+    Drawlist->AddLine(ImVec2(X, Y + H), ImVec2(X + lineW, Y + H), ImGui::GetColorU32(color), thickness);
+    Drawlist->AddLine(ImVec2(X + W - lineW, Y + H), ImVec2(X + W, Y + H), ImGui::GetColorU32(color), thickness);
+    Drawlist->AddLine(ImVec2(X + W, Y + H - lineH), ImVec2(X + W, Y + H), ImGui::GetColorU32(color), thickness);
 }
 
 
 
-float __fastcall HookedAddTrueHealth(SDK::UHealthComponent* healthComponent, float Amount) {
-    LogMessage("Adding true health: " + std::to_string(Amount));
-    Amount = 1000.0f; // Set to a fixed value
-    healthComponent->CurrentTrueHealth += Amount;
-    return Amount;
-}
-SDK::UHealthComponent* HealthComponentInstance = nullptr;
-SDK::USkinFunctions* USkinFunctionsInstance = nullptr;
-// Function prototype
-void SetupHooks();
+inline drawings* draw;
+void DrawESP()
+{
+    SDK::UWorld** _UWorld;
+    SDK::APlayerController* PlayerController;
+    SDK::ULocalPlayer* LocalPlayer;
+    SDK::UGameInstance* OwningGameInstance;
+    SDK::UGameViewportClient* GameViewportClient;
+    SDK::AGameStateBase* GameState;
+    SDK::AActor* obj;
+    SDK::UGameplayStatics* UGStatics;
+    SDK::UKismetSystemLibrary* KismetSystemLib;
+    SDK::APawn* MyPlayer;
+    SDK::AMarvelBaseCharacter* BaseClass; //change a class for each game
+    SDK::UKismetMathLibrary* MathLib;
+    int x, y = 0;
 
-void SetupHooks() {
-    MH_STATUS status = MH_Initialize();
-    if (status != MH_OK) {
-        LogMessage("Failed to initialize MinHook! Error: " + std::string(MH_StatusToString(status)));
-        return;
-    }
+        auto& io = ImGui::GetIO();
 
-    // Assuming you have access to the local character instance
-    auto LocalCharacter = reinterpret_cast<SDK::AHumanPlayerCharacter*>(MyController->Character); // Replace with how you access the local character instance
+        SDK::UWorld* gWorld = SDK::UWorld::GetWorld();
 
-    if (LocalCharacter) {
-        // Get the vtable of the character
-        uintptr_t* characterVTable = *reinterpret_cast<uintptr_t**>(LocalCharacter);
-        OriginalOnTakeDamage = reinterpret_cast<tOnTakeDamage>(characterVTable[83]);  // Replace with the correct vtable index for OnTakeDamage
+        if (!gWorld) return;
 
-        // Hook the OnTakeDamage function
-        status = MH_CreateHook(
-            reinterpret_cast<LPVOID>(OriginalOnTakeDamage),
-            &HookedOnTakeDamage,
-            reinterpret_cast<LPVOID*>(&OriginalOnTakeDamage)
-        );
+        OwningGameInstance = gWorld->OwningGameInstance;
+        if (!OwningGameInstance) return;
 
-        if (status != MH_OK) {
-            LogMessage("Failed to create hook for OnTakeDamage! Error: " + std::string(MH_StatusToString(status)));
-            return;
+        LocalPlayer = OwningGameInstance->LocalPlayers[0];
+        if (!LocalPlayer) return;
+
+        GameViewportClient = LocalPlayer->ViewportClient;
+        if (!GameViewportClient) return;
+
+        PlayerController = LocalPlayer->PlayerController;
+        if (!PlayerController) return;
+
+        PlayerController->GetViewportSize(&x, &y);
+
+        MyPlayer = PlayerController->K2_GetPawn();
+        if (!MyPlayer) return;
+
+        SDK::TArray<SDK::AActor*> Player;
+
+        UGStatics = (SDK::UGameplayStatics*)SDK::UGameplayStatics::StaticClass();
+        if (!UGStatics) return;
+
+        //some games GetAllActorOfClass is STATIC_GetAllActorsOfClass
+        UGStatics->GetAllActorsOfClass(gWorld, SDK::AMarvelBaseCharacter::StaticClass(), &Player);
+
+        //class to math operations
+        MathLib = (SDK::UKismetMathLibrary*)SDK::UKismetMathLibrary::StaticClass();
+        if (!MathLib) return;
+
+        for (int i = 0; i < Player.Num(); i++)
+        {
+            if (!Player.IsValidIndex(i)) continue;
+
+            obj = Player[i];
+            if (!obj) continue;
+            BaseClass = (SDK::AMarvelBaseCharacter*)obj;
+            if (!BaseClass) continue;
+
+            SDK::FVector Location = BaseClass->K2_GetActorLocation();
+
+
+            auto PlayerName = BaseClass->PlayerState->GetPlayerName();
+            bool IsVisible = PlayerController->LineOfSightTo(obj, { 0,0,0 }, false); //visible check
+
+         
+            SDK::FVector HeadLoc = BaseClass->GetMesh()->GetSocketLocation(StrToName("Head"));
+            SDK::FVector RootLoc = BaseClass->GetMesh()->GetSocketLocation(StrToName("root"));
+
+
+
+            SDK::FVector2D head, Bottom;
+            if (PlayerController->ProjectWorldLocationToScreen(RootLoc, &Bottom, false) && PlayerController->ProjectWorldLocationToScreen(HeadLoc, &head, false))
+            {
+         
+
+                float CornerHeight = abs(head.Y - Bottom.Y);
+                float CornerWidth = CornerHeight * 0.6f;
+
+               
+                    draw->DrawBox(head.X - (CornerWidth / 2), head.Y, CornerWidth, CornerHeight, IsVisible ? ImColor(0, 255, 0) : ImColor(255, 0, 0), 1.0f);
+                   
+                    ImGui::GetOverlayDrawList()->AddText(ImVec2(head.X, head.Y), IsVisible ? ImColor(0, 255, 0) : ImColor(255, 0, 0), PlayerName.IsValid() ? PlayerName.ToString().c_str() : " ");
+            }
+
+            //example how to draw without bones in relative location
+            SDK::FVector2D Screen;
+            if (PlayerController->ProjectWorldLocationToScreen(Location, &Screen, false))
+            {
+                ImVec2 Pos(Screen.X, Screen.Y);
+
+               
+                    ImGui::GetOverlayDrawList()->AddLine(ImVec2(static_cast<float>(io.DisplaySize.x / 2), static_cast<float>(io.DisplaySize.y)), Pos, ImColor(255, 255, 255), 0.7);
+            }
         }
-    }
-    else {
-        LogMessage("LocalCharacter is not initialized!");
-    }
-
-    // Enable all hooks
-    if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
-        LogMessage("Failed to enable hooks!");
-        return;
-    }
-
-    LogMessage("Hooks successfully set up!");
+    
 }
-
-DWORD WINAPI HookThread(LPVOID hModule) {
-    SetupHooks();
-    return 0;
-}
-
-
-
-
 
 
 
@@ -738,24 +513,16 @@ bool cfg_InstantReload = false;
 
 void RenderESP()
 {
-    static bool bAddHealth = false;
 
-        ImGui::Checkbox("Enable ESP", &bShowESP);
-       ImGui::Checkbox("Enable Aimbot", &gl::Aimbot::Aimbot);
-       ImGui::Checkbox("Enable Unlimited stamina", &gl::Exploits::FastAcceleration);
-      // ImGui::Checkbox("Enable add health", &gl::Exploits::AddHealth);
-      //ImGui::Checkbox("Magic bullet", &gl::Exploits::bMagicBullet);
-       if (gl::Aimbot::Aimbot)
-       {
-           ImGui::SliderFloat("Aimbot FOV", &gl::Aimbot::Fov, 10.0f, 360.0f);
-       }
 
-    // ImGui::Checkbox("God Mode", &gl::Exploits::GodModee);
-       ImGui::Checkbox("Unlimited ammo", &gl::Exploits::Ammo);
+    ImGui::Checkbox("Aimbot", &gl::Aimbot::Aimbot);
+    ImGui::Checkbox("Esp", &bShowESP);
 
 
 
 }
+
+
 #include <cmath>
 
 
@@ -825,6 +592,8 @@ HRESULT APIENTRY MJPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT 
             ImGuiIO& io = ImGui::GetIO(); (void)io;
             ImGui::GetIO().WantCaptureMouse || ImGui::GetIO().WantTextInput || ImGui::GetIO().WantCaptureKeyboard;
             io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+            ImGui::GetIO().MouseDrawCursor = ShowMenu;
+
 
             DXGI_SWAP_CHAIN_DESC Desc;
             pSwapChain->GetDesc(&Desc);
@@ -887,7 +656,7 @@ HRESULT APIENTRY MJPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT 
 
     if (DirectX12Interface::CommandQueue == nullptr)
         return oPresent(pSwapChain, SyncInterval, Flags);
-// Scale all sizes by 50% or adjust as needed
+    // Scale all sizes by 50% or adjust as needed
 
     ImGui_ImplDX12_NewFrame();
     ImGui_ImplWin32_NewFrame();
@@ -895,122 +664,71 @@ HRESULT APIENTRY MJPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT 
 
 
 
-    // First ImGui window - Overlay
-    ImGui::SetNextWindowPos(ImVec2(0, 0));
-    ImGui::SetNextWindowSize(ImVec2(2560, 1080));
-    ImGui::Begin("Overlay", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoBackground);
-    if (bShowESP == true)
+    // Main Overlay and Menu
+    ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowSize(ImVec2(1920, 1080), ImGuiCond_FirstUseEver);
+
+    ImGui::Begin("Overlay", nullptr,
+        ImGuiWindowFlags_NoTitleBar |
+        ImGuiWindowFlags_NoResize |
+        ImGuiWindowFlags_NoMove |
+        ImGuiWindowFlags_NoScrollbar |
+        ImGuiWindowFlags_NoBackground |
+        ImGuiWindowFlags_NoFocusOnAppearing |
+        ImGuiWindowFlags_NoBringToFrontOnFocus);
+
+    // Draw ESP if enabled
+    if (bShowESP)
     {
         DrawESP();
-
     }
+
+    // Check for adding health in the game loop
     if (gl::Aimbot::Aimbot)
     {
-        if (gl::Aimbot::Aimbot)
-        {
-            LogMessage("Aimbot enabled");
-            GameLoop();
-        }
-
-    }
-    if (gl::Exploits::GodModee)
-    {
-        GameLoop();
-    }
-    if (gl::Exploits::FastAcceleration)
-    {
-        GameLoop();
-    }
-    if (gl::Exploits::bMagicBullet)
-    {
-        GameLoop();
-    }
-    if (gl::Exploits::AddHealth)
-    {
-        GameLoop();
-    }
-    if (gl::Exploits::Ammo)
-    {
-        GameLoop();
-   
-    }
-    if (gl::Exploits::WeaponSkin)
-    {
-        GameLoop();
+        GameLoop(); 
     }
 
-
-
-
-
-
-
-
-
-
-
-    ImGui::End();
-
-    // Toggle menu visibility
+    // Toggle menu visibility with INSERT key
     if (GetAsyncKeyState(VK_INSERT) & 1) ShowMenu = !ShowMenu;
+    ImGui::GetIO().MouseDrawCursor = ShowMenu; // Show cursor when menu is open
 
-    ImGui::GetIO().MouseDrawCursor = ShowMenu;
-    if (ShowMenu == true) {
-        if (GetAsyncKeyState(VK_END) & 1) {
+    // Main menu content
+    if (ShowMenu)
+    {
+        // Unload DLL with END key
+        if (GetAsyncKeyState(VK_END) & 1)
+        {
             UnloadDLL(Process::Module);
         }
 
-        // Main ImGui window - Menu
-        ImGui::Begin("Killussno Internal [DEV]", nullptr, ImGuiWindowFlags_NoCollapse );
-        // Ensure the menu is large enough and positioned correctly
-        ImGui::SetNextWindowPos(ImVec2(0, 0));           // Adjust position as necessary
+        // Create the menu UI
+        ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver); // Adjust position as necessary
+        ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_FirstUseEver); // Adjust size as necessary
+        ImGui::SetNextWindowBgAlpha(0.5f);  // Semi-transparent background to make it visible if something else overlaps
 
+        ImGui::Begin("Killuano Internal [DEV]", nullptr, ImGuiWindowFlags_NoCollapse);
+   
 
-        if (ImGui::BeginTabBar("MainTabs")) {
-
-            // Local Player Data Tab
-            if (ImGui::BeginTabItem("Local Player Data")) {
-                // RenderLocalPlayerData();
+        // Main tabs
+        if (ImGui::BeginTabBar("MainTabs"))
+        {
+            // Misc Tab
+            if (ImGui::BeginTabItem("Misc"))
+            {
+                RenderESP(); // Render ESP settings and options
                 ImGui::EndTabItem();
             }
-
-            if (ImGui::BeginTabItem("Debug Information")) {
-                //   RenderDebugUI();
-                ImGui::EndTabItem();
-            }
-
-            // Name Dumps Tab
-            if (ImGui::BeginTabItem("Name Dumps")) {
-                //RenderNameDumps();
-                ImGui::EndTabItem();
-            }
-
-            // ESP Tab
-            if (ImGui::BeginTabItem("ESP")) {
-                RenderESP();
-                ImGui::EndTabItem();
-            }
-
-            if (ImGui::BeginTabItem("Aimbot")) {
-
-
-                ImGui::EndTabItem();
-            }
-            // Dev Tab
-            if (ImGui::BeginTabItem("Dev")) {
-                //   RenderDevTools();
-                ImGui::EndTabItem();
-            }
-
             ImGui::EndTabBar();
         }
 
         ImGui::End();
     }
 
-
-
+    ImGui::End();
     ImGui::EndFrame();
+
+
 
     DirectX12Interface::_FrameContext& CurrentFrameContext = DirectX12Interface::FrameContext[pSwapChain->GetCurrentBackBufferIndex()];
     CurrentFrameContext.CommandAllocator->Reset();
@@ -1103,13 +821,12 @@ DWORD WINAPI MainThread(LPVOID lpParameter) {
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved) {
     switch (dwReason) {
     case DLL_PROCESS_ATTACH:
+        Sleep(30);
         DisableThreadLibraryCalls(hModule);
         if (ChecktDirectXVersion(DirectXVersion.D3D12) == true) {
             Process::Module = hModule;
             CreateThread(0, 0, MainThread, 0, 0, 0);
-          
             DisableThreadLibraryCalls(hModule);
-            CreateThread(nullptr, 0, HookThread, hModule, 0, nullptr);
         }
         break;
     case DLL_PROCESS_DETACH:
@@ -1125,7 +842,13 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved) {
         break;
     }
     return TRUE;
+
+    
 }
+extern "C" __declspec(dllexport) int NextHook(int code, WPARAM wParam, LPARAM lParam) {
+    return CallNextHookEx(NULL, code, wParam, lParam);
+}
+
 
 
 

@@ -19,7 +19,7 @@ namespace SDK::Params
 struct GameMapsSettings_GetGameMapsSettings final
 {
 public:
-	class UGameMapsSettings*                      ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UGameMapsSettings*                      ReturnValue;                                       // 0x0000(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(GameMapsSettings_GetGameMapsSettings) == 0x000008, "Wrong alignment on GameMapsSettings_GetGameMapsSettings");
 static_assert(sizeof(GameMapsSettings_GetGameMapsSettings) == 0x000008, "Wrong size on GameMapsSettings_GetGameMapsSettings");

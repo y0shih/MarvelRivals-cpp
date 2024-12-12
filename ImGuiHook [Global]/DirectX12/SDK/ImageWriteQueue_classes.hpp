@@ -17,11 +17,11 @@ namespace SDK
 {
 
 // Class ImageWriteQueue.ImageWriteBlueprintLibrary
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class UImageWriteBlueprintLibrary final : public UBlueprintFunctionLibrary
 {
 public:
-	static void ExportToDisk(class UTexture* Texture, const class FString& Filename, const struct FImageWriteOptions& Options);
+	static void ExportToDisk(class UTexture* Texture, const class FString& Filename, const struct FImageWriteOptions& OPTIONS);
 
 public:
 	static class UClass* StaticClass()
@@ -34,7 +34,7 @@ public:
 	}
 };
 static_assert(alignof(UImageWriteBlueprintLibrary) == 0x000008, "Wrong alignment on UImageWriteBlueprintLibrary");
-static_assert(sizeof(UImageWriteBlueprintLibrary) == 0x000028, "Wrong size on UImageWriteBlueprintLibrary");
+static_assert(sizeof(UImageWriteBlueprintLibrary) == 0x000030, "Wrong size on UImageWriteBlueprintLibrary");
 
 }
 

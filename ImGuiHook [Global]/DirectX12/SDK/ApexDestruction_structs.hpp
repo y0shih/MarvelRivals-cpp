@@ -26,6 +26,25 @@ enum class EImpactDamageOverride : uint8
 	IDO_MAX                                  = 3,
 };
 
+// ScriptStruct ApexDestruction.FractureMaterial
+// 0x0040 (0x0040 - 0x0000)
+struct FFractureMaterial final
+{
+public:
+	struct FVector2D                              UVScale;                                           // 0x0000(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector2D                              UVOffset;                                          // 0x0010(0x0010)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Tangent;                                           // 0x0020(0x0018)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         UAngle;                                            // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         InteriorElementIndex;                              // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FFractureMaterial) == 0x000008, "Wrong alignment on FFractureMaterial");
+static_assert(sizeof(FFractureMaterial) == 0x000040, "Wrong size on FFractureMaterial");
+static_assert(offsetof(FFractureMaterial, UVScale) == 0x000000, "Member 'FFractureMaterial::UVScale' has a wrong offset!");
+static_assert(offsetof(FFractureMaterial, UVOffset) == 0x000010, "Member 'FFractureMaterial::UVOffset' has a wrong offset!");
+static_assert(offsetof(FFractureMaterial, Tangent) == 0x000020, "Member 'FFractureMaterial::Tangent' has a wrong offset!");
+static_assert(offsetof(FFractureMaterial, UAngle) == 0x000038, "Member 'FFractureMaterial::UAngle' has a wrong offset!");
+static_assert(offsetof(FFractureMaterial, InteriorElementIndex) == 0x00003C, "Member 'FFractureMaterial::InteriorElementIndex' has a wrong offset!");
+
 // ScriptStruct ApexDestruction.DestructibleChunkParameters
 // 0x0004 (0x0004 - 0x0000)
 struct FDestructibleChunkParameters final
@@ -43,24 +62,35 @@ static_assert(offsetof(FDestructibleChunkParameters, bDoNotFracture) == 0x000001
 static_assert(offsetof(FDestructibleChunkParameters, bDoNotDamage) == 0x000002, "Member 'FDestructibleChunkParameters::bDoNotDamage' has a wrong offset!");
 static_assert(offsetof(FDestructibleChunkParameters, bDoNotCrumble) == 0x000003, "Member 'FDestructibleChunkParameters::bDoNotCrumble' has a wrong offset!");
 
-// ScriptStruct ApexDestruction.FractureMaterial
-// 0x0024 (0x0024 - 0x0000)
-struct FFractureMaterial final
+// ScriptStruct ApexDestruction.DestructibleDepthParameters
+// 0x0001 (0x0001 - 0x0000)
+struct FDestructibleDepthParameters final
 {
 public:
-	struct FVector2D                              UVScale;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector2D                              UVOffset;                                          // 0x0008(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Tangent;                                           // 0x0010(0x000C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         UAngle;                                            // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         InteriorElementIndex;                              // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EImpactDamageOverride                         ImpactDamageOverride;                              // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FFractureMaterial) == 0x000004, "Wrong alignment on FFractureMaterial");
-static_assert(sizeof(FFractureMaterial) == 0x000024, "Wrong size on FFractureMaterial");
-static_assert(offsetof(FFractureMaterial, UVScale) == 0x000000, "Member 'FFractureMaterial::UVScale' has a wrong offset!");
-static_assert(offsetof(FFractureMaterial, UVOffset) == 0x000008, "Member 'FFractureMaterial::UVOffset' has a wrong offset!");
-static_assert(offsetof(FFractureMaterial, Tangent) == 0x000010, "Member 'FFractureMaterial::Tangent' has a wrong offset!");
-static_assert(offsetof(FFractureMaterial, UAngle) == 0x00001C, "Member 'FFractureMaterial::UAngle' has a wrong offset!");
-static_assert(offsetof(FFractureMaterial, InteriorElementIndex) == 0x000020, "Member 'FFractureMaterial::InteriorElementIndex' has a wrong offset!");
+static_assert(alignof(FDestructibleDepthParameters) == 0x000001, "Wrong alignment on FDestructibleDepthParameters");
+static_assert(sizeof(FDestructibleDepthParameters) == 0x000001, "Wrong size on FDestructibleDepthParameters");
+static_assert(offsetof(FDestructibleDepthParameters, ImpactDamageOverride) == 0x000000, "Member 'FDestructibleDepthParameters::ImpactDamageOverride' has a wrong offset!");
+
+// ScriptStruct ApexDestruction.DestructibleParametersFlag
+// 0x0004 (0x0004 - 0x0000)
+struct alignas(0x04) FDestructibleParametersFlag final
+{
+public:
+	uint8                                         bAccumulateDamage : 1;                             // 0x0000(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bAssetDefinedSupport : 1;                          // 0x0000(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bWorldSupport : 1;                                 // 0x0000(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDebrisTimeout : 1;                                // 0x0000(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bDebrisMaxSeparation : 1;                          // 0x0000(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bCrumbleSmallestChunks : 1;                        // 0x0000(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bAccurateRaycasts : 1;                             // 0x0000(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bUseValidBounds : 1;                               // 0x0000(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         bFormExtendedStructures : 1;                       // 0x0001(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_2[0x2];                                        // 0x0002(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FDestructibleParametersFlag) == 0x000004, "Wrong alignment on FDestructibleParametersFlag");
+static_assert(sizeof(FDestructibleParametersFlag) == 0x000004, "Wrong size on FDestructibleParametersFlag");
 
 // ScriptStruct ApexDestruction.DestructibleDamageParameters
 // 0x001C (0x001C - 0x0000)
@@ -88,7 +118,7 @@ static_assert(offsetof(FDestructibleDamageParameters, bCustomImpactResistance) =
 static_assert(offsetof(FDestructibleDamageParameters, ImpactResistance) == 0x000018, "Member 'FDestructibleDamageParameters::ImpactResistance' has a wrong offset!");
 
 // ScriptStruct ApexDestruction.DestructibleDebrisParameters
-// 0x002C (0x002C - 0x0000)
+// 0x0048 (0x0048 - 0x0000)
 struct FDestructibleDebrisParameters final
 {
 public:
@@ -96,10 +126,10 @@ public:
 	float                                         DebrisLifetimeMax;                                 // 0x0004(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         DebrisMaxSeparationMin;                            // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	float                                         DebrisMaxSeparationMax;                            // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FBox                                   ValidBounds;                                       // 0x0010(0x001C)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+	struct FBox                                   ValidBounds;                                       // 0x0010(0x0038)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FDestructibleDebrisParameters) == 0x000004, "Wrong alignment on FDestructibleDebrisParameters");
-static_assert(sizeof(FDestructibleDebrisParameters) == 0x00002C, "Wrong size on FDestructibleDebrisParameters");
+static_assert(alignof(FDestructibleDebrisParameters) == 0x000008, "Wrong alignment on FDestructibleDebrisParameters");
+static_assert(sizeof(FDestructibleDebrisParameters) == 0x000048, "Wrong size on FDestructibleDebrisParameters");
 static_assert(offsetof(FDestructibleDebrisParameters, DebrisLifetimeMin) == 0x000000, "Member 'FDestructibleDebrisParameters::DebrisLifetimeMin' has a wrong offset!");
 static_assert(offsetof(FDestructibleDebrisParameters, DebrisLifetimeMax) == 0x000004, "Member 'FDestructibleDebrisParameters::DebrisLifetimeMax' has a wrong offset!");
 static_assert(offsetof(FDestructibleDebrisParameters, DebrisMaxSeparationMin) == 0x000008, "Member 'FDestructibleDebrisParameters::DebrisMaxSeparationMin' has a wrong offset!");
@@ -143,58 +173,29 @@ static_assert(offsetof(FDestructibleSpecialHierarchyDepths, bEnableDebris) == 0x
 static_assert(offsetof(FDestructibleSpecialHierarchyDepths, DebrisDepth) == 0x00000C, "Member 'FDestructibleSpecialHierarchyDepths::DebrisDepth' has a wrong offset!");
 static_assert(offsetof(FDestructibleSpecialHierarchyDepths, EssentialDepth) == 0x000010, "Member 'FDestructibleSpecialHierarchyDepths::EssentialDepth' has a wrong offset!");
 
-// ScriptStruct ApexDestruction.DestructibleDepthParameters
-// 0x0001 (0x0001 - 0x0000)
-struct FDestructibleDepthParameters final
-{
-public:
-	EImpactDamageOverride                         ImpactDamageOverride;                              // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FDestructibleDepthParameters) == 0x000001, "Wrong alignment on FDestructibleDepthParameters");
-static_assert(sizeof(FDestructibleDepthParameters) == 0x000001, "Wrong size on FDestructibleDepthParameters");
-static_assert(offsetof(FDestructibleDepthParameters, ImpactDamageOverride) == 0x000000, "Member 'FDestructibleDepthParameters::ImpactDamageOverride' has a wrong offset!");
-
-// ScriptStruct ApexDestruction.DestructibleParametersFlag
-// 0x0004 (0x0004 - 0x0000)
-struct alignas(0x04) FDestructibleParametersFlag final
-{
-public:
-	uint8                                         bAccumulateDamage : 1;                             // 0x0000(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bAssetDefinedSupport : 1;                          // 0x0000(0x0001)(BitIndex: 0x01, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bWorldSupport : 1;                                 // 0x0000(0x0001)(BitIndex: 0x02, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDebrisTimeout : 1;                                // 0x0000(0x0001)(BitIndex: 0x03, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bDebrisMaxSeparation : 1;                          // 0x0000(0x0001)(BitIndex: 0x04, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bCrumbleSmallestChunks : 1;                        // 0x0000(0x0001)(BitIndex: 0x05, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bAccurateRaycasts : 1;                             // 0x0000(0x0001)(BitIndex: 0x06, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bUseValidBounds : 1;                               // 0x0000(0x0001)(BitIndex: 0x07, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         bFormExtendedStructures : 1;                       // 0x0001(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (Edit, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_2[0x2];                                        // 0x0002(0x0002)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FDestructibleParametersFlag) == 0x000004, "Wrong alignment on FDestructibleParametersFlag");
-static_assert(sizeof(FDestructibleParametersFlag) == 0x000004, "Wrong size on FDestructibleParametersFlag");
-
 // ScriptStruct ApexDestruction.DestructibleParameters
-// 0x0088 (0x0088 - 0x0000)
+// 0x00A8 (0x00A8 - 0x0000)
 struct FDestructibleParameters final
 {
 public:
 	struct FDestructibleDamageParameters          DamageParameters;                                  // 0x0000(0x001C)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FDestructibleDebrisParameters          DebrisParameters;                                  // 0x001C(0x002C)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FDestructibleAdvancedParameters        AdvancedParameters;                                // 0x0048(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	struct FDestructibleSpecialHierarchyDepths    SpecialHierarchyDepths;                            // 0x0058(0x0014)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_6C[0x4];                                       // 0x006C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FDestructibleDepthParameters>   DepthParameters;                                   // 0x0070(0x0010)(Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
-	struct FDestructibleParametersFlag            Flags;                                             // 0x0080(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_84[0x4];                                       // 0x0084(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_1C[0x4];                                       // 0x001C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FDestructibleDebrisParameters          DebrisParameters;                                  // 0x0020(0x0048)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FDestructibleAdvancedParameters        AdvancedParameters;                                // 0x0068(0x0010)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	struct FDestructibleSpecialHierarchyDepths    SpecialHierarchyDepths;                            // 0x0078(0x0014)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_8C[0x4];                                       // 0x008C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FDestructibleDepthParameters>   DepthParameters;                                   // 0x0090(0x0010)(Edit, EditFixedSize, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FDestructibleParametersFlag            Flags;                                             // 0x00A0(0x0004)(Edit, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A4[0x4];                                       // 0x00A4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FDestructibleParameters) == 0x000008, "Wrong alignment on FDestructibleParameters");
-static_assert(sizeof(FDestructibleParameters) == 0x000088, "Wrong size on FDestructibleParameters");
+static_assert(sizeof(FDestructibleParameters) == 0x0000A8, "Wrong size on FDestructibleParameters");
 static_assert(offsetof(FDestructibleParameters, DamageParameters) == 0x000000, "Member 'FDestructibleParameters::DamageParameters' has a wrong offset!");
-static_assert(offsetof(FDestructibleParameters, DebrisParameters) == 0x00001C, "Member 'FDestructibleParameters::DebrisParameters' has a wrong offset!");
-static_assert(offsetof(FDestructibleParameters, AdvancedParameters) == 0x000048, "Member 'FDestructibleParameters::AdvancedParameters' has a wrong offset!");
-static_assert(offsetof(FDestructibleParameters, SpecialHierarchyDepths) == 0x000058, "Member 'FDestructibleParameters::SpecialHierarchyDepths' has a wrong offset!");
-static_assert(offsetof(FDestructibleParameters, DepthParameters) == 0x000070, "Member 'FDestructibleParameters::DepthParameters' has a wrong offset!");
-static_assert(offsetof(FDestructibleParameters, Flags) == 0x000080, "Member 'FDestructibleParameters::Flags' has a wrong offset!");
+static_assert(offsetof(FDestructibleParameters, DebrisParameters) == 0x000020, "Member 'FDestructibleParameters::DebrisParameters' has a wrong offset!");
+static_assert(offsetof(FDestructibleParameters, AdvancedParameters) == 0x000068, "Member 'FDestructibleParameters::AdvancedParameters' has a wrong offset!");
+static_assert(offsetof(FDestructibleParameters, SpecialHierarchyDepths) == 0x000078, "Member 'FDestructibleParameters::SpecialHierarchyDepths' has a wrong offset!");
+static_assert(offsetof(FDestructibleParameters, DepthParameters) == 0x000090, "Member 'FDestructibleParameters::DepthParameters' has a wrong offset!");
+static_assert(offsetof(FDestructibleParameters, Flags) == 0x0000A0, "Member 'FDestructibleParameters::Flags' has a wrong offset!");
 
 }
 

@@ -78,19 +78,7 @@
     <ClInclude Include="SDK\CoreUObject_classes.hpp">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="Objects.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="ZeroGui.hpp">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="ZeroInput.hpp">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\TFDD\PropertyFixup.hpp">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\TFDD\SimpleIni.h">
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\TFDD\UnrealContainers.hpp">
@@ -102,12 +90,23 @@
     <ClInclude Include="includes.h">
       <Filter>ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Flame_classes.hpp" />
-    <ClInclude Include="BoneMapping.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\Directories\MinHook\Include\MinHook.h">
       <Filter>DirectX Hook\MinHook</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Engine_classes.hpp">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Marvel_classes.hpp">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ImGuiHook-Global--master - Copy (2)\ImGuiHook [Global]\DirectX12\Objects.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Engine_structs.hpp">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\GameplayTags_structs.hpp">
+      <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -156,10 +155,10 @@
     <ClCompile Include="SDK\CoreUObject_functions.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\Flame_functions.cpp">
+    <ClCompile Include="SDK\Basic.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\Basic.cpp">
+    <ClCompile Include="SDK\Marvel_functions.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

@@ -10,43 +10,23 @@
 
 #include "Basic.hpp"
 
+#include "Engine_structs.hpp"
 #include "CoreUObject_structs.hpp"
 
 
 namespace SDK
 {
 
-// Enum Foliage.ETextureMaskReferenceChannel
-// NumValues: 0x0005
-enum class ETextureMaskReferenceChannel : uint32
-{
-	B                                        = 0,
-	G                                        = 1,
-	R                                        = 2,
-	A                                        = 3,
-	ETextureMaskReferenceChannel_MAX         = 4,
-};
-
-// Enum Foliage.EFoliageScaling
+// Enum Foliage.FoliageVertexColorMask
 // NumValues: 0x0006
-enum class EFoliageScaling : uint8
+enum class EFoliageVertexColorMask : uint8
 {
-	Uniform                                  = 0,
-	Free                                     = 1,
-	LockXY                                   = 2,
-	LockXZ                                   = 3,
-	LockYZ                                   = 4,
-	EFoliageScaling_MAX                      = 5,
-};
-
-// Enum Foliage.ENormalManipulation
-// NumValues: 0x0004
-enum class ENormalManipulation : uint8
-{
-	KeepOriginalAlignment                    = 0,
-	AlignToNormal                            = 1,
-	AlignUp                                  = 2,
-	ENormalManipulation_MAX                  = 3,
+	FOLIAGEVERTEXCOLORMASK_Disabled          = 0,
+	FOLIAGEVERTEXCOLORMASK_Red               = 1,
+	FOLIAGEVERTEXCOLORMASK_Green             = 2,
+	FOLIAGEVERTEXCOLORMASK_Blue              = 3,
+	FOLIAGEVERTEXCOLORMASK_Alpha             = 4,
+	FOLIAGEVERTEXCOLORMASK_MAX               = 5,
 };
 
 // Enum Foliage.EVertexColorMaskChannel
@@ -61,16 +41,26 @@ enum class EVertexColorMaskChannel : uint8
 	EVertexColorMaskChannel_MAX              = 5,
 };
 
-// Enum Foliage.FoliageVertexColorMask
+// Enum Foliage.EFoliageScaling
 // NumValues: 0x0006
-enum class EFoliageVertexColorMask : uint8
+enum class EFoliageScaling : uint8
 {
-	FOLIAGEVERTEXCOLORMASK_Disabled          = 0,
-	FOLIAGEVERTEXCOLORMASK_Red               = 1,
-	FOLIAGEVERTEXCOLORMASK_Green             = 2,
-	FOLIAGEVERTEXCOLORMASK_Blue              = 3,
-	FOLIAGEVERTEXCOLORMASK_Alpha             = 4,
-	FOLIAGEVERTEXCOLORMASK_MAX               = 5,
+	Uniform                                  = 0,
+	Free                                     = 1,
+	LockXY                                   = 2,
+	LockXZ                                   = 3,
+	LockYZ                                   = 4,
+	EFoliageScaling_MAX                      = 5,
+};
+
+// Enum Foliage.ESimulationOverlap
+// NumValues: 0x0004
+enum class ESimulationOverlap : uint8
+{
+	CollisionOverlap                         = 0,
+	ShadeOverlap                             = 1,
+	None                                     = 2,
+	ESimulationOverlap_MAX                   = 3,
 };
 
 // Enum Foliage.ESimulationQuery
@@ -84,55 +74,23 @@ enum class ESimulationQuery : uint8
 	ESimulationQuery_MAX                     = 4,
 };
 
-// Enum Foliage.ESimulationOverlap
-// NumValues: 0x0004
-enum class ESimulationOverlap : uint8
-{
-	CollisionOverlap                         = 0,
-	ShadeOverlap                             = 1,
-	None                                     = 2,
-	ESimulationOverlap_MAX                   = 3,
-};
-
-// ScriptStruct Foliage.FoliageChild
-// 0x0028 (0x0028 - 0x0000)
-struct FFoliageChild final
+// ScriptStruct Foliage.FoliageTypeObject
+// 0x0020 (0x0020 - 0x0000)
+struct FFoliageTypeObject final
 {
 public:
-	class UFoliageType*                           Foliage;                                           // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MinChildren;                                       // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         MaxChildren;                                       // 0x000C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MinRadius;                                         // 0x0010(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         MaxRadius;                                         // 0x0014(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bActive;                                           // 0x0018(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_19[0x3];                                       // 0x0019(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ScanUp;                                            // 0x001C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         ScanDown;                                          // 0x0020(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	class UObject*                                FoliageTypeObject;                                 // 0x0000(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UFoliageType*                           TypeInstance;                                      // 0x0008(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	bool                                          bIsAsset;                                          // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	TSubclassOf<class UFoliageType_InstancedStaticMesh> Type;                                              // 0x0018(0x0008)(ZeroConstructor, Deprecated, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
-static_assert(alignof(FFoliageChild) == 0x000008, "Wrong alignment on FFoliageChild");
-static_assert(sizeof(FFoliageChild) == 0x000028, "Wrong size on FFoliageChild");
-static_assert(offsetof(FFoliageChild, Foliage) == 0x000000, "Member 'FFoliageChild::Foliage' has a wrong offset!");
-static_assert(offsetof(FFoliageChild, MinChildren) == 0x000008, "Member 'FFoliageChild::MinChildren' has a wrong offset!");
-static_assert(offsetof(FFoliageChild, MaxChildren) == 0x00000C, "Member 'FFoliageChild::MaxChildren' has a wrong offset!");
-static_assert(offsetof(FFoliageChild, MinRadius) == 0x000010, "Member 'FFoliageChild::MinRadius' has a wrong offset!");
-static_assert(offsetof(FFoliageChild, MaxRadius) == 0x000014, "Member 'FFoliageChild::MaxRadius' has a wrong offset!");
-static_assert(offsetof(FFoliageChild, bActive) == 0x000018, "Member 'FFoliageChild::bActive' has a wrong offset!");
-static_assert(offsetof(FFoliageChild, ScanUp) == 0x00001C, "Member 'FFoliageChild::ScanUp' has a wrong offset!");
-static_assert(offsetof(FFoliageChild, ScanDown) == 0x000020, "Member 'FFoliageChild::ScanDown' has a wrong offset!");
-
-// ScriptStruct Foliage.FoliageTextureMaskReference
-// 0x000C (0x000C - 0x0000)
-struct FFoliageTextureMaskReference final
-{
-public:
-	class FName                                   TextureName;                                       // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	ETextureMaskReferenceChannel                  Channel;                                           // 0x0008(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FFoliageTextureMaskReference) == 0x000004, "Wrong alignment on FFoliageTextureMaskReference");
-static_assert(sizeof(FFoliageTextureMaskReference) == 0x00000C, "Wrong size on FFoliageTextureMaskReference");
-static_assert(offsetof(FFoliageTextureMaskReference, TextureName) == 0x000000, "Member 'FFoliageTextureMaskReference::TextureName' has a wrong offset!");
-static_assert(offsetof(FFoliageTextureMaskReference, Channel) == 0x000008, "Member 'FFoliageTextureMaskReference::Channel' has a wrong offset!");
+static_assert(alignof(FFoliageTypeObject) == 0x000008, "Wrong alignment on FFoliageTypeObject");
+static_assert(sizeof(FFoliageTypeObject) == 0x000020, "Wrong size on FFoliageTypeObject");
+static_assert(offsetof(FFoliageTypeObject, FoliageTypeObject) == 0x000000, "Member 'FFoliageTypeObject::FoliageTypeObject' has a wrong offset!");
+static_assert(offsetof(FFoliageTypeObject, TypeInstance) == 0x000008, "Member 'FFoliageTypeObject::TypeInstance' has a wrong offset!");
+static_assert(offsetof(FFoliageTypeObject, bIsAsset) == 0x000010, "Member 'FFoliageTypeObject::bIsAsset' has a wrong offset!");
+static_assert(offsetof(FFoliageTypeObject, Type) == 0x000018, "Member 'FFoliageTypeObject::Type' has a wrong offset!");
 
 // ScriptStruct Foliage.FoliageVertexColorChannelMask
 // 0x000C (0x000C - 0x0000)
@@ -149,45 +107,43 @@ static_assert(alignof(FFoliageVertexColorChannelMask) == 0x000004, "Wrong alignm
 static_assert(sizeof(FFoliageVertexColorChannelMask) == 0x00000C, "Wrong size on FFoliageVertexColorChannelMask");
 static_assert(offsetof(FFoliageVertexColorChannelMask, MaskThreshold) == 0x000004, "Member 'FFoliageVertexColorChannelMask::MaskThreshold' has a wrong offset!");
 
-// ScriptStruct Foliage.FoliageTypeObject
-// 0x0020 (0x0020 - 0x0000)
-struct FFoliageTypeObject final
-{
-public:
-	class UObject*                                FoliageTypeObject;                                 // 0x0000(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UFoliageType*                           TypeInstance;                                      // 0x0008(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	bool                                          bIsAsset;                                          // 0x0010(0x0001)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	TSubclassOf<class UFoliageType_InstancedStaticMesh> Type;                                              // 0x0018(0x0008)(ZeroConstructor, Deprecated, IsPlainOldData, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-};
-static_assert(alignof(FFoliageTypeObject) == 0x000008, "Wrong alignment on FFoliageTypeObject");
-static_assert(sizeof(FFoliageTypeObject) == 0x000020, "Wrong size on FFoliageTypeObject");
-static_assert(offsetof(FFoliageTypeObject, FoliageTypeObject) == 0x000000, "Member 'FFoliageTypeObject::FoliageTypeObject' has a wrong offset!");
-static_assert(offsetof(FFoliageTypeObject, TypeInstance) == 0x000008, "Member 'FFoliageTypeObject::TypeInstance' has a wrong offset!");
-static_assert(offsetof(FFoliageTypeObject, bIsAsset) == 0x000010, "Member 'FFoliageTypeObject::bIsAsset' has a wrong offset!");
-static_assert(offsetof(FFoliageTypeObject, Type) == 0x000018, "Member 'FFoliageTypeObject::Type' has a wrong offset!");
-
 // ScriptStruct Foliage.ProceduralFoliageInstance
-// 0x0050 (0x0050 - 0x0000)
+// 0x0080 (0x0080 - 0x0000)
 struct FProceduralFoliageInstance final
 {
 public:
-	struct FQuat                                  Rotation;                                          // 0x0000(0x0010)(IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-	struct FVector                                Location;                                          // 0x0010(0x000C)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Age;                                               // 0x001C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Normal;                                            // 0x0020(0x000C)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Scale;                                             // 0x002C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UFoliageType*                           Type;                                              // 0x0030(0x0008)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_38[0x18];                                      // 0x0038(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	struct FQuat                                  Rotation;                                          // 0x0000(0x0020)(IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                Location;                                          // 0x0020(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Age;                                               // 0x0038(0x0004)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                Normal;                                            // 0x0040(0x0018)(Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Scale;                                             // 0x0058(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_5C[0x4];                                       // 0x005C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class UFoliageType*                           Type;                                              // 0x0060(0x0008)(ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_68[0x18];                                      // 0x0068(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FProceduralFoliageInstance) == 0x000010, "Wrong alignment on FProceduralFoliageInstance");
-static_assert(sizeof(FProceduralFoliageInstance) == 0x000050, "Wrong size on FProceduralFoliageInstance");
+static_assert(sizeof(FProceduralFoliageInstance) == 0x000080, "Wrong size on FProceduralFoliageInstance");
 static_assert(offsetof(FProceduralFoliageInstance, Rotation) == 0x000000, "Member 'FProceduralFoliageInstance::Rotation' has a wrong offset!");
-static_assert(offsetof(FProceduralFoliageInstance, Location) == 0x000010, "Member 'FProceduralFoliageInstance::Location' has a wrong offset!");
-static_assert(offsetof(FProceduralFoliageInstance, Age) == 0x00001C, "Member 'FProceduralFoliageInstance::Age' has a wrong offset!");
-static_assert(offsetof(FProceduralFoliageInstance, Normal) == 0x000020, "Member 'FProceduralFoliageInstance::Normal' has a wrong offset!");
-static_assert(offsetof(FProceduralFoliageInstance, Scale) == 0x00002C, "Member 'FProceduralFoliageInstance::Scale' has a wrong offset!");
-static_assert(offsetof(FProceduralFoliageInstance, Type) == 0x000030, "Member 'FProceduralFoliageInstance::Type' has a wrong offset!");
+static_assert(offsetof(FProceduralFoliageInstance, Location) == 0x000020, "Member 'FProceduralFoliageInstance::Location' has a wrong offset!");
+static_assert(offsetof(FProceduralFoliageInstance, Age) == 0x000038, "Member 'FProceduralFoliageInstance::Age' has a wrong offset!");
+static_assert(offsetof(FProceduralFoliageInstance, Normal) == 0x000040, "Member 'FProceduralFoliageInstance::Normal' has a wrong offset!");
+static_assert(offsetof(FProceduralFoliageInstance, Scale) == 0x000058, "Member 'FProceduralFoliageInstance::Scale' has a wrong offset!");
+static_assert(offsetof(FProceduralFoliageInstance, Type) == 0x000060, "Member 'FProceduralFoliageInstance::Type' has a wrong offset!");
+
+// ScriptStruct Foliage.FoliageDensityFalloff
+// 0x0090 (0x0090 - 0x0000)
+struct FFoliageDensityFalloff final
+{
+public:
+	bool                                          bUseFalloffCurve;                                  // 0x0000(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_1[0x7];                                        // 0x0001(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FRuntimeFloatCurve                     FalloffCurve;                                      // 0x0008(0x0088)(Edit, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FFoliageDensityFalloff) == 0x000008, "Wrong alignment on FFoliageDensityFalloff");
+static_assert(sizeof(FFoliageDensityFalloff) == 0x000090, "Wrong size on FFoliageDensityFalloff");
+static_assert(offsetof(FFoliageDensityFalloff, bUseFalloffCurve) == 0x000000, "Member 'FFoliageDensityFalloff::bUseFalloffCurve' has a wrong offset!");
+static_assert(offsetof(FFoliageDensityFalloff, FalloffCurve) == 0x000008, "Member 'FFoliageDensityFalloff::FalloffCurve' has a wrong offset!");
 
 }
 

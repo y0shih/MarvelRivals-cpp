@@ -11,7 +11,6 @@
 #include "Basic.hpp"
 
 #include "CoreUObject_structs.hpp"
-#include "Engine_structs.hpp"
 
 
 namespace SDK
@@ -52,23 +51,6 @@ static_assert(alignof(FCompositionGraphCapturePasses) == 0x000008, "Wrong alignm
 static_assert(sizeof(FCompositionGraphCapturePasses) == 0x000010, "Wrong size on FCompositionGraphCapturePasses");
 static_assert(offsetof(FCompositionGraphCapturePasses, Value) == 0x000000, "Member 'FCompositionGraphCapturePasses::Value' has a wrong offset!");
 
-// ScriptStruct MovieSceneCapture.FrameMetrics
-// 0x0010 (0x0010 - 0x0000)
-struct FFrameMetrics final
-{
-public:
-	float                                         TotalElapsedTime;                                  // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         FrameDelta;                                        // 0x0004(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         FrameNumber;                                       // 0x0008(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         NumDroppedFrames;                                  // 0x000C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FFrameMetrics) == 0x000004, "Wrong alignment on FFrameMetrics");
-static_assert(sizeof(FFrameMetrics) == 0x000010, "Wrong size on FFrameMetrics");
-static_assert(offsetof(FFrameMetrics, TotalElapsedTime) == 0x000000, "Member 'FFrameMetrics::TotalElapsedTime' has a wrong offset!");
-static_assert(offsetof(FFrameMetrics, FrameDelta) == 0x000004, "Member 'FFrameMetrics::FrameDelta' has a wrong offset!");
-static_assert(offsetof(FFrameMetrics, FrameNumber) == 0x000008, "Member 'FFrameMetrics::FrameNumber' has a wrong offset!");
-static_assert(offsetof(FFrameMetrics, NumDroppedFrames) == 0x00000C, "Member 'FFrameMetrics::NumDroppedFrames' has a wrong offset!");
-
 // ScriptStruct MovieSceneCapture.CaptureResolution
 // 0x0008 (0x0008 - 0x0000)
 struct FCaptureResolution final
@@ -87,12 +69,13 @@ static_assert(offsetof(FCaptureResolution, ResY) == 0x000004, "Member 'FCaptureR
 struct FMovieSceneCaptureSettings final
 {
 public:
-	struct FDirectoryPath                         OutputDirectory;                                   // 0x0000(0x0010)(Edit, BlueprintVisible, Config, NativeAccessSpecifierPublic)
-	TSubclassOf<class AGameModeBase>              GameModeOverride;                                  // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FDirectoryPath                         OutputDirectory;                                   // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSubclassOf<class AGameModeBase>              GameModeOverride;                                  // 0x0010(0x0008)(Edit, BlueprintVisible, ZeroConstructor, Config, NoDestructor, AdvancedDisplay, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 OutputFormat;                                      // 0x0018(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bOverwriteExisting;                                // 0x0028(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bUseRelativeFrameNumbers;                          // 0x0029(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A[0x2];                                       // 0x002A(0x0002)(Fixing Size After Last Property [ Dumper-7 ])
+	bool                                          bCapturingReplayWorld;                             // 0x002A(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2B[0x1];                                       // 0x002B(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
 	int32                                         HandleFrames;                                      // 0x002C(0x0004)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 MovieExtension;                                    // 0x0030(0x0010)(Edit, BlueprintVisible, ZeroConstructor, Config, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         ZeroPadFrameNumbers;                               // 0x0040(0x0001)(Edit, BlueprintVisible, ZeroConstructor, Config, IsPlainOldData, NoDestructor, AdvancedDisplay, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -120,6 +103,7 @@ static_assert(offsetof(FMovieSceneCaptureSettings, GameModeOverride) == 0x000010
 static_assert(offsetof(FMovieSceneCaptureSettings, OutputFormat) == 0x000018, "Member 'FMovieSceneCaptureSettings::OutputFormat' has a wrong offset!");
 static_assert(offsetof(FMovieSceneCaptureSettings, bOverwriteExisting) == 0x000028, "Member 'FMovieSceneCaptureSettings::bOverwriteExisting' has a wrong offset!");
 static_assert(offsetof(FMovieSceneCaptureSettings, bUseRelativeFrameNumbers) == 0x000029, "Member 'FMovieSceneCaptureSettings::bUseRelativeFrameNumbers' has a wrong offset!");
+static_assert(offsetof(FMovieSceneCaptureSettings, bCapturingReplayWorld) == 0x00002A, "Member 'FMovieSceneCaptureSettings::bCapturingReplayWorld' has a wrong offset!");
 static_assert(offsetof(FMovieSceneCaptureSettings, HandleFrames) == 0x00002C, "Member 'FMovieSceneCaptureSettings::HandleFrames' has a wrong offset!");
 static_assert(offsetof(FMovieSceneCaptureSettings, MovieExtension) == 0x000030, "Member 'FMovieSceneCaptureSettings::MovieExtension' has a wrong offset!");
 static_assert(offsetof(FMovieSceneCaptureSettings, ZeroPadFrameNumbers) == 0x000040, "Member 'FMovieSceneCaptureSettings::ZeroPadFrameNumbers' has a wrong offset!");
@@ -137,15 +121,22 @@ static_assert(offsetof(FMovieSceneCaptureSettings, bShowHUD) == 0x000066, "Membe
 static_assert(offsetof(FMovieSceneCaptureSettings, bUsePathTracer) == 0x000067, "Member 'FMovieSceneCaptureSettings::bUsePathTracer' has a wrong offset!");
 static_assert(offsetof(FMovieSceneCaptureSettings, PathTracerSamplePerPixel) == 0x000068, "Member 'FMovieSceneCaptureSettings::PathTracerSamplePerPixel' has a wrong offset!");
 
-// ScriptStruct MovieSceneCapture.CapturedPixels
+// ScriptStruct MovieSceneCapture.FrameMetrics
 // 0x0010 (0x0010 - 0x0000)
-struct alignas(0x08) FCapturedPixels final
+struct FFrameMetrics final
 {
 public:
-	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	float                                         TotalElapsedTime;                                  // 0x0000(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         FrameDelta;                                        // 0x0004(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         FrameNumber;                                       // 0x0008(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         NumDroppedFrames;                                  // 0x000C(0x0004)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FCapturedPixels) == 0x000008, "Wrong alignment on FCapturedPixels");
-static_assert(sizeof(FCapturedPixels) == 0x000010, "Wrong size on FCapturedPixels");
+static_assert(alignof(FFrameMetrics) == 0x000004, "Wrong alignment on FFrameMetrics");
+static_assert(sizeof(FFrameMetrics) == 0x000010, "Wrong size on FFrameMetrics");
+static_assert(offsetof(FFrameMetrics, TotalElapsedTime) == 0x000000, "Member 'FFrameMetrics::TotalElapsedTime' has a wrong offset!");
+static_assert(offsetof(FFrameMetrics, FrameDelta) == 0x000004, "Member 'FFrameMetrics::FrameDelta' has a wrong offset!");
+static_assert(offsetof(FFrameMetrics, FrameNumber) == 0x000008, "Member 'FFrameMetrics::FrameNumber' has a wrong offset!");
+static_assert(offsetof(FFrameMetrics, NumDroppedFrames) == 0x00000C, "Member 'FFrameMetrics::NumDroppedFrames' has a wrong offset!");
 
 // ScriptStruct MovieSceneCapture.CapturedPixelsID
 // 0x0050 (0x0050 - 0x0000)
@@ -157,6 +148,16 @@ public:
 static_assert(alignof(FCapturedPixelsID) == 0x000008, "Wrong alignment on FCapturedPixelsID");
 static_assert(sizeof(FCapturedPixelsID) == 0x000050, "Wrong size on FCapturedPixelsID");
 static_assert(offsetof(FCapturedPixelsID, Identifiers) == 0x000000, "Member 'FCapturedPixelsID::Identifiers' has a wrong offset!");
+
+// ScriptStruct MovieSceneCapture.CapturedPixels
+// 0x0010 (0x0010 - 0x0000)
+struct alignas(0x08) FCapturedPixels final
+{
+public:
+	uint8                                         Pad_0[0x10];                                       // 0x0000(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FCapturedPixels) == 0x000008, "Wrong alignment on FCapturedPixels");
+static_assert(sizeof(FCapturedPixels) == 0x000010, "Wrong size on FCapturedPixels");
 
 }
 

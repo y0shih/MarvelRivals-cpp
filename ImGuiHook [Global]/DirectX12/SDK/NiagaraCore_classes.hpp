@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // Class NiagaraCore.NiagaraMergeable
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class UNiagaraMergeable : public UObject
 {
 public:
@@ -31,10 +31,10 @@ public:
 	}
 };
 static_assert(alignof(UNiagaraMergeable) == 0x000008, "Wrong alignment on UNiagaraMergeable");
-static_assert(sizeof(UNiagaraMergeable) == 0x000028, "Wrong size on UNiagaraMergeable");
+static_assert(sizeof(UNiagaraMergeable) == 0x000030, "Wrong size on UNiagaraMergeable");
 
 // Class NiagaraCore.NiagaraDataInterfaceBase
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class UNiagaraDataInterfaceBase : public UNiagaraMergeable
 {
 public:
@@ -48,7 +48,7 @@ public:
 	}
 };
 static_assert(alignof(UNiagaraDataInterfaceBase) == 0x000008, "Wrong alignment on UNiagaraDataInterfaceBase");
-static_assert(sizeof(UNiagaraDataInterfaceBase) == 0x000028, "Wrong size on UNiagaraDataInterfaceBase");
+static_assert(sizeof(UNiagaraDataInterfaceBase) == 0x000030, "Wrong size on UNiagaraDataInterfaceBase");
 
 }
 

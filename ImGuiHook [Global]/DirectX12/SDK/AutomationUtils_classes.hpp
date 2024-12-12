@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // Class AutomationUtils.AutomationUtilsBlueprintLibrary
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class UAutomationUtilsBlueprintLibrary final : public UBlueprintFunctionLibrary
 {
 public:
@@ -34,7 +34,7 @@ public:
 	}
 };
 static_assert(alignof(UAutomationUtilsBlueprintLibrary) == 0x000008, "Wrong alignment on UAutomationUtilsBlueprintLibrary");
-static_assert(sizeof(UAutomationUtilsBlueprintLibrary) == 0x000028, "Wrong size on UAutomationUtilsBlueprintLibrary");
+static_assert(sizeof(UAutomationUtilsBlueprintLibrary) == 0x000030, "Wrong size on UAutomationUtilsBlueprintLibrary");
 
 }
 

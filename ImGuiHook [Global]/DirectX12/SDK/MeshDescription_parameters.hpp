@@ -376,33 +376,33 @@ static_assert(sizeof(MeshDescriptionBase_SetPolygonPolygonGroup) == 0x000008, "W
 static_assert(offsetof(MeshDescriptionBase_SetPolygonPolygonGroup, PolygonID) == 0x000000, "Member 'MeshDescriptionBase_SetPolygonPolygonGroup::PolygonID' has a wrong offset!");
 static_assert(offsetof(MeshDescriptionBase_SetPolygonPolygonGroup, PolygonGroupID) == 0x000004, "Member 'MeshDescriptionBase_SetPolygonPolygonGroup::PolygonGroupID' has a wrong offset!");
 
-// Function MeshDescription.MeshDescriptionBase.SetPolygonVertexInstance
-// 0x000C (0x000C - 0x0000)
-struct MeshDescriptionBase_SetPolygonVertexInstance final
+// Function MeshDescription.MeshDescriptionBase.SetPolygonVertexInstances
+// 0x0018 (0x0018 - 0x0000)
+struct MeshDescriptionBase_SetPolygonVertexInstances final
 {
 public:
 	struct FPolygonID                             PolygonID;                                         // 0x0000(0x0004)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	int32                                         PerimeterIndex;                                    // 0x0004(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVertexInstanceID                      VertexInstanceID;                                  // 0x0008(0x0004)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	TArray<struct FVertexInstanceID>              VertexInstanceIDs;                                 // 0x0008(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(MeshDescriptionBase_SetPolygonVertexInstance) == 0x000004, "Wrong alignment on MeshDescriptionBase_SetPolygonVertexInstance");
-static_assert(sizeof(MeshDescriptionBase_SetPolygonVertexInstance) == 0x00000C, "Wrong size on MeshDescriptionBase_SetPolygonVertexInstance");
-static_assert(offsetof(MeshDescriptionBase_SetPolygonVertexInstance, PolygonID) == 0x000000, "Member 'MeshDescriptionBase_SetPolygonVertexInstance::PolygonID' has a wrong offset!");
-static_assert(offsetof(MeshDescriptionBase_SetPolygonVertexInstance, PerimeterIndex) == 0x000004, "Member 'MeshDescriptionBase_SetPolygonVertexInstance::PerimeterIndex' has a wrong offset!");
-static_assert(offsetof(MeshDescriptionBase_SetPolygonVertexInstance, VertexInstanceID) == 0x000008, "Member 'MeshDescriptionBase_SetPolygonVertexInstance::VertexInstanceID' has a wrong offset!");
+static_assert(alignof(MeshDescriptionBase_SetPolygonVertexInstances) == 0x000008, "Wrong alignment on MeshDescriptionBase_SetPolygonVertexInstances");
+static_assert(sizeof(MeshDescriptionBase_SetPolygonVertexInstances) == 0x000018, "Wrong size on MeshDescriptionBase_SetPolygonVertexInstances");
+static_assert(offsetof(MeshDescriptionBase_SetPolygonVertexInstances, PolygonID) == 0x000000, "Member 'MeshDescriptionBase_SetPolygonVertexInstances::PolygonID' has a wrong offset!");
+static_assert(offsetof(MeshDescriptionBase_SetPolygonVertexInstances, VertexInstanceIDs) == 0x000008, "Member 'MeshDescriptionBase_SetPolygonVertexInstances::VertexInstanceIDs' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.SetVertexPosition
-// 0x0010 (0x0010 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct MeshDescriptionBase_SetVertexPosition final
 {
 public:
 	struct FVertexID                              VertexID;                                          // 0x0000(0x0004)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                Position;                                          // 0x0004(0x000C)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                Position;                                          // 0x0008(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(MeshDescriptionBase_SetVertexPosition) == 0x000004, "Wrong alignment on MeshDescriptionBase_SetVertexPosition");
-static_assert(sizeof(MeshDescriptionBase_SetVertexPosition) == 0x000010, "Wrong size on MeshDescriptionBase_SetVertexPosition");
+static_assert(alignof(MeshDescriptionBase_SetVertexPosition) == 0x000008, "Wrong alignment on MeshDescriptionBase_SetVertexPosition");
+static_assert(sizeof(MeshDescriptionBase_SetVertexPosition) == 0x000020, "Wrong size on MeshDescriptionBase_SetVertexPosition");
 static_assert(offsetof(MeshDescriptionBase_SetVertexPosition, VertexID) == 0x000000, "Member 'MeshDescriptionBase_SetVertexPosition::VertexID' has a wrong offset!");
-static_assert(offsetof(MeshDescriptionBase_SetVertexPosition, Position) == 0x000004, "Member 'MeshDescriptionBase_SetVertexPosition::Position' has a wrong offset!");
+static_assert(offsetof(MeshDescriptionBase_SetVertexPosition, Position) == 0x000008, "Member 'MeshDescriptionBase_SetVertexPosition::Position' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.GetEdgeConnectedPolygons
 // 0x0018 (0x0018 - 0x0000)
@@ -431,6 +431,17 @@ static_assert(alignof(MeshDescriptionBase_GetEdgeConnectedTriangles) == 0x000008
 static_assert(sizeof(MeshDescriptionBase_GetEdgeConnectedTriangles) == 0x000018, "Wrong size on MeshDescriptionBase_GetEdgeConnectedTriangles");
 static_assert(offsetof(MeshDescriptionBase_GetEdgeConnectedTriangles, EdgeID) == 0x000000, "Member 'MeshDescriptionBase_GetEdgeConnectedTriangles::EdgeID' has a wrong offset!");
 static_assert(offsetof(MeshDescriptionBase_GetEdgeConnectedTriangles, OutConnectedTriangleIDs) == 0x000008, "Member 'MeshDescriptionBase_GetEdgeConnectedTriangles::OutConnectedTriangleIDs' has a wrong offset!");
+
+// Function MeshDescription.MeshDescriptionBase.GetEdgeCount
+// 0x0004 (0x0004 - 0x0000)
+struct MeshDescriptionBase_GetEdgeCount final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(MeshDescriptionBase_GetEdgeCount) == 0x000004, "Wrong alignment on MeshDescriptionBase_GetEdgeCount");
+static_assert(sizeof(MeshDescriptionBase_GetEdgeCount) == 0x000004, "Wrong size on MeshDescriptionBase_GetEdgeCount");
+static_assert(offsetof(MeshDescriptionBase_GetEdgeCount, ReturnValue) == 0x000000, "Member 'MeshDescriptionBase_GetEdgeCount::ReturnValue' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.GetEdgeVertex
 // 0x000C (0x000C - 0x0000)
@@ -631,6 +642,28 @@ static_assert(sizeof(MeshDescriptionBase_GetPolygonAdjacentPolygons) == 0x000018
 static_assert(offsetof(MeshDescriptionBase_GetPolygonAdjacentPolygons, PolygonID) == 0x000000, "Member 'MeshDescriptionBase_GetPolygonAdjacentPolygons::PolygonID' has a wrong offset!");
 static_assert(offsetof(MeshDescriptionBase_GetPolygonAdjacentPolygons, OutPolygonIDs) == 0x000008, "Member 'MeshDescriptionBase_GetPolygonAdjacentPolygons::OutPolygonIDs' has a wrong offset!");
 
+// Function MeshDescription.MeshDescriptionBase.GetPolygonCount
+// 0x0004 (0x0004 - 0x0000)
+struct MeshDescriptionBase_GetPolygonCount final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(MeshDescriptionBase_GetPolygonCount) == 0x000004, "Wrong alignment on MeshDescriptionBase_GetPolygonCount");
+static_assert(sizeof(MeshDescriptionBase_GetPolygonCount) == 0x000004, "Wrong size on MeshDescriptionBase_GetPolygonCount");
+static_assert(offsetof(MeshDescriptionBase_GetPolygonCount, ReturnValue) == 0x000000, "Member 'MeshDescriptionBase_GetPolygonCount::ReturnValue' has a wrong offset!");
+
+// Function MeshDescription.MeshDescriptionBase.GetPolygonGroupCount
+// 0x0004 (0x0004 - 0x0000)
+struct MeshDescriptionBase_GetPolygonGroupCount final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(MeshDescriptionBase_GetPolygonGroupCount) == 0x000004, "Wrong alignment on MeshDescriptionBase_GetPolygonGroupCount");
+static_assert(sizeof(MeshDescriptionBase_GetPolygonGroupCount) == 0x000004, "Wrong size on MeshDescriptionBase_GetPolygonGroupCount");
+static_assert(offsetof(MeshDescriptionBase_GetPolygonGroupCount, ReturnValue) == 0x000000, "Member 'MeshDescriptionBase_GetPolygonGroupCount::ReturnValue' has a wrong offset!");
+
 // Function MeshDescription.MeshDescriptionBase.GetPolygonGroupPolygons
 // 0x0018 (0x0018 - 0x0000)
 struct MeshDescriptionBase_GetPolygonGroupPolygons final
@@ -741,6 +774,17 @@ static_assert(alignof(MeshDescriptionBase_GetTriangleAdjacentTriangles) == 0x000
 static_assert(sizeof(MeshDescriptionBase_GetTriangleAdjacentTriangles) == 0x000018, "Wrong size on MeshDescriptionBase_GetTriangleAdjacentTriangles");
 static_assert(offsetof(MeshDescriptionBase_GetTriangleAdjacentTriangles, TriangleID) == 0x000000, "Member 'MeshDescriptionBase_GetTriangleAdjacentTriangles::TriangleID' has a wrong offset!");
 static_assert(offsetof(MeshDescriptionBase_GetTriangleAdjacentTriangles, OutTriangleIDs) == 0x000008, "Member 'MeshDescriptionBase_GetTriangleAdjacentTriangles::OutTriangleIDs' has a wrong offset!");
+
+// Function MeshDescription.MeshDescriptionBase.GetTriangleCount
+// 0x0004 (0x0004 - 0x0000)
+struct MeshDescriptionBase_GetTriangleCount final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(MeshDescriptionBase_GetTriangleCount) == 0x000004, "Wrong alignment on MeshDescriptionBase_GetTriangleCount");
+static_assert(sizeof(MeshDescriptionBase_GetTriangleCount) == 0x000004, "Wrong size on MeshDescriptionBase_GetTriangleCount");
+static_assert(offsetof(MeshDescriptionBase_GetTriangleCount, ReturnValue) == 0x000000, "Member 'MeshDescriptionBase_GetTriangleCount::ReturnValue' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.GetTriangleEdges
 // 0x0018 (0x0018 - 0x0000)
@@ -881,6 +925,17 @@ static_assert(sizeof(MeshDescriptionBase_GetVertexConnectedTriangles) == 0x00001
 static_assert(offsetof(MeshDescriptionBase_GetVertexConnectedTriangles, VertexID) == 0x000000, "Member 'MeshDescriptionBase_GetVertexConnectedTriangles::VertexID' has a wrong offset!");
 static_assert(offsetof(MeshDescriptionBase_GetVertexConnectedTriangles, OutConnectedTriangleIDs) == 0x000008, "Member 'MeshDescriptionBase_GetVertexConnectedTriangles::OutConnectedTriangleIDs' has a wrong offset!");
 
+// Function MeshDescription.MeshDescriptionBase.GetVertexCount
+// 0x0004 (0x0004 - 0x0000)
+struct MeshDescriptionBase_GetVertexCount final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(MeshDescriptionBase_GetVertexCount) == 0x000004, "Wrong alignment on MeshDescriptionBase_GetVertexCount");
+static_assert(sizeof(MeshDescriptionBase_GetVertexCount) == 0x000004, "Wrong size on MeshDescriptionBase_GetVertexCount");
+static_assert(offsetof(MeshDescriptionBase_GetVertexCount, ReturnValue) == 0x000000, "Member 'MeshDescriptionBase_GetVertexCount::ReturnValue' has a wrong offset!");
+
 // Function MeshDescription.MeshDescriptionBase.GetVertexInstanceConnectedPolygons
 // 0x0018 (0x0018 - 0x0000)
 struct MeshDescriptionBase_GetVertexInstanceConnectedPolygons final
@@ -908,6 +963,17 @@ static_assert(alignof(MeshDescriptionBase_GetVertexInstanceConnectedTriangles) =
 static_assert(sizeof(MeshDescriptionBase_GetVertexInstanceConnectedTriangles) == 0x000018, "Wrong size on MeshDescriptionBase_GetVertexInstanceConnectedTriangles");
 static_assert(offsetof(MeshDescriptionBase_GetVertexInstanceConnectedTriangles, VertexInstanceID) == 0x000000, "Member 'MeshDescriptionBase_GetVertexInstanceConnectedTriangles::VertexInstanceID' has a wrong offset!");
 static_assert(offsetof(MeshDescriptionBase_GetVertexInstanceConnectedTriangles, OutConnectedTriangleIDs) == 0x000008, "Member 'MeshDescriptionBase_GetVertexInstanceConnectedTriangles::OutConnectedTriangleIDs' has a wrong offset!");
+
+// Function MeshDescription.MeshDescriptionBase.GetVertexInstanceCount
+// 0x0004 (0x0004 - 0x0000)
+struct MeshDescriptionBase_GetVertexInstanceCount final
+{
+public:
+	int32                                         ReturnValue;                                       // 0x0000(0x0004)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(MeshDescriptionBase_GetVertexInstanceCount) == 0x000004, "Wrong alignment on MeshDescriptionBase_GetVertexInstanceCount");
+static_assert(sizeof(MeshDescriptionBase_GetVertexInstanceCount) == 0x000004, "Wrong size on MeshDescriptionBase_GetVertexInstanceCount");
+static_assert(offsetof(MeshDescriptionBase_GetVertexInstanceCount, ReturnValue) == 0x000000, "Member 'MeshDescriptionBase_GetVertexInstanceCount::ReturnValue' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.GetVertexInstanceForPolygonVertex
 // 0x000C (0x000C - 0x0000)
@@ -983,17 +1049,18 @@ static_assert(offsetof(MeshDescriptionBase_GetVertexPairEdge, VertexID1) == 0x00
 static_assert(offsetof(MeshDescriptionBase_GetVertexPairEdge, ReturnValue) == 0x000008, "Member 'MeshDescriptionBase_GetVertexPairEdge::ReturnValue' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.GetVertexPosition
-// 0x0010 (0x0010 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct MeshDescriptionBase_GetVertexPosition final
 {
 public:
 	struct FVertexID                              VertexID;                                          // 0x0000(0x0004)(Parm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                ReturnValue;                                       // 0x0004(0x000C)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FVector                                ReturnValue;                                       // 0x0008(0x0018)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(MeshDescriptionBase_GetVertexPosition) == 0x000004, "Wrong alignment on MeshDescriptionBase_GetVertexPosition");
-static_assert(sizeof(MeshDescriptionBase_GetVertexPosition) == 0x000010, "Wrong size on MeshDescriptionBase_GetVertexPosition");
+static_assert(alignof(MeshDescriptionBase_GetVertexPosition) == 0x000008, "Wrong alignment on MeshDescriptionBase_GetVertexPosition");
+static_assert(sizeof(MeshDescriptionBase_GetVertexPosition) == 0x000020, "Wrong size on MeshDescriptionBase_GetVertexPosition");
 static_assert(offsetof(MeshDescriptionBase_GetVertexPosition, VertexID) == 0x000000, "Member 'MeshDescriptionBase_GetVertexPosition::VertexID' has a wrong offset!");
-static_assert(offsetof(MeshDescriptionBase_GetVertexPosition, ReturnValue) == 0x000004, "Member 'MeshDescriptionBase_GetVertexPosition::ReturnValue' has a wrong offset!");
+static_assert(offsetof(MeshDescriptionBase_GetVertexPosition, ReturnValue) == 0x000008, "Member 'MeshDescriptionBase_GetVertexPosition::ReturnValue' has a wrong offset!");
 
 // Function MeshDescription.MeshDescriptionBase.GetVertexVertexInstances
 // 0x0018 (0x0018 - 0x0000)

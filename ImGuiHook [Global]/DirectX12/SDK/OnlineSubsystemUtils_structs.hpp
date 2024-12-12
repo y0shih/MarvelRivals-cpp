@@ -17,6 +17,17 @@
 namespace SDK
 {
 
+// Enum OnlineSubsystemUtils.EOnlineProxyStoreOfferDiscountType
+// NumValues: 0x0005
+enum class EOnlineProxyStoreOfferDiscountType : uint8
+{
+	NotOnSale                                = 0,
+	Percentage                               = 1,
+	DiscountAmount                           = 2,
+	PayAmount                                = 3,
+	EOnlineProxyStoreOfferDiscountType_MAX   = 4,
+};
+
 // Enum OnlineSubsystemUtils.EInAppPurchaseStatus
 // NumValues: 0x0007
 enum class EInAppPurchaseStatus : uint8
@@ -28,17 +39,6 @@ enum class EInAppPurchaseStatus : uint8
 	Purchased                                = 4,
 	Restored                                 = 5,
 	EInAppPurchaseStatus_MAX                 = 6,
-};
-
-// Enum OnlineSubsystemUtils.EOnlineProxyStoreOfferDiscountType
-// NumValues: 0x0005
-enum class EOnlineProxyStoreOfferDiscountType : uint8
-{
-	NotOnSale                                = 0,
-	Percentage                               = 1,
-	DiscountAmount                           = 2,
-	PayAmount                                = 3,
-	EOnlineProxyStoreOfferDiscountType_MAX   = 4,
 };
 
 // Enum OnlineSubsystemUtils.EBeaconConnectionState
@@ -126,44 +126,32 @@ enum class ESpectatorReservationResult : uint8
 	ESpectatorReservationResult_MAX          = 16,
 };
 
-// ScriptStruct OnlineSubsystemUtils.BlueprintSessionResult
-// 0x0108 (0x0108 - 0x0000)
-struct alignas(0x08) FBlueprintSessionResult final
-{
-public:
-	uint8                                         Pad_0[0x108];                                      // 0x0000(0x0108)(Fixing Struct Size After Last Property [ Dumper-7 ])
-};
-static_assert(alignof(FBlueprintSessionResult) == 0x000008, "Wrong alignment on FBlueprintSessionResult");
-static_assert(sizeof(FBlueprintSessionResult) == 0x000108, "Wrong size on FBlueprintSessionResult");
-
 // ScriptStruct OnlineSubsystemUtils.InAppPurchaseReceiptInfo2
-// 0x0030 (0x0030 - 0x0000)
+// 0x0040 (0x0040 - 0x0000)
 struct FInAppPurchaseReceiptInfo2 final
 {
 public:
 	class FString                                 ItemName;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ItemId;                                            // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 ValidationInfo;                                    // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 TransactionIdentifier;                             // 0x0030(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FInAppPurchaseReceiptInfo2) == 0x000008, "Wrong alignment on FInAppPurchaseReceiptInfo2");
-static_assert(sizeof(FInAppPurchaseReceiptInfo2) == 0x000030, "Wrong size on FInAppPurchaseReceiptInfo2");
+static_assert(sizeof(FInAppPurchaseReceiptInfo2) == 0x000040, "Wrong size on FInAppPurchaseReceiptInfo2");
 static_assert(offsetof(FInAppPurchaseReceiptInfo2, ItemName) == 0x000000, "Member 'FInAppPurchaseReceiptInfo2::ItemName' has a wrong offset!");
 static_assert(offsetof(FInAppPurchaseReceiptInfo2, ItemId) == 0x000010, "Member 'FInAppPurchaseReceiptInfo2::ItemId' has a wrong offset!");
 static_assert(offsetof(FInAppPurchaseReceiptInfo2, ValidationInfo) == 0x000020, "Member 'FInAppPurchaseReceiptInfo2::ValidationInfo' has a wrong offset!");
+static_assert(offsetof(FInAppPurchaseReceiptInfo2, TransactionIdentifier) == 0x000030, "Member 'FInAppPurchaseReceiptInfo2::TransactionIdentifier' has a wrong offset!");
 
-// ScriptStruct OnlineSubsystemUtils.InAppPurchaseProductRequest2
-// 0x0018 (0x0018 - 0x0000)
-struct FInAppPurchaseProductRequest2 final
+// ScriptStruct OnlineSubsystemUtils.BlueprintSessionResult
+// 0x0120 (0x0120 - 0x0000)
+struct alignas(0x08) FBlueprintSessionResult final
 {
 public:
-	class FString                                 ProductIdentifier;                                 // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bIsConsumable;                                     // 0x0010(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_0[0x120];                                      // 0x0000(0x0120)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FInAppPurchaseProductRequest2) == 0x000008, "Wrong alignment on FInAppPurchaseProductRequest2");
-static_assert(sizeof(FInAppPurchaseProductRequest2) == 0x000018, "Wrong size on FInAppPurchaseProductRequest2");
-static_assert(offsetof(FInAppPurchaseProductRequest2, ProductIdentifier) == 0x000000, "Member 'FInAppPurchaseProductRequest2::ProductIdentifier' has a wrong offset!");
-static_assert(offsetof(FInAppPurchaseProductRequest2, bIsConsumable) == 0x000010, "Member 'FInAppPurchaseProductRequest2::bIsConsumable' has a wrong offset!");
+static_assert(alignof(FBlueprintSessionResult) == 0x000008, "Wrong alignment on FBlueprintSessionResult");
+static_assert(sizeof(FBlueprintSessionResult) == 0x000120, "Wrong size on FBlueprintSessionResult");
 
 // ScriptStruct OnlineSubsystemUtils.OnlineProxyStoreOffer
 // 0x0110 (0x0110 - 0x0000)
@@ -203,6 +191,55 @@ static_assert(offsetof(FOnlineProxyStoreOffer, ExpirationDate) == 0x0000B0, "Mem
 static_assert(offsetof(FOnlineProxyStoreOffer, DiscountType) == 0x0000B8, "Member 'FOnlineProxyStoreOffer::DiscountType' has a wrong offset!");
 static_assert(offsetof(FOnlineProxyStoreOffer, DynamicFields) == 0x0000C0, "Member 'FOnlineProxyStoreOffer::DynamicFields' has a wrong offset!");
 
+// ScriptStruct OnlineSubsystemUtils.InAppPurchaseRestoreInfo2
+// 0x0030 (0x0030 - 0x0000)
+struct FInAppPurchaseRestoreInfo2 final
+{
+public:
+	class FString                                 ItemName;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ItemId;                                            // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ValidationInfo;                                    // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FInAppPurchaseRestoreInfo2) == 0x000008, "Wrong alignment on FInAppPurchaseRestoreInfo2");
+static_assert(sizeof(FInAppPurchaseRestoreInfo2) == 0x000030, "Wrong size on FInAppPurchaseRestoreInfo2");
+static_assert(offsetof(FInAppPurchaseRestoreInfo2, ItemName) == 0x000000, "Member 'FInAppPurchaseRestoreInfo2::ItemName' has a wrong offset!");
+static_assert(offsetof(FInAppPurchaseRestoreInfo2, ItemId) == 0x000010, "Member 'FInAppPurchaseRestoreInfo2::ItemId' has a wrong offset!");
+static_assert(offsetof(FInAppPurchaseRestoreInfo2, ValidationInfo) == 0x000020, "Member 'FInAppPurchaseRestoreInfo2::ValidationInfo' has a wrong offset!");
+
+// ScriptStruct OnlineSubsystemUtils.InAppPurchaseProductRequest2
+// 0x0018 (0x0018 - 0x0000)
+struct FInAppPurchaseProductRequest2 final
+{
+public:
+	class FString                                 ProductIdentifier;                                 // 0x0000(0x0010)(BlueprintVisible, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bIsConsumable;                                     // 0x0010(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_11[0x7];                                       // 0x0011(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+};
+static_assert(alignof(FInAppPurchaseProductRequest2) == 0x000008, "Wrong alignment on FInAppPurchaseProductRequest2");
+static_assert(sizeof(FInAppPurchaseProductRequest2) == 0x000018, "Wrong size on FInAppPurchaseProductRequest2");
+static_assert(offsetof(FInAppPurchaseProductRequest2, ProductIdentifier) == 0x000000, "Member 'FInAppPurchaseProductRequest2::ProductIdentifier' has a wrong offset!");
+static_assert(offsetof(FInAppPurchaseProductRequest2, bIsConsumable) == 0x000010, "Member 'FInAppPurchaseProductRequest2::bIsConsumable' has a wrong offset!");
+
+// ScriptStruct OnlineSubsystemUtils.PlayerReservation
+// 0x0058 (0x0058 - 0x0000)
+struct FPlayerReservation final
+{
+public:
+	struct FUniqueNetIdRepl                       UniqueID;                                          // 0x0000(0x0030)(Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 ValidationStr;                                     // 0x0030(0x0010)(ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FString                                 Platform;                                          // 0x0040(0x0010)(ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bAllowCrossplay;                                   // 0x0050(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_51[0x3];                                       // 0x0051(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         ElapsedTime;                                       // 0x0054(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FPlayerReservation) == 0x000008, "Wrong alignment on FPlayerReservation");
+static_assert(sizeof(FPlayerReservation) == 0x000058, "Wrong size on FPlayerReservation");
+static_assert(offsetof(FPlayerReservation, UniqueID) == 0x000000, "Member 'FPlayerReservation::UniqueID' has a wrong offset!");
+static_assert(offsetof(FPlayerReservation, ValidationStr) == 0x000030, "Member 'FPlayerReservation::ValidationStr' has a wrong offset!");
+static_assert(offsetof(FPlayerReservation, Platform) == 0x000040, "Member 'FPlayerReservation::Platform' has a wrong offset!");
+static_assert(offsetof(FPlayerReservation, bAllowCrossplay) == 0x000050, "Member 'FPlayerReservation::bAllowCrossplay' has a wrong offset!");
+static_assert(offsetof(FPlayerReservation, ElapsedTime) == 0x000054, "Member 'FPlayerReservation::ElapsedTime' has a wrong offset!");
+
 // ScriptStruct OnlineSubsystemUtils.InAppPurchaseProductInfo2
 // 0x00F8 (0x00F8 - 0x0000)
 struct FInAppPurchaseProductInfo2 final
@@ -237,56 +274,6 @@ static_assert(offsetof(FInAppPurchaseProductInfo2, GroupingSeparator) == 0x00008
 static_assert(offsetof(FInAppPurchaseProductInfo2, ReceiptData) == 0x000098, "Member 'FInAppPurchaseProductInfo2::ReceiptData' has a wrong offset!");
 static_assert(offsetof(FInAppPurchaseProductInfo2, DynamicFields) == 0x0000A8, "Member 'FInAppPurchaseProductInfo2::DynamicFields' has a wrong offset!");
 
-// ScriptStruct OnlineSubsystemUtils.InAppPurchaseRestoreInfo2
-// 0x0030 (0x0030 - 0x0000)
-struct FInAppPurchaseRestoreInfo2 final
-{
-public:
-	class FString                                 ItemName;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ItemId;                                            // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ValidationInfo;                                    // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FInAppPurchaseRestoreInfo2) == 0x000008, "Wrong alignment on FInAppPurchaseRestoreInfo2");
-static_assert(sizeof(FInAppPurchaseRestoreInfo2) == 0x000030, "Wrong size on FInAppPurchaseRestoreInfo2");
-static_assert(offsetof(FInAppPurchaseRestoreInfo2, ItemName) == 0x000000, "Member 'FInAppPurchaseRestoreInfo2::ItemName' has a wrong offset!");
-static_assert(offsetof(FInAppPurchaseRestoreInfo2, ItemId) == 0x000010, "Member 'FInAppPurchaseRestoreInfo2::ItemId' has a wrong offset!");
-static_assert(offsetof(FInAppPurchaseRestoreInfo2, ValidationInfo) == 0x000020, "Member 'FInAppPurchaseRestoreInfo2::ValidationInfo' has a wrong offset!");
-
-// ScriptStruct OnlineSubsystemUtils.InAppPurchaseReceiptInfo
-// 0x0030 (0x0030 - 0x0000)
-struct FInAppPurchaseReceiptInfo final
-{
-public:
-	class FString                                 ItemName;                                          // 0x0000(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ItemId;                                            // 0x0010(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ValidationInfo;                                    // 0x0020(0x0010)(BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FInAppPurchaseReceiptInfo) == 0x000008, "Wrong alignment on FInAppPurchaseReceiptInfo");
-static_assert(sizeof(FInAppPurchaseReceiptInfo) == 0x000030, "Wrong size on FInAppPurchaseReceiptInfo");
-static_assert(offsetof(FInAppPurchaseReceiptInfo, ItemName) == 0x000000, "Member 'FInAppPurchaseReceiptInfo::ItemName' has a wrong offset!");
-static_assert(offsetof(FInAppPurchaseReceiptInfo, ItemId) == 0x000010, "Member 'FInAppPurchaseReceiptInfo::ItemId' has a wrong offset!");
-static_assert(offsetof(FInAppPurchaseReceiptInfo, ValidationInfo) == 0x000020, "Member 'FInAppPurchaseReceiptInfo::ValidationInfo' has a wrong offset!");
-
-// ScriptStruct OnlineSubsystemUtils.PlayerReservation
-// 0x0050 (0x0050 - 0x0000)
-struct FPlayerReservation final
-{
-public:
-	struct FUniqueNetIdRepl                       UniqueId;                                          // 0x0000(0x0028)(Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 ValidationStr;                                     // 0x0028(0x0010)(ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Platform;                                          // 0x0038(0x0010)(ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bAllowCrossplay;                                   // 0x0048(0x0001)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_49[0x3];                                       // 0x0049(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         ElapsedTime;                                       // 0x004C(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FPlayerReservation) == 0x000008, "Wrong alignment on FPlayerReservation");
-static_assert(sizeof(FPlayerReservation) == 0x000050, "Wrong size on FPlayerReservation");
-static_assert(offsetof(FPlayerReservation, UniqueId) == 0x000000, "Member 'FPlayerReservation::UniqueId' has a wrong offset!");
-static_assert(offsetof(FPlayerReservation, ValidationStr) == 0x000028, "Member 'FPlayerReservation::ValidationStr' has a wrong offset!");
-static_assert(offsetof(FPlayerReservation, Platform) == 0x000038, "Member 'FPlayerReservation::Platform' has a wrong offset!");
-static_assert(offsetof(FPlayerReservation, bAllowCrossplay) == 0x000048, "Member 'FPlayerReservation::bAllowCrossplay' has a wrong offset!");
-static_assert(offsetof(FPlayerReservation, ElapsedTime) == 0x00004C, "Member 'FPlayerReservation::ElapsedTime' has a wrong offset!");
-
 // ScriptStruct OnlineSubsystemUtils.PIELoginSettingsInternal
 // 0x0040 (0x0040 - 0x0000)
 struct FPIELoginSettingsInternal final
@@ -304,6 +291,24 @@ static_assert(offsetof(FPIELoginSettingsInternal, Token) == 0x000010, "Member 'F
 static_assert(offsetof(FPIELoginSettingsInternal, Type) == 0x000020, "Member 'FPIELoginSettingsInternal::Type' has a wrong offset!");
 static_assert(offsetof(FPIELoginSettingsInternal, TokenBytes) == 0x000030, "Member 'FPIELoginSettingsInternal::TokenBytes' has a wrong offset!");
 
+// ScriptStruct OnlineSubsystemUtils.PartyReservation
+// 0x0058 (0x0058 - 0x0000)
+struct FPartyReservation final
+{
+public:
+	int32                                         TeamNum;                                           // 0x0000(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FUniqueNetIdRepl                       PartyLeader;                                       // 0x0008(0x0030)(Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FPlayerReservation>             PartyMembers;                                      // 0x0038(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
+	TArray<struct FPlayerReservation>             RemovedPartyMembers;                               // 0x0048(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FPartyReservation) == 0x000008, "Wrong alignment on FPartyReservation");
+static_assert(sizeof(FPartyReservation) == 0x000058, "Wrong size on FPartyReservation");
+static_assert(offsetof(FPartyReservation, TeamNum) == 0x000000, "Member 'FPartyReservation::TeamNum' has a wrong offset!");
+static_assert(offsetof(FPartyReservation, PartyLeader) == 0x000008, "Member 'FPartyReservation::PartyLeader' has a wrong offset!");
+static_assert(offsetof(FPartyReservation, PartyMembers) == 0x000038, "Member 'FPartyReservation::PartyMembers' has a wrong offset!");
+static_assert(offsetof(FPartyReservation, RemovedPartyMembers) == 0x000048, "Member 'FPartyReservation::RemovedPartyMembers' has a wrong offset!");
+
 // ScriptStruct OnlineSubsystemUtils.PartyBeaconCrossplayPlatformMapping
 // 0x0020 (0x0020 - 0x0000)
 struct FPartyBeaconCrossplayPlatformMapping final
@@ -317,36 +322,18 @@ static_assert(sizeof(FPartyBeaconCrossplayPlatformMapping) == 0x000020, "Wrong s
 static_assert(offsetof(FPartyBeaconCrossplayPlatformMapping, PlatformName) == 0x000000, "Member 'FPartyBeaconCrossplayPlatformMapping::PlatformName' has a wrong offset!");
 static_assert(offsetof(FPartyBeaconCrossplayPlatformMapping, PlatformType) == 0x000010, "Member 'FPartyBeaconCrossplayPlatformMapping::PlatformType' has a wrong offset!");
 
-// ScriptStruct OnlineSubsystemUtils.PartyReservation
-// 0x0050 (0x0050 - 0x0000)
-struct FPartyReservation final
-{
-public:
-	int32                                         TeamNum;                                           // 0x0000(0x0004)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_4[0x4];                                        // 0x0004(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FUniqueNetIdRepl                       PartyLeader;                                       // 0x0008(0x0028)(Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TArray<struct FPlayerReservation>             PartyMembers;                                      // 0x0030(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
-	TArray<struct FPlayerReservation>             RemovedPartyMembers;                               // 0x0040(0x0010)(ZeroConstructor, Transient, NativeAccessSpecifierPublic)
-};
-static_assert(alignof(FPartyReservation) == 0x000008, "Wrong alignment on FPartyReservation");
-static_assert(sizeof(FPartyReservation) == 0x000050, "Wrong size on FPartyReservation");
-static_assert(offsetof(FPartyReservation, TeamNum) == 0x000000, "Member 'FPartyReservation::TeamNum' has a wrong offset!");
-static_assert(offsetof(FPartyReservation, PartyLeader) == 0x000008, "Member 'FPartyReservation::PartyLeader' has a wrong offset!");
-static_assert(offsetof(FPartyReservation, PartyMembers) == 0x000030, "Member 'FPartyReservation::PartyMembers' has a wrong offset!");
-static_assert(offsetof(FPartyReservation, RemovedPartyMembers) == 0x000040, "Member 'FPartyReservation::RemovedPartyMembers' has a wrong offset!");
-
 // ScriptStruct OnlineSubsystemUtils.SpectatorReservation
-// 0x0078 (0x0078 - 0x0000)
+// 0x0088 (0x0088 - 0x0000)
 struct FSpectatorReservation final
 {
 public:
-	struct FUniqueNetIdRepl                       SpectatorId;                                       // 0x0000(0x0028)(Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FPlayerReservation                     Spectator;                                         // 0x0028(0x0050)(Transient, NativeAccessSpecifierPublic)
+	struct FUniqueNetIdRepl                       SpectatorId;                                       // 0x0000(0x0030)(Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FPlayerReservation                     Spectator;                                         // 0x0030(0x0058)(Transient, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FSpectatorReservation) == 0x000008, "Wrong alignment on FSpectatorReservation");
-static_assert(sizeof(FSpectatorReservation) == 0x000078, "Wrong size on FSpectatorReservation");
+static_assert(sizeof(FSpectatorReservation) == 0x000088, "Wrong size on FSpectatorReservation");
 static_assert(offsetof(FSpectatorReservation, SpectatorId) == 0x000000, "Member 'FSpectatorReservation::SpectatorId' has a wrong offset!");
-static_assert(offsetof(FSpectatorReservation, Spectator) == 0x000028, "Member 'FSpectatorReservation::Spectator' has a wrong offset!");
+static_assert(offsetof(FSpectatorReservation, Spectator) == 0x000030, "Member 'FSpectatorReservation::Spectator' has a wrong offset!");
 
 }
 

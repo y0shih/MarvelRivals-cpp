@@ -82,9 +82,9 @@ void UDestructibleComponent::ApplyRadiusDamage(float BaseDamage, const struct FV
 
 
 // Function ApexDestruction.DestructibleComponent.GetDestructibleMesh
-// (Final, Native, Public, BlueprintCallable)
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UDestructibleMesh*                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UDestructibleMesh*                ReturnValue                                            (Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UDestructibleMesh* UDestructibleComponent::GetDestructibleMesh()
 {
@@ -109,7 +109,7 @@ class UDestructibleMesh* UDestructibleComponent::GetDestructibleMesh()
 // Function ApexDestruction.DestructibleComponent.SetDestructibleMesh
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UDestructibleMesh*                NewMesh                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UDestructibleMesh*                NewMesh                                                (Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 void UDestructibleComponent::SetDestructibleMesh(class UDestructibleMesh* NewMesh)
 {

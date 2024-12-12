@@ -10,18 +10,41 @@
 
 #include "Basic.hpp"
 
+#include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "SlateCore_structs.hpp"
 
 
 namespace SDK
 {
 
+// Class SlateCore.SlateWidgetStyleAsset
+// 0x0008 (0x0038 - 0x0030)
+class USlateWidgetStyleAsset final : public UObject
+{
+public:
+	class USlateWidgetStyleContainerBase*         CustomStyle;                                       // 0x0030(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"SlateWidgetStyleAsset">();
+	}
+	static class USlateWidgetStyleAsset* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USlateWidgetStyleAsset>();
+	}
+};
+static_assert(alignof(USlateWidgetStyleAsset) == 0x000008, "Wrong alignment on USlateWidgetStyleAsset");
+static_assert(sizeof(USlateWidgetStyleAsset) == 0x000038, "Wrong size on USlateWidgetStyleAsset");
+static_assert(offsetof(USlateWidgetStyleAsset, CustomStyle) == 0x000030, "Member 'USlateWidgetStyleAsset::CustomStyle' has a wrong offset!");
+
 // Class SlateCore.FontBulkData
-// 0x0050 (0x0078 - 0x0028)
+// 0x0050 (0x0080 - 0x0030)
 class UFontBulkData final : public UObject
 {
 public:
-	uint8                                         Pad_28[0x50];                                      // 0x0028(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_30[0x50];                                      // 0x0030(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -34,10 +57,10 @@ public:
 	}
 };
 static_assert(alignof(UFontBulkData) == 0x000008, "Wrong alignment on UFontBulkData");
-static_assert(sizeof(UFontBulkData) == 0x000078, "Wrong size on UFontBulkData");
+static_assert(sizeof(UFontBulkData) == 0x000080, "Wrong size on UFontBulkData");
 
 // Class SlateCore.FontFaceInterface
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class IFontFaceInterface final : public IInterface
 {
 public:
@@ -51,10 +74,10 @@ public:
 	}
 };
 static_assert(alignof(IFontFaceInterface) == 0x000008, "Wrong alignment on IFontFaceInterface");
-static_assert(sizeof(IFontFaceInterface) == 0x000028, "Wrong size on IFontFaceInterface");
+static_assert(sizeof(IFontFaceInterface) == 0x000030, "Wrong size on IFontFaceInterface");
 
 // Class SlateCore.FontProviderInterface
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class IFontProviderInterface final : public IInterface
 {
 public:
@@ -68,10 +91,10 @@ public:
 	}
 };
 static_assert(alignof(IFontProviderInterface) == 0x000008, "Wrong alignment on IFontProviderInterface");
-static_assert(sizeof(IFontProviderInterface) == 0x000028, "Wrong size on IFontProviderInterface");
+static_assert(sizeof(IFontProviderInterface) == 0x000030, "Wrong size on IFontProviderInterface");
 
 // Class SlateCore.SlateTypes
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class USlateTypes final : public UObject
 {
 public:
@@ -85,35 +108,14 @@ public:
 	}
 };
 static_assert(alignof(USlateTypes) == 0x000008, "Wrong alignment on USlateTypes");
-static_assert(sizeof(USlateTypes) == 0x000028, "Wrong size on USlateTypes");
-
-// Class SlateCore.SlateWidgetStyleAsset
-// 0x0008 (0x0030 - 0x0028)
-class USlateWidgetStyleAsset final : public UObject
-{
-public:
-	class USlateWidgetStyleContainerBase*         CustomStyle;                                       // 0x0028(0x0008)(Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"SlateWidgetStyleAsset">();
-	}
-	static class USlateWidgetStyleAsset* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USlateWidgetStyleAsset>();
-	}
-};
-static_assert(alignof(USlateWidgetStyleAsset) == 0x000008, "Wrong alignment on USlateWidgetStyleAsset");
-static_assert(sizeof(USlateWidgetStyleAsset) == 0x000030, "Wrong size on USlateWidgetStyleAsset");
-static_assert(offsetof(USlateWidgetStyleAsset, CustomStyle) == 0x000028, "Member 'USlateWidgetStyleAsset::CustomStyle' has a wrong offset!");
+static_assert(sizeof(USlateTypes) == 0x000030, "Wrong size on USlateTypes");
 
 // Class SlateCore.SlateWidgetStyleContainerBase
-// 0x0008 (0x0030 - 0x0028)
+// 0x0008 (0x0038 - 0x0030)
 class USlateWidgetStyleContainerBase : public UObject
 {
 public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_30[0x8];                                       // 0x0030(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -126,10 +128,10 @@ public:
 	}
 };
 static_assert(alignof(USlateWidgetStyleContainerBase) == 0x000008, "Wrong alignment on USlateWidgetStyleContainerBase");
-static_assert(sizeof(USlateWidgetStyleContainerBase) == 0x000030, "Wrong size on USlateWidgetStyleContainerBase");
+static_assert(sizeof(USlateWidgetStyleContainerBase) == 0x000038, "Wrong size on USlateWidgetStyleContainerBase");
 
 // Class SlateCore.SlateWidgetStyleContainerInterface
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class ISlateWidgetStyleContainerInterface final : public IInterface
 {
 public:
@@ -143,7 +145,30 @@ public:
 	}
 };
 static_assert(alignof(ISlateWidgetStyleContainerInterface) == 0x000008, "Wrong alignment on ISlateWidgetStyleContainerInterface");
-static_assert(sizeof(ISlateWidgetStyleContainerInterface) == 0x000028, "Wrong size on ISlateWidgetStyleContainerInterface");
+static_assert(sizeof(ISlateWidgetStyleContainerInterface) == 0x000030, "Wrong size on ISlateWidgetStyleContainerInterface");
+
+// Class SlateCore.SlateThemeManager
+// 0x0998 (0x09C8 - 0x0030)
+class USlateThemeManager final : public UObject
+{
+public:
+	struct FGuid                                  CurrentThemeId;                                    // 0x0030(0x0010)(Edit, ZeroConstructor, Config, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FStyleColorList                        ActiveColors;                                      // 0x0040(0x0988)(Edit, Transient, NativeAccessSpecifierPublic)
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"SlateThemeManager">();
+	}
+	static class USlateThemeManager* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<USlateThemeManager>();
+	}
+};
+static_assert(alignof(USlateThemeManager) == 0x000008, "Wrong alignment on USlateThemeManager");
+static_assert(sizeof(USlateThemeManager) == 0x0009C8, "Wrong size on USlateThemeManager");
+static_assert(offsetof(USlateThemeManager, CurrentThemeId) == 0x000030, "Member 'USlateThemeManager::CurrentThemeId' has a wrong offset!");
+static_assert(offsetof(USlateThemeManager, ActiveColors) == 0x000040, "Member 'USlateThemeManager::ActiveColors' has a wrong offset!");
 
 }
 

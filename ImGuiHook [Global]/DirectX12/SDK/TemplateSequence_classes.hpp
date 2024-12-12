@@ -10,28 +10,27 @@
 
 #include "Basic.hpp"
 
-#include "TemplateSequence_structs.hpp"
+#include "CinematicCamera_structs.hpp"
 #include "CoreUObject_structs.hpp"
 #include "CoreUObject_classes.hpp"
 #include "MovieScene_structs.hpp"
 #include "MovieScene_classes.hpp"
 #include "Engine_structs.hpp"
 #include "Engine_classes.hpp"
-#include "CinematicCamera_structs.hpp"
+#include "TemplateSequence_structs.hpp"
 
 
 namespace SDK
 {
 
 // Class TemplateSequence.TemplateSequence
-// 0x00A8 (0x0108 - 0x0060)
+// 0x0088 (0x00F8 - 0x0070)
 class UTemplateSequence : public UMovieSceneSequence
 {
 public:
-	class UMovieScene*                            MovieScene;                                        // 0x0060(0x0008)(ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftClassPtr<class UClass>                   BoundActorClass;                                   // 0x0068(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TSoftObjectPtr<class AActor>                  BoundPreviewActor;                                 // 0x0090(0x0028)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	TMap<struct FGuid, class FName>               BoundActorComponents;                              // 0x00B8(0x0050)(NativeAccessSpecifierPublic)
+	class UMovieScene*                            MovieScene;                                        // 0x0070(0x0008)(ExportObject, ZeroConstructor, InstancedReference, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TSoftClassPtr<class UClass>                   BoundActorClass;                                   // 0x0078(0x0030)(UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TMap<struct FGuid, class FName>               BoundActorComponents;                              // 0x00A8(0x0050)(NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -44,14 +43,13 @@ public:
 	}
 };
 static_assert(alignof(UTemplateSequence) == 0x000008, "Wrong alignment on UTemplateSequence");
-static_assert(sizeof(UTemplateSequence) == 0x000108, "Wrong size on UTemplateSequence");
-static_assert(offsetof(UTemplateSequence, MovieScene) == 0x000060, "Member 'UTemplateSequence::MovieScene' has a wrong offset!");
-static_assert(offsetof(UTemplateSequence, BoundActorClass) == 0x000068, "Member 'UTemplateSequence::BoundActorClass' has a wrong offset!");
-static_assert(offsetof(UTemplateSequence, BoundPreviewActor) == 0x000090, "Member 'UTemplateSequence::BoundPreviewActor' has a wrong offset!");
-static_assert(offsetof(UTemplateSequence, BoundActorComponents) == 0x0000B8, "Member 'UTemplateSequence::BoundActorComponents' has a wrong offset!");
+static_assert(sizeof(UTemplateSequence) == 0x0000F8, "Wrong size on UTemplateSequence");
+static_assert(offsetof(UTemplateSequence, MovieScene) == 0x000070, "Member 'UTemplateSequence::MovieScene' has a wrong offset!");
+static_assert(offsetof(UTemplateSequence, BoundActorClass) == 0x000078, "Member 'UTemplateSequence::BoundActorClass' has a wrong offset!");
+static_assert(offsetof(UTemplateSequence, BoundActorComponents) == 0x0000A8, "Member 'UTemplateSequence::BoundActorComponents' has a wrong offset!");
 
 // Class TemplateSequence.CameraAnimationSequence
-// 0x0000 (0x0108 - 0x0108)
+// 0x0000 (0x00F8 - 0x00F8)
 class UCameraAnimationSequence final : public UTemplateSequence
 {
 public:
@@ -65,15 +63,158 @@ public:
 	}
 };
 static_assert(alignof(UCameraAnimationSequence) == 0x000008, "Wrong alignment on UCameraAnimationSequence");
-static_assert(sizeof(UCameraAnimationSequence) == 0x000108, "Wrong size on UCameraAnimationSequence");
+static_assert(sizeof(UCameraAnimationSequence) == 0x0000F8, "Wrong size on UCameraAnimationSequence");
+
+// Class TemplateSequence.CameraAnimationSequenceCameraStandIn
+// 0x0AA0 (0x0AD0 - 0x0030)
+class UCameraAnimationSequenceCameraStandIn final : public UObject
+{
+public:
+	float                                         FieldOfView;                                       // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         bConstrainAspectRatio : 1;                         // 0x0034(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
+	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	float                                         AspectRatio;                                       // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FPostProcessSettings                   PostProcessSettings;                               // 0x0040(0x0970)(NativeAccessSpecifierPublic)
+	float                                         PostProcessBlendWeight;                            // 0x09B0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FCameraFilmbackSettings                Filmback;                                          // 0x09B4(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
+	struct FCameraLensSettings                    LensSettings;                                      // 0x09C0(0x001C)(NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9DC[0x4];                                      // 0x09DC(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FCameraFocusSettings                   FocusSettings;                                     // 0x09E0(0x0068)(NativeAccessSpecifierPublic)
+	float                                         CurrentFocalLength;                                // 0x0A48(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CurrentAperture;                                   // 0x0A4C(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         CurrentFocusDistance;                              // 0x0A50(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_A54[0x7C];                                     // 0x0A54(0x007C)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"CameraAnimationSequenceCameraStandIn">();
+	}
+	static class UCameraAnimationSequenceCameraStandIn* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UCameraAnimationSequenceCameraStandIn>();
+	}
+};
+static_assert(alignof(UCameraAnimationSequenceCameraStandIn) == 0x000010, "Wrong alignment on UCameraAnimationSequenceCameraStandIn");
+static_assert(sizeof(UCameraAnimationSequenceCameraStandIn) == 0x000AD0, "Wrong size on UCameraAnimationSequenceCameraStandIn");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, FieldOfView) == 0x000030, "Member 'UCameraAnimationSequenceCameraStandIn::FieldOfView' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, AspectRatio) == 0x000038, "Member 'UCameraAnimationSequenceCameraStandIn::AspectRatio' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, PostProcessSettings) == 0x000040, "Member 'UCameraAnimationSequenceCameraStandIn::PostProcessSettings' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, PostProcessBlendWeight) == 0x0009B0, "Member 'UCameraAnimationSequenceCameraStandIn::PostProcessBlendWeight' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, Filmback) == 0x0009B4, "Member 'UCameraAnimationSequenceCameraStandIn::Filmback' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, LensSettings) == 0x0009C0, "Member 'UCameraAnimationSequenceCameraStandIn::LensSettings' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, FocusSettings) == 0x0009E0, "Member 'UCameraAnimationSequenceCameraStandIn::FocusSettings' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, CurrentFocalLength) == 0x000A48, "Member 'UCameraAnimationSequenceCameraStandIn::CurrentFocalLength' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, CurrentAperture) == 0x000A4C, "Member 'UCameraAnimationSequenceCameraStandIn::CurrentAperture' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequenceCameraStandIn, CurrentFocusDistance) == 0x000A50, "Member 'UCameraAnimationSequenceCameraStandIn::CurrentFocusDistance' has a wrong offset!");
+
+// Class TemplateSequence.CameraAnimationSequencePlayer
+// 0x0370 (0x03A0 - 0x0030)
+class UCameraAnimationSequencePlayer final : public UObject
+{
+public:
+	uint8                                         Pad_30[0x270];                                     // 0x0030(0x0270)(Fixing Size After Last Property [ Dumper-7 ])
+	class UObject*                                BoundObjectOverride;                               // 0x02A0(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UMovieSceneSequence*                    Sequence;                                          // 0x02A8(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	struct FMovieSceneRootEvaluationTemplateInstance RootTemplateInstance;                              // 0x02B0(0x0088)(Transient, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_338[0x68];                                     // 0x0338(0x0068)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"CameraAnimationSequencePlayer">();
+	}
+	static class UCameraAnimationSequencePlayer* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UCameraAnimationSequencePlayer>();
+	}
+};
+static_assert(alignof(UCameraAnimationSequencePlayer) == 0x000008, "Wrong alignment on UCameraAnimationSequencePlayer");
+static_assert(sizeof(UCameraAnimationSequencePlayer) == 0x0003A0, "Wrong size on UCameraAnimationSequencePlayer");
+static_assert(offsetof(UCameraAnimationSequencePlayer, BoundObjectOverride) == 0x0002A0, "Member 'UCameraAnimationSequencePlayer::BoundObjectOverride' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequencePlayer, Sequence) == 0x0002A8, "Member 'UCameraAnimationSequencePlayer::Sequence' has a wrong offset!");
+static_assert(offsetof(UCameraAnimationSequencePlayer, RootTemplateInstance) == 0x0002B0, "Member 'UCameraAnimationSequencePlayer::RootTemplateInstance' has a wrong offset!");
+
+// Class TemplateSequence.CameraAnimationSpawnableSystem
+// 0x0000 (0x0048 - 0x0048)
+class UCameraAnimationSpawnableSystem final : public UMovieSceneEntitySystem
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"CameraAnimationSpawnableSystem">();
+	}
+	static class UCameraAnimationSpawnableSystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UCameraAnimationSpawnableSystem>();
+	}
+};
+static_assert(alignof(UCameraAnimationSpawnableSystem) == 0x000008, "Wrong alignment on UCameraAnimationSpawnableSystem");
+static_assert(sizeof(UCameraAnimationSpawnableSystem) == 0x000048, "Wrong size on UCameraAnimationSpawnableSystem");
+
+// Class TemplateSequence.CameraAnimationBoundObjectInstantiator
+// 0x0000 (0x0048 - 0x0048)
+class UCameraAnimationBoundObjectInstantiator final : public UMovieSceneEntityInstantiatorSystem
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"CameraAnimationBoundObjectInstantiator">();
+	}
+	static class UCameraAnimationBoundObjectInstantiator* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UCameraAnimationBoundObjectInstantiator>();
+	}
+};
+static_assert(alignof(UCameraAnimationBoundObjectInstantiator) == 0x000008, "Wrong alignment on UCameraAnimationBoundObjectInstantiator");
+static_assert(sizeof(UCameraAnimationBoundObjectInstantiator) == 0x000048, "Wrong size on UCameraAnimationBoundObjectInstantiator");
+
+// Class TemplateSequence.CameraAnimationEntitySystemLinker
+// 0x0000 (0x0830 - 0x0830)
+class UCameraAnimationEntitySystemLinker final : public UMovieSceneEntitySystemLinker
+{
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"CameraAnimationEntitySystemLinker">();
+	}
+	static class UCameraAnimationEntitySystemLinker* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UCameraAnimationEntitySystemLinker>();
+	}
+};
+static_assert(alignof(UCameraAnimationEntitySystemLinker) == 0x000008, "Wrong alignment on UCameraAnimationEntitySystemLinker");
+static_assert(sizeof(UCameraAnimationEntitySystemLinker) == 0x000830, "Wrong size on UCameraAnimationEntitySystemLinker");
+
+// Class TemplateSequence.CameraAnimationSequenceSubsystem
+// 0x0018 (0x0050 - 0x0038)
+class UCameraAnimationSequenceSubsystem final : public UWorldSubsystem
+{
+public:
+	class UMovieSceneEntitySystemLinker*          Linker;                                            // 0x0038(0x0008)(ZeroConstructor, Transient, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_40[0x10];                                      // 0x0040(0x0010)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"CameraAnimationSequenceSubsystem">();
+	}
+	static class UCameraAnimationSequenceSubsystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UCameraAnimationSequenceSubsystem>();
+	}
+};
+static_assert(alignof(UCameraAnimationSequenceSubsystem) == 0x000008, "Wrong alignment on UCameraAnimationSequenceSubsystem");
+static_assert(sizeof(UCameraAnimationSequenceSubsystem) == 0x000050, "Wrong size on UCameraAnimationSequenceSubsystem");
+static_assert(offsetof(UCameraAnimationSequenceSubsystem, Linker) == 0x000038, "Member 'UCameraAnimationSequenceSubsystem::Linker' has a wrong offset!");
 
 // Class TemplateSequence.TemplateSequenceSection
-// 0x0018 (0x0180 - 0x0168)
+// 0x0010 (0x01A0 - 0x0190)
 class UTemplateSequenceSection final : public UMovieSceneSubSection
 {
 public:
-	uint8                                         Pad_168[0x8];                                      // 0x0168(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FTemplateSectionPropertyScale>  PropertyScales;                                    // 0x0170(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FTemplateSectionPropertyScale>  PropertyScales;                                    // 0x0190(0x0010)(ZeroConstructor, NativeAccessSpecifierPublic)
 
 public:
 	static class UClass* StaticClass()
@@ -86,68 +227,25 @@ public:
 	}
 };
 static_assert(alignof(UTemplateSequenceSection) == 0x000008, "Wrong alignment on UTemplateSequenceSection");
-static_assert(sizeof(UTemplateSequenceSection) == 0x000180, "Wrong size on UTemplateSequenceSection");
-static_assert(offsetof(UTemplateSequenceSection, PropertyScales) == 0x000170, "Member 'UTemplateSequenceSection::PropertyScales' has a wrong offset!");
-
-// Class TemplateSequence.SequenceCameraShakeCameraStandIn
-// 0x0678 (0x06A0 - 0x0028)
-class USequenceCameraShakeCameraStandIn final : public UObject
-{
-public:
-	uint8                                         Pad_28[0x8];                                       // 0x0028(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         FieldOfView;                                       // 0x0030(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         bConstrainAspectRatio : 1;                         // 0x0034(0x0001)(BitIndex: 0x00, PropSize: 0x0001 (NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic))
-	uint8                                         Pad_35[0x3];                                       // 0x0035(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	float                                         AspectRatio;                                       // 0x0038(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_3C[0x4];                                       // 0x003C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FPostProcessSettings                   PostProcessSettings;                               // 0x0040(0x0590)(NativeAccessSpecifierPublic)
-	float                                         PostProcessBlendWeight;                            // 0x05D0(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FCameraFilmbackSettings                Filmback;                                          // 0x05D4(0x000C)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FCameraLensSettings                    LensSettings;                                      // 0x05E0(0x0018)(NoDestructor, NativeAccessSpecifierPublic)
-	struct FCameraFocusSettings                   FocusSettings;                                     // 0x05F8(0x0058)(NativeAccessSpecifierPublic)
-	float                                         CurrentFocalLength;                                // 0x0650(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CurrentAperture;                                   // 0x0654(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         CurrentFocusDistance;                              // 0x0658(0x0004)(ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_65C[0x44];                                     // 0x065C(0x0044)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"SequenceCameraShakeCameraStandIn">();
-	}
-	static class USequenceCameraShakeCameraStandIn* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<USequenceCameraShakeCameraStandIn>();
-	}
-};
-static_assert(alignof(USequenceCameraShakeCameraStandIn) == 0x000010, "Wrong alignment on USequenceCameraShakeCameraStandIn");
-static_assert(sizeof(USequenceCameraShakeCameraStandIn) == 0x0006A0, "Wrong size on USequenceCameraShakeCameraStandIn");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, FieldOfView) == 0x000030, "Member 'USequenceCameraShakeCameraStandIn::FieldOfView' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, AspectRatio) == 0x000038, "Member 'USequenceCameraShakeCameraStandIn::AspectRatio' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, PostProcessSettings) == 0x000040, "Member 'USequenceCameraShakeCameraStandIn::PostProcessSettings' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, PostProcessBlendWeight) == 0x0005D0, "Member 'USequenceCameraShakeCameraStandIn::PostProcessBlendWeight' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, Filmback) == 0x0005D4, "Member 'USequenceCameraShakeCameraStandIn::Filmback' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, LensSettings) == 0x0005E0, "Member 'USequenceCameraShakeCameraStandIn::LensSettings' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, FocusSettings) == 0x0005F8, "Member 'USequenceCameraShakeCameraStandIn::FocusSettings' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, CurrentFocalLength) == 0x000650, "Member 'USequenceCameraShakeCameraStandIn::CurrentFocalLength' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, CurrentAperture) == 0x000654, "Member 'USequenceCameraShakeCameraStandIn::CurrentAperture' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeCameraStandIn, CurrentFocusDistance) == 0x000658, "Member 'USequenceCameraShakeCameraStandIn::CurrentFocusDistance' has a wrong offset!");
+static_assert(sizeof(UTemplateSequenceSection) == 0x0001A0, "Wrong size on UTemplateSequenceSection");
+static_assert(offsetof(UTemplateSequenceSection, PropertyScales) == 0x000190, "Member 'UTemplateSequenceSection::PropertyScales' has a wrong offset!");
 
 // Class TemplateSequence.SequenceCameraShakePattern
-// 0x0030 (0x0058 - 0x0028)
+// 0x0050 (0x0080 - 0x0030)
 class USequenceCameraShakePattern final : public UCameraShakePattern
 {
 public:
-	class UCameraAnimationSequence*               Sequence;                                          // 0x0028(0x0008)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         PlayRate;                                          // 0x0030(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         Scale;                                             // 0x0034(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         BlendInTime;                                       // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         BlendOutTime;                                      // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	float                                         RandomSegmentDuration;                             // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bRandomSegment;                                    // 0x0044(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_45[0x3];                                       // 0x0045(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
-	class USequenceCameraShakeSequencePlayer*     Player;                                            // 0x0048(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class USequenceCameraShakeCameraStandIn*      CameraStandIn;                                     // 0x0050(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UCameraAnimationSequence*               Sequence;                                          // 0x0030(0x0008)(Edit, ZeroConstructor, NoDestructor, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         PlayRate;                                          // 0x0038(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         Scale;                                             // 0x003C(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         BlendInTime;                                       // 0x0040(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         BlendOutTime;                                      // 0x0044(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	float                                         RandomSegmentDuration;                             // 0x0048(0x0004)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bRandomSegment;                                    // 0x004C(0x0001)(Edit, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4D[0x3];                                       // 0x004D(0x0003)(Fixing Size After Last Property [ Dumper-7 ])
+	class UCameraAnimationSequencePlayer*         Player;                                            // 0x0050(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	class UCameraAnimationSequenceCameraStandIn*  CameraStandIn;                                     // 0x0058(0x0008)(ExportObject, ZeroConstructor, Transient, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
+	uint8                                         Pad_60[0x20];                                      // 0x0060(0x0020)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
@@ -160,56 +258,88 @@ public:
 	}
 };
 static_assert(alignof(USequenceCameraShakePattern) == 0x000008, "Wrong alignment on USequenceCameraShakePattern");
-static_assert(sizeof(USequenceCameraShakePattern) == 0x000058, "Wrong size on USequenceCameraShakePattern");
-static_assert(offsetof(USequenceCameraShakePattern, Sequence) == 0x000028, "Member 'USequenceCameraShakePattern::Sequence' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, PlayRate) == 0x000030, "Member 'USequenceCameraShakePattern::PlayRate' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, Scale) == 0x000034, "Member 'USequenceCameraShakePattern::Scale' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, BlendInTime) == 0x000038, "Member 'USequenceCameraShakePattern::BlendInTime' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, BlendOutTime) == 0x00003C, "Member 'USequenceCameraShakePattern::BlendOutTime' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, RandomSegmentDuration) == 0x000040, "Member 'USequenceCameraShakePattern::RandomSegmentDuration' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, bRandomSegment) == 0x000044, "Member 'USequenceCameraShakePattern::bRandomSegment' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, Player) == 0x000048, "Member 'USequenceCameraShakePattern::Player' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakePattern, CameraStandIn) == 0x000050, "Member 'USequenceCameraShakePattern::CameraStandIn' has a wrong offset!");
+static_assert(sizeof(USequenceCameraShakePattern) == 0x000080, "Wrong size on USequenceCameraShakePattern");
+static_assert(offsetof(USequenceCameraShakePattern, Sequence) == 0x000030, "Member 'USequenceCameraShakePattern::Sequence' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, PlayRate) == 0x000038, "Member 'USequenceCameraShakePattern::PlayRate' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, Scale) == 0x00003C, "Member 'USequenceCameraShakePattern::Scale' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, BlendInTime) == 0x000040, "Member 'USequenceCameraShakePattern::BlendInTime' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, BlendOutTime) == 0x000044, "Member 'USequenceCameraShakePattern::BlendOutTime' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, RandomSegmentDuration) == 0x000048, "Member 'USequenceCameraShakePattern::RandomSegmentDuration' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, bRandomSegment) == 0x00004C, "Member 'USequenceCameraShakePattern::bRandomSegment' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, Player) == 0x000050, "Member 'USequenceCameraShakePattern::Player' has a wrong offset!");
+static_assert(offsetof(USequenceCameraShakePattern, CameraStandIn) == 0x000058, "Member 'USequenceCameraShakePattern::CameraStandIn' has a wrong offset!");
 
-// Class TemplateSequence.SequenceCameraShakeSequencePlayer
-// 0x0400 (0x0428 - 0x0028)
-class USequenceCameraShakeSequencePlayer final : public UObject
+// Class TemplateSequence.TemplateSequenceSystem
+// 0x0070 (0x00B8 - 0x0048)
+class UTemplateSequenceSystem final : public UMovieSceneEntitySystem
 {
 public:
-	uint8                                         Pad_28[0x2A8];                                     // 0x0028(0x02A8)(Fixing Size After Last Property [ Dumper-7 ])
-	class UObject*                                BoundObjectOverride;                               // 0x02D0(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	class UMovieSceneSequence*                    Sequence;                                          // 0x02D8(0x0008)(ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
-	struct FMovieSceneRootEvaluationTemplateInstance RootTemplateInstance;                              // 0x02E0(0x00E8)(Transient, NativeAccessSpecifierPrivate)
-	uint8                                         Pad_3C8[0x60];                                     // 0x03C8(0x0060)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_48[0x70];                                      // 0x0048(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"SequenceCameraShakeSequencePlayer">();
+		return StaticClassImpl<"TemplateSequenceSystem">();
 	}
-	static class USequenceCameraShakeSequencePlayer* GetDefaultObj()
+	static class UTemplateSequenceSystem* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<USequenceCameraShakeSequencePlayer>();
+		return GetDefaultObjImpl<UTemplateSequenceSystem>();
 	}
 };
-static_assert(alignof(USequenceCameraShakeSequencePlayer) == 0x000008, "Wrong alignment on USequenceCameraShakeSequencePlayer");
-static_assert(sizeof(USequenceCameraShakeSequencePlayer) == 0x000428, "Wrong size on USequenceCameraShakeSequencePlayer");
-static_assert(offsetof(USequenceCameraShakeSequencePlayer, BoundObjectOverride) == 0x0002D0, "Member 'USequenceCameraShakeSequencePlayer::BoundObjectOverride' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeSequencePlayer, Sequence) == 0x0002D8, "Member 'USequenceCameraShakeSequencePlayer::Sequence' has a wrong offset!");
-static_assert(offsetof(USequenceCameraShakeSequencePlayer, RootTemplateInstance) == 0x0002E0, "Member 'USequenceCameraShakeSequencePlayer::RootTemplateInstance' has a wrong offset!");
+static_assert(alignof(UTemplateSequenceSystem) == 0x000008, "Wrong alignment on UTemplateSequenceSystem");
+static_assert(sizeof(UTemplateSequenceSystem) == 0x0000B8, "Wrong size on UTemplateSequenceSystem");
+
+// Class TemplateSequence.TemplateSequencePropertyScalingInstantiatorSystem
+// 0x0058 (0x00A0 - 0x0048)
+class UTemplateSequencePropertyScalingInstantiatorSystem final : public UMovieSceneEntitySystem
+{
+public:
+	uint8                                         Pad_48[0x58];                                      // 0x0048(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"TemplateSequencePropertyScalingInstantiatorSystem">();
+	}
+	static class UTemplateSequencePropertyScalingInstantiatorSystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UTemplateSequencePropertyScalingInstantiatorSystem>();
+	}
+};
+static_assert(alignof(UTemplateSequencePropertyScalingInstantiatorSystem) == 0x000008, "Wrong alignment on UTemplateSequencePropertyScalingInstantiatorSystem");
+static_assert(sizeof(UTemplateSequencePropertyScalingInstantiatorSystem) == 0x0000A0, "Wrong size on UTemplateSequencePropertyScalingInstantiatorSystem");
+
+// Class TemplateSequence.TemplateSequencePropertyScalingEvaluatorSystem
+// 0x0050 (0x0098 - 0x0048)
+class UTemplateSequencePropertyScalingEvaluatorSystem final : public UMovieSceneEntitySystem
+{
+public:
+	uint8                                         Pad_48[0x50];                                      // 0x0048(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
+
+public:
+	static class UClass* StaticClass()
+	{
+		return StaticClassImpl<"TemplateSequencePropertyScalingEvaluatorSystem">();
+	}
+	static class UTemplateSequencePropertyScalingEvaluatorSystem* GetDefaultObj()
+	{
+		return GetDefaultObjImpl<UTemplateSequencePropertyScalingEvaluatorSystem>();
+	}
+};
+static_assert(alignof(UTemplateSequencePropertyScalingEvaluatorSystem) == 0x000008, "Wrong alignment on UTemplateSequencePropertyScalingEvaluatorSystem");
+static_assert(sizeof(UTemplateSequencePropertyScalingEvaluatorSystem) == 0x000098, "Wrong size on UTemplateSequencePropertyScalingEvaluatorSystem");
 
 // Class TemplateSequence.TemplateSequenceActor
-// 0x0058 (0x0278 - 0x0220)
+// 0x0068 (0x04D8 - 0x0470)
 class ATemplateSequenceActor final : public AActor
 {
 public:
-	uint8                                         Pad_220[0x10];                                     // 0x0220(0x0010)(Fixing Size After Last Property [ Dumper-7 ])
-	struct FMovieSceneSequencePlaybackSettings    PlaybackSettings;                                  // 0x0230(0x0014)(Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_244[0x4];                                      // 0x0244(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UTemplateSequencePlayer*                SequencePlayer;                                    // 0x0248(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, Net, ZeroConstructor, Transient, InstancedReference, IsPlainOldData, NoDestructor, PersistentInstance, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftObjectPath                        TemplateSequence;                                  // 0x0250(0x0018)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FTemplateSequenceBindingOverrideData   BindingOverride;                                   // 0x0268(0x000C)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
-	uint8                                         Pad_274[0x4];                                      // 0x0274(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_470[0x8];                                      // 0x0470(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
+	struct FMovieSceneSequencePlaybackSettings    PlaybackSettings;                                  // 0x0478(0x0020)(Edit, BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	class UTemplateSequencePlayer*                SequencePlayer;                                    // 0x0498(0x0008)(BlueprintVisible, ExportObject, BlueprintReadOnly, Net, ZeroConstructor, Transient, InstancedReference, NoDestructor, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftObjectPath                        TemplateSequence;                                  // 0x04A0(0x0028)(Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FTemplateSequenceBindingOverrideData   BindingOverride;                                   // 0x04C8(0x000C)(BlueprintVisible, BlueprintReadOnly, NoDestructor, NativeAccessSpecifierPublic)
+	uint8                                         Pad_4D4[0x4];                                      // 0x04D4(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	void SetBinding(class AActor* Actor, bool bOverridesDefault);
@@ -230,18 +360,18 @@ public:
 	}
 };
 static_assert(alignof(ATemplateSequenceActor) == 0x000008, "Wrong alignment on ATemplateSequenceActor");
-static_assert(sizeof(ATemplateSequenceActor) == 0x000278, "Wrong size on ATemplateSequenceActor");
-static_assert(offsetof(ATemplateSequenceActor, PlaybackSettings) == 0x000230, "Member 'ATemplateSequenceActor::PlaybackSettings' has a wrong offset!");
-static_assert(offsetof(ATemplateSequenceActor, SequencePlayer) == 0x000248, "Member 'ATemplateSequenceActor::SequencePlayer' has a wrong offset!");
-static_assert(offsetof(ATemplateSequenceActor, TemplateSequence) == 0x000250, "Member 'ATemplateSequenceActor::TemplateSequence' has a wrong offset!");
-static_assert(offsetof(ATemplateSequenceActor, BindingOverride) == 0x000268, "Member 'ATemplateSequenceActor::BindingOverride' has a wrong offset!");
+static_assert(sizeof(ATemplateSequenceActor) == 0x0004D8, "Wrong size on ATemplateSequenceActor");
+static_assert(offsetof(ATemplateSequenceActor, PlaybackSettings) == 0x000478, "Member 'ATemplateSequenceActor::PlaybackSettings' has a wrong offset!");
+static_assert(offsetof(ATemplateSequenceActor, SequencePlayer) == 0x000498, "Member 'ATemplateSequenceActor::SequencePlayer' has a wrong offset!");
+static_assert(offsetof(ATemplateSequenceActor, TemplateSequence) == 0x0004A0, "Member 'ATemplateSequenceActor::TemplateSequence' has a wrong offset!");
+static_assert(offsetof(ATemplateSequenceActor, BindingOverride) == 0x0004C8, "Member 'ATemplateSequenceActor::BindingOverride' has a wrong offset!");
 
 // Class TemplateSequence.TemplateSequencePlayer
-// 0x0008 (0x04F0 - 0x04E8)
+// 0x0008 (0x04E0 - 0x04D8)
 class UTemplateSequencePlayer final : public UMovieSceneSequencePlayer
 {
 public:
-	uint8                                         Pad_4E8[0x8];                                      // 0x04E8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	uint8                                         Pad_4D8[0x8];                                      // 0x04D8(0x0008)(Fixing Struct Size After Last Property [ Dumper-7 ])
 
 public:
 	static class UTemplateSequencePlayer* CreateTemplateSequencePlayer(class UObject* WorldContextObject, class UTemplateSequence* TemplateSequence, const struct FMovieSceneSequencePlaybackSettings& Settings, class ATemplateSequenceActor** OutActor);
@@ -257,70 +387,32 @@ public:
 	}
 };
 static_assert(alignof(UTemplateSequencePlayer) == 0x000008, "Wrong alignment on UTemplateSequencePlayer");
-static_assert(sizeof(UTemplateSequencePlayer) == 0x0004F0, "Wrong size on UTemplateSequencePlayer");
+static_assert(sizeof(UTemplateSequencePlayer) == 0x0004E0, "Wrong size on UTemplateSequencePlayer");
 
-// Class TemplateSequence.TemplateSequenceSystem
-// 0x0070 (0x00B0 - 0x0040)
-class UTemplateSequenceSystem final : public UMovieSceneEntitySystem
+// Class TemplateSequence.SequenceCameraShakeTestUtil
+// 0x0000 (0x0030 - 0x0030)
+class USequenceCameraShakeTestUtil final : public UBlueprintFunctionLibrary
 {
 public:
-	uint8                                         Pad_40[0x70];                                      // 0x0040(0x0070)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	static struct FMinimalViewInfo GetCameraCachePOV(class APlayerController* PlayerController);
+	static struct FMinimalViewInfo GetLastFrameCameraCachePOV(class APlayerController* PlayerController);
+	static bool GetPostProcessBlendCache(class APlayerController* PlayerController, int32 PPIndex, struct FPostProcessSettings* OutPPSettings, float* OutPPBlendWeight);
 
 public:
 	static class UClass* StaticClass()
 	{
-		return StaticClassImpl<"TemplateSequenceSystem">();
+		return StaticClassImpl<"SequenceCameraShakeTestUtil">();
 	}
-	static class UTemplateSequenceSystem* GetDefaultObj()
+	static class USequenceCameraShakeTestUtil* GetDefaultObj()
 	{
-		return GetDefaultObjImpl<UTemplateSequenceSystem>();
+		return GetDefaultObjImpl<USequenceCameraShakeTestUtil>();
 	}
 };
-static_assert(alignof(UTemplateSequenceSystem) == 0x000008, "Wrong alignment on UTemplateSequenceSystem");
-static_assert(sizeof(UTemplateSequenceSystem) == 0x0000B0, "Wrong size on UTemplateSequenceSystem");
-
-// Class TemplateSequence.TemplateSequencePropertyScalingInstantiatorSystem
-// 0x0058 (0x0098 - 0x0040)
-class UTemplateSequencePropertyScalingInstantiatorSystem final : public UMovieSceneEntitySystem
-{
-public:
-	uint8                                         Pad_40[0x58];                                      // 0x0040(0x0058)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"TemplateSequencePropertyScalingInstantiatorSystem">();
-	}
-	static class UTemplateSequencePropertyScalingInstantiatorSystem* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UTemplateSequencePropertyScalingInstantiatorSystem>();
-	}
-};
-static_assert(alignof(UTemplateSequencePropertyScalingInstantiatorSystem) == 0x000008, "Wrong alignment on UTemplateSequencePropertyScalingInstantiatorSystem");
-static_assert(sizeof(UTemplateSequencePropertyScalingInstantiatorSystem) == 0x000098, "Wrong size on UTemplateSequencePropertyScalingInstantiatorSystem");
-
-// Class TemplateSequence.TemplateSequencePropertyScalingEvaluatorSystem
-// 0x0050 (0x0090 - 0x0040)
-class UTemplateSequencePropertyScalingEvaluatorSystem final : public UMovieSceneEntitySystem
-{
-public:
-	uint8                                         Pad_40[0x50];                                      // 0x0040(0x0050)(Fixing Struct Size After Last Property [ Dumper-7 ])
-
-public:
-	static class UClass* StaticClass()
-	{
-		return StaticClassImpl<"TemplateSequencePropertyScalingEvaluatorSystem">();
-	}
-	static class UTemplateSequencePropertyScalingEvaluatorSystem* GetDefaultObj()
-	{
-		return GetDefaultObjImpl<UTemplateSequencePropertyScalingEvaluatorSystem>();
-	}
-};
-static_assert(alignof(UTemplateSequencePropertyScalingEvaluatorSystem) == 0x000008, "Wrong alignment on UTemplateSequencePropertyScalingEvaluatorSystem");
-static_assert(sizeof(UTemplateSequencePropertyScalingEvaluatorSystem) == 0x000090, "Wrong size on UTemplateSequencePropertyScalingEvaluatorSystem");
+static_assert(alignof(USequenceCameraShakeTestUtil) == 0x000008, "Wrong alignment on USequenceCameraShakeTestUtil");
+static_assert(sizeof(USequenceCameraShakeTestUtil) == 0x000030, "Wrong size on USequenceCameraShakeTestUtil");
 
 // Class TemplateSequence.TemplateSequenceTrack
-// 0x0000 (0x00A0 - 0x00A0)
+// 0x0000 (0x00B0 - 0x00B0)
 class UTemplateSequenceTrack final : public UMovieSceneSubTrack
 {
 public:
@@ -334,7 +426,7 @@ public:
 	}
 };
 static_assert(alignof(UTemplateSequenceTrack) == 0x000008, "Wrong alignment on UTemplateSequenceTrack");
-static_assert(sizeof(UTemplateSequenceTrack) == 0x0000A0, "Wrong size on UTemplateSequenceTrack");
+static_assert(sizeof(UTemplateSequenceTrack) == 0x0000B0, "Wrong size on UTemplateSequenceTrack");
 
 }
 

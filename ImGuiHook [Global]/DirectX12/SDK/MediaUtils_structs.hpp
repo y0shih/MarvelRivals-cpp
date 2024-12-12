@@ -50,7 +50,7 @@ static_assert(offsetof(FMediaPlayerTrackOptions, Text) == 0x000014, "Member 'FMe
 static_assert(offsetof(FMediaPlayerTrackOptions, Video) == 0x000018, "Member 'FMediaPlayerTrackOptions::Video' has a wrong offset!");
 
 // ScriptStruct MediaUtils.MediaPlayerOptions
-// 0x0030 (0x0030 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct FMediaPlayerOptions final
 {
 public:
@@ -59,14 +59,21 @@ public:
 	struct FTimespan                              SeekTime;                                          // 0x0020(0x0008)(BlueprintVisible, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EMediaPlayerOptionBooleanOverride             PlayOnOpen;                                        // 0x0028(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	EMediaPlayerOptionBooleanOverride             Loop;                                              // 0x0029(0x0001)(BlueprintVisible, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_2A[0x6];                                       // 0x002A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	EMediaPlayerOptionBooleanOverride             Seamless;                                          // 0x002A(0x0001)(Edit, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_2B[0x1];                                       // 0x002B(0x0001)(Fixing Size After Last Property [ Dumper-7 ])
+	int32                                         LoopStartTime;                                     // 0x002C(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LoopEndTime;                                       // 0x0030(0x0004)(Edit, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_34[0x4];                                       // 0x0034(0x0004)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(FMediaPlayerOptions) == 0x000008, "Wrong alignment on FMediaPlayerOptions");
-static_assert(sizeof(FMediaPlayerOptions) == 0x000030, "Wrong size on FMediaPlayerOptions");
+static_assert(sizeof(FMediaPlayerOptions) == 0x000038, "Wrong size on FMediaPlayerOptions");
 static_assert(offsetof(FMediaPlayerOptions, Tracks) == 0x000000, "Member 'FMediaPlayerOptions::Tracks' has a wrong offset!");
 static_assert(offsetof(FMediaPlayerOptions, SeekTime) == 0x000020, "Member 'FMediaPlayerOptions::SeekTime' has a wrong offset!");
 static_assert(offsetof(FMediaPlayerOptions, PlayOnOpen) == 0x000028, "Member 'FMediaPlayerOptions::PlayOnOpen' has a wrong offset!");
 static_assert(offsetof(FMediaPlayerOptions, Loop) == 0x000029, "Member 'FMediaPlayerOptions::Loop' has a wrong offset!");
+static_assert(offsetof(FMediaPlayerOptions, Seamless) == 0x00002A, "Member 'FMediaPlayerOptions::Seamless' has a wrong offset!");
+static_assert(offsetof(FMediaPlayerOptions, LoopStartTime) == 0x00002C, "Member 'FMediaPlayerOptions::LoopStartTime' has a wrong offset!");
+static_assert(offsetof(FMediaPlayerOptions, LoopEndTime) == 0x000030, "Member 'FMediaPlayerOptions::LoopEndTime' has a wrong offset!");
 
 }
 

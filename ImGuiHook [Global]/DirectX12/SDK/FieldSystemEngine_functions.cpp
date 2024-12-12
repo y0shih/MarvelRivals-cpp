@@ -17,13 +17,38 @@
 namespace SDK
 {
 
+// Function FieldSystemEngine.FieldSystemComponent.ActivateNiagaraFieldCache
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFieldSystemComponent::ActivateNiagaraFieldCache(bool Enabled)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FieldSystemComponent", "ActivateNiagaraFieldCache");
+
+	Params::FieldSystemComponent_ActivateNiagaraFieldCache Parms{};
+
+	Parms.Enabled = Enabled;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function FieldSystemEngine.FieldSystemComponent.AddFieldCommand
-// (Final, Native, Public, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldPhysicsType                       Target                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 void UFieldSystemComponent::AddFieldCommand(bool Enabled, EFieldPhysicsType Target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field)
 {
@@ -49,12 +74,12 @@ void UFieldSystemComponent::AddFieldCommand(bool Enabled, EFieldPhysicsType Targ
 
 
 // Function FieldSystemEngine.FieldSystemComponent.AddPersistentField
-// (Final, Native, Public, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldPhysicsType                       Target                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 void UFieldSystemComponent::AddPersistentField(bool Enabled, EFieldPhysicsType Target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field)
 {
@@ -80,7 +105,7 @@ void UFieldSystemComponent::AddPersistentField(bool Enabled, EFieldPhysicsType T
 
 
 // Function FieldSystemEngine.FieldSystemComponent.ApplyLinearForce
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Direction                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -108,13 +133,46 @@ void UFieldSystemComponent::ApplyLinearForce(bool Enabled, const struct FVector&
 }
 
 
+// Function FieldSystemEngine.FieldSystemComponent.ApplyNiagaraField
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   InCommandNum                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EFieldPhysicsType                       Target                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFieldSystemComponent::ApplyNiagaraField(bool Enabled, int32 InCommandNum, EFieldPhysicsType Target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FieldSystemComponent", "ApplyNiagaraField");
+
+	Params::FieldSystemComponent_ApplyNiagaraField Parms{};
+
+	Parms.Enabled = Enabled;
+	Parms.InCommandNum = InCommandNum;
+	Parms.Target = Target;
+	Parms.MetaData = MetaData;
+	Parms.Field = Field;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function FieldSystemEngine.FieldSystemComponent.ApplyPhysicsField
-// (Final, Native, Public, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldPhysicsType                       Target                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 void UFieldSystemComponent::ApplyPhysicsField(bool Enabled, EFieldPhysicsType Target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field)
 {
@@ -139,8 +197,41 @@ void UFieldSystemComponent::ApplyPhysicsField(bool Enabled, EFieldPhysicsType Ta
 }
 
 
+// Function FieldSystemEngine.FieldSystemComponent.ApplyPhysicsFieldByID
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   ID                                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EFieldPhysicsType                       Target                                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaData*             MetaData                                               (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   Field                                                  (Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+void UFieldSystemComponent::ApplyPhysicsFieldByID(bool Enabled, int32 ID, EFieldPhysicsType Target, class UFieldSystemMetaData* MetaData, class UFieldNodeBase* Field)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("FieldSystemComponent", "ApplyPhysicsFieldByID");
+
+	Params::FieldSystemComponent_ApplyPhysicsFieldByID Parms{};
+
+	Parms.Enabled = Enabled;
+	Parms.ID = ID;
+	Parms.Target = Target;
+	Parms.MetaData = MetaData;
+	Parms.Field = Field;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+}
+
+
 // Function FieldSystemEngine.FieldSystemComponent.ApplyRadialForce
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -169,7 +260,7 @@ void UFieldSystemComponent::ApplyRadialForce(bool Enabled, const struct FVector&
 
 
 // Function FieldSystemEngine.FieldSystemComponent.ApplyRadialVectorFalloffForce
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -200,7 +291,7 @@ void UFieldSystemComponent::ApplyRadialVectorFalloffForce(bool Enabled, const st
 
 
 // Function FieldSystemEngine.FieldSystemComponent.ApplyStayDynamicField
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -229,7 +320,7 @@ void UFieldSystemComponent::ApplyStayDynamicField(bool Enabled, const struct FVe
 
 
 // Function FieldSystemEngine.FieldSystemComponent.ApplyStrainField
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -262,7 +353,7 @@ void UFieldSystemComponent::ApplyStrainField(bool Enabled, const struct FVector&
 
 
 // Function FieldSystemEngine.FieldSystemComponent.ApplyUniformVectorFalloffForce
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable)
 // Parameters:
 // bool                                    Enabled                                                (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -295,7 +386,7 @@ void UFieldSystemComponent::ApplyUniformVectorFalloffForce(bool Enabled, const s
 
 
 // Function FieldSystemEngine.FieldSystemComponent.RemovePersistentFields
-// (Final, Native, Public, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
 
 void UFieldSystemComponent::RemovePersistentFields()
 {
@@ -314,7 +405,7 @@ void UFieldSystemComponent::RemovePersistentFields()
 
 
 // Function FieldSystemEngine.FieldSystemComponent.ResetFieldSystem
-// (Final, Native, Public, BlueprintCallable)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable)
 
 void UFieldSystemComponent::ResetFieldSystem()
 {
@@ -333,10 +424,10 @@ void UFieldSystemComponent::ResetFieldSystem()
 
 
 // Function FieldSystemEngine.FieldSystemMetaDataIteration.SetMetaDataIteration
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // int32                                   Iterations_0                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldSystemMetaDataIteration*    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaDataIteration*    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UFieldSystemMetaDataIteration* UFieldSystemMetaDataIteration::SetMetaDataIteration(int32 Iterations_0)
 {
@@ -361,10 +452,10 @@ class UFieldSystemMetaDataIteration* UFieldSystemMetaDataIteration::SetMetaDataI
 
 
 // Function FieldSystemEngine.FieldSystemMetaDataProcessingResolution.SetMetaDataaProcessingResolutionType
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // EFieldResolutionType                    ResolutionType_0                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldSystemMetaDataProcessingResolution*ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaDataProcessingResolution*ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UFieldSystemMetaDataProcessingResolution* UFieldSystemMetaDataProcessingResolution::SetMetaDataaProcessingResolutionType(EFieldResolutionType ResolutionType_0)
 {
@@ -389,12 +480,15 @@ class UFieldSystemMetaDataProcessingResolution* UFieldSystemMetaDataProcessingRe
 
 
 // Function FieldSystemEngine.FieldSystemMetaDataFilter.SetMetaDataFilterType
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // EFieldFilterType                        FilterType_0                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldSystemMetaDataFilter*       ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EFieldObjectType                        ObjectType_0                                           (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EFieldPositionType                      PositionType_0                                         (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// int32                                   InputMaxFilterChildNum                                 (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldSystemMetaDataFilter*       ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
-class UFieldSystemMetaDataFilter* UFieldSystemMetaDataFilter::SetMetaDataFilterType(EFieldFilterType FilterType_0)
+class UFieldSystemMetaDataFilter* UFieldSystemMetaDataFilter::SetMetaDataFilterType(EFieldFilterType FilterType_0, EFieldObjectType ObjectType_0, EFieldPositionType PositionType_0, int32 InputMaxFilterChildNum)
 {
 	static class UFunction* Func = nullptr;
 
@@ -404,6 +498,9 @@ class UFieldSystemMetaDataFilter* UFieldSystemMetaDataFilter::SetMetaDataFilterT
 	Params::FieldSystemMetaDataFilter_SetMetaDataFilterType Parms{};
 
 	Parms.FilterType_0 = FilterType_0;
+	Parms.ObjectType_0 = ObjectType_0;
+	Parms.PositionType_0 = PositionType_0;
+	Parms.InputMaxFilterChildNum = InputMaxFilterChildNum;
 
 	auto Flgs = Func->FunctionFlags;
 	Func->FunctionFlags |= 0x400;
@@ -417,10 +514,10 @@ class UFieldSystemMetaDataFilter* UFieldSystemMetaDataFilter::SetMetaDataFilterT
 
 
 // Function FieldSystemEngine.UniformInteger.SetUniformInteger
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // int32                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UUniformInteger*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UUniformInteger*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UUniformInteger* UUniformInteger::SetUniformInteger(int32 Magnitude_0)
 {
@@ -445,14 +542,14 @@ class UUniformInteger* UUniformInteger::SetUniformInteger(int32 Magnitude_0)
 
 
 // Function FieldSystemEngine.RadialIntMask.SetRadialIntMask
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Radius_0                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   InteriorValue_0                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // int32                                   ExteriorValue_0                                        (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // ESetMaskConditionType                   SetMaskConditionIn                                     (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class URadialIntMask*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class URadialIntMask*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class URadialIntMask* URadialIntMask::SetRadialIntMask(float Radius_0, const struct FVector& Position_0, int32 InteriorValue_0, int32 ExteriorValue_0, ESetMaskConditionType SetMaskConditionIn)
 {
@@ -481,10 +578,10 @@ class URadialIntMask* URadialIntMask::SetRadialIntMask(float Radius_0, const str
 
 
 // Function FieldSystemEngine.UniformScalar.SetUniformScalar
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UUniformScalar*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UUniformScalar*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UUniformScalar* UUniformScalar::SetUniformScalar(float Magnitude_0)
 {
@@ -509,7 +606,7 @@ class UUniformScalar* UUniformScalar::SetUniformScalar(float Magnitude_0)
 
 
 // Function FieldSystemEngine.WaveScalar.SetWaveScalar
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -518,7 +615,7 @@ class UUniformScalar* UUniformScalar::SetUniformScalar(float Magnitude_0)
 // float                                   Time                                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EWaveFunctionType                       Function_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldFalloffType                       Falloff_0                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UWaveScalar*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UWaveScalar*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UWaveScalar* UWaveScalar::SetWaveScalar(float Magnitude_0, const struct FVector& Position_0, float Wavelength_0, float Period_0, float Time, EWaveFunctionType Function_0, EFieldFalloffType Falloff_0)
 {
@@ -549,7 +646,7 @@ class UWaveScalar* UWaveScalar::SetWaveScalar(float Magnitude_0, const struct FV
 
 
 // Function FieldSystemEngine.RadialFalloff.SetRadialFalloff
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MinRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -558,7 +655,7 @@ class UWaveScalar* UWaveScalar::SetWaveScalar(float Magnitude_0, const struct FV
 // float                                   Radius_0                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldFalloffType                       Falloff_0                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class URadialFalloff*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class URadialFalloff*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class URadialFalloff* URadialFalloff::SetRadialFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, float Radius_0, const struct FVector& Position_0, EFieldFalloffType Falloff_0)
 {
@@ -589,7 +686,7 @@ class URadialFalloff* URadialFalloff::SetRadialFalloff(float Magnitude_0, float 
 
 
 // Function FieldSystemEngine.PlaneFalloff.SetPlaneFalloff
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MinRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
@@ -599,7 +696,7 @@ class URadialFalloff* URadialFalloff::SetRadialFalloff(float Magnitude_0, float 
 // struct FVector                          Position_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Normal_0                                               (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldFalloffType                       Falloff_0                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UPlaneFalloff*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UPlaneFalloff*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UPlaneFalloff* UPlaneFalloff::SetPlaneFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, float Distance_0, const struct FVector& Position_0, const struct FVector& Normal_0, EFieldFalloffType Falloff_0)
 {
@@ -631,15 +728,15 @@ class UPlaneFalloff* UPlaneFalloff::SetPlaneFalloff(float Magnitude_0, float Min
 
 
 // Function FieldSystemEngine.BoxFalloff.SetBoxFalloff
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MinRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MaxRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   Default_0                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FTransform                       Transform_0                                            (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
+// struct FTransform                       Transform_0                                            (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldFalloffType                       Falloff_0                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UBoxFalloff*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UBoxFalloff*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UBoxFalloff* UBoxFalloff::SetBoxFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, const struct FTransform& Transform_0, EFieldFalloffType Falloff_0)
 {
@@ -668,13 +765,55 @@ class UBoxFalloff* UBoxFalloff::SetBoxFalloff(float Magnitude_0, float MinRange_
 }
 
 
-// Function FieldSystemEngine.NoiseField.SetNoiseField
+// Function FieldSystemEngine.CylinderFalloff.SetCylinderFalloff
 // (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   MinRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   MaxRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   Default_0                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   CylinderRadius_0                                       (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// float                                   CylinderHalfHeight_0                                   (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FTransform                       Transform_0                                            (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// EFieldFalloffType                       Falloff_0                                              (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UCylinderFalloff*                 ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+
+class UCylinderFalloff* UCylinderFalloff::SetCylinderFalloff(float Magnitude_0, float MinRange_0, float MaxRange_0, float Default_0, float CylinderRadius_0, float CylinderHalfHeight_0, const struct FTransform& Transform_0, EFieldFalloffType Falloff_0)
+{
+	static class UFunction* Func = nullptr;
+
+	if (Func == nullptr)
+		Func = Class->GetFunction("CylinderFalloff", "SetCylinderFalloff");
+
+	Params::CylinderFalloff_SetCylinderFalloff Parms{};
+
+	Parms.Magnitude_0 = Magnitude_0;
+	Parms.MinRange_0 = MinRange_0;
+	Parms.MaxRange_0 = MaxRange_0;
+	Parms.Default_0 = Default_0;
+	Parms.CylinderRadius_0 = CylinderRadius_0;
+	Parms.CylinderHalfHeight_0 = CylinderHalfHeight_0;
+	Parms.Transform_0 = std::move(Transform_0);
+	Parms.Falloff_0 = Falloff_0;
+
+	auto Flgs = Func->FunctionFlags;
+	Func->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(Func, &Parms);
+
+	Func->FunctionFlags = Flgs;
+
+	return Parms.ReturnValue;
+}
+
+
+// Function FieldSystemEngine.NoiseField.SetNoiseField
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   MinRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // float                                   MaxRange_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// struct FTransform                       Transform_0                                            (Parm, IsPlainOldData, NoDestructor, NativeAccessSpecifierPublic)
-// class UNoiseField*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// struct FTransform                       Transform_0                                            (Parm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UNoiseField*                      ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UNoiseField* UNoiseField::SetNoiseField(float MinRange_0, float MaxRange_0, const struct FTransform& Transform_0)
 {
@@ -701,11 +840,11 @@ class UNoiseField* UNoiseField::SetNoiseField(float MinRange_0, float MaxRange_0
 
 
 // Function FieldSystemEngine.UniformVector.SetUniformVector
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Direction_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UUniformVector*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UUniformVector*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UUniformVector* UUniformVector::SetUniformVector(float Magnitude_0, const struct FVector& Direction_0)
 {
@@ -731,11 +870,11 @@ class UUniformVector* UUniformVector::SetUniformVector(float Magnitude_0, const 
 
 
 // Function FieldSystemEngine.RadialVector.SetRadialVector
-// (Final, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // struct FVector                          Position_0                                             (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class URadialVector*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class URadialVector*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class URadialVector* URadialVector::SetRadialVector(float Magnitude_0, const struct FVector& Position_0)
 {
@@ -761,10 +900,10 @@ class URadialVector* URadialVector::SetRadialVector(float Magnitude_0, const str
 
 
 // Function FieldSystemEngine.RandomVector.SetRandomVector
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class URandomVector*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class URandomVector*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class URandomVector* URandomVector::SetRandomVector(float Magnitude_0)
 {
@@ -789,13 +928,13 @@ class URandomVector* URandomVector::SetRandomVector(float Magnitude_0)
 
 
 // Function FieldSystemEngine.OperatorField.SetOperatorField
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
 // float                                   Magnitude_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldNodeBase*                   LeftField_0                                            (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldNodeBase*                   RightField_0                                           (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   LeftField_0                                            (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   RightField_0                                           (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldOperationType                     Operation_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UOperatorField*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UOperatorField*                   ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UOperatorField* UOperatorField::SetOperatorField(float Magnitude_0, const class UFieldNodeBase* LeftField_0, const class UFieldNodeBase* RightField_0, EFieldOperationType Operation_0)
 {
@@ -823,10 +962,10 @@ class UOperatorField* UOperatorField::SetOperatorField(float Magnitude_0, const 
 
 
 // Function FieldSystemEngine.ToIntegerField.SetToIntegerField
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UFieldNodeFloat*                  FloatField_0                                           (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UToIntegerField*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeFloat*                  FloatField_0                                           (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UToIntegerField*                  ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UToIntegerField* UToIntegerField::SetToIntegerField(const class UFieldNodeFloat* FloatField_0)
 {
@@ -851,10 +990,10 @@ class UToIntegerField* UToIntegerField::SetToIntegerField(const class UFieldNode
 
 
 // Function FieldSystemEngine.ToFloatField.SetToFloatField
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UFieldNodeInt*                    IntegerField                                           (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UToFloatField*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeInt*                    IntegerField                                           (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UToFloatField*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UToFloatField* UToFloatField::SetToFloatField(const class UFieldNodeInt* IntegerField)
 {
@@ -879,12 +1018,12 @@ class UToFloatField* UToFloatField::SetToFloatField(const class UFieldNodeInt* I
 
 
 // Function FieldSystemEngine.CullingField.SetCullingField
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UFieldNodeBase*                   Culling_0                                              (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UFieldNodeBase*                   Field_0                                                (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   Culling_0                                              (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UFieldNodeBase*                   Field_0                                                (ConstParm, Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 // EFieldCullingOperationType              Operation_0                                            (Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-// class UCullingField*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UCullingField*                    ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UCullingField* UCullingField::SetCullingField(const class UFieldNodeBase* Culling_0, const class UFieldNodeBase* Field_0, EFieldCullingOperationType Operation_0)
 {
@@ -911,9 +1050,9 @@ class UCullingField* UCullingField::SetCullingField(const class UFieldNodeBase* 
 
 
 // Function FieldSystemEngine.ReturnResultsTerminal.SetReturnResultsTerminal
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// class UReturnResultsTerminal*           ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+// class UReturnResultsTerminal*           ReturnValue                                            (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 
 class UReturnResultsTerminal* UReturnResultsTerminal::SetReturnResultsTerminal()
 {

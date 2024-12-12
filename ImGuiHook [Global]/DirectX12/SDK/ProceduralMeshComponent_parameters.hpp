@@ -36,6 +36,25 @@ static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh, UVs
 static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh, Normals) == 0x000030, "Member 'KismetProceduralMeshLibrary_CalculateTangentsForMesh::Normals' has a wrong offset!");
 static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh, Tangents) == 0x000040, "Member 'KismetProceduralMeshLibrary_CalculateTangentsForMesh::Tangents' has a wrong offset!");
 
+// Function ProceduralMeshComponent.KismetProceduralMeshLibrary.CalculateTangentsForMesh_Parallel
+// 0x0050 (0x0050 - 0x0000)
+struct KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel final
+{
+public:
+	TArray<struct FVector>                        Vertices;                                          // 0x0000(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<int32>                                 Triangles;                                         // 0x0010(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs;                                               // 0x0020(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	TArray<struct FVector>                        Normals;                                           // 0x0030(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0040(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel) == 0x000008, "Wrong alignment on KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel");
+static_assert(sizeof(KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel) == 0x000050, "Wrong size on KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel");
+static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel, Vertices) == 0x000000, "Member 'KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel::Vertices' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel, Triangles) == 0x000010, "Member 'KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel::Triangles' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel, UVs) == 0x000020, "Member 'KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel::UVs' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel, Normals) == 0x000030, "Member 'KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel::Normals' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel, Tangents) == 0x000040, "Member 'KismetProceduralMeshLibrary_CalculateTangentsForMesh_Parallel::Tangents' has a wrong offset!");
+
 // Function ProceduralMeshComponent.KismetProceduralMeshLibrary.ConvertQuadToTriangles
 // 0x0020 (0x0020 - 0x0000)
 struct KismetProceduralMeshLibrary_ConvertQuadToTriangles final
@@ -60,10 +79,10 @@ static_assert(offsetof(KismetProceduralMeshLibrary_ConvertQuadToTriangles, Vert3
 struct KismetProceduralMeshLibrary_CopyProceduralMeshFromStaticMeshComponent final
 {
 public:
-	class UStaticMeshComponent*                   StaticMeshComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UStaticMeshComponent*                   StaticMeshComponent;                               // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         LODIndex;                                          // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	class UProceduralMeshComponent*               ProcMeshComponent;                                 // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UProceduralMeshComponent*               ProcMeshComponent;                                 // 0x0010(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	bool                                          bCreateCollision;                                  // 0x0018(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_19[0x7];                                       // 0x0019(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
@@ -139,33 +158,32 @@ static_assert(offsetof(KismetProceduralMeshLibrary_CreateGridMeshWelded, UVs) ==
 static_assert(offsetof(KismetProceduralMeshLibrary_CreateGridMeshWelded, GridSpacing) == 0x000038, "Member 'KismetProceduralMeshLibrary_CreateGridMeshWelded::GridSpacing' has a wrong offset!");
 
 // Function ProceduralMeshComponent.KismetProceduralMeshLibrary.GenerateBoxMesh
-// 0x0060 (0x0060 - 0x0000)
+// 0x0068 (0x0068 - 0x0000)
 struct KismetProceduralMeshLibrary_GenerateBoxMesh final
 {
 public:
-	struct FVector                                BoxRadius;                                         // 0x0000(0x000C)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
-	TArray<struct FVector>                        Vertices;                                          // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<int32>                                 Triangles;                                         // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FVector>                        Normals;                                           // 0x0030(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FVector2D>                      UVs;                                               // 0x0040(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0050(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	struct FVector                                BoxRadius;                                         // 0x0000(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FVector>                        Vertices;                                          // 0x0018(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<int32>                                 Triangles;                                         // 0x0028(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector>                        Normals;                                           // 0x0038(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs;                                               // 0x0048(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0058(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(KismetProceduralMeshLibrary_GenerateBoxMesh) == 0x000008, "Wrong alignment on KismetProceduralMeshLibrary_GenerateBoxMesh");
-static_assert(sizeof(KismetProceduralMeshLibrary_GenerateBoxMesh) == 0x000060, "Wrong size on KismetProceduralMeshLibrary_GenerateBoxMesh");
+static_assert(sizeof(KismetProceduralMeshLibrary_GenerateBoxMesh) == 0x000068, "Wrong size on KismetProceduralMeshLibrary_GenerateBoxMesh");
 static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, BoxRadius) == 0x000000, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::BoxRadius' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Vertices) == 0x000010, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Vertices' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Triangles) == 0x000020, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Triangles' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Normals) == 0x000030, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Normals' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, UVs) == 0x000040, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::UVs' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Tangents) == 0x000050, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Tangents' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Vertices) == 0x000018, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Vertices' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Triangles) == 0x000028, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Triangles' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Normals) == 0x000038, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Normals' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, UVs) == 0x000048, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::UVs' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GenerateBoxMesh, Tangents) == 0x000058, "Member 'KismetProceduralMeshLibrary_GenerateBoxMesh::Tangents' has a wrong offset!");
 
 // Function ProceduralMeshComponent.KismetProceduralMeshLibrary.GetSectionFromProceduralMesh
 // 0x0060 (0x0060 - 0x0000)
 struct KismetProceduralMeshLibrary_GetSectionFromProceduralMesh final
 {
 public:
-	class UProceduralMeshComponent*               InProcMesh;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UProceduralMeshComponent*               InProcMesh;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SectionIndex;                                      // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	TArray<struct FVector>                        Vertices;                                          // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
@@ -185,21 +203,24 @@ static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromProceduralMesh,
 static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromProceduralMesh, Tangents) == 0x000050, "Member 'KismetProceduralMeshLibrary_GetSectionFromProceduralMesh::Tangents' has a wrong offset!");
 
 // Function ProceduralMeshComponent.KismetProceduralMeshLibrary.GetSectionFromStaticMesh
-// 0x0060 (0x0060 - 0x0000)
+// 0x0090 (0x0090 - 0x0000)
 struct KismetProceduralMeshLibrary_GetSectionFromStaticMesh final
 {
 public:
-	class UStaticMesh*                            InMesh;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UStaticMesh*                            InMesh;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         LODIndex;                                          // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	int32                                         SectionIndex;                                      // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	TArray<struct FVector>                        Vertices;                                          // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<int32>                                 Triangles;                                         // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<struct FVector>                        Normals;                                           // 0x0030(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 	TArray<struct FVector2D>                      UVs;                                               // 0x0040(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0050(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs1;                                              // 0x0050(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs2;                                              // 0x0060(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs3;                                              // 0x0070(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0080(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh) == 0x000008, "Wrong alignment on KismetProceduralMeshLibrary_GetSectionFromStaticMesh");
-static_assert(sizeof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh) == 0x000060, "Wrong size on KismetProceduralMeshLibrary_GetSectionFromStaticMesh");
+static_assert(sizeof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh) == 0x000090, "Wrong size on KismetProceduralMeshLibrary_GetSectionFromStaticMesh");
 static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, InMesh) == 0x000000, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::InMesh' has a wrong offset!");
 static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, LODIndex) == 0x000008, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::LODIndex' has a wrong offset!");
 static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, SectionIndex) == 0x00000C, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::SectionIndex' has a wrong offset!");
@@ -207,32 +228,68 @@ static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, Ver
 static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, Triangles) == 0x000020, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::Triangles' has a wrong offset!");
 static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, Normals) == 0x000030, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::Normals' has a wrong offset!");
 static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, UVs) == 0x000040, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::UVs' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, Tangents) == 0x000050, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::Tangents' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, UVs1) == 0x000050, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::UVs1' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, UVs2) == 0x000060, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::UVs2' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, UVs3) == 0x000070, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::UVs3' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionFromStaticMesh, Tangents) == 0x000080, "Member 'KismetProceduralMeshLibrary_GetSectionFromStaticMesh::Tangents' has a wrong offset!");
+
+// Function ProceduralMeshComponent.KismetProceduralMeshLibrary.GetSectionWithColorFromStaticMesh
+// 0x00A0 (0x00A0 - 0x0000)
+struct KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh final
+{
+public:
+	class UStaticMesh*                            InMesh;                                            // 0x0000(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         LODIndex;                                          // 0x0008(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	int32                                         SectionIndex;                                      // 0x000C(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	TArray<struct FVector>                        Vertices;                                          // 0x0010(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<int32>                                 Triangles;                                         // 0x0020(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector>                        Normals;                                           // 0x0030(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs;                                               // 0x0040(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs1;                                              // 0x0050(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs2;                                              // 0x0060(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FVector2D>                      UVs3;                                              // 0x0070(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FColor>                         VertexColors;                                      // 0x0080(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0090(0x0010)(Parm, OutParm, ZeroConstructor, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh) == 0x000008, "Wrong alignment on KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh");
+static_assert(sizeof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh) == 0x0000A0, "Wrong size on KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, InMesh) == 0x000000, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::InMesh' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, LODIndex) == 0x000008, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::LODIndex' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, SectionIndex) == 0x00000C, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::SectionIndex' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, Vertices) == 0x000010, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::Vertices' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, Triangles) == 0x000020, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::Triangles' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, Normals) == 0x000030, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::Normals' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, UVs) == 0x000040, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::UVs' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, UVs1) == 0x000050, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::UVs1' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, UVs2) == 0x000060, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::UVs2' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, UVs3) == 0x000070, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::UVs3' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, VertexColors) == 0x000080, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::VertexColors' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh, Tangents) == 0x000090, "Member 'KismetProceduralMeshLibrary_GetSectionWithColorFromStaticMesh::Tangents' has a wrong offset!");
 
 // Function ProceduralMeshComponent.KismetProceduralMeshLibrary.SliceProceduralMesh
-// 0x0040 (0x0040 - 0x0000)
+// 0x0058 (0x0058 - 0x0000)
 struct KismetProceduralMeshLibrary_SliceProceduralMesh final
 {
 public:
-	class UProceduralMeshComponent*               InProcMesh;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                PlanePosition;                                     // 0x0008(0x000C)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FVector                                PlaneNormal;                                       // 0x0014(0x000C)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	bool                                          bCreateOtherHalf;                                  // 0x0020(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_21[0x7];                                       // 0x0021(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UProceduralMeshComponent*               OutOtherHalfProcMesh;                              // 0x0028(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	EProcMeshSliceCapOption                       CapOption;                                         // 0x0030(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_31[0x7];                                       // 0x0031(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
-	class UMaterialInterface*                     CapMaterial;                                       // 0x0038(0x0008)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UProceduralMeshComponent*               InProcMesh;                                        // 0x0000(0x0008)(Parm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                PlanePosition;                                     // 0x0008(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                PlaneNormal;                                       // 0x0020(0x0018)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	bool                                          bCreateOtherHalf;                                  // 0x0038(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_39[0x7];                                       // 0x0039(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UProceduralMeshComponent*               OutOtherHalfProcMesh;                              // 0x0040(0x0008)(Parm, OutParm, ZeroConstructor, InstancedReference, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	EProcMeshSliceCapOption                       CapOption;                                         // 0x0048(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_49[0x7];                                       // 0x0049(0x0007)(Fixing Size After Last Property [ Dumper-7 ])
+	class UMaterialInterface*                     CapMaterial;                                       // 0x0050(0x0008)(Parm, ZeroConstructor, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(KismetProceduralMeshLibrary_SliceProceduralMesh) == 0x000008, "Wrong alignment on KismetProceduralMeshLibrary_SliceProceduralMesh");
-static_assert(sizeof(KismetProceduralMeshLibrary_SliceProceduralMesh) == 0x000040, "Wrong size on KismetProceduralMeshLibrary_SliceProceduralMesh");
+static_assert(sizeof(KismetProceduralMeshLibrary_SliceProceduralMesh) == 0x000058, "Wrong size on KismetProceduralMeshLibrary_SliceProceduralMesh");
 static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, InProcMesh) == 0x000000, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::InProcMesh' has a wrong offset!");
 static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, PlanePosition) == 0x000008, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::PlanePosition' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, PlaneNormal) == 0x000014, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::PlaneNormal' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, bCreateOtherHalf) == 0x000020, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::bCreateOtherHalf' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, OutOtherHalfProcMesh) == 0x000028, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::OutOtherHalfProcMesh' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, CapOption) == 0x000030, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::CapOption' has a wrong offset!");
-static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, CapMaterial) == 0x000038, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::CapMaterial' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, PlaneNormal) == 0x000020, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::PlaneNormal' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, bCreateOtherHalf) == 0x000038, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::bCreateOtherHalf' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, OutOtherHalfProcMesh) == 0x000040, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::OutOtherHalfProcMesh' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, CapOption) == 0x000048, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::CapOption' has a wrong offset!");
+static_assert(offsetof(KismetProceduralMeshLibrary_SliceProceduralMesh, CapMaterial) == 0x000050, "Member 'KismetProceduralMeshLibrary_SliceProceduralMesh::CapMaterial' has a wrong offset!");
 
 // Function ProceduralMeshComponent.ProceduralMeshComponent.AddCollisionConvexMesh
 // 0x0010 (0x0010 - 0x0000)
@@ -300,7 +357,8 @@ public:
 	TArray<struct FLinearColor>                   VertexColors;                                      // 0x0078(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0088(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	bool                                          bCreateCollision;                                  // 0x0098(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	uint8                                         Pad_99[0x7];                                       // 0x0099(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
+	bool                                          bSRGBConversion;                                   // 0x0099(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_9A[0x6];                                       // 0x009A(0x0006)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ProceduralMeshComponent_CreateMeshSection_LinearColor) == 0x000008, "Wrong alignment on ProceduralMeshComponent_CreateMeshSection_LinearColor");
 static_assert(sizeof(ProceduralMeshComponent_CreateMeshSection_LinearColor) == 0x0000A0, "Wrong size on ProceduralMeshComponent_CreateMeshSection_LinearColor");
@@ -315,6 +373,7 @@ static_assert(offsetof(ProceduralMeshComponent_CreateMeshSection_LinearColor, UV
 static_assert(offsetof(ProceduralMeshComponent_CreateMeshSection_LinearColor, VertexColors) == 0x000078, "Member 'ProceduralMeshComponent_CreateMeshSection_LinearColor::VertexColors' has a wrong offset!");
 static_assert(offsetof(ProceduralMeshComponent_CreateMeshSection_LinearColor, Tangents) == 0x000088, "Member 'ProceduralMeshComponent_CreateMeshSection_LinearColor::Tangents' has a wrong offset!");
 static_assert(offsetof(ProceduralMeshComponent_CreateMeshSection_LinearColor, bCreateCollision) == 0x000098, "Member 'ProceduralMeshComponent_CreateMeshSection_LinearColor::bCreateCollision' has a wrong offset!");
+static_assert(offsetof(ProceduralMeshComponent_CreateMeshSection_LinearColor, bSRGBConversion) == 0x000099, "Member 'ProceduralMeshComponent_CreateMeshSection_LinearColor::bSRGBConversion' has a wrong offset!");
 
 // Function ProceduralMeshComponent.ProceduralMeshComponent.SetMeshSectionVisible
 // 0x0008 (0x0008 - 0x0000)
@@ -353,7 +412,7 @@ static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection, VertexColors) 
 static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection, Tangents) == 0x000048, "Member 'ProceduralMeshComponent_UpdateMeshSection::Tangents' has a wrong offset!");
 
 // Function ProceduralMeshComponent.ProceduralMeshComponent.UpdateMeshSection_LinearColor
-// 0x0088 (0x0088 - 0x0000)
+// 0x0090 (0x0090 - 0x0000)
 struct ProceduralMeshComponent_UpdateMeshSection_LinearColor final
 {
 public:
@@ -367,9 +426,11 @@ public:
 	TArray<struct FVector2D>                      UV3;                                               // 0x0058(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, AdvancedDisplay, NativeAccessSpecifierPublic)
 	TArray<struct FLinearColor>                   VertexColors;                                      // 0x0068(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
 	TArray<struct FProcMeshTangent>               Tangents;                                          // 0x0078(0x0010)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, NativeAccessSpecifierPublic)
+	bool                                          bSRGBConversion;                                   // 0x0088(0x0001)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_89[0x7];                                       // 0x0089(0x0007)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
 static_assert(alignof(ProceduralMeshComponent_UpdateMeshSection_LinearColor) == 0x000008, "Wrong alignment on ProceduralMeshComponent_UpdateMeshSection_LinearColor");
-static_assert(sizeof(ProceduralMeshComponent_UpdateMeshSection_LinearColor) == 0x000088, "Wrong size on ProceduralMeshComponent_UpdateMeshSection_LinearColor");
+static_assert(sizeof(ProceduralMeshComponent_UpdateMeshSection_LinearColor) == 0x000090, "Wrong size on ProceduralMeshComponent_UpdateMeshSection_LinearColor");
 static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, SectionIndex) == 0x000000, "Member 'ProceduralMeshComponent_UpdateMeshSection_LinearColor::SectionIndex' has a wrong offset!");
 static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, Vertices) == 0x000008, "Member 'ProceduralMeshComponent_UpdateMeshSection_LinearColor::Vertices' has a wrong offset!");
 static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, Normals) == 0x000018, "Member 'ProceduralMeshComponent_UpdateMeshSection_LinearColor::Normals' has a wrong offset!");
@@ -379,6 +440,7 @@ static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, UV
 static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, UV3) == 0x000058, "Member 'ProceduralMeshComponent_UpdateMeshSection_LinearColor::UV3' has a wrong offset!");
 static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, VertexColors) == 0x000068, "Member 'ProceduralMeshComponent_UpdateMeshSection_LinearColor::VertexColors' has a wrong offset!");
 static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, Tangents) == 0x000078, "Member 'ProceduralMeshComponent_UpdateMeshSection_LinearColor::Tangents' has a wrong offset!");
+static_assert(offsetof(ProceduralMeshComponent_UpdateMeshSection_LinearColor, bSRGBConversion) == 0x000088, "Member 'ProceduralMeshComponent_UpdateMeshSection_LinearColor::bSRGBConversion' has a wrong offset!");
 
 // Function ProceduralMeshComponent.ProceduralMeshComponent.GetNumSections
 // 0x0004 (0x0004 - 0x0000)

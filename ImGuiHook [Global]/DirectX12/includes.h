@@ -69,6 +69,7 @@ bool cfg_DrawMenu = false;
 *  ESP
 */
 void DrawESP();
+void NewFunction(const SDK::FRotator& CameraRotation);
 bool WorldToScreen(const SDK::FVector& worldLoc, SDK::FVector2D* screenPos);
 bool cfg_DrawESP = false;
 bool cfg_DrawPlayerNames = false;

@@ -15,17 +15,18 @@ namespace SDK
 {
 
 // ScriptStruct AssetRegistry.TagAndValue
-// 0x0018 (0x0018 - 0x0000)
+// 0x0020 (0x0020 - 0x0000)
 struct FTagAndValue final
 {
 public:
-	class FName                                   Tag;                                               // 0x0000(0x0008)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class FString                                 Value;                                             // 0x0008(0x0010)(BlueprintVisible, ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FName                                   Tag;                                               // 0x0000(0x000C)(BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	uint8                                         Pad_C[0x4];                                        // 0x000C(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
+	class FString                                 Value;                                             // 0x0010(0x0010)(BlueprintVisible, ZeroConstructor, Transient, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FTagAndValue) == 0x000008, "Wrong alignment on FTagAndValue");
-static_assert(sizeof(FTagAndValue) == 0x000018, "Wrong size on FTagAndValue");
+static_assert(sizeof(FTagAndValue) == 0x000020, "Wrong size on FTagAndValue");
 static_assert(offsetof(FTagAndValue, Tag) == 0x000000, "Member 'FTagAndValue::Tag' has a wrong offset!");
-static_assert(offsetof(FTagAndValue, Value) == 0x000008, "Member 'FTagAndValue::Value' has a wrong offset!");
+static_assert(offsetof(FTagAndValue, Value) == 0x000010, "Member 'FTagAndValue::Value' has a wrong offset!");
 
 // ScriptStruct AssetRegistry.AssetRegistryDependencyOptions
 // 0x0005 (0x0005 - 0x0000)

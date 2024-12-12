@@ -17,7 +17,7 @@ namespace SDK
 {
 
 // Class JsonUtilities.JsonUtilitiesDummyObject
-// 0x0000 (0x0028 - 0x0028)
+// 0x0000 (0x0030 - 0x0030)
 class UJsonUtilitiesDummyObject final : public UObject
 {
 public:
@@ -31,7 +31,7 @@ public:
 	}
 };
 static_assert(alignof(UJsonUtilitiesDummyObject) == 0x000008, "Wrong alignment on UJsonUtilitiesDummyObject");
-static_assert(sizeof(UJsonUtilitiesDummyObject) == 0x000028, "Wrong size on UJsonUtilitiesDummyObject");
+static_assert(sizeof(UJsonUtilitiesDummyObject) == 0x000030, "Wrong size on UJsonUtilitiesDummyObject");
 
 }
 

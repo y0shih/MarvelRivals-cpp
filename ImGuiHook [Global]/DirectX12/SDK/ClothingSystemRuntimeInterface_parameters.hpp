@@ -17,14 +17,14 @@ namespace SDK::Params
 {
 
 // Function ClothingSystemRuntimeInterface.ClothingSimulationInteractor.EnableGravityOverride
-// 0x000C (0x000C - 0x0000)
+// 0x0018 (0x0018 - 0x0000)
 struct ClothingSimulationInteractor_EnableGravityOverride final
 {
 public:
-	struct FVector                                InVector;                                          // 0x0000(0x000C)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FVector                                InVector;                                          // 0x0000(0x0018)(ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(ClothingSimulationInteractor_EnableGravityOverride) == 0x000004, "Wrong alignment on ClothingSimulationInteractor_EnableGravityOverride");
-static_assert(sizeof(ClothingSimulationInteractor_EnableGravityOverride) == 0x00000C, "Wrong size on ClothingSimulationInteractor_EnableGravityOverride");
+static_assert(alignof(ClothingSimulationInteractor_EnableGravityOverride) == 0x000008, "Wrong alignment on ClothingSimulationInteractor_EnableGravityOverride");
+static_assert(sizeof(ClothingSimulationInteractor_EnableGravityOverride) == 0x000018, "Wrong size on ClothingSimulationInteractor_EnableGravityOverride");
 static_assert(offsetof(ClothingSimulationInteractor_EnableGravityOverride, InVector) == 0x000000, "Member 'ClothingSimulationInteractor_EnableGravityOverride::InVector' has a wrong offset!");
 
 // Function ClothingSystemRuntimeInterface.ClothingSimulationInteractor.SetAnimDriveSpringStiffness
@@ -37,6 +37,17 @@ public:
 static_assert(alignof(ClothingSimulationInteractor_SetAnimDriveSpringStiffness) == 0x000004, "Wrong alignment on ClothingSimulationInteractor_SetAnimDriveSpringStiffness");
 static_assert(sizeof(ClothingSimulationInteractor_SetAnimDriveSpringStiffness) == 0x000004, "Wrong size on ClothingSimulationInteractor_SetAnimDriveSpringStiffness");
 static_assert(offsetof(ClothingSimulationInteractor_SetAnimDriveSpringStiffness, InStiffness) == 0x000000, "Member 'ClothingSimulationInteractor_SetAnimDriveSpringStiffness::InStiffness' has a wrong offset!");
+
+// Function ClothingSystemRuntimeInterface.ClothingSimulationInteractor.SetMaxNumIterations
+// 0x0004 (0x0004 - 0x0000)
+struct ClothingSimulationInteractor_SetMaxNumIterations final
+{
+public:
+	int32                                         MaxNumIterations;                                  // 0x0000(0x0004)(Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(ClothingSimulationInteractor_SetMaxNumIterations) == 0x000004, "Wrong alignment on ClothingSimulationInteractor_SetMaxNumIterations");
+static_assert(sizeof(ClothingSimulationInteractor_SetMaxNumIterations) == 0x000004, "Wrong size on ClothingSimulationInteractor_SetMaxNumIterations");
+static_assert(offsetof(ClothingSimulationInteractor_SetMaxNumIterations, MaxNumIterations) == 0x000000, "Member 'ClothingSimulationInteractor_SetMaxNumIterations::MaxNumIterations' has a wrong offset!");
 
 // Function ClothingSystemRuntimeInterface.ClothingSimulationInteractor.SetNumIterations
 // 0x0004 (0x0004 - 0x0000)
@@ -66,7 +77,7 @@ struct ClothingSimulationInteractor_GetClothingInteractor final
 {
 public:
 	class FString                                 ClothingAssetName;                                 // 0x0000(0x0010)(Parm, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	class UClothingInteractor*                    ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class UClothingInteractor*                    ReturnValue;                                       // 0x0010(0x0008)(Parm, OutParm, ZeroConstructor, ReturnParm, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(ClothingSimulationInteractor_GetClothingInteractor) == 0x000008, "Wrong alignment on ClothingSimulationInteractor_GetClothingInteractor");
 static_assert(sizeof(ClothingSimulationInteractor_GetClothingInteractor) == 0x000018, "Wrong size on ClothingSimulationInteractor_GetClothingInteractor");

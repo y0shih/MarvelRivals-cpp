@@ -10,19 +10,19 @@
 
 #include "Basic.hpp"
 
-#include "UObjectPlugin_structs.hpp"
 #include "CoreUObject_classes.hpp"
+#include "UObjectPlugin_structs.hpp"
 
 
 namespace SDK
 {
 
 // Class UObjectPlugin.MyPluginObject
-// 0x0010 (0x0038 - 0x0028)
+// 0x0010 (0x0040 - 0x0030)
 class UMyPluginObject final : public UObject
 {
 public:
-	struct FMyPluginStruct                        MyStruct;                                          // 0x0028(0x0010)(NativeAccessSpecifierPrivate)
+	struct FMyPluginStruct                        MyStruct;                                          // 0x0030(0x0010)(NativeAccessSpecifierPrivate)
 
 public:
 	static class UClass* StaticClass()
@@ -35,8 +35,8 @@ public:
 	}
 };
 static_assert(alignof(UMyPluginObject) == 0x000008, "Wrong alignment on UMyPluginObject");
-static_assert(sizeof(UMyPluginObject) == 0x000038, "Wrong size on UMyPluginObject");
-static_assert(offsetof(UMyPluginObject, MyStruct) == 0x000028, "Member 'UMyPluginObject::MyStruct' has a wrong offset!");
+static_assert(sizeof(UMyPluginObject) == 0x000040, "Wrong size on UMyPluginObject");
+static_assert(offsetof(UMyPluginObject, MyStruct) == 0x000030, "Member 'UMyPluginObject::MyStruct' has a wrong offset!");
 
 }
 

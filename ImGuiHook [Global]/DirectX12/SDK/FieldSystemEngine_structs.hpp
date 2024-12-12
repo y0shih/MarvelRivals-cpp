@@ -20,8 +20,8 @@ struct FFieldObjectCommands final
 {
 public:
 	TArray<class FName>                           TargetNames;                                       // 0x0000(0x0010)(Edit, BlueprintVisible, ZeroConstructor, NativeAccessSpecifierPublic)
-	TArray<class UFieldNodeBase*>                 RootNodes;                                         // 0x0010(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
-	TArray<class UFieldSystemMetaData*>           MetaDatas;                                         // 0x0020(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, NativeAccessSpecifierPublic)
+	TArray<class UFieldNodeBase*>                 RootNodes;                                         // 0x0010(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic)
+	TArray<class UFieldSystemMetaData*>           MetaDatas;                                         // 0x0020(0x0010)(Edit, BlueprintVisible, ExportObject, ZeroConstructor, ContainsInstancedReference, UObjectWrapper, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FFieldObjectCommands) == 0x000008, "Wrong alignment on FFieldObjectCommands");
 static_assert(sizeof(FFieldObjectCommands) == 0x000030, "Wrong size on FFieldObjectCommands");

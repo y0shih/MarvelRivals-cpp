@@ -16,23 +16,13 @@
 namespace SDK
 {
 
-// Enum EngineSettings.ESubLevelStripMode
+// Enum EngineSettings.ETwoPlayerSplitScreenType
 // NumValues: 0x0003
-enum class ESubLevelStripMode : uint8
+enum class ETwoPlayerSplitScreenType : uint8
 {
-	ExactClass                               = 0,
-	IsChildOf                                = 1,
-	ESubLevelStripMode_MAX                   = 2,
-};
-
-// Enum EngineSettings.EFourPlayerSplitScreenType
-// NumValues: 0x0004
-enum class EFourPlayerSplitScreenType : uint8
-{
-	Grid                                     = 0,
+	Horizontal                               = 0,
 	Vertical                                 = 1,
-	Horizontal                               = 2,
-	EFourPlayerSplitScreenType_MAX           = 3,
+	ETwoPlayerSplitScreenType_MAX            = 2,
 };
 
 // Enum EngineSettings.EThreePlayerSplitScreenType
@@ -46,13 +36,23 @@ enum class EThreePlayerSplitScreenType : uint8
 	EThreePlayerSplitScreenType_MAX          = 4,
 };
 
-// Enum EngineSettings.ETwoPlayerSplitScreenType
-// NumValues: 0x0003
-enum class ETwoPlayerSplitScreenType : uint8
+// Enum EngineSettings.EFourPlayerSplitScreenType
+// NumValues: 0x0004
+enum class EFourPlayerSplitScreenType : uint8
 {
-	Horizontal                               = 0,
+	Grid                                     = 0,
 	Vertical                                 = 1,
-	ETwoPlayerSplitScreenType_MAX            = 2,
+	Horizontal                               = 2,
+	EFourPlayerSplitScreenType_MAX           = 3,
+};
+
+// Enum EngineSettings.ESubLevelStripMode
+// NumValues: 0x0003
+enum class ESubLevelStripMode : uint8
+{
+	ExactClass                               = 0,
+	IsChildOf                                = 1,
+	ESubLevelStripMode_MAX                   = 2,
 };
 
 // ScriptStruct EngineSettings.AutoCompleteCommand
@@ -70,17 +70,32 @@ static_assert(offsetof(FAutoCompleteCommand, Command) == 0x000000, "Member 'FAut
 static_assert(offsetof(FAutoCompleteCommand, Desc) == 0x000010, "Member 'FAutoCompleteCommand::Desc' has a wrong offset!");
 
 // ScriptStruct EngineSettings.GameModeName
-// 0x0028 (0x0028 - 0x0000)
+// 0x0038 (0x0038 - 0x0000)
 struct FGameModeName final
 {
 public:
 	class FString                                 Name;                                              // 0x0000(0x0010)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
-	struct FSoftClassPath                         GameMode;                                          // 0x0010(0x0018)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftClassPath                         GameMode;                                          // 0x0010(0x0028)(Edit, ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
 static_assert(alignof(FGameModeName) == 0x000008, "Wrong alignment on FGameModeName");
-static_assert(sizeof(FGameModeName) == 0x000028, "Wrong size on FGameModeName");
+static_assert(sizeof(FGameModeName) == 0x000038, "Wrong size on FGameModeName");
 static_assert(offsetof(FGameModeName, Name) == 0x000000, "Member 'FGameModeName::Name' has a wrong offset!");
 static_assert(offsetof(FGameModeName, GameMode) == 0x000010, "Member 'FGameModeName::GameMode' has a wrong offset!");
+
+// ScriptStruct EngineSettings.TemplateMapInfoOverride
+// 0x0068 (0x0068 - 0x0000)
+struct FTemplateMapInfoOverride final
+{
+public:
+	struct FSoftObjectPath                        Thumbnail;                                         // 0x0000(0x0028)(Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	struct FSoftObjectPath                        Map;                                               // 0x0028(0x0028)(Edit, ZeroConstructor, Config, HasGetValueTypeHash, NativeAccessSpecifierPublic)
+	class FText                                   DisplayName;                                       // 0x0050(0x0018)(Edit, Config, NativeAccessSpecifierPublic)
+};
+static_assert(alignof(FTemplateMapInfoOverride) == 0x000008, "Wrong alignment on FTemplateMapInfoOverride");
+static_assert(sizeof(FTemplateMapInfoOverride) == 0x000068, "Wrong size on FTemplateMapInfoOverride");
+static_assert(offsetof(FTemplateMapInfoOverride, Thumbnail) == 0x000000, "Member 'FTemplateMapInfoOverride::Thumbnail' has a wrong offset!");
+static_assert(offsetof(FTemplateMapInfoOverride, Map) == 0x000028, "Member 'FTemplateMapInfoOverride::Map' has a wrong offset!");
+static_assert(offsetof(FTemplateMapInfoOverride, DisplayName) == 0x000050, "Member 'FTemplateMapInfoOverride::DisplayName' has a wrong offset!");
 
 }
 
