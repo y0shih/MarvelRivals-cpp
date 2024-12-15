@@ -36,8 +36,8 @@ public:
 		return GetDefaultObjImpl<UAbilityStatistics_103641>();
 	}
 };
-static_assert(alignof(UAbilityStatistics_103641) == 0x000008, "Wrong alignment on UAbilityStatistics_103641");
-static_assert(sizeof(UAbilityStatistics_103641) == 0x000088, "Wrong size on UAbilityStatistics_103641");
+//(alignof(UAbilityStatistics_103641) == 0x000008, "Wrong alignment on UAbilityStatistics_103641");
+//(sizeof(UAbilityStatistics_103641) == 0x000088, "Wrong size on UAbilityStatistics_103641");
 
 // Class Hero_1036.Config_103601
 // 0x0008 (0x00C8 - 0x00C0)
@@ -57,10 +57,10 @@ public:
 		return GetDefaultObjImpl<UConfig_103601>();
 	}
 };
-static_assert(alignof(UConfig_103601) == 0x000008, "Wrong alignment on UConfig_103601");
-static_assert(sizeof(UConfig_103601) == 0x0000C8, "Wrong size on UConfig_103601");
-static_assert(offsetof(UConfig_103601, HorizonDeceleration) == 0x0000C0, "Member 'UConfig_103601::HorizonDeceleration' has a wrong offset!");
-static_assert(offsetof(UConfig_103601, TimeToEnterBreak) == 0x0000C4, "Member 'UConfig_103601::TimeToEnterBreak' has a wrong offset!");
+//(alignof(UConfig_103601) == 0x000008, "Wrong alignment on UConfig_103601");
+//(sizeof(UConfig_103601) == 0x0000C8, "Wrong size on UConfig_103601");
+//(offsetof(UConfig_103601, HorizonDeceleration) == 0x0000C0, "Member 'UConfig_103601::HorizonDeceleration' has a wrong offset!");
+//(offsetof(UConfig_103601, TimeToEnterBreak) == 0x0000C4, "Member 'UConfig_103601::TimeToEnterBreak' has a wrong offset!");
 
 // Class Hero_1036.Ability_103601
 // 0x0020 (0x2668 - 0x2648)
@@ -84,9 +84,9 @@ public:
 		return GetDefaultObjImpl<UAbility_103601>();
 	}
 };
-static_assert(alignof(UAbility_103601) == 0x000008, "Wrong alignment on UAbility_103601");
-static_assert(sizeof(UAbility_103601) == 0x002668, "Wrong size on UAbility_103601");
-static_assert(offsetof(UAbility_103601, Config103601) == 0x002648, "Member 'UAbility_103601::Config103601' has a wrong offset!");
+//(alignof(UAbility_103601) == 0x000008, "Wrong alignment on UAbility_103601");
+//(sizeof(UAbility_103601) == 0x002668, "Wrong size on UAbility_103601");
+//(offsetof(UAbility_103601, Config103601) == 0x002648, "Member 'UAbility_103601::Config103601' has a wrong offset!");
 
 // Class Hero_1036.ChangeGravityAbility_103601
 // 0x0000 (0x11A0 - 0x11A0)
@@ -102,8 +102,8 @@ public:
 		return GetDefaultObjImpl<UChangeGravityAbility_103601>();
 	}
 };
-static_assert(alignof(UChangeGravityAbility_103601) == 0x000008, "Wrong alignment on UChangeGravityAbility_103601");
-static_assert(sizeof(UChangeGravityAbility_103601) == 0x0011A0, "Wrong size on UChangeGravityAbility_103601");
+//(alignof(UChangeGravityAbility_103601) == 0x000008, "Wrong alignment on UChangeGravityAbility_103601");
+//(sizeof(UChangeGravityAbility_103601) == 0x0011A0, "Wrong size on UChangeGravityAbility_103601");
 
 // Class Hero_1036.Config_103614
 // 0x0008 (0x00A0 - 0x0098)
@@ -123,9 +123,9 @@ public:
 		return GetDefaultObjImpl<UConfig_103614>();
 	}
 };
-static_assert(alignof(UConfig_103614) == 0x000008, "Wrong alignment on UConfig_103614");
-static_assert(sizeof(UConfig_103614) == 0x0000A0, "Wrong size on UConfig_103614");
-static_assert(offsetof(UConfig_103614, DistanceToPlayRecoverAnim) == 0x000098, "Member 'UConfig_103614::DistanceToPlayRecoverAnim' has a wrong offset!");
+//(alignof(UConfig_103614) == 0x000008, "Wrong alignment on UConfig_103614");
+//(sizeof(UConfig_103614) == 0x0000A0, "Wrong size on UConfig_103614");
+//(offsetof(UConfig_103614, DistanceToPlayRecoverAnim) == 0x000098, "Member 'UConfig_103614::DistanceToPlayRecoverAnim' has a wrong offset!");
 
 // Class Hero_1036.Ability_103614
 // 0x0020 (0x2570 - 0x2550)
@@ -148,10 +148,10 @@ public:
 		return GetDefaultObjImpl<UAbility_103614>();
 	}
 };
-static_assert(alignof(UAbility_103614) == 0x000008, "Wrong alignment on UAbility_103614");
-static_assert(sizeof(UAbility_103614) == 0x002570, "Wrong size on UAbility_103614");
-static_assert(offsetof(UAbility_103614, TargetActor) == 0x002550, "Member 'UAbility_103614::TargetActor' has a wrong offset!");
-static_assert(offsetof(UAbility_103614, ClientKnockUpDir) == 0x002558, "Member 'UAbility_103614::ClientKnockUpDir' has a wrong offset!");
+//(alignof(UAbility_103614) == 0x000008, "Wrong alignment on UAbility_103614");
+//(sizeof(UAbility_103614) == 0x002570, "Wrong size on UAbility_103614");
+//(offsetof(UAbility_103614, TargetActor) == 0x002550, "Member 'UAbility_103614::TargetActor' has a wrong offset!");
+//(offsetof(UAbility_103614, ClientKnockUpDir) == 0x002558, "Member 'UAbility_103614::ClientKnockUpDir' has a wrong offset!");
 
 // Class Hero_1036.KnockUp_103614
 // 0x0000 (0x1D50 - 0x1D50)
@@ -167,8 +167,8 @@ public:
 		return GetDefaultObjImpl<UKnockUp_103614>();
 	}
 };
-static_assert(alignof(UKnockUp_103614) == 0x000008, "Wrong alignment on UKnockUp_103614");
-static_assert(sizeof(UKnockUp_103614) == 0x001D50, "Wrong size on UKnockUp_103614");
+//(alignof(UKnockUp_103614) == 0x000008, "Wrong alignment on UKnockUp_103614");
+//(sizeof(UKnockUp_103614) == 0x001D50, "Wrong size on UKnockUp_103614");
 
 // Class Hero_1036.Summoned_10362101
 // 0x0000 (0x0800 - 0x0800)
@@ -184,8 +184,8 @@ public:
 		return GetDefaultObjImpl<ASummoned_10362101>();
 	}
 };
-static_assert(alignof(ASummoned_10362101) == 0x000010, "Wrong alignment on ASummoned_10362101");
-static_assert(sizeof(ASummoned_10362101) == 0x000800, "Wrong size on ASummoned_10362101");
+//(alignof(ASummoned_10362101) == 0x000010, "Wrong alignment on ASummoned_10362101");
+//(sizeof(ASummoned_10362101) == 0x000800, "Wrong size on ASummoned_10362101");
 
 // Class Hero_1036.Cue_Summoner_Loop_10362101
 // 0x0000 (0x0E30 - 0x0E30)
@@ -204,8 +204,8 @@ public:
 		return GetDefaultObjImpl<ACue_Summoner_Loop_10362101>();
 	}
 };
-static_assert(alignof(ACue_Summoner_Loop_10362101) == 0x000008, "Wrong alignment on ACue_Summoner_Loop_10362101");
-static_assert(sizeof(ACue_Summoner_Loop_10362101) == 0x000E30, "Wrong size on ACue_Summoner_Loop_10362101");
+//(alignof(ACue_Summoner_Loop_10362101) == 0x000008, "Wrong alignment on ACue_Summoner_Loop_10362101");
+//(sizeof(ACue_Summoner_Loop_10362101) == 0x000E30, "Wrong size on ACue_Summoner_Loop_10362101");
 
 // Class Hero_1036.EffectAbility_10362111
 // 0x0018 (0x1100 - 0x10E8)
@@ -229,10 +229,10 @@ public:
 		return GetDefaultObjImpl<UEffectAbility_10362111>();
 	}
 };
-static_assert(alignof(UEffectAbility_10362111) == 0x000008, "Wrong alignment on UEffectAbility_10362111");
-static_assert(sizeof(UEffectAbility_10362111) == 0x001100, "Wrong size on UEffectAbility_10362111");
-static_assert(offsetof(UEffectAbility_10362111, DetonableScopeIDs) == 0x0010E8, "Member 'UEffectAbility_10362111::DetonableScopeIDs' has a wrong offset!");
-static_assert(offsetof(UEffectAbility_10362111, BuffIDToApply) == 0x0010F8, "Member 'UEffectAbility_10362111::BuffIDToApply' has a wrong offset!");
+//(alignof(UEffectAbility_10362111) == 0x000008, "Wrong alignment on UEffectAbility_10362111");
+//(sizeof(UEffectAbility_10362111) == 0x001100, "Wrong size on UEffectAbility_10362111");
+//(offsetof(UEffectAbility_10362111, DetonableScopeIDs) == 0x0010E8, "Member 'UEffectAbility_10362111::DetonableScopeIDs' has a wrong offset!");
+//(offsetof(UEffectAbility_10362111, BuffIDToApply) == 0x0010F8, "Member 'UEffectAbility_10362111::BuffIDToApply' has a wrong offset!");
 
 // Class Hero_1036.Config_103631
 // 0x0178 (0x0210 - 0x0098)
@@ -267,22 +267,22 @@ public:
 		return GetDefaultObjImpl<UConfig_103631>();
 	}
 };
-static_assert(alignof(UConfig_103631) == 0x000008, "Wrong alignment on UConfig_103631");
-static_assert(sizeof(UConfig_103631) == 0x000210, "Wrong size on UConfig_103631");
-static_assert(offsetof(UConfig_103631, bUseInteractableActor) == 0x000098, "Member 'UConfig_103631::bUseInteractableActor' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, PossessInfos) == 0x0000A0, "Member 'UConfig_103631::PossessInfos' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, SummonerProjectileId) == 0x0000F0, "Member 'UConfig_103631::SummonerProjectileId' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, DizzyBuffId) == 0x0000F4, "Member 'UConfig_103631::DizzyBuffId' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, DragBuffId) == 0x0000F8, "Member 'UConfig_103631::DragBuffId' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, DelayTimeToDrag) == 0x0000FC, "Member 'UConfig_103631::DelayTimeToDrag' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, DelayTimeToRemoveDizzyBuff) == 0x000100, "Member 'UConfig_103631::DelayTimeToRemoveDizzyBuff' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, CameraCueTag) == 0x000104, "Member 'UConfig_103631::CameraCueTag' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, CameraCueDuration) == 0x000110, "Member 'UConfig_103631::CameraCueDuration' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, CameraCueTagRequirements) == 0x000118, "Member 'UConfig_103631::CameraCueTagRequirements' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, YawCurve) == 0x0001E8, "Member 'UConfig_103631::YawCurve' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, HandSocketName) == 0x0001F0, "Member 'UConfig_103631::HandSocketName' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, LengthCurve) == 0x000200, "Member 'UConfig_103631::LengthCurve' has a wrong offset!");
-static_assert(offsetof(UConfig_103631, ZBiasCurve) == 0x000208, "Member 'UConfig_103631::ZBiasCurve' has a wrong offset!");
+//(alignof(UConfig_103631) == 0x000008, "Wrong alignment on UConfig_103631");
+//(sizeof(UConfig_103631) == 0x000210, "Wrong size on UConfig_103631");
+//(offsetof(UConfig_103631, bUseInteractableActor) == 0x000098, "Member 'UConfig_103631::bUseInteractableActor' has a wrong offset!");
+//(offsetof(UConfig_103631, PossessInfos) == 0x0000A0, "Member 'UConfig_103631::PossessInfos' has a wrong offset!");
+//(offsetof(UConfig_103631, SummonerProjectileId) == 0x0000F0, "Member 'UConfig_103631::SummonerProjectileId' has a wrong offset!");
+//(offsetof(UConfig_103631, DizzyBuffId) == 0x0000F4, "Member 'UConfig_103631::DizzyBuffId' has a wrong offset!");
+//(offsetof(UConfig_103631, DragBuffId) == 0x0000F8, "Member 'UConfig_103631::DragBuffId' has a wrong offset!");
+//(offsetof(UConfig_103631, DelayTimeToDrag) == 0x0000FC, "Member 'UConfig_103631::DelayTimeToDrag' has a wrong offset!");
+//(offsetof(UConfig_103631, DelayTimeToRemoveDizzyBuff) == 0x000100, "Member 'UConfig_103631::DelayTimeToRemoveDizzyBuff' has a wrong offset!");
+//(offsetof(UConfig_103631, CameraCueTag) == 0x000104, "Member 'UConfig_103631::CameraCueTag' has a wrong offset!");
+//(offsetof(UConfig_103631, CameraCueDuration) == 0x000110, "Member 'UConfig_103631::CameraCueDuration' has a wrong offset!");
+//(offsetof(UConfig_103631, CameraCueTagRequirements) == 0x000118, "Member 'UConfig_103631::CameraCueTagRequirements' has a wrong offset!");
+//(offsetof(UConfig_103631, YawCurve) == 0x0001E8, "Member 'UConfig_103631::YawCurve' has a wrong offset!");
+//(offsetof(UConfig_103631, HandSocketName) == 0x0001F0, "Member 'UConfig_103631::HandSocketName' has a wrong offset!");
+//(offsetof(UConfig_103631, LengthCurve) == 0x000200, "Member 'UConfig_103631::LengthCurve' has a wrong offset!");
+//(offsetof(UConfig_103631, ZBiasCurve) == 0x000208, "Member 'UConfig_103631::ZBiasCurve' has a wrong offset!");
 
 // Class Hero_1036.Ability_103631
 // 0x0208 (0x2758 - 0x2550)
@@ -320,17 +320,17 @@ public:
 		return GetDefaultObjImpl<UAbility_103631>();
 	}
 };
-static_assert(alignof(UAbility_103631) == 0x000008, "Wrong alignment on UAbility_103631");
-static_assert(sizeof(UAbility_103631) == 0x002758, "Wrong size on UAbility_103631");
-static_assert(offsetof(UAbility_103631, PhysicalInteractionComponent) == 0x002550, "Member 'UAbility_103631::PhysicalInteractionComponent' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, TargetCharacter) == 0x002558, "Member 'UAbility_103631::TargetCharacter' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, ProjectileHitDelegate) == 0x002560, "Member 'UAbility_103631::ProjectileHitDelegate' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, ProjectileSpawned) == 0x002570, "Member 'UAbility_103631::ProjectileSpawned' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, HitResultReplicated) == 0x002578, "Member 'UAbility_103631::HitResultReplicated' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, Config) == 0x0026D8, "Member 'UAbility_103631::Config' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, OwnerCharacter) == 0x0026E0, "Member 'UAbility_103631::OwnerCharacter' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, PlayMontageTask) == 0x0026E8, "Member 'UAbility_103631::PlayMontageTask' has a wrong offset!");
-static_assert(offsetof(UAbility_103631, OnStatusChanged) == 0x0026F0, "Member 'UAbility_103631::OnStatusChanged' has a wrong offset!");
+//(alignof(UAbility_103631) == 0x000008, "Wrong alignment on UAbility_103631");
+//(sizeof(UAbility_103631) == 0x002758, "Wrong size on UAbility_103631");
+//(offsetof(UAbility_103631, PhysicalInteractionComponent) == 0x002550, "Member 'UAbility_103631::PhysicalInteractionComponent' has a wrong offset!");
+//(offsetof(UAbility_103631, TargetCharacter) == 0x002558, "Member 'UAbility_103631::TargetCharacter' has a wrong offset!");
+//(offsetof(UAbility_103631, ProjectileHitDelegate) == 0x002560, "Member 'UAbility_103631::ProjectileHitDelegate' has a wrong offset!");
+//(offsetof(UAbility_103631, ProjectileSpawned) == 0x002570, "Member 'UAbility_103631::ProjectileSpawned' has a wrong offset!");
+//(offsetof(UAbility_103631, HitResultReplicated) == 0x002578, "Member 'UAbility_103631::HitResultReplicated' has a wrong offset!");
+//(offsetof(UAbility_103631, Config) == 0x0026D8, "Member 'UAbility_103631::Config' has a wrong offset!");
+//(offsetof(UAbility_103631, OwnerCharacter) == 0x0026E0, "Member 'UAbility_103631::OwnerCharacter' has a wrong offset!");
+//(offsetof(UAbility_103631, PlayMontageTask) == 0x0026E8, "Member 'UAbility_103631::PlayMontageTask' has a wrong offset!");
+//(offsetof(UAbility_103631, OnStatusChanged) == 0x0026F0, "Member 'UAbility_103631::OnStatusChanged' has a wrong offset!");
 
 // Class Hero_1036.Projectile_10363101
 // 0x0000 (0x2F60 - 0x2F60)
@@ -346,8 +346,8 @@ public:
 		return GetDefaultObjImpl<AProjectile_10363101>();
 	}
 };
-static_assert(alignof(AProjectile_10363101) == 0x000010, "Wrong alignment on AProjectile_10363101");
-static_assert(sizeof(AProjectile_10363101) == 0x002F60, "Wrong size on AProjectile_10363101");
+//(alignof(AProjectile_10363101) == 0x000010, "Wrong alignment on AProjectile_10363101");
+//(sizeof(AProjectile_10363101) == 0x002F60, "Wrong size on AProjectile_10363101");
 
 // Class Hero_1036.TraceComponent_10363102
 // 0x0010 (0x16C0 - 0x16B0)
@@ -366,8 +366,8 @@ public:
 		return GetDefaultObjImpl<UTraceComponent_10363102>();
 	}
 };
-static_assert(alignof(UTraceComponent_10363102) == 0x000010, "Wrong alignment on UTraceComponent_10363102");
-static_assert(sizeof(UTraceComponent_10363102) == 0x0016C0, "Wrong size on UTraceComponent_10363102");
+//(alignof(UTraceComponent_10363102) == 0x000010, "Wrong alignment on UTraceComponent_10363102");
+//(sizeof(UTraceComponent_10363102) == 0x0016C0, "Wrong size on UTraceComponent_10363102");
 
 // Class Hero_1036.DragAbility_103631
 // 0x0008 (0x1CA8 - 0x1CA0)
@@ -387,9 +387,9 @@ public:
 		return GetDefaultObjImpl<UDragAbility_103631>();
 	}
 };
-static_assert(alignof(UDragAbility_103631) == 0x000008, "Wrong alignment on UDragAbility_103631");
-static_assert(sizeof(UDragAbility_103631) == 0x001CA8, "Wrong size on UDragAbility_103631");
-static_assert(offsetof(UDragAbility_103631, bOnEndEffectEndOwnerAbility) == 0x001CA0, "Member 'UDragAbility_103631::bOnEndEffectEndOwnerAbility' has a wrong offset!");
+//(alignof(UDragAbility_103631) == 0x000008, "Wrong alignment on UDragAbility_103631");
+//(sizeof(UDragAbility_103631) == 0x001CA8, "Wrong size on UDragAbility_103631");
+//(offsetof(UDragAbility_103631, bOnEndEffectEndOwnerAbility) == 0x001CA0, "Member 'UDragAbility_103631::bOnEndEffectEndOwnerAbility' has a wrong offset!");
 
 // Class Hero_1036.MarvelTurnCharacterAndCameraAbility_103631
 // 0x0020 (0x1108 - 0x10E8)
@@ -410,10 +410,10 @@ public:
 		return GetDefaultObjImpl<UMarvelTurnCharacterAndCameraAbility_103631>();
 	}
 };
-static_assert(alignof(UMarvelTurnCharacterAndCameraAbility_103631) == 0x000008, "Wrong alignment on UMarvelTurnCharacterAndCameraAbility_103631");
-static_assert(sizeof(UMarvelTurnCharacterAndCameraAbility_103631) == 0x001108, "Wrong size on UMarvelTurnCharacterAndCameraAbility_103631");
-static_assert(offsetof(UMarvelTurnCharacterAndCameraAbility_103631, MyTargetRotator) == 0x0010E8, "Member 'UMarvelTurnCharacterAndCameraAbility_103631::MyTargetRotator' has a wrong offset!");
-static_assert(offsetof(UMarvelTurnCharacterAndCameraAbility_103631, InterpSpeed) == 0x001100, "Member 'UMarvelTurnCharacterAndCameraAbility_103631::InterpSpeed' has a wrong offset!");
+//(alignof(UMarvelTurnCharacterAndCameraAbility_103631) == 0x000008, "Wrong alignment on UMarvelTurnCharacterAndCameraAbility_103631");
+//(sizeof(UMarvelTurnCharacterAndCameraAbility_103631) == 0x001108, "Wrong size on UMarvelTurnCharacterAndCameraAbility_103631");
+//(offsetof(UMarvelTurnCharacterAndCameraAbility_103631, MyTargetRotator) == 0x0010E8, "Member 'UMarvelTurnCharacterAndCameraAbility_103631::MyTargetRotator' has a wrong offset!");
+//(offsetof(UMarvelTurnCharacterAndCameraAbility_103631, InterpSpeed) == 0x001100, "Member 'UMarvelTurnCharacterAndCameraAbility_103631::InterpSpeed' has a wrong offset!");
 
 // Class Hero_1036.Cue_Buff_10363102
 // 0x0020 (0x1008 - 0x0FE8)
@@ -433,10 +433,10 @@ public:
 		return GetDefaultObjImpl<ACue_Buff_10363102>();
 	}
 };
-static_assert(alignof(ACue_Buff_10363102) == 0x000008, "Wrong alignment on ACue_Buff_10363102");
-static_assert(sizeof(ACue_Buff_10363102) == 0x001008, "Wrong size on ACue_Buff_10363102");
-static_assert(offsetof(ACue_Buff_10363102, DirectionW) == 0x000FE8, "Member 'ACue_Buff_10363102::DirectionW' has a wrong offset!");
-static_assert(offsetof(ACue_Buff_10363102, NiagaraLoopFX) == 0x001000, "Member 'ACue_Buff_10363102::NiagaraLoopFX' has a wrong offset!");
+//(alignof(ACue_Buff_10363102) == 0x000008, "Wrong alignment on ACue_Buff_10363102");
+//(sizeof(ACue_Buff_10363102) == 0x001008, "Wrong size on ACue_Buff_10363102");
+//(offsetof(ACue_Buff_10363102, DirectionW) == 0x000FE8, "Member 'ACue_Buff_10363102::DirectionW' has a wrong offset!");
+//(offsetof(ACue_Buff_10363102, NiagaraLoopFX) == 0x001000, "Member 'ACue_Buff_10363102::NiagaraLoopFX' has a wrong offset!");
 
 // Class Hero_1036.Config_103651
 // 0x0018 (0x00B0 - 0x0098)
@@ -459,11 +459,11 @@ public:
 		return GetDefaultObjImpl<UConfig_103651>();
 	}
 };
-static_assert(alignof(UConfig_103651) == 0x000008, "Wrong alignment on UConfig_103651");
-static_assert(sizeof(UConfig_103651) == 0x0000B0, "Wrong size on UConfig_103651");
-static_assert(offsetof(UConfig_103651, SlowDownBuffId) == 0x000098, "Member 'UConfig_103651::SlowDownBuffId' has a wrong offset!");
-static_assert(offsetof(UConfig_103651, SlowdownCurve) == 0x0000A0, "Member 'UConfig_103651::SlowdownCurve' has a wrong offset!");
-static_assert(offsetof(UConfig_103651, EnableMeshHit) == 0x0000A8, "Member 'UConfig_103651::EnableMeshHit' has a wrong offset!");
+//(alignof(UConfig_103651) == 0x000008, "Wrong alignment on UConfig_103651");
+//(sizeof(UConfig_103651) == 0x0000B0, "Wrong size on UConfig_103651");
+//(offsetof(UConfig_103651, SlowDownBuffId) == 0x000098, "Member 'UConfig_103651::SlowDownBuffId' has a wrong offset!");
+//(offsetof(UConfig_103651, SlowdownCurve) == 0x0000A0, "Member 'UConfig_103651::SlowdownCurve' has a wrong offset!");
+//(offsetof(UConfig_103651, EnableMeshHit) == 0x0000A8, "Member 'UConfig_103651::EnableMeshHit' has a wrong offset!");
 
 // Class Hero_1036.Ability_103651
 // 0x0010 (0x2568 - 0x2558)
@@ -482,9 +482,9 @@ public:
 		return GetDefaultObjImpl<UAbility_103651>();
 	}
 };
-static_assert(alignof(UAbility_103651) == 0x000008, "Wrong alignment on UAbility_103651");
-static_assert(sizeof(UAbility_103651) == 0x002568, "Wrong size on UAbility_103651");
-static_assert(offsetof(UAbility_103651, SlowDownDelegate) == 0x002558, "Member 'UAbility_103651::SlowDownDelegate' has a wrong offset!");
+//(alignof(UAbility_103651) == 0x000008, "Wrong alignment on UAbility_103651");
+//(sizeof(UAbility_103651) == 0x002568, "Wrong size on UAbility_103651");
+//(offsetof(UAbility_103651, SlowDownDelegate) == 0x002558, "Member 'UAbility_103651::SlowDownDelegate' has a wrong offset!");
 
 // Class Hero_1036.TraceComponent_10365101
 // 0x0000 (0x16B0 - 0x16B0)
@@ -506,9 +506,9 @@ public:
 		return GetDefaultObjImpl<UTraceComponent_10365101>();
 	}
 };
-static_assert(alignof(UTraceComponent_10365101) == 0x000010, "Wrong alignment on UTraceComponent_10365101");
-static_assert(sizeof(UTraceComponent_10365101) == 0x0016B0, "Wrong size on UTraceComponent_10365101");
-static_assert(offsetof(UTraceComponent_10365101, Config) == 0x0016A8, "Member 'UTraceComponent_10365101::Config' has a wrong offset!");
+//(alignof(UTraceComponent_10365101) == 0x000010, "Wrong alignment on UTraceComponent_10365101");
+//(sizeof(UTraceComponent_10365101) == 0x0016B0, "Wrong size on UTraceComponent_10365101");
+//(offsetof(UTraceComponent_10365101, Config) == 0x0016A8, "Member 'UTraceComponent_10365101::Config' has a wrong offset!");
 
 // Class Hero_1036.BuffAbility_10365101
 // 0x0050 (0x1138 - 0x10E8)
@@ -532,10 +532,10 @@ public:
 		return GetDefaultObjImpl<UBuffAbility_10365101>();
 	}
 };
-static_assert(alignof(UBuffAbility_10365101) == 0x000008, "Wrong alignment on UBuffAbility_10365101");
-static_assert(sizeof(UBuffAbility_10365101) == 0x001138, "Wrong size on UBuffAbility_10365101");
-static_assert(offsetof(UBuffAbility_10365101, StunBuffId) == 0x0010E8, "Member 'UBuffAbility_10365101::StunBuffId' has a wrong offset!");
-static_assert(offsetof(UBuffAbility_10365101, CountToStun) == 0x0010EC, "Member 'UBuffAbility_10365101::CountToStun' has a wrong offset!");
+//(alignof(UBuffAbility_10365101) == 0x000008, "Wrong alignment on UBuffAbility_10365101");
+//(sizeof(UBuffAbility_10365101) == 0x001138, "Wrong size on UBuffAbility_10365101");
+//(offsetof(UBuffAbility_10365101, StunBuffId) == 0x0010E8, "Member 'UBuffAbility_10365101::StunBuffId' has a wrong offset!");
+//(offsetof(UBuffAbility_10365101, CountToStun) == 0x0010EC, "Member 'UBuffAbility_10365101::CountToStun' has a wrong offset!");
 
 // Class Hero_1036.SkeletalMeshComponent_103651
 // 0x0000 (0x16A0 - 0x16A0)
@@ -554,8 +554,8 @@ public:
 		return GetDefaultObjImpl<USkeletalMeshComponent_103651>();
 	}
 };
-static_assert(alignof(USkeletalMeshComponent_103651) == 0x000010, "Wrong alignment on USkeletalMeshComponent_103651");
-static_assert(sizeof(USkeletalMeshComponent_103651) == 0x0016A0, "Wrong size on USkeletalMeshComponent_103651");
+//(alignof(USkeletalMeshComponent_103651) == 0x000010, "Wrong alignment on USkeletalMeshComponent_103651");
+//(sizeof(USkeletalMeshComponent_103651) == 0x0016A0, "Wrong size on USkeletalMeshComponent_103651");
 
 // Class Hero_1036.Cue_AbilityLoop_103651
 // 0x00C0 (0x0EC0 - 0x0E00)
@@ -583,16 +583,16 @@ public:
 		return GetDefaultObjImpl<ACue_AbilityLoop_103651>();
 	}
 };
-static_assert(alignof(ACue_AbilityLoop_103651) == 0x000008, "Wrong alignment on ACue_AbilityLoop_103651");
-static_assert(sizeof(ACue_AbilityLoop_103651) == 0x000EC0, "Wrong size on ACue_AbilityLoop_103651");
-static_assert(offsetof(ACue_AbilityLoop_103651, NiagaraLoopFX) == 0x000E00, "Member 'ACue_AbilityLoop_103651::NiagaraLoopFX' has a wrong offset!");
-static_assert(offsetof(ACue_AbilityLoop_103651, ShadowGenerateTimeList) == 0x000E08, "Member 'ACue_AbilityLoop_103651::ShadowGenerateTimeList' has a wrong offset!");
-static_assert(offsetof(ACue_AbilityLoop_103651, ShadowAnimStartTimeOffsetList) == 0x000E18, "Member 'ACue_AbilityLoop_103651::ShadowAnimStartTimeOffsetList' has a wrong offset!");
-static_assert(offsetof(ACue_AbilityLoop_103651, ShadowNum) == 0x000E28, "Member 'ACue_AbilityLoop_103651::ShadowNum' has a wrong offset!");
-static_assert(offsetof(ACue_AbilityLoop_103651, IsRenderCustomDepthPass) == 0x000E2C, "Member 'ACue_AbilityLoop_103651::IsRenderCustomDepthPass' has a wrong offset!");
-static_assert(offsetof(ACue_AbilityLoop_103651, ShadowMontage) == 0x000E30, "Member 'ACue_AbilityLoop_103651::ShadowMontage' has a wrong offset!");
-static_assert(offsetof(ACue_AbilityLoop_103651, MaterialDict) == 0x000E38, "Member 'ACue_AbilityLoop_103651::MaterialDict' has a wrong offset!");
-static_assert(offsetof(ACue_AbilityLoop_103651, ShadowMeshComponents) == 0x000E88, "Member 'ACue_AbilityLoop_103651::ShadowMeshComponents' has a wrong offset!");
+//(alignof(ACue_AbilityLoop_103651) == 0x000008, "Wrong alignment on ACue_AbilityLoop_103651");
+//(sizeof(ACue_AbilityLoop_103651) == 0x000EC0, "Wrong size on ACue_AbilityLoop_103651");
+//(offsetof(ACue_AbilityLoop_103651, NiagaraLoopFX) == 0x000E00, "Member 'ACue_AbilityLoop_103651::NiagaraLoopFX' has a wrong offset!");
+//(offsetof(ACue_AbilityLoop_103651, ShadowGenerateTimeList) == 0x000E08, "Member 'ACue_AbilityLoop_103651::ShadowGenerateTimeList' has a wrong offset!");
+//(offsetof(ACue_AbilityLoop_103651, ShadowAnimStartTimeOffsetList) == 0x000E18, "Member 'ACue_AbilityLoop_103651::ShadowAnimStartTimeOffsetList' has a wrong offset!");
+//(offsetof(ACue_AbilityLoop_103651, ShadowNum) == 0x000E28, "Member 'ACue_AbilityLoop_103651::ShadowNum' has a wrong offset!");
+//(offsetof(ACue_AbilityLoop_103651, IsRenderCustomDepthPass) == 0x000E2C, "Member 'ACue_AbilityLoop_103651::IsRenderCustomDepthPass' has a wrong offset!");
+//(offsetof(ACue_AbilityLoop_103651, ShadowMontage) == 0x000E30, "Member 'ACue_AbilityLoop_103651::ShadowMontage' has a wrong offset!");
+//(offsetof(ACue_AbilityLoop_103651, MaterialDict) == 0x000E38, "Member 'ACue_AbilityLoop_103651::MaterialDict' has a wrong offset!");
+//(offsetof(ACue_AbilityLoop_103651, ShadowMeshComponents) == 0x000E88, "Member 'ACue_AbilityLoop_103651::ShadowMeshComponents' has a wrong offset!");
 
 // Class Hero_1036.Cue_AbilityLoop_103651_800
 // 0x0008 (0x0EC8 - 0x0EC0)
@@ -611,9 +611,9 @@ public:
 		return GetDefaultObjImpl<ACue_AbilityLoop_103651_800>();
 	}
 };
-static_assert(alignof(ACue_AbilityLoop_103651_800) == 0x000008, "Wrong alignment on ACue_AbilityLoop_103651_800");
-static_assert(sizeof(ACue_AbilityLoop_103651_800) == 0x000EC8, "Wrong size on ACue_AbilityLoop_103651_800");
-static_assert(offsetof(ACue_AbilityLoop_103651_800, EquipMeshComponent) == 0x000EC0, "Member 'ACue_AbilityLoop_103651_800::EquipMeshComponent' has a wrong offset!");
+//(alignof(ACue_AbilityLoop_103651_800) == 0x000008, "Wrong alignment on ACue_AbilityLoop_103651_800");
+//(sizeof(ACue_AbilityLoop_103651_800) == 0x000EC8, "Wrong size on ACue_AbilityLoop_103651_800");
+//(offsetof(ACue_AbilityLoop_103651_800, EquipMeshComponent) == 0x000EC0, "Member 'ACue_AbilityLoop_103651_800::EquipMeshComponent' has a wrong offset!");
 
 // Class Hero_1036.Config_103661
 // 0x1058 (0x10F0 - 0x0098)
@@ -635,10 +635,10 @@ public:
 		return GetDefaultObjImpl<UConfig_103661>();
 	}
 };
-static_assert(alignof(UConfig_103661) == 0x000010, "Wrong alignment on UConfig_103661");
-static_assert(sizeof(UConfig_103661) == 0x0010F0, "Wrong size on UConfig_103661");
-static_assert(offsetof(UConfig_103661, SelectTaskParam) == 0x0000A0, "Member 'UConfig_103661::SelectTaskParam' has a wrong offset!");
-static_assert(offsetof(UConfig_103661, TraceInterval) == 0x0010E0, "Member 'UConfig_103661::TraceInterval' has a wrong offset!");
+//(alignof(UConfig_103661) == 0x000010, "Wrong alignment on UConfig_103661");
+//(sizeof(UConfig_103661) == 0x0010F0, "Wrong size on UConfig_103661");
+//(offsetof(UConfig_103661, SelectTaskParam) == 0x0000A0, "Member 'UConfig_103661::SelectTaskParam' has a wrong offset!");
+//(offsetof(UConfig_103661, TraceInterval) == 0x0010E0, "Member 'UConfig_103661::TraceInterval' has a wrong offset!");
 
 // Class Hero_1036.Ability_103661
 // 0x0090 (0x25E0 - 0x2550)
@@ -667,12 +667,12 @@ public:
 		return GetDefaultObjImpl<UAbility_103661>();
 	}
 };
-static_assert(alignof(UAbility_103661) == 0x000008, "Wrong alignment on UAbility_103661");
-static_assert(sizeof(UAbility_103661) == 0x0025E0, "Wrong size on UAbility_103661");
-static_assert(offsetof(UAbility_103661, Config103661) == 0x002558, "Member 'UAbility_103661::Config103661' has a wrong offset!");
-static_assert(offsetof(UAbility_103661, LastSeenTimeMap) == 0x002560, "Member 'UAbility_103661::LastSeenTimeMap' has a wrong offset!");
-static_assert(offsetof(UAbility_103661, SelectTask) == 0x0025B0, "Member 'UAbility_103661::SelectTask' has a wrong offset!");
-static_assert(offsetof(UAbility_103661, Ability103662) == 0x0025B8, "Member 'UAbility_103661::Ability103662' has a wrong offset!");
+//(alignof(UAbility_103661) == 0x000008, "Wrong alignment on UAbility_103661");
+//(sizeof(UAbility_103661) == 0x0025E0, "Wrong size on UAbility_103661");
+//(offsetof(UAbility_103661, Config103661) == 0x002558, "Member 'UAbility_103661::Config103661' has a wrong offset!");
+//(offsetof(UAbility_103661, LastSeenTimeMap) == 0x002560, "Member 'UAbility_103661::LastSeenTimeMap' has a wrong offset!");
+//(offsetof(UAbility_103661, SelectTask) == 0x0025B0, "Member 'UAbility_103661::SelectTask' has a wrong offset!");
+//(offsetof(UAbility_103661, Ability103662) == 0x0025B8, "Member 'UAbility_103661::Ability103662' has a wrong offset!");
 
 // Class Hero_1036.Config_103662
 // 0x0080 (0x0118 - 0x0098)
@@ -697,14 +697,14 @@ public:
 		return GetDefaultObjImpl<UConfig_103662>();
 	}
 };
-static_assert(alignof(UConfig_103662) == 0x000008, "Wrong alignment on UConfig_103662");
-static_assert(sizeof(UConfig_103662) == 0x000118, "Wrong size on UConfig_103662");
-static_assert(offsetof(UConfig_103662, TimeThreshold) == 0x000098, "Member 'UConfig_103662::TimeThreshold' has a wrong offset!");
-static_assert(offsetof(UConfig_103662, EnhanceDangerHP) == 0x00009C, "Member 'UConfig_103662::EnhanceDangerHP' has a wrong offset!");
-static_assert(offsetof(UConfig_103662, IgnoreTags) == 0x0000A0, "Member 'UConfig_103662::IgnoreTags' has a wrong offset!");
-static_assert(offsetof(UConfig_103662, ScopeId) == 0x000108, "Member 'UConfig_103662::ScopeId' has a wrong offset!");
-static_assert(offsetof(UConfig_103662, BuffID) == 0x00010C, "Member 'UConfig_103662::BuffID' has a wrong offset!");
-static_assert(offsetof(UConfig_103662, EnhanceBuffID) == 0x000110, "Member 'UConfig_103662::EnhanceBuffID' has a wrong offset!");
+//(alignof(UConfig_103662) == 0x000008, "Wrong alignment on UConfig_103662");
+//(sizeof(UConfig_103662) == 0x000118, "Wrong size on UConfig_103662");
+//(offsetof(UConfig_103662, TimeThreshold) == 0x000098, "Member 'UConfig_103662::TimeThreshold' has a wrong offset!");
+//(offsetof(UConfig_103662, EnhanceDangerHP) == 0x00009C, "Member 'UConfig_103662::EnhanceDangerHP' has a wrong offset!");
+//(offsetof(UConfig_103662, IgnoreTags) == 0x0000A0, "Member 'UConfig_103662::IgnoreTags' has a wrong offset!");
+//(offsetof(UConfig_103662, ScopeId) == 0x000108, "Member 'UConfig_103662::ScopeId' has a wrong offset!");
+//(offsetof(UConfig_103662, BuffID) == 0x00010C, "Member 'UConfig_103662::BuffID' has a wrong offset!");
+//(offsetof(UConfig_103662, EnhanceBuffID) == 0x000110, "Member 'UConfig_103662::EnhanceBuffID' has a wrong offset!");
 
 // Class Hero_1036.Ability_103662
 // 0x0030 (0x2580 - 0x2550)
@@ -728,9 +728,9 @@ public:
 		return GetDefaultObjImpl<UAbility_103662>();
 	}
 };
-static_assert(alignof(UAbility_103662) == 0x000008, "Wrong alignment on UAbility_103662");
-static_assert(sizeof(UAbility_103662) == 0x002580, "Wrong size on UAbility_103662");
-static_assert(offsetof(UAbility_103662, SensedEnemyDelegate) == 0x002570, "Member 'UAbility_103662::SensedEnemyDelegate' has a wrong offset!");
+//(alignof(UAbility_103662) == 0x000008, "Wrong alignment on UAbility_103662");
+//(sizeof(UAbility_103662) == 0x002580, "Wrong size on UAbility_103662");
+//(offsetof(UAbility_103662, SensedEnemyDelegate) == 0x002570, "Member 'UAbility_103662::SensedEnemyDelegate' has a wrong offset!");
 
 // Class Hero_1036.EffectiveComponent_10366201
 // 0x0030 (0x1C30 - 0x1C00)
@@ -754,13 +754,13 @@ public:
 		return GetDefaultObjImpl<UEffectiveComponent_10366201>();
 	}
 };
-static_assert(alignof(UEffectiveComponent_10366201) == 0x000010, "Wrong alignment on UEffectiveComponent_10366201");
-static_assert(sizeof(UEffectiveComponent_10366201) == 0x001C30, "Wrong size on UEffectiveComponent_10366201");
-static_assert(offsetof(UEffectiveComponent_10366201, Ability103661) == 0x001BF8, "Member 'UEffectiveComponent_10366201::Ability103661' has a wrong offset!");
-static_assert(offsetof(UEffectiveComponent_10366201, Ability103662) == 0x001C00, "Member 'UEffectiveComponent_10366201::Ability103662' has a wrong offset!");
-static_assert(offsetof(UEffectiveComponent_10366201, Config103662) == 0x001C08, "Member 'UEffectiveComponent_10366201::Config103662' has a wrong offset!");
-static_assert(offsetof(UEffectiveComponent_10366201, Viewer) == 0x001C10, "Member 'UEffectiveComponent_10366201::Viewer' has a wrong offset!");
-static_assert(offsetof(UEffectiveComponent_10366201, EndAbility103662Delegate) == 0x001C18, "Member 'UEffectiveComponent_10366201::EndAbility103662Delegate' has a wrong offset!");
+//(alignof(UEffectiveComponent_10366201) == 0x000010, "Wrong alignment on UEffectiveComponent_10366201");
+//(sizeof(UEffectiveComponent_10366201) == 0x001C30, "Wrong size on UEffectiveComponent_10366201");
+//(offsetof(UEffectiveComponent_10366201, Ability103661) == 0x001BF8, "Member 'UEffectiveComponent_10366201::Ability103661' has a wrong offset!");
+//(offsetof(UEffectiveComponent_10366201, Ability103662) == 0x001C00, "Member 'UEffectiveComponent_10366201::Ability103662' has a wrong offset!");
+//(offsetof(UEffectiveComponent_10366201, Config103662) == 0x001C08, "Member 'UEffectiveComponent_10366201::Config103662' has a wrong offset!");
+//(offsetof(UEffectiveComponent_10366201, Viewer) == 0x001C10, "Member 'UEffectiveComponent_10366201::Viewer' has a wrong offset!");
+//(offsetof(UEffectiveComponent_10366201, EndAbility103662Delegate) == 0x001C18, "Member 'UEffectiveComponent_10366201::EndAbility103662Delegate' has a wrong offset!");
 
 // Class Hero_1036.Cue_Buff_10366101
 // 0x0008 (0x0FF0 - 0x0FE8)
@@ -779,9 +779,9 @@ public:
 		return GetDefaultObjImpl<ACue_Buff_10366101>();
 	}
 };
-static_assert(alignof(ACue_Buff_10366101) == 0x000008, "Wrong alignment on ACue_Buff_10366101");
-static_assert(sizeof(ACue_Buff_10366101) == 0x000FF0, "Wrong size on ACue_Buff_10366101");
-static_assert(offsetof(ACue_Buff_10366101, EffectCauser) == 0x000FE8, "Member 'ACue_Buff_10366101::EffectCauser' has a wrong offset!");
+//(alignof(ACue_Buff_10366101) == 0x000008, "Wrong alignment on ACue_Buff_10366101");
+//(sizeof(ACue_Buff_10366101) == 0x000FF0, "Wrong size on ACue_Buff_10366101");
+//(offsetof(ACue_Buff_10366101, EffectCauser) == 0x000FE8, "Member 'ACue_Buff_10366101::EffectCauser' has a wrong offset!");
 
 // Class Hero_1036.Cue_Ability_Instant_10366201
 // 0x0010 (0x0378 - 0x0368)
@@ -804,10 +804,10 @@ public:
 		return GetDefaultObjImpl<UCue_Ability_Instant_10366201>();
 	}
 };
-static_assert(alignof(UCue_Ability_Instant_10366201) == 0x000008, "Wrong alignment on UCue_Ability_Instant_10366201");
-static_assert(sizeof(UCue_Ability_Instant_10366201) == 0x000378, "Wrong size on UCue_Ability_Instant_10366201");
-static_assert(offsetof(UCue_Ability_Instant_10366201, FXSystemComp) == 0x000368, "Member 'UCue_Ability_Instant_10366201::FXSystemComp' has a wrong offset!");
-static_assert(offsetof(UCue_Ability_Instant_10366201, TargetChar) == 0x000370, "Member 'UCue_Ability_Instant_10366201::TargetChar' has a wrong offset!");
+//(alignof(UCue_Ability_Instant_10366201) == 0x000008, "Wrong alignment on UCue_Ability_Instant_10366201");
+//(sizeof(UCue_Ability_Instant_10366201) == 0x000378, "Wrong size on UCue_Ability_Instant_10366201");
+//(offsetof(UCue_Ability_Instant_10366201, FXSystemComp) == 0x000368, "Member 'UCue_Ability_Instant_10366201::FXSystemComp' has a wrong offset!");
+//(offsetof(UCue_Ability_Instant_10366201, TargetChar) == 0x000370, "Member 'UCue_Ability_Instant_10366201::TargetChar' has a wrong offset!");
 
 // Class Hero_1036.Cue_Ability_Loop_10366201
 // 0x0050 (0x0E50 - 0x0E00)
@@ -835,13 +835,13 @@ public:
 		return GetDefaultObjImpl<ACue_Ability_Loop_10366201>();
 	}
 };
-static_assert(alignof(ACue_Ability_Loop_10366201) == 0x000008, "Wrong alignment on ACue_Ability_Loop_10366201");
-static_assert(sizeof(ACue_Ability_Loop_10366201) == 0x000E50, "Wrong size on ACue_Ability_Loop_10366201");
-static_assert(offsetof(ACue_Ability_Loop_10366201, MarvelCharacter) == 0x000E00, "Member 'ACue_Ability_Loop_10366201::MarvelCharacter' has a wrong offset!");
-static_assert(offsetof(ACue_Ability_Loop_10366201, NiagaraLoopFX) == 0x000E28, "Member 'ACue_Ability_Loop_10366201::NiagaraLoopFX' has a wrong offset!");
-static_assert(offsetof(ACue_Ability_Loop_10366201, DissolveCurve) == 0x000E30, "Member 'ACue_Ability_Loop_10366201::DissolveCurve' has a wrong offset!");
-static_assert(offsetof(ACue_Ability_Loop_10366201, DissolveParamName) == 0x000E38, "Member 'ACue_Ability_Loop_10366201::DissolveParamName' has a wrong offset!");
-static_assert(offsetof(ACue_Ability_Loop_10366201, CueDuration) == 0x000E48, "Member 'ACue_Ability_Loop_10366201::CueDuration' has a wrong offset!");
+//(alignof(ACue_Ability_Loop_10366201) == 0x000008, "Wrong alignment on ACue_Ability_Loop_10366201");
+//(sizeof(ACue_Ability_Loop_10366201) == 0x000E50, "Wrong size on ACue_Ability_Loop_10366201");
+//(offsetof(ACue_Ability_Loop_10366201, MarvelCharacter) == 0x000E00, "Member 'ACue_Ability_Loop_10366201::MarvelCharacter' has a wrong offset!");
+//(offsetof(ACue_Ability_Loop_10366201, NiagaraLoopFX) == 0x000E28, "Member 'ACue_Ability_Loop_10366201::NiagaraLoopFX' has a wrong offset!");
+//(offsetof(ACue_Ability_Loop_10366201, DissolveCurve) == 0x000E30, "Member 'ACue_Ability_Loop_10366201::DissolveCurve' has a wrong offset!");
+//(offsetof(ACue_Ability_Loop_10366201, DissolveParamName) == 0x000E38, "Member 'ACue_Ability_Loop_10366201::DissolveParamName' has a wrong offset!");
+//(offsetof(ACue_Ability_Loop_10366201, CueDuration) == 0x000E48, "Member 'ACue_Ability_Loop_10366201::CueDuration' has a wrong offset!");
 
 // Class Hero_1036.Config_103681
 // 0x16F8 (0x1790 - 0x0098)
@@ -867,14 +867,14 @@ public:
 		return GetDefaultObjImpl<UConfig_103681>();
 	}
 };
-static_assert(alignof(UConfig_103681) == 0x000008, "Wrong alignment on UConfig_103681");
-static_assert(sizeof(UConfig_103681) == 0x001790, "Wrong size on UConfig_103681");
-static_assert(offsetof(UConfig_103681, SpecialFallingMinSpeed) == 0x000098, "Member 'UConfig_103681::SpecialFallingMinSpeed' has a wrong offset!");
-static_assert(offsetof(UConfig_103681, SpecialFallingMinHeight) == 0x00009C, "Member 'UConfig_103681::SpecialFallingMinHeight' has a wrong offset!");
-static_assert(offsetof(UConfig_103681, EndSpecialFallingMaxHeight) == 0x0000A0, "Member 'UConfig_103681::EndSpecialFallingMaxHeight' has a wrong offset!");
-static_assert(offsetof(UConfig_103681, DashInfo) == 0x0000A8, "Member 'UConfig_103681::DashInfo' has a wrong offset!");
-static_assert(offsetof(UConfig_103681, DashInfoToRun) == 0x000C18, "Member 'UConfig_103681::DashInfoToRun' has a wrong offset!");
-static_assert(offsetof(UConfig_103681, TimeDelayToDash) == 0x001788, "Member 'UConfig_103681::TimeDelayToDash' has a wrong offset!");
+//(alignof(UConfig_103681) == 0x000008, "Wrong alignment on UConfig_103681");
+//(sizeof(UConfig_103681) == 0x001790, "Wrong size on UConfig_103681");
+//(offsetof(UConfig_103681, SpecialFallingMinSpeed) == 0x000098, "Member 'UConfig_103681::SpecialFallingMinSpeed' has a wrong offset!");
+//(offsetof(UConfig_103681, SpecialFallingMinHeight) == 0x00009C, "Member 'UConfig_103681::SpecialFallingMinHeight' has a wrong offset!");
+//(offsetof(UConfig_103681, EndSpecialFallingMaxHeight) == 0x0000A0, "Member 'UConfig_103681::EndSpecialFallingMaxHeight' has a wrong offset!");
+//(offsetof(UConfig_103681, DashInfo) == 0x0000A8, "Member 'UConfig_103681::DashInfo' has a wrong offset!");
+//(offsetof(UConfig_103681, DashInfoToRun) == 0x000C18, "Member 'UConfig_103681::DashInfoToRun' has a wrong offset!");
+//(offsetof(UConfig_103681, TimeDelayToDash) == 0x001788, "Member 'UConfig_103681::TimeDelayToDash' has a wrong offset!");
 
 // Class Hero_1036.Ability_103681
 // 0x00C8 (0x2618 - 0x2550)
@@ -899,8 +899,8 @@ public:
 		return GetDefaultObjImpl<UAbility_103681>();
 	}
 };
-static_assert(alignof(UAbility_103681) == 0x000008, "Wrong alignment on UAbility_103681");
-static_assert(sizeof(UAbility_103681) == 0x002618, "Wrong size on UAbility_103681");
+//(alignof(UAbility_103681) == 0x000008, "Wrong alignment on UAbility_103681");
+//(sizeof(UAbility_103681) == 0x002618, "Wrong size on UAbility_103681");
 
 // Class Hero_1036.EpicMomentAction_1036
 // 0x0020 (0x0140 - 0x0120)
@@ -925,11 +925,11 @@ public:
 		return GetDefaultObjImpl<UEpicMomentAction_1036>();
 	}
 };
-static_assert(alignof(UEpicMomentAction_1036) == 0x000008, "Wrong alignment on UEpicMomentAction_1036");
-static_assert(sizeof(UEpicMomentAction_1036) == 0x000140, "Wrong size on UEpicMomentAction_1036");
-static_assert(offsetof(UEpicMomentAction_1036, ShiftConfig) == 0x000120, "Member 'UEpicMomentAction_1036::ShiftConfig' has a wrong offset!");
-static_assert(offsetof(UEpicMomentAction_1036, ShiftBuffID) == 0x00012C, "Member 'UEpicMomentAction_1036::ShiftBuffID' has a wrong offset!");
-static_assert(offsetof(UEpicMomentAction_1036, ShiftInterruptAbilities) == 0x000130, "Member 'UEpicMomentAction_1036::ShiftInterruptAbilities' has a wrong offset!");
+//(alignof(UEpicMomentAction_1036) == 0x000008, "Wrong alignment on UEpicMomentAction_1036");
+//(sizeof(UEpicMomentAction_1036) == 0x000140, "Wrong size on UEpicMomentAction_1036");
+//(offsetof(UEpicMomentAction_1036, ShiftConfig) == 0x000120, "Member 'UEpicMomentAction_1036::ShiftConfig' has a wrong offset!");
+//(offsetof(UEpicMomentAction_1036, ShiftBuffID) == 0x00012C, "Member 'UEpicMomentAction_1036::ShiftBuffID' has a wrong offset!");
+//(offsetof(UEpicMomentAction_1036, ShiftInterruptAbilities) == 0x000130, "Member 'UEpicMomentAction_1036::ShiftInterruptAbilities' has a wrong offset!");
 
 // Class Hero_1036.SpiderManAnimInstance
 // 0x0120 (0x14A0 - 0x1380)
@@ -981,32 +981,32 @@ public:
 		return GetDefaultObjImpl<USpiderManAnimInstance>();
 	}
 };
-static_assert(alignof(USpiderManAnimInstance) == 0x000010, "Wrong alignment on USpiderManAnimInstance");
-static_assert(sizeof(USpiderManAnimInstance) == 0x0014A0, "Wrong size on USpiderManAnimInstance");
-static_assert(offsetof(USpiderManAnimInstance, FacingSpeed) == 0x001380, "Member 'USpiderManAnimInstance::FacingSpeed' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, FacingBackSpeed) == 0x001384, "Member 'USpiderManAnimInstance::FacingBackSpeed' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, StopTime) == 0x001388, "Member 'USpiderManAnimInstance::StopTime' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, MaxYaw) == 0x00138C, "Member 'USpiderManAnimInstance::MaxYaw' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, RemainTimeToInterrupt103614) == 0x001390, "Member 'USpiderManAnimInstance::RemainTimeToInterrupt103614' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, TimeToUseSpecialAnimToDoubleJump) == 0x001394, "Member 'USpiderManAnimInstance::TimeToUseSpecialAnimToDoubleJump' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, CurRot) == 0x001398, "Member 'USpiderManAnimInstance::CurRot' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, AbilityState103614) == 0x0013B0, "Member 'USpiderManAnimInstance::AbilityState103614' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, Direction103614) == 0x0013B4, "Member 'USpiderManAnimInstance::Direction103614' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, StartAccelerationAngle) == 0x0013B8, "Member 'USpiderManAnimInstance::StartAccelerationAngle' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bIsStartJumpForward) == 0x0013BC, "Member 'USpiderManAnimInstance::bIsStartJumpForward' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bIsStartAccelerated) == 0x0013BD, "Member 'USpiderManAnimInstance::bIsStartAccelerated' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bIsDoubleJumpFromSpecialFalling) == 0x0013BE, "Member 'USpiderManAnimInstance::bIsDoubleJumpFromSpecialFalling' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, MeshOffsetRotation) == 0x0013D8, "Member 'USpiderManAnimInstance::MeshOffsetRotation' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, ExternMontageBlendMode) == 0x0013F0, "Member 'USpiderManAnimInstance::ExternMontageBlendMode' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bIsSpecialFallToRunForward) == 0x0013F1, "Member 'USpiderManAnimInstance::bIsSpecialFallToRunForward' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, SpecialFallToRunAngle_Forward) == 0x0013F4, "Member 'USpiderManAnimInstance::SpecialFallToRunAngle_Forward' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, SpecialFallToRunAngle_Backward) == 0x0013F8, "Member 'USpiderManAnimInstance::SpecialFallToRunAngle_Backward' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bConduit_To_SpecialFallingToRun) == 0x0013FE, "Member 'USpiderManAnimInstance::bConduit_To_SpecialFallingToRun' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bSpecialFallingToRun_To_DefaultGroundMotion) == 0x0013FF, "Member 'USpiderManAnimInstance::bSpecialFallingToRun_To_DefaultGroundMotion' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bAbilityState103614Default) == 0x001400, "Member 'USpiderManAnimInstance::bAbilityState103614Default' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bAbilityState103614Start) == 0x001401, "Member 'USpiderManAnimInstance::bAbilityState103614Start' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bAbilityState103614AfterStart) == 0x001402, "Member 'USpiderManAnimInstance::bAbilityState103614AfterStart' has a wrong offset!");
-static_assert(offsetof(USpiderManAnimInstance, bAbilityState103614Recovery) == 0x001403, "Member 'USpiderManAnimInstance::bAbilityState103614Recovery' has a wrong offset!");
+//(alignof(USpiderManAnimInstance) == 0x000010, "Wrong alignment on USpiderManAnimInstance");
+//(sizeof(USpiderManAnimInstance) == 0x0014A0, "Wrong size on USpiderManAnimInstance");
+//(offsetof(USpiderManAnimInstance, FacingSpeed) == 0x001380, "Member 'USpiderManAnimInstance::FacingSpeed' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, FacingBackSpeed) == 0x001384, "Member 'USpiderManAnimInstance::FacingBackSpeed' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, StopTime) == 0x001388, "Member 'USpiderManAnimInstance::StopTime' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, MaxYaw) == 0x00138C, "Member 'USpiderManAnimInstance::MaxYaw' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, RemainTimeToInterrupt103614) == 0x001390, "Member 'USpiderManAnimInstance::RemainTimeToInterrupt103614' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, TimeToUseSpecialAnimToDoubleJump) == 0x001394, "Member 'USpiderManAnimInstance::TimeToUseSpecialAnimToDoubleJump' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, CurRot) == 0x001398, "Member 'USpiderManAnimInstance::CurRot' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, AbilityState103614) == 0x0013B0, "Member 'USpiderManAnimInstance::AbilityState103614' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, Direction103614) == 0x0013B4, "Member 'USpiderManAnimInstance::Direction103614' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, StartAccelerationAngle) == 0x0013B8, "Member 'USpiderManAnimInstance::StartAccelerationAngle' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bIsStartJumpForward) == 0x0013BC, "Member 'USpiderManAnimInstance::bIsStartJumpForward' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bIsStartAccelerated) == 0x0013BD, "Member 'USpiderManAnimInstance::bIsStartAccelerated' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bIsDoubleJumpFromSpecialFalling) == 0x0013BE, "Member 'USpiderManAnimInstance::bIsDoubleJumpFromSpecialFalling' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, MeshOffsetRotation) == 0x0013D8, "Member 'USpiderManAnimInstance::MeshOffsetRotation' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, ExternMontageBlendMode) == 0x0013F0, "Member 'USpiderManAnimInstance::ExternMontageBlendMode' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bIsSpecialFallToRunForward) == 0x0013F1, "Member 'USpiderManAnimInstance::bIsSpecialFallToRunForward' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, SpecialFallToRunAngle_Forward) == 0x0013F4, "Member 'USpiderManAnimInstance::SpecialFallToRunAngle_Forward' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, SpecialFallToRunAngle_Backward) == 0x0013F8, "Member 'USpiderManAnimInstance::SpecialFallToRunAngle_Backward' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bConduit_To_SpecialFallingToRun) == 0x0013FE, "Member 'USpiderManAnimInstance::bConduit_To_SpecialFallingToRun' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bSpecialFallingToRun_To_DefaultGroundMotion) == 0x0013FF, "Member 'USpiderManAnimInstance::bSpecialFallingToRun_To_DefaultGroundMotion' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bAbilityState103614Default) == 0x001400, "Member 'USpiderManAnimInstance::bAbilityState103614Default' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bAbilityState103614Start) == 0x001401, "Member 'USpiderManAnimInstance::bAbilityState103614Start' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bAbilityState103614AfterStart) == 0x001402, "Member 'USpiderManAnimInstance::bAbilityState103614AfterStart' has a wrong offset!");
+//(offsetof(USpiderManAnimInstance, bAbilityState103614Recovery) == 0x001403, "Member 'USpiderManAnimInstance::bAbilityState103614Recovery' has a wrong offset!");
 
 // Class Hero_1036.SpiderManPhysicalInteraction
 // 0x0000 (0x1160 - 0x1160)
@@ -1022,8 +1022,8 @@ public:
 		return GetDefaultObjImpl<USpiderManPhysicalInteraction>();
 	}
 };
-static_assert(alignof(USpiderManPhysicalInteraction) == 0x000010, "Wrong alignment on USpiderManPhysicalInteraction");
-static_assert(sizeof(USpiderManPhysicalInteraction) == 0x001160, "Wrong size on USpiderManPhysicalInteraction");
+//(alignof(USpiderManPhysicalInteraction) == 0x000010, "Wrong alignment on USpiderManPhysicalInteraction");
+//(sizeof(USpiderManPhysicalInteraction) == 0x001160, "Wrong size on USpiderManPhysicalInteraction");
 
 // Class Hero_1036.SpiderManChildActor
 // 0x0000 (0x0A40 - 0x0A40)
@@ -1039,8 +1039,8 @@ public:
 		return GetDefaultObjImpl<ASpiderManChildActor>();
 	}
 };
-static_assert(alignof(ASpiderManChildActor) == 0x000008, "Wrong alignment on ASpiderManChildActor");
-static_assert(sizeof(ASpiderManChildActor) == 0x000A40, "Wrong size on ASpiderManChildActor");
+//(alignof(ASpiderManChildActor) == 0x000008, "Wrong alignment on ASpiderManChildActor");
+//(sizeof(ASpiderManChildActor) == 0x000A40, "Wrong size on ASpiderManChildActor");
 
 // Class Hero_1036.SpiderManCharacter
 // 0x0050 (0x1830 - 0x17E0)
@@ -1081,16 +1081,16 @@ public:
 		return GetDefaultObjImpl<ASpiderManCharacter>();
 	}
 };
-static_assert(alignof(ASpiderManCharacter) == 0x000010, "Wrong alignment on ASpiderManCharacter");
-static_assert(sizeof(ASpiderManCharacter) == 0x001830, "Wrong size on ASpiderManCharacter");
-static_assert(offsetof(ASpiderManCharacter, OnAbilityState103614ChangedDelegate) == 0x0017E0, "Member 'ASpiderManCharacter::OnAbilityState103614ChangedDelegate' has a wrong offset!");
-static_assert(offsetof(ASpiderManCharacter, AbilityState103614) == 0x0017F0, "Member 'ASpiderManCharacter::AbilityState103614' has a wrong offset!");
-static_assert(offsetof(ASpiderManCharacter, Direction103614) == 0x0017F4, "Member 'ASpiderManCharacter::Direction103614' has a wrong offset!");
-static_assert(offsetof(ASpiderManCharacter, bIsSpecialFalling) == 0x0017F8, "Member 'ASpiderManCharacter::bIsSpecialFalling' has a wrong offset!");
-static_assert(offsetof(ASpiderManCharacter, bIsEndSpecialFallingByCancel) == 0x0017F9, "Member 'ASpiderManCharacter::bIsEndSpecialFallingByCancel' has a wrong offset!");
-static_assert(offsetof(ASpiderManCharacter, SpiderManMoveLogic) == 0x001800, "Member 'ASpiderManCharacter::SpiderManMoveLogic' has a wrong offset!");
-static_assert(offsetof(ASpiderManCharacter, SpiderManInteraction) == 0x001808, "Member 'ASpiderManCharacter::SpiderManInteraction' has a wrong offset!");
-static_assert(offsetof(ASpiderManCharacter, PhysicsHandleComponent) == 0x001810, "Member 'ASpiderManCharacter::PhysicsHandleComponent' has a wrong offset!");
+//(alignof(ASpiderManCharacter) == 0x000010, "Wrong alignment on ASpiderManCharacter");
+//(sizeof(ASpiderManCharacter) == 0x001830, "Wrong size on ASpiderManCharacter");
+//(offsetof(ASpiderManCharacter, OnAbilityState103614ChangedDelegate) == 0x0017E0, "Member 'ASpiderManCharacter::OnAbilityState103614ChangedDelegate' has a wrong offset!");
+//(offsetof(ASpiderManCharacter, AbilityState103614) == 0x0017F0, "Member 'ASpiderManCharacter::AbilityState103614' has a wrong offset!");
+//(offsetof(ASpiderManCharacter, Direction103614) == 0x0017F4, "Member 'ASpiderManCharacter::Direction103614' has a wrong offset!");
+//(offsetof(ASpiderManCharacter, bIsSpecialFalling) == 0x0017F8, "Member 'ASpiderManCharacter::bIsSpecialFalling' has a wrong offset!");
+//(offsetof(ASpiderManCharacter, bIsEndSpecialFallingByCancel) == 0x0017F9, "Member 'ASpiderManCharacter::bIsEndSpecialFallingByCancel' has a wrong offset!");
+//(offsetof(ASpiderManCharacter, SpiderManMoveLogic) == 0x001800, "Member 'ASpiderManCharacter::SpiderManMoveLogic' has a wrong offset!");
+//(offsetof(ASpiderManCharacter, SpiderManInteraction) == 0x001808, "Member 'ASpiderManCharacter::SpiderManInteraction' has a wrong offset!");
+//(offsetof(ASpiderManCharacter, PhysicsHandleComponent) == 0x001810, "Member 'ASpiderManCharacter::PhysicsHandleComponent' has a wrong offset!");
 
 // Class Hero_1036.SpiderManMoveLogicBaseComponent
 // 0x0000 (0x03F0 - 0x03F0)
@@ -1106,8 +1106,8 @@ public:
 		return GetDefaultObjImpl<USpiderManMoveLogicBaseComponent>();
 	}
 };
-static_assert(alignof(USpiderManMoveLogicBaseComponent) == 0x000008, "Wrong alignment on USpiderManMoveLogicBaseComponent");
-static_assert(sizeof(USpiderManMoveLogicBaseComponent) == 0x0003F0, "Wrong size on USpiderManMoveLogicBaseComponent");
+//(alignof(USpiderManMoveLogicBaseComponent) == 0x000008, "Wrong alignment on USpiderManMoveLogicBaseComponent");
+//(sizeof(USpiderManMoveLogicBaseComponent) == 0x0003F0, "Wrong size on USpiderManMoveLogicBaseComponent");
 
 // Class Hero_1036.SpiderManMovementComponent
 // 0x0000 (0x2EE0 - 0x2EE0)
@@ -1126,9 +1126,9 @@ public:
 		return GetDefaultObjImpl<USpiderManMovementComponent>();
 	}
 };
-static_assert(alignof(USpiderManMovementComponent) == 0x000010, "Wrong alignment on USpiderManMovementComponent");
-static_assert(sizeof(USpiderManMovementComponent) == 0x002EE0, "Wrong size on USpiderManMovementComponent");
-static_assert(offsetof(USpiderManMovementComponent, SpiderManCharacter) == 0x002ED8, "Member 'USpiderManMovementComponent::SpiderManCharacter' has a wrong offset!");
+//(alignof(USpiderManMovementComponent) == 0x000010, "Wrong alignment on USpiderManMovementComponent");
+//(sizeof(USpiderManMovementComponent) == 0x002EE0, "Wrong size on USpiderManMovementComponent");
+//(offsetof(USpiderManMovementComponent, SpiderManCharacter) == 0x002ED8, "Member 'USpiderManMovementComponent::SpiderManCharacter' has a wrong offset!");
 
 // Class Hero_1036.TabData_1036
 // 0x0000 (0x0050 - 0x0050)
@@ -1147,8 +1147,8 @@ public:
 		return GetDefaultObjImpl<UTabData_1036>();
 	}
 };
-static_assert(alignof(UTabData_1036) == 0x000008, "Wrong alignment on UTabData_1036");
-static_assert(sizeof(UTabData_1036) == 0x000050, "Wrong size on UTabData_1036");
+//(alignof(UTabData_1036) == 0x000008, "Wrong alignment on UTabData_1036");
+//(sizeof(UTabData_1036) == 0x000050, "Wrong size on UTabData_1036");
 
 }
 

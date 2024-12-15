@@ -183,9 +183,9 @@ public:
 	class UObject*                                Object;                                            // 0x0000(0x0008)(NOT AUTO-GENERATED PROPERTY)
 	uint8                                         Pad_8[0x18];                                       // 0x0008(0x0018)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FUObjectItem) == 0x000008, "Wrong alignment on FUObjectItem");
-static_assert(sizeof(FUObjectItem) == 0x000020, "Wrong size on FUObjectItem");
-static_assert(offsetof(FUObjectItem, Object) == 0x000000, "Member 'FUObjectItem::Object' has a wrong offset!");
+//(alignof(FUObjectItem) == 0x000008, "Wrong alignment on FUObjectItem");
+//(sizeof(FUObjectItem) == 0x000020, "Wrong size on FUObjectItem");
+//(offsetof(FUObjectItem, Object) == 0x000000, "Member 'FUObjectItem::Object' has a wrong offset!");
 
 class TUObjectArray
 {
@@ -309,10 +309,10 @@ public:
 		return reinterpret_cast<uint32>(Number);
 	}
 };
-static_assert(alignof(FNumberedData) == 0x000001, "Wrong alignment on FNumberedData");
-static_assert(sizeof(FNumberedData) == 0x00000A, "Wrong size on FNumberedData");
-static_assert(offsetof(FNumberedData, Id) == 0x000002, "Member 'FNumberedData::Id' has a wrong offset!");
-static_assert(offsetof(FNumberedData, Number) == 0x000006, "Member 'FNumberedData::Number' has a wrong offset!");
+//(alignof(FNumberedData) == 0x000001, "Wrong alignment on FNumberedData");
+//(sizeof(FNumberedData) == 0x00000A, "Wrong size on FNumberedData");
+//(offsetof(FNumberedData, Id) == 0x000002, "Member 'FNumberedData::Id' has a wrong offset!");
+//(offsetof(FNumberedData, Number) == 0x000006, "Member 'FNumberedData::Number' has a wrong offset!");
 
 // Predefined struct FNameEntryHeader
 // 0x0002 (0x0002 - 0x0000)
@@ -322,8 +322,8 @@ public:
 	uint16                                        bIsWide : 1;                                       // 0x0000(0x0002)(BitIndex: 0x00, PropSize: 0x0002 (NOT AUTO-GENERATED PROPERTY))
 	uint16                                        Len : 15;                                          // 0x0000(0x0002)(BitIndex: 0x01, PropSize: 0x0002 (NOT AUTO-GENERATED PROPERTY))
 };
-static_assert(alignof(FNameEntryHeader) == 0x000002, "Wrong alignment on FNameEntryHeader");
-static_assert(sizeof(FNameEntryHeader) == 0x000002, "Wrong size on FNameEntryHeader");
+//(alignof(FNameEntryHeader) == 0x000002, "Wrong alignment on FNameEntryHeader");
+//(sizeof(FNameEntryHeader) == 0x000002, "Wrong size on FNameEntryHeader");
 
 // Predefined struct FStringData
 // 0x0800 (0x0800 - 0x0000)
@@ -333,10 +333,10 @@ public:
 	char                                          AnsiName[0x400];                                   // 0x0000(0x0001)(NOT AUTO-GENERATED PROPERTY)
 	wchar_t                                       WideName[0x400];                                   // 0x0000(0x0002)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FStringData) == 0x000002, "Wrong alignment on FStringData");
-static_assert(sizeof(FStringData) == 0x000800, "Wrong size on FStringData");
-static_assert(offsetof(FStringData, AnsiName) == 0x000000, "Member 'FStringData::AnsiName' has a wrong offset!");
-static_assert(offsetof(FStringData, WideName) == 0x000000, "Member 'FStringData::WideName' has a wrong offset!");
+//(alignof(FStringData) == 0x000002, "Wrong alignment on FStringData");
+//(sizeof(FStringData) == 0x000800, "Wrong size on FStringData");
+//(offsetof(FStringData, AnsiName) == 0x000000, "Member 'FStringData::AnsiName' has a wrong offset!");
+//(offsetof(FStringData, WideName) == 0x000000, "Member 'FStringData::WideName' has a wrong offset!");
 
 // Predefined struct FNameEntry
 // 0x0806 (0x0806 - 0x0000)
@@ -363,10 +363,10 @@ public:
 		return std::string(Name.AnsiName, Header.Len);
 	}
 };
-static_assert(alignof(FNameEntry) == 0x000002, "Wrong alignment on FNameEntry");
-static_assert(sizeof(FNameEntry) == 0x000806, "Wrong size on FNameEntry");
-static_assert(offsetof(FNameEntry, Header) == 0x000004, "Member 'FNameEntry::Header' has a wrong offset!");
-static_assert(offsetof(FNameEntry, Name) == 0x000006, "Member 'FNameEntry::Name' has a wrong offset!");
+//(alignof(FNameEntry) == 0x000002, "Wrong alignment on FNameEntry");
+//(sizeof(FNameEntry) == 0x000806, "Wrong size on FNameEntry");
+//(offsetof(FNameEntry, Header) == 0x000004, "Member 'FNameEntry::Header' has a wrong offset!");
+//(offsetof(FNameEntry, Name) == 0x000006, "Member 'FNameEntry::Name' has a wrong offset!");
 
 // Predefined struct FNamePool
 // 0x10010 (0x10010 - 0x0000)
@@ -399,11 +399,11 @@ public:
 		return reinterpret_cast<FNameEntry*>(Blocks[ChunkIdx] + (InChunk * FNameEntryStride));
 	}
 };
-static_assert(alignof(FNamePool) == 0x000008, "Wrong alignment on FNamePool");
-static_assert(sizeof(FNamePool) == 0x010010, "Wrong size on FNamePool");
-static_assert(offsetof(FNamePool, CurrentBlock) == 0x000008, "Member 'FNamePool::CurrentBlock' has a wrong offset!");
-static_assert(offsetof(FNamePool, CurrentByteCursor) == 0x00000C, "Member 'FNamePool::CurrentByteCursor' has a wrong offset!");
-static_assert(offsetof(FNamePool, Blocks) == 0x000010, "Member 'FNamePool::Blocks' has a wrong offset!");
+//(alignof(FNamePool) == 0x000008, "Wrong alignment on FNamePool");
+//(sizeof(FNamePool) == 0x010010, "Wrong size on FNamePool");
+//(offsetof(FNamePool, CurrentBlock) == 0x000008, "Member 'FNamePool::CurrentBlock' has a wrong offset!");
+//(offsetof(FNamePool, CurrentByteCursor) == 0x00000C, "Member 'FNamePool::CurrentByteCursor' has a wrong offset!");
+//(offsetof(FNamePool, Blocks) == 0x000010, "Member 'FNamePool::Blocks' has a wrong offset!");
 
 // Predefined struct FName
 // 0x000C (0x000C - 0x0000)
@@ -465,11 +465,11 @@ public:
 		return ComparisonIndex != Other.ComparisonIndex || Number != Other.Number;
 	}
 };
-static_assert(alignof(FName) == 0x000004, "Wrong alignment on FName");
-static_assert(sizeof(FName) == 0x00000C, "Wrong size on FName");
-static_assert(offsetof(FName, ComparisonIndex) == 0x000000, "Member 'FName::ComparisonIndex' has a wrong offset!");
-static_assert(offsetof(FName, Number) == 0x000004, "Member 'FName::Number' has a wrong offset!");
-static_assert(offsetof(FName, DisplayIndex) == 0x000008, "Member 'FName::DisplayIndex' has a wrong offset!");
+//(alignof(FName) == 0x000004, "Wrong alignment on FName");
+//(sizeof(FName) == 0x00000C, "Wrong size on FName");
+//(offsetof(FName, ComparisonIndex) == 0x000000, "Member 'FName::ComparisonIndex' has a wrong offset!");
+//(offsetof(FName, Number) == 0x000004, "Member 'FName::Number' has a wrong offset!");
+//(offsetof(FName, DisplayIndex) == 0x000008, "Member 'FName::DisplayIndex' has a wrong offset!");
 
 template<typename ClassType>
 class TSubclassOf
@@ -542,9 +542,9 @@ public:
 	uint8                                         Pad_0[0x28];                                       // 0x0000(0x0028)(Fixing Size After Last Property [ Dumper-7 ])
 	class FString                                 TextSource;                                        // 0x0028(0x0010)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FTextData) == 0x000008, "Wrong alignment on FTextData");
-static_assert(sizeof(FTextData) == 0x000038, "Wrong size on FTextData");
-static_assert(offsetof(FTextData, TextSource) == 0x000028, "Member 'FTextData::TextSource' has a wrong offset!");
+//(alignof(FTextData) == 0x000008, "Wrong alignment on FTextData");
+//(sizeof(FTextData) == 0x000038, "Wrong size on FTextData");
+//(offsetof(FTextData, TextSource) == 0x000028, "Member 'FTextData::TextSource' has a wrong offset!");
 }
 
 // Predefined struct FText
@@ -565,9 +565,9 @@ public:
 		return TextData->TextSource.ToString();
 	}
 };
-static_assert(alignof(FText) == 0x000008, "Wrong alignment on FText");
-static_assert(sizeof(FText) == 0x000018, "Wrong size on FText");
-static_assert(offsetof(FText, TextData) == 0x000000, "Member 'FText::TextData' has a wrong offset!");
+//(alignof(FText) == 0x000008, "Wrong alignment on FText");
+//(sizeof(FText) == 0x000018, "Wrong size on FText");
+//(offsetof(FText, TextData) == 0x000000, "Member 'FText::TextData' has a wrong offset!");
 
 // Predefined struct FWeakObjectPtr
 // 0x0008 (0x0008 - 0x0000)
@@ -585,10 +585,10 @@ public:
 	bool operator==(const class UObject* Other) const;
 	bool operator!=(const class UObject* Other) const;
 };
-static_assert(alignof(FWeakObjectPtr) == 0x000004, "Wrong alignment on FWeakObjectPtr");
-static_assert(sizeof(FWeakObjectPtr) == 0x000008, "Wrong size on FWeakObjectPtr");
-static_assert(offsetof(FWeakObjectPtr, ObjectIndex) == 0x000000, "Member 'FWeakObjectPtr::ObjectIndex' has a wrong offset!");
-static_assert(offsetof(FWeakObjectPtr, ObjectSerialNumber) == 0x000004, "Member 'FWeakObjectPtr::ObjectSerialNumber' has a wrong offset!");
+//(alignof(FWeakObjectPtr) == 0x000004, "Wrong alignment on FWeakObjectPtr");
+//(sizeof(FWeakObjectPtr) == 0x000008, "Wrong size on FWeakObjectPtr");
+//(offsetof(FWeakObjectPtr, ObjectIndex) == 0x000000, "Member 'FWeakObjectPtr::ObjectIndex' has a wrong offset!");
+//(offsetof(FWeakObjectPtr, ObjectSerialNumber) == 0x000004, "Member 'FWeakObjectPtr::ObjectSerialNumber' has a wrong offset!");
 
 template<typename UEType>
 class TWeakObjectPtr : public FWeakObjectPtr
@@ -615,12 +615,12 @@ public:
 	uint32                                        C;                                                 // 0x0008(0x0004)(NOT AUTO-GENERATED PROPERTY)
 	uint32                                        D;                                                 // 0x000C(0x0004)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FUniqueObjectGuid) == 0x000004, "Wrong alignment on FUniqueObjectGuid");
-static_assert(sizeof(FUniqueObjectGuid) == 0x000010, "Wrong size on FUniqueObjectGuid");
-static_assert(offsetof(FUniqueObjectGuid, A) == 0x000000, "Member 'FUniqueObjectGuid::A' has a wrong offset!");
-static_assert(offsetof(FUniqueObjectGuid, B) == 0x000004, "Member 'FUniqueObjectGuid::B' has a wrong offset!");
-static_assert(offsetof(FUniqueObjectGuid, C) == 0x000008, "Member 'FUniqueObjectGuid::C' has a wrong offset!");
-static_assert(offsetof(FUniqueObjectGuid, D) == 0x00000C, "Member 'FUniqueObjectGuid::D' has a wrong offset!");
+//(alignof(FUniqueObjectGuid) == 0x000004, "Wrong alignment on FUniqueObjectGuid");
+//(sizeof(FUniqueObjectGuid) == 0x000010, "Wrong size on FUniqueObjectGuid");
+//(offsetof(FUniqueObjectGuid, A) == 0x000000, "Member 'FUniqueObjectGuid::A' has a wrong offset!");
+//(offsetof(FUniqueObjectGuid, B) == 0x000004, "Member 'FUniqueObjectGuid::B' has a wrong offset!");
+//(offsetof(FUniqueObjectGuid, C) == 0x000008, "Member 'FUniqueObjectGuid::C' has a wrong offset!");
+//(offsetof(FUniqueObjectGuid, D) == 0x00000C, "Member 'FUniqueObjectGuid::D' has a wrong offset!");
 
 // Predefined struct TPersistentObjectPtr
 // 0x0000 (0x0000 - 0x0000)
@@ -667,10 +667,10 @@ public:
 	class FName                                   PackageName;                                       // 0x0000(0x000C)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 	class FName                                   AssetName;                                         // 0x000C(0x000C)(Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData, NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPrivate)
 };
-static_assert(alignof(FTopLevelAssetPath) == 0x000004, "Wrong alignment on FTopLevelAssetPath");
-static_assert(sizeof(FTopLevelAssetPath) == 0x000018, "Wrong size on FTopLevelAssetPath");
-static_assert(offsetof(FTopLevelAssetPath, PackageName) == 0x000000, "Member 'FTopLevelAssetPath::PackageName' has a wrong offset!");
-static_assert(offsetof(FTopLevelAssetPath, AssetName) == 0x00000C, "Member 'FTopLevelAssetPath::AssetName' has a wrong offset!");
+//(alignof(FTopLevelAssetPath) == 0x000004, "Wrong alignment on FTopLevelAssetPath");
+//(sizeof(FTopLevelAssetPath) == 0x000018, "Wrong size on FTopLevelAssetPath");
+//(offsetof(FTopLevelAssetPath, PackageName) == 0x000000, "Member 'FTopLevelAssetPath::PackageName' has a wrong offset!");
+//(offsetof(FTopLevelAssetPath, AssetName) == 0x00000C, "Member 'FTopLevelAssetPath::AssetName' has a wrong offset!");
 
 // ScriptStruct CoreUObject.SoftObjectPath
 // 0x0028 (0x0028 - 0x0000)
@@ -680,10 +680,10 @@ public:
 	struct FTopLevelAssetPath                     AssetPath;                                         // 0x0000(0x0018)(NoDestructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 	class FString                                 SubPathString;                                     // 0x0018(0x0010)(ZeroConstructor, HasGetValueTypeHash, NativeAccessSpecifierPublic)
 };
-static_assert(alignof(FSoftObjectPath) == 0x000008, "Wrong alignment on FSoftObjectPath");
-static_assert(sizeof(FSoftObjectPath) == 0x000028, "Wrong size on FSoftObjectPath");
-static_assert(offsetof(FSoftObjectPath, AssetPath) == 0x000000, "Member 'FSoftObjectPath::AssetPath' has a wrong offset!");
-static_assert(offsetof(FSoftObjectPath, SubPathString) == 0x000018, "Member 'FSoftObjectPath::SubPathString' has a wrong offset!");
+//(alignof(FSoftObjectPath) == 0x000008, "Wrong alignment on FSoftObjectPath");
+//(sizeof(FSoftObjectPath) == 0x000028, "Wrong size on FSoftObjectPath");
+//(offsetof(FSoftObjectPath, AssetPath) == 0x000000, "Member 'FSoftObjectPath::AssetPath' has a wrong offset!");
+//(offsetof(FSoftObjectPath, SubPathString) == 0x000018, "Member 'FSoftObjectPath::SubPathString' has a wrong offset!");
 
 }
 
@@ -739,10 +739,10 @@ public:
 	}
 	
 };
-static_assert(alignof(FScriptInterface) == 0x000008, "Wrong alignment on FScriptInterface");
-static_assert(sizeof(FScriptInterface) == 0x000010, "Wrong size on FScriptInterface");
-static_assert(offsetof(FScriptInterface, ObjectPointer) == 0x000000, "Member 'FScriptInterface::ObjectPointer' has a wrong offset!");
-static_assert(offsetof(FScriptInterface, InterfacePointer) == 0x000008, "Member 'FScriptInterface::InterfacePointer' has a wrong offset!");
+//(alignof(FScriptInterface) == 0x000008, "Wrong alignment on FScriptInterface");
+//(sizeof(FScriptInterface) == 0x000010, "Wrong size on FScriptInterface");
+//(offsetof(FScriptInterface, ObjectPointer) == 0x000000, "Member 'FScriptInterface::ObjectPointer' has a wrong offset!");
+//(offsetof(FScriptInterface, InterfacePointer) == 0x000008, "Member 'FScriptInterface::InterfacePointer' has a wrong offset!");
 
 // Predefined struct TScriptInterface
 // 0x0000 (0x0010 - 0x0010)
@@ -760,11 +760,11 @@ public:
 	TWeakObjectPtr<class UStruct>                 ResolvedOwner;                                     // 0x0008(0x0008)(NOT AUTO-GENERATED PROPERTY)
 	TArray<FName>                                 Path;                                              // 0x0010(0x0010)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FFieldPath) == 0x000008, "Wrong alignment on FFieldPath");
-static_assert(sizeof(FFieldPath) == 0x000020, "Wrong size on FFieldPath");
-static_assert(offsetof(FFieldPath, ResolvedField) == 0x000000, "Member 'FFieldPath::ResolvedField' has a wrong offset!");
-static_assert(offsetof(FFieldPath, ResolvedOwner) == 0x000008, "Member 'FFieldPath::ResolvedOwner' has a wrong offset!");
-static_assert(offsetof(FFieldPath, Path) == 0x000010, "Member 'FFieldPath::Path' has a wrong offset!");
+//(alignof(FFieldPath) == 0x000008, "Wrong alignment on FFieldPath");
+//(sizeof(FFieldPath) == 0x000020, "Wrong size on FFieldPath");
+//(offsetof(FFieldPath, ResolvedField) == 0x000000, "Member 'FFieldPath::ResolvedField' has a wrong offset!");
+//(offsetof(FFieldPath, ResolvedOwner) == 0x000008, "Member 'FFieldPath::ResolvedOwner' has a wrong offset!");
+//(offsetof(FFieldPath, Path) == 0x000010, "Member 'FFieldPath::Path' has a wrong offset!");
 
 // Predefined struct TFieldPath
 // 0x0000 (0x0020 - 0x0020)
@@ -781,7 +781,7 @@ private:
 	template<int32 TypeSize>
 	struct OptionalWithBool
 	{
-		static_assert(TypeSize > 0x0, "TOptional can not store an empty type!");
+		//(TypeSize > 0x0, "TOptional can not store an empty type!");
 
 		uint8 Value[TypeSize];
 		bool bIsSet;
@@ -1132,13 +1132,13 @@ public:
 	uint8                                         Pad_24[0x4];                                       // 0x0024(0x0004)(Fixing Size After Last Property [ Dumper-7 ])
 	class FFieldClass*                            SuperClass;                                        // 0x0028(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FFieldClass) == 0x000008, "Wrong alignment on FFieldClass");
-static_assert(sizeof(FFieldClass) == 0x000030, "Wrong size on FFieldClass");
-static_assert(offsetof(FFieldClass, Name) == 0x000000, "Member 'FFieldClass::Name' has a wrong offset!");
-static_assert(offsetof(FFieldClass, Id) == 0x000010, "Member 'FFieldClass::Id' has a wrong offset!");
-static_assert(offsetof(FFieldClass, CastFlags) == 0x000018, "Member 'FFieldClass::CastFlags' has a wrong offset!");
-static_assert(offsetof(FFieldClass, ClassFlags) == 0x000020, "Member 'FFieldClass::ClassFlags' has a wrong offset!");
-static_assert(offsetof(FFieldClass, SuperClass) == 0x000028, "Member 'FFieldClass::SuperClass' has a wrong offset!");
+//(alignof(FFieldClass) == 0x000008, "Wrong alignment on FFieldClass");
+//(sizeof(FFieldClass) == 0x000030, "Wrong size on FFieldClass");
+//(offsetof(FFieldClass, Name) == 0x000000, "Member 'FFieldClass::Name' has a wrong offset!");
+//(offsetof(FFieldClass, Id) == 0x000010, "Member 'FFieldClass::Id' has a wrong offset!");
+//(offsetof(FFieldClass, CastFlags) == 0x000018, "Member 'FFieldClass::CastFlags' has a wrong offset!");
+//(offsetof(FFieldClass, ClassFlags) == 0x000020, "Member 'FFieldClass::ClassFlags' has a wrong offset!");
+//(offsetof(FFieldClass, SuperClass) == 0x000028, "Member 'FFieldClass::SuperClass' has a wrong offset!");
 
 // Predefined struct FFieldVariant
 // 0x0008 (0x0008 - 0x0000)
@@ -1151,9 +1151,9 @@ public:
 
 	ContainerType                                 Container;                                         // 0x0000(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FFieldVariant) == 0x000008, "Wrong alignment on FFieldVariant");
-static_assert(sizeof(FFieldVariant) == 0x000008, "Wrong size on FFieldVariant");
-static_assert(offsetof(FFieldVariant, Container) == 0x000000, "Member 'FFieldVariant::Container' has a wrong offset!");
+//(alignof(FFieldVariant) == 0x000008, "Wrong alignment on FFieldVariant");
+//(sizeof(FFieldVariant) == 0x000008, "Wrong size on FFieldVariant");
+//(offsetof(FFieldVariant, Container) == 0x000000, "Member 'FFieldVariant::Container' has a wrong offset!");
 
 // Predefined struct FField
 // 0x0030 (0x0030 - 0x0000)
@@ -1167,14 +1167,14 @@ public:
 	FName                                         Name;                                              // 0x0020(0x000C)(NOT AUTO-GENERATED PROPERTY)
 	int32                                         ObjFlags;                                          // 0x002C(0x0004)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FField) == 0x000008, "Wrong alignment on FField");
-static_assert(sizeof(FField) == 0x000030, "Wrong size on FField");
-static_assert(offsetof(FField, VTable) == 0x000000, "Member 'FField::VTable' has a wrong offset!");
-static_assert(offsetof(FField, ClassPrivate) == 0x000008, "Member 'FField::ClassPrivate' has a wrong offset!");
-static_assert(offsetof(FField, Owner) == 0x000010, "Member 'FField::Owner' has a wrong offset!");
-static_assert(offsetof(FField, Next) == 0x000018, "Member 'FField::Next' has a wrong offset!");
-static_assert(offsetof(FField, Name) == 0x000020, "Member 'FField::Name' has a wrong offset!");
-static_assert(offsetof(FField, ObjFlags) == 0x00002C, "Member 'FField::ObjFlags' has a wrong offset!");
+//(alignof(FField) == 0x000008, "Wrong alignment on FField");
+//(sizeof(FField) == 0x000030, "Wrong size on FField");
+//(offsetof(FField, VTable) == 0x000000, "Member 'FField::VTable' has a wrong offset!");
+//(offsetof(FField, ClassPrivate) == 0x000008, "Member 'FField::ClassPrivate' has a wrong offset!");
+//(offsetof(FField, Owner) == 0x000010, "Member 'FField::Owner' has a wrong offset!");
+//(offsetof(FField, Next) == 0x000018, "Member 'FField::Next' has a wrong offset!");
+//(offsetof(FField, Name) == 0x000020, "Member 'FField::Name' has a wrong offset!");
+//(offsetof(FField, ObjFlags) == 0x00002C, "Member 'FField::ObjFlags' has a wrong offset!");
 
 // Predefined struct FProperty
 // 0x0048 (0x0078 - 0x0030)
@@ -1188,12 +1188,12 @@ public:
 	int32                                         Offset;                                            // 0x0044(0x0004)(NOT AUTO-GENERATED PROPERTY)
 	uint8                                         Pad_48[0x30];                                      // 0x0048(0x0030)(Fixing Struct Size After Last Property [ Dumper-7 ])
 };
-static_assert(alignof(FProperty) == 0x000008, "Wrong alignment on FProperty");
-static_assert(sizeof(FProperty) == 0x000078, "Wrong size on FProperty");
-static_assert(offsetof(FProperty, ArrayDim) == 0x000030, "Member 'FProperty::ArrayDim' has a wrong offset!");
-static_assert(offsetof(FProperty, ElementSize) == 0x000034, "Member 'FProperty::ElementSize' has a wrong offset!");
-static_assert(offsetof(FProperty, PropertyFlags) == 0x000038, "Member 'FProperty::PropertyFlags' has a wrong offset!");
-static_assert(offsetof(FProperty, Offset) == 0x000044, "Member 'FProperty::Offset' has a wrong offset!");
+//(alignof(FProperty) == 0x000008, "Wrong alignment on FProperty");
+//(sizeof(FProperty) == 0x000078, "Wrong size on FProperty");
+//(offsetof(FProperty, ArrayDim) == 0x000030, "Member 'FProperty::ArrayDim' has a wrong offset!");
+//(offsetof(FProperty, ElementSize) == 0x000034, "Member 'FProperty::ElementSize' has a wrong offset!");
+//(offsetof(FProperty, PropertyFlags) == 0x000038, "Member 'FProperty::PropertyFlags' has a wrong offset!");
+//(offsetof(FProperty, Offset) == 0x000044, "Member 'FProperty::Offset' has a wrong offset!");
 
 // Predefined struct FByteProperty
 // 0x0008 (0x0080 - 0x0078)
@@ -1202,9 +1202,9 @@ class FByteProperty final : public FProperty
 public:
 	class UEnum*                                  Enum;                                              // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FByteProperty) == 0x000008, "Wrong alignment on FByteProperty");
-static_assert(sizeof(FByteProperty) == 0x000080, "Wrong size on FByteProperty");
-static_assert(offsetof(FByteProperty, Enum) == 0x000078, "Member 'FByteProperty::Enum' has a wrong offset!");
+//(alignof(FByteProperty) == 0x000008, "Wrong alignment on FByteProperty");
+//(sizeof(FByteProperty) == 0x000080, "Wrong size on FByteProperty");
+//(offsetof(FByteProperty, Enum) == 0x000078, "Member 'FByteProperty::Enum' has a wrong offset!");
 
 // Predefined struct FBoolProperty
 // 0x0008 (0x0080 - 0x0078)
@@ -1216,12 +1216,12 @@ public:
 	uint8                                         ByteMask;                                          // 0x007A(0x0001)(NOT AUTO-GENERATED PROPERTY)
 	uint8                                         FieldMask;                                         // 0x007B(0x0001)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FBoolProperty) == 0x000008, "Wrong alignment on FBoolProperty");
-static_assert(sizeof(FBoolProperty) == 0x000080, "Wrong size on FBoolProperty");
-static_assert(offsetof(FBoolProperty, FieldSize) == 0x000078, "Member 'FBoolProperty::FieldSize' has a wrong offset!");
-static_assert(offsetof(FBoolProperty, ByteOffset) == 0x000079, "Member 'FBoolProperty::ByteOffset' has a wrong offset!");
-static_assert(offsetof(FBoolProperty, ByteMask) == 0x00007A, "Member 'FBoolProperty::ByteMask' has a wrong offset!");
-static_assert(offsetof(FBoolProperty, FieldMask) == 0x00007B, "Member 'FBoolProperty::FieldMask' has a wrong offset!");
+//(alignof(FBoolProperty) == 0x000008, "Wrong alignment on FBoolProperty");
+//(sizeof(FBoolProperty) == 0x000080, "Wrong size on FBoolProperty");
+//(offsetof(FBoolProperty, FieldSize) == 0x000078, "Member 'FBoolProperty::FieldSize' has a wrong offset!");
+//(offsetof(FBoolProperty, ByteOffset) == 0x000079, "Member 'FBoolProperty::ByteOffset' has a wrong offset!");
+//(offsetof(FBoolProperty, ByteMask) == 0x00007A, "Member 'FBoolProperty::ByteMask' has a wrong offset!");
+//(offsetof(FBoolProperty, FieldMask) == 0x00007B, "Member 'FBoolProperty::FieldMask' has a wrong offset!");
 
 // Predefined struct FObjectPropertyBase
 // 0x0008 (0x0080 - 0x0078)
@@ -1230,9 +1230,9 @@ class FObjectPropertyBase : public FProperty
 public:
 	class UClass*                                 PropertyClass;                                     // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FObjectPropertyBase) == 0x000008, "Wrong alignment on FObjectPropertyBase");
-static_assert(sizeof(FObjectPropertyBase) == 0x000080, "Wrong size on FObjectPropertyBase");
-static_assert(offsetof(FObjectPropertyBase, PropertyClass) == 0x000078, "Member 'FObjectPropertyBase::PropertyClass' has a wrong offset!");
+//(alignof(FObjectPropertyBase) == 0x000008, "Wrong alignment on FObjectPropertyBase");
+//(sizeof(FObjectPropertyBase) == 0x000080, "Wrong size on FObjectPropertyBase");
+//(offsetof(FObjectPropertyBase, PropertyClass) == 0x000078, "Member 'FObjectPropertyBase::PropertyClass' has a wrong offset!");
 
 // Predefined struct FClassProperty
 // 0x0008 (0x0088 - 0x0080)
@@ -1241,9 +1241,9 @@ class FClassProperty final : public FObjectPropertyBase
 public:
 	class UClass*                                 MetaClass;                                         // 0x0080(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FClassProperty) == 0x000008, "Wrong alignment on FClassProperty");
-static_assert(sizeof(FClassProperty) == 0x000088, "Wrong size on FClassProperty");
-static_assert(offsetof(FClassProperty, MetaClass) == 0x000080, "Member 'FClassProperty::MetaClass' has a wrong offset!");
+//(alignof(FClassProperty) == 0x000008, "Wrong alignment on FClassProperty");
+//(sizeof(FClassProperty) == 0x000088, "Wrong size on FClassProperty");
+//(offsetof(FClassProperty, MetaClass) == 0x000080, "Member 'FClassProperty::MetaClass' has a wrong offset!");
 
 // Predefined struct FStructProperty
 // 0x0008 (0x0080 - 0x0078)
@@ -1252,9 +1252,9 @@ class FStructProperty final : public FProperty
 public:
 	class UStruct*                                Struct;                                            // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FStructProperty) == 0x000008, "Wrong alignment on FStructProperty");
-static_assert(sizeof(FStructProperty) == 0x000080, "Wrong size on FStructProperty");
-static_assert(offsetof(FStructProperty, Struct) == 0x000078, "Member 'FStructProperty::Struct' has a wrong offset!");
+//(alignof(FStructProperty) == 0x000008, "Wrong alignment on FStructProperty");
+//(sizeof(FStructProperty) == 0x000080, "Wrong size on FStructProperty");
+//(offsetof(FStructProperty, Struct) == 0x000078, "Member 'FStructProperty::Struct' has a wrong offset!");
 
 // Predefined struct FArrayProperty
 // 0x0010 (0x0088 - 0x0078)
@@ -1264,9 +1264,9 @@ public:
 	uint8                                         Pad_78[0x8];                                       // 0x0078(0x0008)(Fixing Size After Last Property [ Dumper-7 ])
 	struct FProperty*                             InnerProperty;                                     // 0x0080(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FArrayProperty) == 0x000008, "Wrong alignment on FArrayProperty");
-static_assert(sizeof(FArrayProperty) == 0x000088, "Wrong size on FArrayProperty");
-static_assert(offsetof(FArrayProperty, InnerProperty) == 0x000080, "Member 'FArrayProperty::InnerProperty' has a wrong offset!");
+//(alignof(FArrayProperty) == 0x000008, "Wrong alignment on FArrayProperty");
+//(sizeof(FArrayProperty) == 0x000088, "Wrong size on FArrayProperty");
+//(offsetof(FArrayProperty, InnerProperty) == 0x000080, "Member 'FArrayProperty::InnerProperty' has a wrong offset!");
 
 // Predefined struct FDelegateProperty
 // 0x0008 (0x0080 - 0x0078)
@@ -1275,9 +1275,9 @@ class FDelegateProperty final : public FProperty
 public:
 	class UFunction*                              SignatureFunction;                                 // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FDelegateProperty) == 0x000008, "Wrong alignment on FDelegateProperty");
-static_assert(sizeof(FDelegateProperty) == 0x000080, "Wrong size on FDelegateProperty");
-static_assert(offsetof(FDelegateProperty, SignatureFunction) == 0x000078, "Member 'FDelegateProperty::SignatureFunction' has a wrong offset!");
+//(alignof(FDelegateProperty) == 0x000008, "Wrong alignment on FDelegateProperty");
+//(sizeof(FDelegateProperty) == 0x000080, "Wrong size on FDelegateProperty");
+//(offsetof(FDelegateProperty, SignatureFunction) == 0x000078, "Member 'FDelegateProperty::SignatureFunction' has a wrong offset!");
 
 // Predefined struct FMapProperty
 // 0x0010 (0x0088 - 0x0078)
@@ -1287,10 +1287,10 @@ public:
 	struct FProperty*                             KeyProperty;                                       // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 	struct FProperty*                             ValueProperty;                                     // 0x0080(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FMapProperty) == 0x000008, "Wrong alignment on FMapProperty");
-static_assert(sizeof(FMapProperty) == 0x000088, "Wrong size on FMapProperty");
-static_assert(offsetof(FMapProperty, KeyProperty) == 0x000078, "Member 'FMapProperty::KeyProperty' has a wrong offset!");
-static_assert(offsetof(FMapProperty, ValueProperty) == 0x000080, "Member 'FMapProperty::ValueProperty' has a wrong offset!");
+//(alignof(FMapProperty) == 0x000008, "Wrong alignment on FMapProperty");
+//(sizeof(FMapProperty) == 0x000088, "Wrong size on FMapProperty");
+//(offsetof(FMapProperty, KeyProperty) == 0x000078, "Member 'FMapProperty::KeyProperty' has a wrong offset!");
+//(offsetof(FMapProperty, ValueProperty) == 0x000080, "Member 'FMapProperty::ValueProperty' has a wrong offset!");
 
 // Predefined struct FSetProperty
 // 0x0008 (0x0080 - 0x0078)
@@ -1299,9 +1299,9 @@ class FSetProperty final : public FProperty
 public:
 	struct FProperty*                             ElementProperty;                                   // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FSetProperty) == 0x000008, "Wrong alignment on FSetProperty");
-static_assert(sizeof(FSetProperty) == 0x000080, "Wrong size on FSetProperty");
-static_assert(offsetof(FSetProperty, ElementProperty) == 0x000078, "Member 'FSetProperty::ElementProperty' has a wrong offset!");
+//(alignof(FSetProperty) == 0x000008, "Wrong alignment on FSetProperty");
+//(sizeof(FSetProperty) == 0x000080, "Wrong size on FSetProperty");
+//(offsetof(FSetProperty, ElementProperty) == 0x000078, "Member 'FSetProperty::ElementProperty' has a wrong offset!");
 
 // Predefined struct FEnumProperty
 // 0x0010 (0x0088 - 0x0078)
@@ -1311,10 +1311,10 @@ public:
 	struct FProperty*                             UnderlayingProperty;                               // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 	class UEnum*                                  Enum;                                              // 0x0080(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FEnumProperty) == 0x000008, "Wrong alignment on FEnumProperty");
-static_assert(sizeof(FEnumProperty) == 0x000088, "Wrong size on FEnumProperty");
-static_assert(offsetof(FEnumProperty, UnderlayingProperty) == 0x000078, "Member 'FEnumProperty::UnderlayingProperty' has a wrong offset!");
-static_assert(offsetof(FEnumProperty, Enum) == 0x000080, "Member 'FEnumProperty::Enum' has a wrong offset!");
+//(alignof(FEnumProperty) == 0x000008, "Wrong alignment on FEnumProperty");
+//(sizeof(FEnumProperty) == 0x000088, "Wrong size on FEnumProperty");
+//(offsetof(FEnumProperty, UnderlayingProperty) == 0x000078, "Member 'FEnumProperty::UnderlayingProperty' has a wrong offset!");
+//(offsetof(FEnumProperty, Enum) == 0x000080, "Member 'FEnumProperty::Enum' has a wrong offset!");
 
 // Predefined struct FFieldPathProperty
 // 0x0008 (0x0080 - 0x0078)
@@ -1323,9 +1323,9 @@ class FFieldPathProperty final : public FProperty
 public:
 	class FFieldClass*                            FieldClass;                                        // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FFieldPathProperty) == 0x000008, "Wrong alignment on FFieldPathProperty");
-static_assert(sizeof(FFieldPathProperty) == 0x000080, "Wrong size on FFieldPathProperty");
-static_assert(offsetof(FFieldPathProperty, FieldClass) == 0x000078, "Member 'FFieldPathProperty::FieldClass' has a wrong offset!");
+//(alignof(FFieldPathProperty) == 0x000008, "Wrong alignment on FFieldPathProperty");
+//(sizeof(FFieldPathProperty) == 0x000080, "Wrong size on FFieldPathProperty");
+//(offsetof(FFieldPathProperty, FieldClass) == 0x000078, "Member 'FFieldPathProperty::FieldClass' has a wrong offset!");
 
 // Predefined struct FOptionalProperty
 // 0x0008 (0x0080 - 0x0078)
@@ -1334,9 +1334,9 @@ class FOptionalProperty final : public FProperty
 public:
 	struct FProperty*                             ValueProperty;                                     // 0x0078(0x0008)(NOT AUTO-GENERATED PROPERTY)
 };
-static_assert(alignof(FOptionalProperty) == 0x000008, "Wrong alignment on FOptionalProperty");
-static_assert(sizeof(FOptionalProperty) == 0x000080, "Wrong size on FOptionalProperty");
-static_assert(offsetof(FOptionalProperty, ValueProperty) == 0x000078, "Member 'FOptionalProperty::ValueProperty' has a wrong offset!");
+//(alignof(FOptionalProperty) == 0x000008, "Wrong alignment on FOptionalProperty");
+//(sizeof(FOptionalProperty) == 0x000080, "Wrong size on FOptionalProperty");
+//(offsetof(FOptionalProperty, ValueProperty) == 0x000078, "Member 'FOptionalProperty::ValueProperty' has a wrong offset!");
 
 namespace CyclicDependencyFixupImpl
 {

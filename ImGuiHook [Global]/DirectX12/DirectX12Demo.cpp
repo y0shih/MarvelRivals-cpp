@@ -20,11 +20,11 @@
 #include <MinHook.h>
 #include "detours.h"
 
-// Link the appropriate Detours library (.lib file)
+
 #pragma comment(lib, "detours.lib")
+#include "includes.h"
 
 
-bool bDrawFov = false;
 
 
 inline SDK::FName StrToName(std::string str)
@@ -38,28 +38,10 @@ inline SDK::FName StrCToName(const wchar_t* str)
 {
     return SDK::UKismetStringLibrary::Conv_StringToName(SDK::FString(TEXT(str)));
 }
-struct Colors {
-    static const ImColor Black;
-    static const ImColor Green;
-};
-
-const ImColor Colors::Black = ImColor(0, 0, 0);
-const ImColor Colors::Green = ImColor(0, 255, 0, 255);
-
-static bool drawBones = false;
 
 
-inline void DrawLine(ImVec2 A, ImVec2 B, ImColor color, bool outline = true, float t = 1.f)
-{
-    ImDrawList* draw_list = ImGui::GetForegroundDrawList();
-    if (!outline)
-        draw_list->AddLine(A, B, color, t);
-    else
-    {
-        draw_list->AddLine(A, B, Colors::Black, t + 1);
-        draw_list->AddLine(A, B, color, t);
-    }
-}
+
+
 
 bool bShowESP = false;
 
@@ -76,17 +58,6 @@ bool WorldToScreen(const SDK::FVector& worldLoc, SDK::FVector2D* screenPos)
 
 
 
-#include <sstream>
-#include <fstream>  
-#include <cstdarg>  
-#include <filesystem>
-
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <filesystem>
-#include <cstdarg>
-#include <cstring>
 
 void LogMessage(const char* format, ...) {
     std::ostringstream oss;
@@ -100,7 +71,7 @@ void LogMessage(const char* format, ...) {
 
     oss << buffer;
 
-    std::filesystem::path log_file_path = "C:\\aimbot_log.txt"; // Set log file name and path
+    std::filesystem::path log_file_path = "C:\\aimbot_log.txt"; 
 
     std::ofstream log_file(log_file_path, std::ios::app);
     if (log_file.is_open()) {
@@ -114,21 +85,9 @@ void LogMessage(const char* format, ...) {
 
 
 
-SDK::AActor* closest_actor = nullptr;
-float aimbot_distance = 100.0f;
-SDK::FVector closest_actor_head;
-SDK::FRotator closest_actor_rotation;
-float MaxDistance = 100.00f;
-SDK::UWorld* World = SDK::UWorld::GetWorld();
-SDK::ULevel* Level = World->PersistentLevel;
-SDK::APlayerController* MyController = World->OwningGameInstance->LocalPlayers.Num() > 0 ?
-World->OwningGameInstance->LocalPlayers[0]->PlayerController : nullptr;
-SDK::USkinnedMeshComponent* mesh = nullptr;
-bool bAim = false;
-bool bAimbotEnabled = false;
-bool bVisCheck = false;
 
-bool bTpToEnemies = false;
+
+
 float AimbotFov = 50.0f;
 float cfg_AimbotSmoothing = 2.0f;
 static int currentTargetID;
@@ -143,40 +102,18 @@ inline std::vector<SDK::AActor*> WorldActors{};
 namespace gl {
     namespace Aimbot {
         bool Aimbot = false;
-        float Fov = 50.0f;
+     
 
     }
 
     namespace Exploits {
-        bool SuperSpeed = false;
-        bool FastFly = false;
-        bool FastAcceleration = false;
-        bool GodModee = false;
-        bool GodMode = false;
-        bool Ammo = false;
-        float MaxSpeed = 10000.0f;
-        bool AddHealth = false;
-        bool AddFood = false;
-        bool bMagicBullet = false;
-        bool WeaponSkin = false;
+        bool cacheBones = false;
+       
     }
 }
 
-std::string VectorToString(const SDK::FVector& vec)
-{
-    return "X: " + std::to_string(vec.X) + ", Y: " + std::to_string(vec.Y) + ", Z: " + std::to_string(vec.Z);
-}
 
-std::string Vector2DToString(const SDK::FVector2D& vec)
-{
-    return "X: " + std::to_string(vec.X) + ", Y: " + std::to_string(vec.Y);
-}
 
-std::string RotatorToString(const SDK::FRotator& rot)
-{
-    return "Pitch: " + std::to_string(rot.Pitch) + ", Yaw: " + std::to_string(rot.Yaw) + ", Roll: " + std::to_string(rot.Roll);
-}
-#include <algorithm>
 
 #include <chrono>
 std::vector<SDK::AActor*> PlayerSet;
@@ -209,7 +146,7 @@ void UpdatePlayerList()
 
 void SmoothAim(SDK::FRotator currentRotation, SDK::FRotator targetRotation, float smoothFactor)
 {
-    const float deltaTime = 1.0f / 60.0f; // Assuming 60 FPS for now
+    const float deltaTime = 1.0f / 60.0f;
     SDK::FRotator smoothedRotation = SDK::UKismetMathLibrary::RInterpTo(currentRotation, targetRotation, deltaTime, smoothFactor);
 
     MyController->SetControlRotation(smoothedRotation);
@@ -221,7 +158,7 @@ void SmoothAim(SDK::FRotator currentRotation, SDK::FRotator targetRotation, floa
 
 
 
-void DrawESP();
+//MAYBE USE BONE ARRAY IDK WHY YOU CRASHHHHHHH
 
 void GameLoop()
 {
@@ -230,7 +167,7 @@ void GameLoop()
 
     World = SDK::UWorld::GetWorld();
     SDK::UEngine* gEngine = SDK::UEngine::GetEngine();
-    
+
 
     if (!World)
     {
@@ -263,7 +200,6 @@ void GameLoop()
     SDK::FVector closest_actor_head{};
     float MaxDistance = FLT_MAX;
 
-    // Iterate through all players
     for (SDK::AActor* actor : PlayerSet)
     {
         if (!actor || !actor->RootComponent) continue;
@@ -278,7 +214,7 @@ void GameLoop()
 
         SDK::FVector2D Bottom{}, Top{};
         if (MyController->ProjectWorldLocationToScreen(feet_middle_pos, &Bottom, true) &&
-            MyController->ProjectWorldLocationToScreen(head_bone_pos, &Top,true ))
+            MyController->ProjectWorldLocationToScreen(head_bone_pos, &Top, true))
         {
             const float h = std::abs(Top.Y - Bottom.Y);
             const float w = h * 0.2f;
@@ -304,92 +240,33 @@ void GameLoop()
 
     if (closest_actor && gl::Aimbot::Aimbot)
     {
-        if (GetAsyncKeyState(VK_RBUTTON)) // If the right mouse button is pressed
+        if (GetAsyncKeyState(VK_RBUTTON))
         {
             LogMessage("Right mouse button is pressed");
 
             SmoothAim(MyController->GetControlRotation(), closest_actor_rotation, 20.0f);
 
-           
+
         }
     }
 
 
     SDK::AMarvelBaseCharacter* LocalCharacter = MyController ? reinterpret_cast<SDK::AMarvelBaseCharacter*>(MyController->Character) : nullptr;
 
-    
-
-    
-}
 
 
 
-
-void DrawTextAt(const char* text, ImVec2 position, ImColor color, bool center)
-{
-    ImDrawList* drawList = ImGui::GetForegroundDrawList();
-    ImFont* font = ImGui::GetFont();
-
-    if (font == nullptr || drawList == nullptr) return;
-
-    if (center)
-    {
-        ImVec2 textSize = font->CalcTextSizeA(ImGui::GetFontSize(), FLT_MAX, 0.0f, text);
-        position.x -= textSize.x * 0.5f;
-        position.y -= textSize.y * 0.5f;
-    }
-
-    drawList->AddText(position, color, text);
-}
-
-class drawings
-{
-public:
-    void DrawBox(int X, int Y, int W, int H, const ImU32& color, int thickness);
-};
-
-void drawings::DrawBox(int X, int Y, int W, int H, const ImU32& color, int thickness)
-{
-    float lineW = (W / 1);
-    float lineH = (H / 1);
-    ImDrawList* Drawlist = ImGui::GetForegroundDrawList();
-    //black outlines
-    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X, Y + lineH), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X + lineW, Y), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    Drawlist->AddLine(ImVec2(X + W - lineW, Y), ImVec2(X + W, Y), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    Drawlist->AddLine(ImVec2(X + W, Y), ImVec2(X + W, Y + lineH), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    Drawlist->AddLine(ImVec2(X, Y + H - lineH), ImVec2(X, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    Drawlist->AddLine(ImVec2(X, Y + H), ImVec2(X + lineW, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    Drawlist->AddLine(ImVec2(X + W - lineW, Y + H), ImVec2(X + W, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    Drawlist->AddLine(ImVec2(X + W, Y + H - lineH), ImVec2(X + W, Y + H), ImGui::ColorConvertFloat4ToU32(ImVec4(1 / 255.0, 1 / 255.0, 1 / 255.0, 255 / 255.0)), 3);
-    //corners
-    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X, Y + lineH), ImGui::GetColorU32(color), thickness);
-    Drawlist->AddLine(ImVec2(X, Y), ImVec2(X + lineW, Y), ImGui::GetColorU32(color), thickness);
-    Drawlist->AddLine(ImVec2(X + W - lineW, Y), ImVec2(X + W, Y), ImGui::GetColorU32(color), thickness);
-    Drawlist->AddLine(ImVec2(X + W, Y), ImVec2(X + W, Y + lineH), ImGui::GetColorU32(color), thickness);
-    Drawlist->AddLine(ImVec2(X, Y + H - lineH), ImVec2(X, Y + H), ImGui::GetColorU32(color), thickness);
-    Drawlist->AddLine(ImVec2(X, Y + H), ImVec2(X + lineW, Y + H), ImGui::GetColorU32(color), thickness);
-    Drawlist->AddLine(ImVec2(X + W - lineW, Y + H), ImVec2(X + W, Y + H), ImGui::GetColorU32(color), thickness);
-    Drawlist->AddLine(ImVec2(X + W, Y + H - lineH), ImVec2(X + W, Y + H), ImGui::GetColorU32(color), thickness);
 }
 
 
 
 inline drawings* draw;
+
+
+//CRASHSES on get socket lcoation?!!!
 void DrawESP()
 {
-    SDK::UWorld** _UWorld;
-    SDK::APlayerController* PlayerController;
-    SDK::ULocalPlayer* LocalPlayer;
-    SDK::UGameInstance* OwningGameInstance;
-    SDK::UGameViewportClient* GameViewportClient;
-    SDK::AGameStateBase* GameState;
-    SDK::AActor* obj;
-    SDK::UGameplayStatics* UGStatics;
-    SDK::UKismetSystemLibrary* KismetSystemLib;
-    SDK::APawn* MyPlayer;
-    SDK::AMarvelBaseCharacter* BaseClass; //change a class for each game
-    SDK::UKismetMathLibrary* MathLib;
+
     int x, y = 0;
 
         auto& io = ImGui::GetIO();
@@ -438,12 +315,13 @@ void DrawESP()
 
 
             auto PlayerName = BaseClass->PlayerState->GetPlayerName();
-            bool IsVisible = PlayerController->LineOfSightTo(obj, { 0,0,0 }, false); //visible check
+            bool IsVisible = PlayerController->LineOfSightTo(obj, { 0,0,0 }, false); 
 
          
             SDK::FVector HeadLoc = BaseClass->GetMesh()->GetSocketLocation(StrToName("Head"));
             SDK::FVector RootLoc = BaseClass->GetMesh()->GetSocketLocation(StrToName("root"));
 
+            
 
 
             SDK::FVector2D head, Bottom;
@@ -469,8 +347,77 @@ void DrawESP()
                     ImGui::GetOverlayDrawList()->AddLine(ImVec2(static_cast<float>(io.DisplaySize.x / 2), static_cast<float>(io.DisplaySize.y)), Pos, ImColor(255, 255, 255), 0.7);
             }
         }
-    
+
+ 
 }
+
+
+
+
+//try uit? or mayne read/w
+
+
+
+void WriteEnemyBonesData() {
+    std::ofstream outFile("BoneCache.dat", std::ios::binary);
+
+    if (!outFile) {
+        //std::cerr << "Error opening file for writing!" << std::endl;
+        return;
+    }
+    outFile.clear();
+    // Write the size of the map first
+    size_t mapSize = IDBoneMap.size();
+    outFile.write(reinterpret_cast<const char*>(&mapSize), sizeof(mapSize));
+
+    // Write each key-vector pair
+    for (const auto& pair : IDBoneMap) {
+        // Write the key
+        outFile.write(reinterpret_cast<const char*>(&pair.first), sizeof(pair.first));
+
+        // Write the size of the vector
+        size_t vectorSize = pair.second.size();
+        outFile.write(reinterpret_cast<const char*>(&vectorSize), sizeof(vectorSize));
+
+        // Write the vector elements
+        outFile.write(reinterpret_cast<const char*>(pair.second.data()), vectorSize * sizeof(int));
+    }
+
+    outFile.close();
+}
+
+
+std::unordered_map<int, std::vector<int>> ReadEnemyBonesData() {
+    std::unordered_map<int, std::vector<int>> map;
+    std::ifstream inFile("BoneCache.dat", std::ios::binary);
+
+    if (!inFile) {
+        return map;
+    }
+
+    size_t mapSize = 0;
+    inFile.read(reinterpret_cast<char*>(&mapSize), sizeof(mapSize));
+
+    for (size_t i = 0; i < mapSize; ++i) {
+        int key;
+        size_t vectorSize;
+        std::vector<int> value;
+
+        inFile.read(reinterpret_cast<char*>(&key), sizeof(key));
+
+        inFile.read(reinterpret_cast<char*>(&vectorSize), sizeof(vectorSize));
+
+        value.resize(vectorSize);
+
+        inFile.read(reinterpret_cast<char*>(value.data()), vectorSize * sizeof(int));
+
+        map[key] = value;
+    }
+
+    inFile.close();
+    return map;
+}
+
 
 
 
@@ -482,17 +429,13 @@ bool cfg_InstantReload = false;
 
 void RenderESP()
 {
-
-
     ImGui::Checkbox("Aimbot", &gl::Aimbot::Aimbot);
     ImGui::Checkbox("Esp", &bShowESP);
-
+    ImGui::Checkbox("Cache Bones", &gl::Exploits::cacheBones);
 
 
 }
 
-
-#include <cmath>
 
 
 
@@ -502,14 +445,11 @@ bool ShowMenu = false;
 bool ImGui_Initialised = false;
 
 void UnloadDLL(HMODULE Module) {
-    // Clean up DirectX resources
 
-    // Free the console if it was allocated
     fclose(stdout);
     fclose(stdin);
     FreeConsole();
 
-    // Unload the DLL and exit the thread
     FreeLibraryAndExitThread(Module, 0);
 }
 namespace Process {
@@ -625,7 +565,6 @@ HRESULT APIENTRY MJPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT 
 
     if (DirectX12Interface::CommandQueue == nullptr)
         return oPresent(pSwapChain, SyncInterval, Flags);
-    // Scale all sizes by 50% or adjust as needed
 
     ImGui_ImplDX12_NewFrame();
     ImGui_ImplWin32_NewFrame();
@@ -633,7 +572,6 @@ HRESULT APIENTRY MJPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT 
 
 
 
-    // Main Overlay and Menu
     ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowSize(ImVec2(1920, 1080), ImGuiCond_FirstUseEver);
 
@@ -646,46 +584,40 @@ HRESULT APIENTRY MJPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT 
         ImGuiWindowFlags_NoFocusOnAppearing |
         ImGuiWindowFlags_NoBringToFrontOnFocus);
 
-    // Draw ESP if enabled
     if (bShowESP)
     {
         DrawESP();
     }
 
-    // Check for adding health in the game loop
     if (gl::Aimbot::Aimbot)
     {
-        GameLoop(); 
+        GameLoop();
     }
+    
 
-    // Toggle menu visibility with INSERT key
     if (GetAsyncKeyState(VK_INSERT) & 1) ShowMenu = !ShowMenu;
     ImGui::GetIO().MouseDrawCursor = ShowMenu; // Show cursor when menu is open
 
-    // Main menu content
     if (ShowMenu)
     {
-        // Unload DLL with END key
+
         if (GetAsyncKeyState(VK_END) & 1)
         {
             UnloadDLL(Process::Module);
         }
 
-        // Create the menu UI
-        ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver); // Adjust position as necessary
-        ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_FirstUseEver); // Adjust size as necessary
-        ImGui::SetNextWindowBgAlpha(0.5f);  // Semi-transparent background to make it visible if something else overlaps
+        ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver); 
+        ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_FirstUseEver); 
+        ImGui::SetNextWindowBgAlpha(0.5f);  
 
         ImGui::Begin(" Internal [DEV]", nullptr, ImGuiWindowFlags_NoCollapse);
    
 
-        // Main tabs
         if (ImGui::BeginTabBar("MainTabs"))
         {
-            // Misc Tab
             if (ImGui::BeginTabItem("Misc"))
             {
-                RenderESP(); // Render ESP settings and options
+                RenderESP(); 
                 ImGui::EndTabItem();
             }
             ImGui::EndTabBar();
@@ -800,7 +732,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved) {
         break;
     case DLL_PROCESS_DETACH:
         DisableAll();
-        UnloadDLL(hModule); // Call your unload function here
+        UnloadDLL(hModule); 
 
         break;
     case DLL_THREAD_ATTACH:

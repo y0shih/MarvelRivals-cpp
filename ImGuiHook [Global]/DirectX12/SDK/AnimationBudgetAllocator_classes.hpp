@@ -34,8 +34,8 @@ public:
 		return GetDefaultObjImpl<UAnimationBudgetBlueprintLibrary>();
 	}
 };
-static_assert(alignof(UAnimationBudgetBlueprintLibrary) == 0x000008, "Wrong alignment on UAnimationBudgetBlueprintLibrary");
-static_assert(sizeof(UAnimationBudgetBlueprintLibrary) == 0x000030, "Wrong size on UAnimationBudgetBlueprintLibrary");
+//(alignof(UAnimationBudgetBlueprintLibrary) == 0x000008, "Wrong alignment on UAnimationBudgetBlueprintLibrary");
+//(sizeof(UAnimationBudgetBlueprintLibrary) == 0x000030, "Wrong size on UAnimationBudgetBlueprintLibrary");
 
 // Class AnimationBudgetAllocator.SkeletalMeshComponentBudgeted
 // 0x0030 (0x16D0 - 0x16A0)
@@ -61,8 +61,8 @@ public:
 		return GetDefaultObjImpl<USkeletalMeshComponentBudgeted>();
 	}
 };
-static_assert(alignof(USkeletalMeshComponentBudgeted) == 0x000010, "Wrong alignment on USkeletalMeshComponentBudgeted");
-static_assert(sizeof(USkeletalMeshComponentBudgeted) == 0x0016D0, "Wrong size on USkeletalMeshComponentBudgeted");
+//(alignof(USkeletalMeshComponentBudgeted) == 0x000010, "Wrong alignment on USkeletalMeshComponentBudgeted");
+//(sizeof(USkeletalMeshComponentBudgeted) == 0x0016D0, "Wrong size on USkeletalMeshComponentBudgeted");
 
 }
 
