@@ -18,10 +18,9 @@ Once compiled, go to the build/ directory where the output DLL (test.dll) is loc
 3. Open the Game
 Launch MarvelRivals and wait until you are at the main screen.
 4. Inject the DLL
-Use an injector that works on ACE Kernel level anti-cheat systems.
-Drag test.dll from the build/ directory into your chosen injector.
+Drag test.dll from the build/ directory into the "Loader".
 Press Insert to inject the DLL into the game.
-5. Enjoy the Cheat
+6. Enjoy the Cheat
 Once injected, you can start using the cheat in the game.
 
 
