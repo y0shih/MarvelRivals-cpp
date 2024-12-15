@@ -27,3 +27,7 @@ Once injected, you can start using the cheat in the game.
 Notes
 
 Resolution tested: 1920x1080. 
+
+TO DO:
+
+Sometimes crashes on getsocketlocation ill fix it when i have time.
