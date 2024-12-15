@@ -209,11 +209,9 @@ void UpdatePlayerList()
 
 void SmoothAim(SDK::FRotator currentRotation, SDK::FRotator targetRotation, float smoothFactor)
 {
-    // Smooth transition between current and target rotation
     const float deltaTime = 1.0f / 60.0f; // Assuming 60 FPS for now
     SDK::FRotator smoothedRotation = SDK::UKismetMathLibrary::RInterpTo(currentRotation, targetRotation, deltaTime, smoothFactor);
 
-    // Set the control rotation to the smoothed rotation
     MyController->SetControlRotation(smoothedRotation);
 }
 
@@ -678,7 +676,7 @@ HRESULT APIENTRY MJPresent(IDXGISwapChain3* pSwapChain, UINT SyncInterval, UINT 
         ImGui::SetNextWindowSize(ImVec2(400, 300), ImGuiCond_FirstUseEver); // Adjust size as necessary
         ImGui::SetNextWindowBgAlpha(0.5f);  // Semi-transparent background to make it visible if something else overlaps
 
-        ImGui::Begin("Killuano Internal [DEV]", nullptr, ImGuiWindowFlags_NoCollapse);
+        ImGui::Begin(" Internal [DEV]", nullptr, ImGuiWindowFlags_NoCollapse);
    
 
         // Main tabs
