@@ -27,4 +27,4 @@ Once injected, you can start using the cheat in the game.
 
 Notes
 
-Resolution tested: 1920x1080. Make sure you're using this resolution for the best experience.
+Resolution tested: 1920x1080. 
