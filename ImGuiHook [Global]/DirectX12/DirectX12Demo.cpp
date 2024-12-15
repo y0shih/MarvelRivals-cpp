@@ -76,9 +76,9 @@ bool WorldToScreen(const SDK::FVector& worldLoc, SDK::FVector2D* screenPos)
 
 
 
-#include <sstream>  // For std::ostringstream
-#include <fstream>  // For std::ofstream
-#include <cstdarg>  // For va_list, va_start, va_end
+#include <sstream>
+#include <fstream>  
+#include <cstdarg>  
 #include <filesystem>
 
 #include <fstream>
@@ -310,44 +310,18 @@ void GameLoop()
         {
             LogMessage("Right mouse button is pressed");
 
-            // Apply smooth aiming
             SmoothAim(MyController->GetControlRotation(), closest_actor_rotation, 20.0f);
 
-            // You can add shooting logic here
-            // e.g., Call shooting function here when the aim is correct
+           
         }
     }
 
 
     SDK::AMarvelBaseCharacter* LocalCharacter = MyController ? reinterpret_cast<SDK::AMarvelBaseCharacter*>(MyController->Character) : nullptr;
 
-    if (gl::Exploits::Ammo)
-    {
-        if (LocalCharacter)
-        {
-            SDK::FGameplayAttribute HealthAttr; 
-            SDK::FGameplayAttribute MaxHealthAttr;
-            SDK::TSubclassOf<SDK::UGameplayEffect> EffectClass = nullptr; 
-            // Heal by a specific amount
-            float healAmount = 100.0f; // Arbitrary value
-            LocalCharacter->AddValueWithMaxAttribute(HealthAttr, MaxHealthAttr, EffectClass, healAmount);
-        }
+    
 
-
-
-    }
-
-    if (gl::Exploits::FastAcceleration) {
-        if (LocalCharacter)
-        {
-            SDK::FCapsuleSizeAdjust NewCapsuleSizeAdjust;
-           NewCapsuleSizeAdjust.Radius = 1.0f;
-            NewCapsuleSizeAdjust.HalfHeight = 1.0f;
-            NewCapsuleSizeAdjust.bAdjustMesh = true;
-
-            LocalCharacter->ChangeCapsuleSizeWith(NewCapsuleSizeAdjust);
-        }
-    }
+    
 }
 
 
@@ -448,10 +422,8 @@ void DrawESP()
         UGStatics = (SDK::UGameplayStatics*)SDK::UGameplayStatics::StaticClass();
         if (!UGStatics) return;
 
-        //some games GetAllActorOfClass is STATIC_GetAllActorsOfClass
         UGStatics->GetAllActorsOfClass(gWorld, SDK::AMarvelBaseCharacter::StaticClass(), &Player);
 
-        //class to math operations
         MathLib = (SDK::UKismetMathLibrary*)SDK::UKismetMathLibrary::StaticClass();
         if (!MathLib) return;
 
@@ -490,7 +462,6 @@ void DrawESP()
                     ImGui::GetOverlayDrawList()->AddText(ImVec2(head.X, head.Y), IsVisible ? ImColor(0, 255, 0) : ImColor(255, 0, 0), PlayerName.IsValid() ? PlayerName.ToString().c_str() : " ");
             }
 
-            //example how to draw without bones in relative location
             SDK::FVector2D Screen;
             if (PlayerController->ProjectWorldLocationToScreen(Location, &Screen, false))
             {
