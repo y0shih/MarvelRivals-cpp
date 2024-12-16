@@ -31,3 +31,5 @@ Resolution tested: 1920x1080.
 TO DO:
 
 Sometimes crashes on getsocketlocation ill fix it when i have time.
+
+fixed: Fixed the crashing  will push the code soon 16/12/2024
