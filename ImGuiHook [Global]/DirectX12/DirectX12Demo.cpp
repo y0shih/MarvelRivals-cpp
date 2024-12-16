@@ -118,7 +118,7 @@ namespace gl {
 #include <chrono>
 std::vector<SDK::AActor*> PlayerSet;
 std::chrono::steady_clock::time_point LastUpdateTime;
-const std::chrono::duration<float> UpdateInterval = std::chrono::seconds(10); 
+const std::chrono::duration<float> UpdateInterval = std::chrono::seconds(1); 
 
 void UpdatePlayerList()
 {
@@ -153,72 +153,108 @@ void SmoothAim(SDK::FRotator currentRotation, SDK::FRotator targetRotation, floa
 }
 
 
-
-
-
-
-
-//MAYBE USE BONE ARRAY IDK WHY YOU CRASHHHHHHH
-
 void GameLoop()
 {
-    SDK::AActor* actor_list{};
-    SDK::TArray<SDK::AActor*> actors{};
 
+    SDK::UWorld* gWorld = SDK::UWorld::GetWorld();
+
+    if (!gWorld) return;
+
+    OwningGameInstance = gWorld->OwningGameInstance;
+    if (!OwningGameInstance) return;
+
+    LocalPlayer = OwningGameInstance->LocalPlayers[0];
+    if (!LocalPlayer) return;
+
+    GameViewportClient = LocalPlayer->ViewportClient;
+    if (!GameViewportClient) return;
+
+    PlayerController = LocalPlayer->PlayerController;
+    if (!PlayerController) return;
+
+
+    MyPlayer = PlayerController->K2_GetPawn();
+    if (!MyPlayer) return;
+
+
+    constexpr auto HeadSocketName = "Head";
+    constexpr auto RootSocketName = "root";
+
+    // Retrieve World
     World = SDK::UWorld::GetWorld();
-    SDK::UEngine* gEngine = SDK::UEngine::GetEngine();
-
-
     if (!World)
     {
-        LogMessage("World is null.");
+        LogMessage("World is null. Exiting GameLoop.");
         return;
     }
 
-    if (LastUpdateTime.time_since_epoch().count() == 0)
+    // Initialize PlayerSet is removed, since we are using the player iteration method directly
+    if (!World->OwningGameInstance || World->OwningGameInstance->LocalPlayers.Num() == 0)
     {
-        LastUpdateTime = std::chrono::steady_clock::now();
-    }
-
-    UpdatePlayerList();
-
-    if (PlayerSet.size() == 0)
-    {
-        LogMessage("No players in PlayerSet");
+        LogMessage("Invalid OwningGameInstance or no LocalPlayers. Exiting GameLoop.");
         return;
     }
 
     MyController = World->OwningGameInstance->LocalPlayers[0]->PlayerController;
     if (!MyController)
     {
-        LogMessage("MyController is null.");
+        LogMessage("MyController is null. Exiting GameLoop.");
         return;
     }
 
+    // Prepare for aimbot calculations
     SDK::AActor* closest_actor = nullptr;
     SDK::FRotator closest_actor_rotation{};
     SDK::FVector closest_actor_head{};
     float MaxDistance = FLT_MAX;
 
-    for (SDK::AActor* actor : PlayerSet)
+    // Fetch all players from the world
+    SDK::TArray<SDK::AActor*> Player;
+    UGStatics = (SDK::UGameplayStatics*)SDK::UGameplayStatics::StaticClass();
+    if (!UGStatics)
     {
-        if (!actor || !actor->RootComponent) continue;
+        LogMessage("UGameplayStatics is null. Exiting GameLoop.");
+        return;
+    }
 
-        SDK::AMarvelBaseCharacter* humanCharacter = static_cast<SDK::AMarvelBaseCharacter*>(actor);
-        if (!humanCharacter) continue;
+    UGStatics->GetAllActorsOfClass(World, SDK::AMarvelBaseCharacter::StaticClass(), &Player);
+    if (Player.Num() == 0)
+    {
+        LogMessage("No players found. Exiting GameLoop.");
+        return;
+    }
 
-        auto mesh = humanCharacter->GetMesh();
-        SDK::FVector head_bone_pos = mesh->GetSocketLocation(StrToName("Head"));
-        SDK::FVector feet_bone_pos = mesh->GetSocketLocation(StrToName("Leg"));
+    // Loop through all the players
+    for (int i = 0; i < Player.Num(); i++)
+    {
+        if (!Player.IsValidIndex(i)) continue;
+
+        SDK::AActor* obj = Player[i];
+        if (!obj) continue;
+
+        SDK::AMarvelBaseCharacter* BaseClass = (SDK::AMarvelBaseCharacter*)obj;
+        if (!BaseClass) continue;
+
+        auto Mesh = BaseClass->GetMesh();
+        if (!Mesh) continue;
+
+        if (!Mesh->DoesSocketExist(StrToName(HeadSocketName)) || !Mesh->DoesSocketExist(StrToName(RootSocketName))) continue;
+
+        // Get bone positions
+        SDK::FVector head_bone_pos = Mesh->GetSocketLocation(StrToName(HeadSocketName));
+        SDK::FVector feet_bone_pos = Mesh->GetSocketLocation(StrToName(RootSocketName));
         SDK::FVector feet_middle_pos = { feet_bone_pos.X, feet_bone_pos.Y, head_bone_pos.Z };
 
+        // Project to screen
         SDK::FVector2D Bottom{}, Top{};
         if (MyController->ProjectWorldLocationToScreen(feet_middle_pos, &Bottom, true) &&
             MyController->ProjectWorldLocationToScreen(head_bone_pos, &Top, true))
         {
+            // Calculate dimensions
             const float h = std::abs(Top.Y - Bottom.Y);
             const float w = h * 0.2f;
 
+            // Aimbot logic
             if (gl::Aimbot::Aimbot)
             {
                 SDK::FVector CameraLocation = MyController->PlayerCameraManager->GetCameraLocation();
@@ -230,7 +266,7 @@ void GameLoop()
                 if (aimbot_distance < MaxDistance)
                 {
                     MaxDistance = aimbot_distance;
-                    closest_actor = actor;
+                    closest_actor = obj;
                     closest_actor_rotation = rot;
                     closest_actor_head = head_bone_pos;
                 }
@@ -238,26 +274,31 @@ void GameLoop()
         }
     }
 
+    // Execute aimbot on closest actor
     if (closest_actor && gl::Aimbot::Aimbot)
     {
         if (GetAsyncKeyState(VK_RBUTTON))
         {
-            LogMessage("Right mouse button is pressed");
+            if (!MyController->PlayerCameraManager)
+            {
+                LogMessage("PlayerCameraManager is null. Exiting aimbot logic.");
+                return;
+            }
 
+            LogMessage("Right mouse button is pressed.");
             SmoothAim(MyController->GetControlRotation(), closest_actor_rotation, 20.0f);
-
-
         }
     }
 
-
-    SDK::AMarvelBaseCharacter* LocalCharacter = MyController ? reinterpret_cast<SDK::AMarvelBaseCharacter*>(MyController->Character) : nullptr;
-
-
-
-
+    // Local character processing
+    SDK::AMarvelBaseCharacter* LocalCharacter = MyController
+        ? reinterpret_cast<SDK::AMarvelBaseCharacter*>(MyController->Character)
+        : nullptr;
+    if (!LocalCharacter)
+    {
+        LogMessage("LocalCharacter is null.");
+    }
 }
-
 
 
 inline drawings* draw;
@@ -308,23 +349,27 @@ void DrawESP()
 
             obj = Player[i];
             if (!obj) continue;
-            BaseClass = (SDK::AMarvelBaseCharacter*)obj;
-            if (!BaseClass) continue;
 
+            BaseClass = (SDK::AMarvelBaseCharacter*)obj;
+            if (!BaseClass ) continue;
+
+            auto Mesh = BaseClass->GetMesh();
+            if (!Mesh) continue;
+
+            if (!Mesh->DoesSocketExist(StrToName("Head")) || !Mesh->DoesSocketExist(StrToName("root"))) continue;
+
+            SDK::FVector HeadLoc = Mesh->GetSocketLocation(StrToName("Head"));
+            SDK::FVector RootLoc = Mesh->GetSocketLocation(StrToName("root"));
+
+            
             SDK::FVector Location = BaseClass->K2_GetActorLocation();
 
 
             auto PlayerName = BaseClass->PlayerState->GetPlayerName();
-            bool IsVisible = PlayerController->LineOfSightTo(obj, { 0,0,0 }, false); 
-
-         
-            SDK::FVector HeadLoc = BaseClass->GetMesh()->GetSocketLocation(StrToName("Head"));
-            SDK::FVector RootLoc = BaseClass->GetMesh()->GetSocketLocation(StrToName("root"));
-
-            
-
+            bool IsVisible = PlayerController->LineOfSightTo(obj, { 0,0,0 }, false);
 
             SDK::FVector2D head, Bottom;
+
             if (PlayerController->ProjectWorldLocationToScreen(RootLoc, &Bottom, false) && PlayerController->ProjectWorldLocationToScreen(HeadLoc, &head, false))
             {
          
@@ -431,7 +476,6 @@ void RenderESP()
 {
     ImGui::Checkbox("Aimbot", &gl::Aimbot::Aimbot);
     ImGui::Checkbox("Esp", &bShowESP);
-    ImGui::Checkbox("Cache Bones", &gl::Exploits::cacheBones);
 
 
 }
