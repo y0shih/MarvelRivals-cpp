@@ -235,6 +235,8 @@ void GameLoop()
         SDK::AMarvelBaseCharacter* BaseClass = (SDK::AMarvelBaseCharacter*)obj;
         if (!BaseClass) continue;
 
+        if (BaseClass == MyPlayer) continue;
+
         auto Mesh = BaseClass->GetMesh();
         if (!Mesh) continue;
 
